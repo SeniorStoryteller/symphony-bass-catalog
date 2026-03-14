@@ -208,7 +208,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
           placeholder="Search all bassists across orchestras…"
           value={globalSearch}
           onChange={e => onGlobalSearchChange(e.target.value)}
-          style={{ width: "100%", padding: "9px 13px", fontSize: 13, fontFamily: "inherit", background: S.cardBg, border: `1px solid ${isSearching ? S.gold : S.border}`, borderRadius: 10, color: S.textPrimary, outline: "none", transition: "border-color 0.15s" }}
+          style={{ width: "100%", padding: "9px 13px", fontSize: 16, fontFamily: "inherit", background: S.cardBg, border: `1px solid ${isSearching ? S.gold : S.border}`, borderRadius: 10, color: S.textPrimary, outline: "none", transition: "border-color 0.15s" }}
         />
         {!isSearching && (
           <div style={{ marginTop: 6, fontSize: 11, fontWeight: 600, color: S.textSecondary, letterSpacing: "0.04em" }}>
@@ -520,7 +520,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
               placeholder="Search all bassists across orchestras…"
               value={globalSearch}
               onChange={e => onGlobalSearchChange(e.target.value)}
-              style={{ width: "100%", padding: "10px 13px 10px 34px", fontSize: 13, fontFamily: "inherit", background: S.cardBg, border: `1.5px solid ${isSearching ? S.gold : S.borderHover}`, borderRadius: 10, color: S.textPrimary, outline: "none", boxShadow: "0 2px 10px rgba(26,20,16,0.08)" }}
+              style={{ width: "100%", padding: "10px 13px 10px 34px", fontSize: 16, fontFamily: "inherit", background: S.cardBg, border: `1.5px solid ${isSearching ? S.gold : S.borderHover}`, borderRadius: 10, color: S.textPrimary, outline: "none", boxShadow: "0 2px 10px rgba(26,20,16,0.08)" }}
             />
           </div>
           <select
