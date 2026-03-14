@@ -474,10 +474,10 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
   const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
   const SORT_OPTIONS = [
-    { key: "founded", label: "Founding Date" },
-    { key: "name",    label: "Orchestra Name" },
-    { key: "city",    label: "Orchestra City" },
-    { key: "size",    label: "Section Size" },
+    { key: "founded", label: "Founding Date", short: "Founded" },
+    { key: "name",    label: "Orchestra Name", short: "Name" },
+    { key: "city",    label: "City",           short: "City" },
+    { key: "size",    label: "Section Size",   short: "Size" },
   ];
 
   const rawOrchList = Object.values(ORCHESTRAS);
@@ -591,8 +591,8 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
               <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: S.textMuted, marginRight: 4 }}>Sort</span>
               {SORT_OPTIONS.map(o => (
                 <button key={o.key} onClick={() => onSortChange(o.key)}
-                  style={{ fontSize: 11, padding: "3px 10px", borderRadius: 20, fontFamily: "inherit", background: sortOrder === o.key ? S.accent : "transparent", color: sortOrder === o.key ? "#7A5C1E" : S.textSecondary, border: `1px solid ${sortOrder === o.key ? S.accentBorder : S.border}`, cursor: "pointer", fontWeight: sortOrder === o.key ? 600 : 400, transition: "all 0.15s" }}>
-                  {o.label}
+                  style={{ fontSize: 11, padding: "3px 10px", borderRadius: 20, fontFamily: "inherit", background: sortOrder === o.key ? S.accent : "transparent", color: sortOrder === o.key ? "#7A5C1E" : S.textSecondary, border: `1px solid ${sortOrder === o.key ? S.accentBorder : S.border}`, cursor: "pointer", fontWeight: sortOrder === o.key ? 600 : 400, transition: "all 0.15s", whiteSpace: "nowrap" }}>
+                  {isMobile ? o.short : o.label}
                 </button>
               ))}
             </div>
