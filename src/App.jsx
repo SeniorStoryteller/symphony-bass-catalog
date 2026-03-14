@@ -13,6 +13,7 @@ const S = {
 const SERIF = "'Cormorant Garamond', Georgia, serif";
 const LABEL_STYLE = { fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "#B09070" };
 const LEADERSHIP_ROLES = ["Principal Bass", "Associate Principal Bass", "Assistant Principal Bass", "First Assistant Principal Bass"];
+const MAX_W = 860;
 
 /* ── HELPERS ── */
 function numberToWord(n) {
@@ -67,16 +68,6 @@ function PlayerDetail({ player, orchestra, onBack }) {
   const isMobile = window.innerWidth < 768;
   return (
     <div style={{ padding: "0 0 48px" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
-        <button onClick={onBack} style={{ background: "none", border: `1px solid ${S.border}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, color: S.textSecondary, fontFamily: "inherit", cursor: "pointer" }}>← Bassists</button>
-        {orchestra && (
-          <>
-            <span style={{ fontSize: 12, color: S.textMuted }}>/</span>
-            <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>{orchestra.shortName} · {orchestra.name}</span>
-          </>
-        )}
-      </div>
-
       <div style={{ display: "flex", gap: isMobile ? 14 : 20, alignItems: "flex-start", marginBottom: 20 }}>
         <Avatar initials={player.initials} color={player.color} size={isMobile ? 52 : 72} />
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -198,8 +189,21 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
   if (selectedPlayer) {
     const playerOrchestra = ORCHESTRAS[selectedPlayer.orchestraId];
     return (
-      <div ref={scrollRef} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "14px 14px 0" : "20px 24px 0" }}>
-        <PlayerDetail player={selectedPlayer} orchestra={playerOrchestra} onBack={onClearSelected} />
+      <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+        <div style={{ padding: isMobile ? "8px 14px" : "10px 24px", borderBottom: `1px solid ${S.border}`, background: S.cream, flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
+          <button onClick={onClearSelected} style={{ background: "none", border: `1px solid ${S.border}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, color: S.textSecondary, fontFamily: "inherit", cursor: "pointer" }}>← Back</button>
+          {playerOrchestra && (
+            <>
+              <span style={{ fontSize: 12, color: S.textMuted }}>/</span>
+              <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>{playerOrchestra.shortName} · {playerOrchestra.name}</span>
+            </>
+          )}
+        </div>
+        <div ref={scrollRef} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "16px 14px 48px" : "24px 24px 48px" }}>
+          <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+            <PlayerDetail player={selectedPlayer} orchestra={playerOrchestra} onBack={onClearSelected} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -230,6 +234,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
       </div>
 
       <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
+        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
         {isSearching ? (
           globalFiltered.length === 0
             ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
@@ -347,6 +352,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
             })()}
           </>
         )}
+        </div>
       </div>
     </div>
   );
@@ -510,10 +516,10 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         .idx-bar { transition: height 0.28s cubic-bezier(0.22,1,0.36,1); }
       `}</style>
 
-      {/* Search + Sort bar */}
+      {/* Search bar */}
       <div style={{ padding: isMobile ? "10px 12px 8px" : "14px 20px 12px", background: S.cream, borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-          <div style={{ position: "relative", flex: "1 1 160px" }}>
+        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+          <div style={{ position: "relative" }}>
             <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
               style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", opacity: 0.4 }}>
               <circle cx="8.5" cy="8.5" r="5.5" stroke={S.textPrimary} strokeWidth="1.6"/>
@@ -527,27 +533,21 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
               style={{ width: "100%", padding: "10px 13px 10px 34px", fontSize: 16, fontFamily: "inherit", background: S.cardBg, border: `1.5px solid ${isSearching ? S.gold : S.borderHover}`, borderRadius: 10, color: S.textPrimary, outline: "none", boxShadow: "0 2px 10px rgba(26,20,16,0.08)" }}
             />
           </div>
-          <select
-            value={sortOrder}
-            onChange={e => onSortChange(e.target.value)}
-            style={{ flex: "0 0 auto", padding: "10px 12px", fontSize: 12, fontFamily: "inherit", background: S.cardBg, border: `1.5px solid ${S.borderHover}`, borderRadius: 10, color: S.textSecondary, outline: "none", cursor: "pointer", appearance: "none", WebkitAppearance: "none", paddingRight: 28, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238C7B6A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}>
-            <option value="" disabled>Sort by…</option>
-            {SORT_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
-          </select>
+          {isSearching && (
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
+              <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>
+                {globalFiltered.length} bassist{globalFiltered.length !== 1 ? "s" : ""} found
+              </span>
+              <button onClick={() => onGlobalSearchChange("")} style={{ fontSize: 12, color: S.textSecondary, background: "none", border: `1px solid ${S.border}`, borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear</button>
+            </div>
+          )}
         </div>
-        {isSearching && (
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
-            <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>
-              {globalFiltered.length} bassist{globalFiltered.length !== 1 ? "s" : ""} found
-            </span>
-            <button onClick={() => onGlobalSearchChange("")} style={{ fontSize: 12, color: S.textSecondary, background: "none", border: `1px solid ${S.border}`, borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear</button>
-          </div>
-        )}
       </div>
 
       <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden" }}>
         {isSearching ? (
           <div style={{ padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
+          <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
             {globalFiltered.length === 0
               ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
               : <>
@@ -578,8 +578,20 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                 </>
             }
           </div>
+          </div>
         ) : (
           <div style={{ padding: "0 0 48px" }}>
+
+            {/* ── SORT CONTROL ── */}
+            <div style={{ padding: isMobile ? "10px 12px 4px" : "10px 20px 4px", display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", maxWidth: MAX_W, margin: "0 auto" }}>
+              <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: S.textMuted, marginRight: 4 }}>Sort</span>
+              {SORT_OPTIONS.map(o => (
+                <button key={o.key} onClick={() => onSortChange(o.key)}
+                  style={{ fontSize: 11, padding: "3px 10px", borderRadius: 20, fontFamily: "inherit", background: sortOrder === o.key ? S.accent : "transparent", color: sortOrder === o.key ? "#7A5C1E" : S.textSecondary, border: `1px solid ${sortOrder === o.key ? S.accentBorder : S.border}`, cursor: "pointer", fontWeight: sortOrder === o.key ? 600 : 400, transition: "all 0.15s" }}>
+                  {o.label}
+                </button>
+              ))}
+            </div>
 
             {/* ── TYPOGRAPHIC INDEX ── */}
             <div style={{ padding: "4px 0 0" }}>
@@ -596,12 +608,12 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                     onMouseEnter={() => setHoveredId(orch.id)}
                     onMouseLeave={() => setHoveredId(null)}
                     style={{
-                      padding: isMobile ? "14px 12px" : "20px 24px 20px",
                       cursor: "pointer",
                       borderBottom: `1px solid ${isHovered ? S.accentBorder : S.border}`,
                       background: isHovered ? S.accent : "transparent",
                       transition: "background 0.2s ease, border-color 0.2s ease",
                     }}>
+                  <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "14px 12px" : "20px 24px 20px" }}>
 
                     {/* ROW 1 — index number · orchestra name · arrow */}
                     <div style={{ display: "flex", alignItems: "flex-start", gap: 0 }}>
@@ -656,6 +668,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                         </>
                       )}
                     </div>
+                  </div>
 
                   </div>
                 );
@@ -663,15 +676,8 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
             </div>
 
             {/* ── FOOTER ── */}
-            {/*
-              UPDATE PROMPT — paste into Claude chat to trigger a data review:
-              "Review the bass sections for all orchestras in symphony-bass-catalog.jsx
-              (SFS, BSO, HSO, LA Phil, CSO). Flag any principal chair changes, new
-              appointments, retirements, or season note updates since the last review.
-              List changes by orchestra."
-            */}
             <div style={{ padding: "20px 24px", borderTop: `1px solid ${S.border}` }}>
-              <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: S.textMuted, textAlign: "center" }}>
+              <div style={{ maxWidth: MAX_W, margin: "0 auto", fontSize: 9, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: S.textMuted, textAlign: "center" }}>
                 Data reviewed weekly from orchestra press materials, musician profiles, and season rosters
               </div>
             </div>
@@ -689,7 +695,7 @@ export default function App() {
   const [orchestraId, setOrchestraid] = useState("sfs");
   const [globalSearch, setGlobalSearch] = useState("");
   const [selectedPlayer, setSelectedPlayer] = useState(null);
-  const [sortOrder, setSortOrder] = useState("");
+  const [sortOrder, setSortOrder] = useState("founded");
   const [subView, setSubView] = useState("bassists");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -813,21 +819,6 @@ export default function App() {
               <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 22 : 28, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: isMobile ? 8 : 12 }}>
                 The Bass Section: {numberToWord(Object.keys(ORCHESTRAS).length)} American Orchestra{Object.keys(ORCHESTRAS).length !== 1 ? "s" : ""}
               </h1>
-              {!isMobile && (
-                <div style={{ display: "flex", gap: 0, borderTop: "1px solid rgba(255,255,255,0.08)", marginBottom: 0 }}>
-                  {[
-                    { num: Object.keys(ORCHESTRAS).length, label: "Orchestras" },
-                    { num: ALL_PLAYERS_FLAT.length, label: "Bassists" },
-                    { num: ALL_PLAYERS_FLAT.filter(p => p.chair).length, label: "Named chairs" },
-                    { num: ALL_PLAYERS_FLAT.flatMap(p => p.instruments).filter(i => i.story || i.maker).length, label: "Historical instruments" },
-                  ].map((stat, i, arr) => (
-                    <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
-                      <div style={{ fontFamily: SERIF, fontSize: 20, fontWeight: 700, color: "#F0E8DC", lineHeight: 1 }}>{stat.num}</div>
-                      <div style={{ fontSize: 10, color: "#9A8878", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 4, fontWeight: 600 }}>{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              )}
             </>
           ) : (
             <>
