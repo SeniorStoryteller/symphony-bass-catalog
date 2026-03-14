@@ -104,14 +104,15 @@ function PlayerDetail({ player, orchestra, onBack }) {
 /* ── PLAYER CARDS ── */
 function LeadershipCard({ player, onClick }) {
   const [hov, setHov] = useState(false);
+  const isMobile = window.innerWidth < 768;
   return (
     <div onClick={() => onClick(player)}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: "20px 22px", cursor: "pointer", transition: "all 0.18s ease", transform: hov ? "translateY(-2px)" : "none", boxShadow: hov ? "0 6px 24px rgba(100,80,50,0.10)" : "none", borderLeft: `4px solid ${player.color}` }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 14 }}>
-        <Avatar initials={player.initials} color={player.color} size={52} />
+      style={{ background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: isMobile ? "14px 14px" : "20px 22px", cursor: "pointer", transition: "all 0.18s ease", transform: hov ? "translateY(-2px)" : "none", boxShadow: hov ? "0 6px 24px rgba(100,80,50,0.10)" : "none", borderLeft: `4px solid ${player.color}` }}>
+      <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 12 : 16, marginBottom: isMobile ? 10 : 14 }}>
+        <Avatar initials={player.initials} color={player.color} size={isMobile ? 40 : 52} />
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontFamily: SERIF, fontSize: 20, fontWeight: 700, color: S.textPrimary, marginBottom: 2, lineHeight: 1.1 }}>{player.name}</div>
+          <div style={{ fontFamily: SERIF, fontSize: isMobile ? 17 : 20, fontWeight: 700, color: S.textPrimary, marginBottom: 2, lineHeight: 1.1 }}>{player.name}</div>
           <div style={{ fontSize: 12, color: S.textSecondary, marginBottom: player.chair ? 6 : 0 }}>{player.role}{player.since ? ` · since ${player.since}` : ""}</div>
           {player.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic" }}>{player.chair}</div>}
         </div>
