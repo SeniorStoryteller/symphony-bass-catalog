@@ -677,7 +677,7 @@ export default function App() {
   const [orchestraId, setOrchestraid] = useState("sfs");
   const [globalSearch, setGlobalSearch] = useState("");
   const [selectedPlayer, setSelectedPlayer] = useState(null);
-  const [sortOrder, setSortOrder] = useState("founded");
+  const [sortOrder, setSortOrder] = useState("");
   const [subView, setSubView] = useState("bassists");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
