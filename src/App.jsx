@@ -600,49 +600,28 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       </div>
                     </div>
 
-                    {/* ROW 2 — slides in on hover: meta under name · principal right */}
+                    {/* ROW 2 — slides in on hover: single meta strip */}
                     <div className="idx-bottom" style={{
                       display: "flex",
-                      alignItems: "flex-start",
-                      justifyContent: "space-between",
-                      gap: 16,
+                      alignItems: "center",
+                      flexWrap: "wrap",
+                      gap: "4px 10px",
                       paddingLeft: 28,
                       paddingTop: 8,
                     }}>
-                      {/* Left: meta under orchestra name */}
-                      <div style={{ display: "flex", alignItems: "center", gap: 10, paddingTop: 4 }}>
-                        <span style={{ fontFamily: SERIF, fontSize: 16, fontWeight: 600, color: S.textSecondary, lineHeight: 1.05 }}>Est. {orch.founded}</span>
-                        <span style={{ color: S.textMuted, fontSize: 13, fontWeight: 300 }}>|</span>
-                        <span style={{ fontFamily: SERIF, fontSize: 16, fontWeight: 600, color: S.textSecondary, lineHeight: 1.05 }}>{playerCount} bassists</span>
-                      </div>
-
-                      {/* Right: principal bass label aligns with meta line */}
-                      <div style={{ display: "flex", alignItems: "flex-start", gap: 10, flexShrink: 0 }}>
-                        <div style={{ textAlign: "right" }}>
-                          <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: orch.accentColor, marginBottom: 4, paddingTop: 4 }}>
-                            Principal Bass
-                          </div>
-                          <div style={{ fontFamily: SERIF, fontSize: 24, fontWeight: 700, color: S.textPrimary, whiteSpace: "nowrap", lineHeight: 1.05 }}>
-                            {principal ? principal.name : "—"}
-                          </div>
-                          {principal?.since && (
-                            <div style={{ fontSize: 13, fontWeight: 500, color: S.textPrimary, marginTop: 3 }}>
-                              since {principal.since}
-                            </div>
-                          )}
-                          {principal?.chair && (
-                            <div style={{ fontSize: 12, fontWeight: 400, color: S.textSecondary, fontStyle: "italic", marginTop: 2 }}>
-                              {principal.chair}
-                            </div>
-                          )}
-                        </div>
-                        <div className="idx-bar" style={{
-                          width: 3, borderRadius: 2, flexShrink: 0,
-                          height: isHovered ? 56 : 0,
-                          background: orch.headerColor,
-                          marginTop: 2,
-                        }} />
-                      </div>
+                      <span style={{ fontFamily: SERIF, fontSize: 14, color: S.textSecondary }}>Est. {orch.founded}</span>
+                      <span style={{ color: S.border, fontSize: 12 }}>·</span>
+                      <span style={{ fontFamily: SERIF, fontSize: 14, color: S.textSecondary }}>{playerCount} bassists</span>
+                      {principal && (
+                        <>
+                          <span style={{ color: S.border, fontSize: 12 }}>·</span>
+                          <span style={{ fontFamily: SERIF, fontSize: 14, color: S.textSecondary }}>
+                            {principal.name}
+                            <span style={{ fontSize: 11, color: S.textMuted, fontStyle: "italic" }}>, Principal Bass</span>
+                            {principal.since && <span style={{ fontSize: 11, color: S.textMuted }}> · since {principal.since}</span>}
+                          </span>
+                        </>
+                      )}
                     </div>
 
                   </div>
