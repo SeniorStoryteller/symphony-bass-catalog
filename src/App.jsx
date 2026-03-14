@@ -609,16 +609,16 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       paddingLeft: 28,
                       paddingTop: 8,
                     }}>
-                      <span style={{ fontFamily: SERIF, fontSize: 14, color: S.textSecondary }}>Est. {orch.founded}</span>
-                      <span style={{ color: S.border, fontSize: 12 }}>·</span>
-                      <span style={{ fontFamily: SERIF, fontSize: 14, color: S.textSecondary }}>{playerCount} bassists</span>
+                      <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>Est. {orch.founded}</span>
+                      <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
+                      <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>{playerCount} bassists</span>
                       {principal && (
                         <>
-                          <span style={{ color: S.border, fontSize: 12 }}>·</span>
-                          <span style={{ fontFamily: SERIF, fontSize: 14, color: S.textSecondary }}>
+                          <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
+                          <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>
                             {principal.name}
-                            <span style={{ fontSize: 11, color: S.textMuted, fontStyle: "italic" }}>, Principal Bass</span>
-                            {principal.since && <span style={{ fontSize: 11, color: S.textMuted }}> · since {principal.since}</span>}
+                            <span style={{ fontSize: 12, color: S.textSecondary, fontStyle: "italic" }}>, Principal Bass</span>
+                            {principal.since && <span style={{ fontSize: 12, color: S.textSecondary }}> · since {principal.since}</span>}
                           </span>
                         </>
                       )}
