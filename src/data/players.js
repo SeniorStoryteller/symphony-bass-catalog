@@ -204,21 +204,6 @@ const BSO_PLAYERS = [
     highlights: ["40+ year BSO member"],
     new2025: false,
   },
-  {
-    id: "bso-hagen", orchestraId: "bso", name: "Susan Hagen",
-    role: "Section Bass", since: null, chair: null, initials: "SH", color: "#B07A9E",
-    bio: "Susan Hagen is a section bass member of the Boston Symphony Orchestra. She is also Principal Double Bass and featured soloist of the Boston Pops Esplanade Orchestra — the first woman ever to achieve that distinction. Over her career she has performed in over 500 BSO concerts and more than 800 Boston Pops concerts, and has appeared on multiple recordings with each ensemble. An active soloist, she has performed the García Concerto with several orchestras, toured Japan as principal double bass of the Boston Pops Esplanade Orchestra, and organized the 2024 Koussevitzky Connections event series in honor of the 150th anniversary of Serge Koussevitzky's birth. She has been featured as a solo recitalist at the International Society of Bassists conventions from 2021 through 2023.",
-    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
-    highlights: ["Principal Bass, Boston Pops Esplanade Orch.", "First woman soloist, Boston Pops Esplanade", "ISB convention recitalist"],
-    new2025: false,
-  },
-  {
-    id: "bso-shiu", orchestraId: "bso", name: 'John "Bebo" Shiu',
-    role: "Section Bass", since: null, chair: null, initials: "JS", color: "#C8A96E",
-    bio: 'John "Bebo" Shiu is a section bass member of the Boston Symphony Orchestra.',
-    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
-    highlights: [], new2025: false,
-  },
 ];
 
 /* ── HOUSTON SYMPHONY PLAYERS ── */
@@ -260,6 +245,14 @@ const HSO_PLAYERS = [
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details not publicly documented." }],
     highlights: ["HSO since 2017", "Rice University, Shepherd School", "Studied with Timothy Pitts & Paul Ellison"],
     new2025: false,
+  },
+  {
+    id: "hso-may", orchestraId: "hso", name: "Logan May",
+    role: "Section Bass", since: 2025, chair: null, initials: "LM", color: "#5B9E8C",
+    bio: "Logan May joined the Houston Symphony double bass section in 2025.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["HSO since 2025"],
+    new2025: true,
   },
   {
     id: "hso-shaw", orchestraId: "hso", name: "Burke Shaw",
@@ -345,6 +338,30 @@ const LAP_PLAYERS = [
       { name: "Ludovico Rastelli double bass", maker: "Ludovico Rastelli, Italy", era: "1848", story: true, storyTitle: "Made in 1848", detail: "An Italian instrument approximately 177 years old, made in 1848 by luthier Ludovico Rastelli. Herman performs on this instrument with the Los Angeles Philharmonic." },
     ],
     highlights: ["LA Phil since 2017", "4 solo albums incl. Argonautical (2024)", "1848 Rastelli double bass", "CSUN Professor of Bass", "ISB & City of Burbank grant recipient", "Founder: San Diego Bass Fest"],
+    new2025: false,
+  },
+  {
+    id: "lap-johnson", orchestraId: "lap", name: "Brian Johnson",
+    role: "Section Bass", since: 2013, chair: null, initials: "BJ", color: "#B07A9E",
+    bio: "Brian Johnson joined the Los Angeles Philharmonic double bass section in November 2013.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["LA Phil since 2013"],
+    new2025: false,
+  },
+  {
+    id: "lap-rofe", orchestraId: "lap", name: "Peter Rofé",
+    role: "Section Bass", since: 1986, chair: null, initials: "PR", color: "#7A9BB5",
+    bio: "Peter Rofé has been a member of the Los Angeles Philharmonic double bass section since 1986, making him one of the longest-serving members of the section.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["LA Phil since 1986 — nearly 40 years"],
+    new2025: false,
+  },
+  {
+    id: "lap-peralta", orchestraId: "lap", name: "Matthew Peralta",
+    role: "Section Bass", since: null, chair: "Judith and Thomas L. Beckmen LA Phil Resident Fellow", initials: "MP", color: "#C8A96E",
+    bio: "Matthew Peralta holds the Judith and Thomas L. Beckmen LA Phil Resident Fellowship with the Los Angeles Philharmonic.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Judith & Thomas L. Beckmen LA Phil Resident Fellow"],
     new2025: false,
   },
 ];
@@ -494,6 +511,14 @@ const NYP_PLAYERS = [
       { name: "Pietro Giacomo Rogeri double bass", maker: "Pietro Giacomo Rogeri, Italy", era: "1710", story: true, storyTitle: "Percy Heath's bass", detail: "Made in 1710 by Pietro Giacomo Rogeri. The instrument was formerly owned by Percy Heath — the celebrated jazz bassist who performed with the Modern Jazz Quartet for over 35 years. Wentworth performs on it on extended loan from Barrie Kolstein, former owner of the renowned Samuel Kolstein & Son Violinmakers in New York." },
     ],
     highlights: ["NYP since 2016", "1710 Rogeri bass — formerly Percy Heath's", "Juilliard DM, studied with Eugene Levinson", "Studied with Orin O'Brien & Christopher Hanulik", "Juilliard Pre-College faculty since 2012"],
+    new2025: false,
+  },
+  {
+    id: "nyp-hinson", orchestraId: "nyp", name: "Blake Hinson",
+    role: "Assistant Principal Bass", since: 2016, chair: null, initials: "BH", color: "#C87A6E",
+    bio: "Blake Hinson has been a member of the New York Philharmonic since 2012 and was appointed Assistant Principal Bass in 2016.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["NYP since 2012", "Assistant Principal since 2016"],
     new2025: false,
   },
 ];
