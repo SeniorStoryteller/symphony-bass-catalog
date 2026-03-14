@@ -754,6 +754,7 @@ export default function App() {
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle at 80% 40%, rgba(200,169,110,0.12) 0%, transparent 65%)", pointerEvents: "none" }} />
 
         <div style={{ padding: isMobile ? "8px 12px 0" : "14px 20px 0", position: "relative" }}>
+        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: isMobile ? 8 : 12, flexWrap: "nowrap", minWidth: 0 }}>
 
             {/* Home icon */}
@@ -827,6 +828,7 @@ export default function App() {
               <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#8C7A68", marginBottom: isMobile ? 8 : 12 }}>{headerSub}</div>
             </>
           )}
+        </div>
         </div>
 
       </div>
