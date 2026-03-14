@@ -474,10 +474,9 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
   const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
   const SORT_OPTIONS = [
-    { key: "founded", label: "Founding Date", short: "Founded" },
     { key: "name",    label: "Orchestra Name", short: "Name" },
     { key: "city",    label: "City",           short: "City" },
-    { key: "size",    label: "Section Size",   short: "Size" },
+    { key: "size",    label: "Section Size",   short: "Players" },
   ];
 
   const rawOrchList = Object.values(ORCHESTRAS);
@@ -699,7 +698,7 @@ export default function App() {
   const [orchestraId, setOrchestraid] = useState("sfs");
   const [globalSearch, setGlobalSearch] = useState("");
   const [selectedPlayer, setSelectedPlayer] = useState(null);
-  const [sortOrder, setSortOrder] = useState("founded");
+  const [sortOrder, setSortOrder] = useState("name");
   const [subView, setSubView] = useState("bassists");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
