@@ -66,7 +66,7 @@ const SFS_PLAYERS = [
   },
   {
     id: "sfs-smith", orchestraId: "sfs", name: "Daniel G. Smith",
-    role: "Associate Principal Bass", since: 2017, chair: "Lawrence Metcalf Second Century Chair",
+    role: "Associate Principal Bass", since: 2017, chair: null,
     initials: "DS", color: "#8BA888",
     bio: "Daniel G. Smith was appointed Associate Principal Bass of the San Francisco Symphony in 2017. He previously served as principal bass of the Santa Barbara Symphony and was a member of the San Diego Symphony. He has also served as guest principal and associate principal with the Los Angeles Chamber Orchestra, and as guest principal at the Lakes Area Music Festival in Minnesota. Smith received his Bachelor of Music from Rice University's Shepherd School of Music, studying under Timothy Pitts — the same teacher who would later train SFS colleague Orion Miller.",
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
