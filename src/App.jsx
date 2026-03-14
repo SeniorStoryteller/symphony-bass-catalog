@@ -159,23 +159,32 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
   const isSearching = globalSearch.trim() !== "";
   const searchTerm = globalSearch.toLowerCase();
 
-  const globalFiltered = isSearching
+  const directMatches = isSearching
     ? ALL_PLAYERS_FLAT.filter(p =>
         p.name.toLowerCase().includes(searchTerm) ||
-        p.role.toLowerCase().includes(searchTerm) ||
-        (p.bio && p.bio.toLowerCase().includes(searchTerm))
+        p.role.toLowerCase().includes(searchTerm)
       )
     : null;
 
-  const globalGrouped = globalFiltered
-    ? Object.entries(
-        globalFiltered.reduce((acc, p) => {
-          if (!acc[p.orchestraId]) acc[p.orchestraId] = [];
-          acc[p.orchestraId].push(p);
-          return acc;
-        }, {})
-      ).map(([orchId, ps]) => ({ orchestra: ORCHESTRAS[orchId], players: ps }))
+  const bioMentions = isSearching
+    ? ALL_PLAYERS_FLAT.filter(p =>
+        !directMatches.find(d => d.id === p.id) &&
+        p.bio && p.bio.toLowerCase().includes(searchTerm)
+      )
     : null;
+
+  const globalFiltered = isSearching ? [...directMatches, ...bioMentions] : null;
+
+  const groupByOrch = (arr) => Object.entries(
+    arr.reduce((acc, p) => {
+      if (!acc[p.orchestraId]) acc[p.orchestraId] = [];
+      acc[p.orchestraId].push(p);
+      return acc;
+    }, {})
+  ).map(([orchId, ps]) => ({ orchestra: ORCHESTRAS[orchId], players: ps }));
+
+  const directGrouped = isSearching && directMatches.length ? groupByOrch(directMatches) : [];
+  const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
   const leadership = players.filter(p => !p.status && LEADERSHIP_ROLES.includes(p.role));
   const section = players.filter(p => !p.status && p.role === "Section Bass");
@@ -219,27 +228,56 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
         {isSearching ? (
           globalFiltered.length === 0
             ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
-            : globalGrouped.map(({ orchestra: orch, players: ps }) => {
-                const lead = ps.filter(p => LEADERSHIP_ROLES.includes(p.role));
-                const sect = ps.filter(p => p.role === "Section Bass");
-                return (
-                  <div key={orch.id} style={{ marginBottom: 32 }}>
-                    <SectionLabel style={{ marginBottom: 14 }}>
-                      {orch.name} <span style={{ fontWeight: 400, color: S.textMuted, textTransform: "none", letterSpacing: 0, fontSize: 10 }}>· {ps.length} result{ps.length !== 1 ? "s" : ""}</span>
-                    </SectionLabel>
-                    {lead.length > 0 && (
-                      <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: sect.length > 0 ? 14 : 0 }}>
-                        {lead.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
-                      </div>
-                    )}
-                    {sect.length > 0 && (
-                      <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
-                        {sect.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
-                      </div>
-                    )}
+            : <>
+                {directGrouped.map(({ orchestra: orch, players: ps }) => {
+                  const lead = ps.filter(p => LEADERSHIP_ROLES.includes(p.role));
+                  const sect = ps.filter(p => p.role === "Section Bass");
+                  return (
+                    <div key={orch.id} style={{ marginBottom: 28 }}>
+                      <SectionLabel style={{ marginBottom: 14 }}>
+                        {orch.name} <span style={{ fontWeight: 400, color: S.textMuted, textTransform: "none", letterSpacing: 0, fontSize: 10 }}>· {ps.length} result{ps.length !== 1 ? "s" : ""}</span>
+                      </SectionLabel>
+                      {lead.length > 0 && (
+                        <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: sect.length > 0 ? 14 : 0 }}>
+                          {lead.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
+                        </div>
+                      )}
+                      {sect.length > 0 && (
+                        <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
+                          {sect.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+                {mentionGrouped.length > 0 && (
+                  <div style={{ marginTop: 8 }}>
+                    <div style={{ height: 1, background: S.border, marginBottom: 16 }} />
+                    <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: S.textMuted, marginBottom: 16 }}>Also mentioned in bios</div>
+                    {mentionGrouped.map(({ orchestra: orch, players: ps }) => {
+                      const lead = ps.filter(p => LEADERSHIP_ROLES.includes(p.role));
+                      const sect = ps.filter(p => p.role === "Section Bass");
+                      return (
+                        <div key={orch.id} style={{ marginBottom: 24, opacity: 0.75 }}>
+                          <SectionLabel style={{ marginBottom: 12 }}>
+                            {orch.name}
+                          </SectionLabel>
+                          {lead.length > 0 && (
+                            <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: sect.length > 0 ? 12 : 0 }}>
+                              {lead.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
+                            </div>
+                          )}
+                          {sect.length > 0 && (
+                            <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
+                              {sect.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })
+                )}
+              </>
         ) : subView === "instruments" ? (
           <InstrumentsTab players={players} onGoToRoster={onSelectPlayer} isMobile={isMobile} />
         ) : (
@@ -417,23 +455,32 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
   const searchTerm = globalSearch.toLowerCase();
   const [hoveredId, setHoveredId] = useState(null);
 
-  const globalFiltered = isSearching
+  const directMatches = isSearching
     ? ALL_PLAYERS_FLAT.filter(p =>
         p.name.toLowerCase().includes(searchTerm) ||
-        p.role.toLowerCase().includes(searchTerm) ||
-        (p.bio && p.bio.toLowerCase().includes(searchTerm))
+        p.role.toLowerCase().includes(searchTerm)
       )
     : null;
 
-  const globalGrouped = globalFiltered
-    ? Object.entries(
-        globalFiltered.reduce((acc, p) => {
-          if (!acc[p.orchestraId]) acc[p.orchestraId] = [];
-          acc[p.orchestraId].push(p);
-          return acc;
-        }, {})
-      ).map(([orchId, ps]) => ({ orchestra: ORCHESTRAS[orchId], players: ps }))
+  const bioMentions = isSearching
+    ? ALL_PLAYERS_FLAT.filter(p =>
+        !directMatches.find(d => d.id === p.id) &&
+        p.bio && p.bio.toLowerCase().includes(searchTerm)
+      )
     : null;
+
+  const globalFiltered = isSearching ? [...directMatches, ...bioMentions] : null;
+
+  const groupByOrch = (arr) => Object.entries(
+    arr.reduce((acc, p) => {
+      if (!acc[p.orchestraId]) acc[p.orchestraId] = [];
+      acc[p.orchestraId].push(p);
+      return acc;
+    }, {})
+  ).map(([orchId, ps]) => ({ orchestra: ORCHESTRAS[orchId], players: ps }));
+
+  const directGrouped = isSearching && directMatches.length ? groupByOrch(directMatches) : [];
+  const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
   const SORT_OPTIONS = [
     { key: "founded", label: "Founding Date" },
@@ -522,27 +569,56 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
           <div style={{ padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
             {globalFiltered.length === 0
               ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
-              : globalGrouped.map(({ orchestra: orch, players: ps }) => {
-                  const lead = ps.filter(p => LEADERSHIP_ROLES.includes(p.role));
-                  const sect = ps.filter(p => p.role === "Section Bass");
-                  return (
-                    <div key={orch.id} style={{ marginBottom: 32 }}>
-                      <SectionLabel style={{ marginBottom: 14 }}>
-                        {orch.name} <span style={{ fontWeight: 400, color: S.textMuted, textTransform: "none", letterSpacing: 0, fontSize: 10 }}>· {ps.length} result{ps.length !== 1 ? "s" : ""}</span>
-                      </SectionLabel>
-                      {lead.length > 0 && (
-                        <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: sect.length > 0 ? 14 : 0 }}>
-                          {lead.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
-                        </div>
-                      )}
-                      {sect.length > 0 && (
-                        <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
-                          {sect.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
-                        </div>
-                      )}
+              : <>
+                  {directGrouped.map(({ orchestra: orch, players: ps }) => {
+                    const lead = ps.filter(p => LEADERSHIP_ROLES.includes(p.role));
+                    const sect = ps.filter(p => p.role === "Section Bass");
+                    return (
+                      <div key={orch.id} style={{ marginBottom: 28 }}>
+                        <SectionLabel style={{ marginBottom: 14 }}>
+                          {orch.name} <span style={{ fontWeight: 400, color: S.textMuted, textTransform: "none", letterSpacing: 0, fontSize: 10 }}>· {ps.length} result{ps.length !== 1 ? "s" : ""}</span>
+                        </SectionLabel>
+                        {lead.length > 0 && (
+                          <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: sect.length > 0 ? 14 : 0 }}>
+                            {lead.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
+                          </div>
+                        )}
+                        {sect.length > 0 && (
+                          <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
+                            {sect.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                  {mentionGrouped.length > 0 && (
+                    <div style={{ marginTop: 8 }}>
+                      <div style={{ height: 1, background: S.border, marginBottom: 16 }} />
+                      <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: S.textMuted, marginBottom: 16 }}>Also mentioned in bios</div>
+                      {mentionGrouped.map(({ orchestra: orch, players: ps }) => {
+                        const lead = ps.filter(p => LEADERSHIP_ROLES.includes(p.role));
+                        const sect = ps.filter(p => p.role === "Section Bass");
+                        return (
+                          <div key={orch.id} style={{ marginBottom: 24, opacity: 0.75 }}>
+                            <SectionLabel style={{ marginBottom: 12 }}>
+                              {orch.name}
+                            </SectionLabel>
+                            {lead.length > 0 && (
+                              <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: sect.length > 0 ? 12 : 0 }}>
+                                {lead.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
+                              </div>
+                            )}
+                            {sect.length > 0 && (
+                              <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
+                                {sect.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
-                  );
-                })
+                  )}
+                </>
             }
           </div>
         ) : (
