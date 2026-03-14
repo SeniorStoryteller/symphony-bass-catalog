@@ -570,7 +570,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                     }}>
 
                     {/* ROW 1 — index number · orchestra name · arrow */}
-                    <div style={{ display: "flex", alignItems: "baseline", gap: 0 }}>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: 0 }}>
                       <div className="idx-number" style={{
                         fontFamily: SERIF, fontSize: 13, fontWeight: 400, fontStyle: "italic",
                         color: isHovered ? orch.accentColor : S.textMuted,
@@ -582,16 +582,16 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       <div className="idx-name" style={{
                         flex: 1,
                         fontFamily: SERIF, fontSize: isMobile ? 22 : 34, fontWeight: 700,
-                        lineHeight: 1.25, letterSpacing: "0.04em",
+                        lineHeight: 1.15, letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         color: isAnyHovered && !isHovered ? "#C0A882" : S.textPrimary,
-                        whiteSpace: "nowrap", overflow: "hidden",
                         textAlign: "left",
+                        wordBreak: "break-word",
                       }}>
                         {orch.name}
                       </div>
 
-                      <div style={{ flexShrink: 0, paddingLeft: 10, paddingBottom: 6 }}>
+                      <div style={{ flexShrink: 0, paddingLeft: 10, paddingTop: 4 }}>
                         <svg className="idx-arrow" width="16" height="16" viewBox="0 0 20 20" fill="none"
                           style={{ opacity: isHovered ? 1 : 0.45, transform: isHovered ? "translateX(3px)" : "none", display: "block" }}>
                           <path d="M7 5l5 5-5 5" stroke={S.textPrimary} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
