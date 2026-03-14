@@ -108,7 +108,7 @@ function LeadershipCard({ player, onClick }) {
   return (
     <div onClick={() => onClick(player)}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: isMobile ? "14px 14px" : "20px 22px", cursor: "pointer", transition: "all 0.18s ease", transform: hov ? "translateY(-2px)" : "none", boxShadow: hov ? "0 6px 24px rgba(100,80,50,0.10)" : "none", borderLeft: `4px solid ${player.color}` }}>
+      style={{ width: "100%", boxSizing: "border-box", background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: isMobile ? "14px 14px" : "20px 22px", cursor: "pointer", transition: "all 0.18s ease", transform: hov ? "translateY(-2px)" : "none", boxShadow: hov ? "0 6px 24px rgba(100,80,50,0.10)" : "none", borderLeft: `4px solid ${player.color}` }}>
       <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 12 : 16, marginBottom: isMobile ? 10 : 14 }}>
         <Avatar initials={player.initials} color={player.color} size={isMobile ? 40 : 52} />
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -117,7 +117,7 @@ function LeadershipCard({ player, onClick }) {
           {player.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic" }}>{player.chair}</div>}
         </div>
       </div>
-      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", marginBottom: 12 }}>{player.bio.split(". ")[0] + "."}</div>
+      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", wordBreak: "break-word", marginBottom: 12 }}>{player.bio.split(". ")[0] + "."}</div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
         <span style={{ fontSize: 12, color: player.color, fontWeight: 500 }}>View profile →</span>
       </div>
@@ -225,7 +225,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
         )}
       </div>
 
-      <div style={{ flex: 1, overflowY: "auto", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
+      <div style={{ flex: 1, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
         {isSearching ? (
           globalFiltered.length === 0
             ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
@@ -541,7 +541,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         )}
       </div>
 
-      <div style={{ flex: 1, overflowY: "auto" }}>
+      <div style={{ flex: 1, overflowY: "auto", overflowX: "hidden" }}>
         {isSearching ? (
           <div style={{ padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
             {globalFiltered.length === 0
