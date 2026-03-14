@@ -42,6 +42,12 @@ const ORCHESTRAS = {
     accentColor: "#8B4A8C", headerColor: "#4A1F6B", founded: 1900,
     seasonNote: "The 2025–26 season marks the Philadelphia Orchestra's 125th anniversary under Music and Artistic Director Yannick Nézet-Séguin. Principal Bass Joseph Conyers will make his Philadelphia Orchestra solo debut performing Tan Dun's Contrabass Concerto: Wolf Totem in May 2026. The Orchestra was renamed from performing at the Kimmel Center to Marian Anderson Hall in 2024.",
   },
+  cle: {
+    id: "cle", name: "The Cleveland Orchestra", shortName: "Cleveland",
+    venue: "Severance Music Center", city: "Cleveland", region: "Midwest",
+    accentColor: "#B05A5A", headerColor: "#6B2828", founded: 1918,
+    seasonNote: "The 2025–26 season is the orchestra's 108th, and Franz Welser-Möst's 24th as Music Director. Brandon Mason joined the bass section in July 2025, the only bass personnel change from the prior season.",
+  },
 };
 
 /* ── SFS PLAYERS ── */
@@ -600,7 +606,99 @@ const PHI_PLAYERS = [
   },
 ];
 
-
+/* ── CLEVELAND ORCHESTRA PLAYERS ── */
+const CLE_PLAYERS = [
+  {
+    id: "cle-dimoff", orchestraId: "cle", name: "Maximilian Dimoff",
+    role: "Principal Bass", since: 1997, chair: "Clarence T. Reinberger Chair",
+    initials: "MD", color: "#B05A5A",
+    bio: "Maximilian Dimoff has served as Principal Bass of The Cleveland Orchestra since 1997, holding the Clarence T. Reinberger Chair — one of the orchestra's most storied endowed seats, established by the Reinberger Foundation in 1976. He studied at Northwestern University under Jeff Bradetich, with additional mentors including Warren Benfield of the Chicago Symphony, Gary Karr, Eugene Levinson of the New York Philharmonic, and Ronald Simon of the Seattle Symphony. His orchestral career began as assistant principal bass of the San Antonio Symphony while still a student, where he was quickly promoted to principal; he then held positions with the Grant Park Symphony Orchestra (1992) and the Seattle Symphony (1993–97) before arriving in Cleveland. Over nearly three decades as the orchestra's principal bassist, Dimoff has appeared as soloist at Severance Music Center, Blossom Music Center, Carnegie Hall, and on major European tours. He headed the double bass department at the Cleveland Institute of Music for seventeen years (2000–2017) and currently serves as Associate Professor of Double Bass at the University of Michigan's School of Music, Theatre and Dance, as well as on the faculty of the National Orchestral Institute and the New World Symphony.",
+    instruments: [
+      { name: "Antonio Mariani double bass", maker: "Antonio Mariani, Pesaro, Italy", era: "1651", story: true, storyTitle: "Among the oldest in American orchestral use", detail: "Crafted in 1651 by Antonio Mariani in Pesaro, Italy, this bass is among the oldest instruments regularly played in any major American orchestra's bass section. Instruments of Mariani's vintage — pre-Baroque, from a period before the double bass had fully standardized in form — are extraordinarily rare in active professional performance. Dimoff has performed on this instrument throughout his tenure as Principal Bass of The Cleveland Orchestra." },
+    ],
+    highlights: ["Principal since 1997", "Clarence T. Reinberger Chair", "CIM faculty 2000–2017", "University of Michigan faculty", "Soloist: Carnegie Hall & European tours"],
+    new2025: false,
+  },
+  {
+    id: "cle-zadinsky", orchestraId: "cle", name: "Derek Zadinsky",
+    role: "Assistant Principal Bass", since: 2012, chair: null,
+    initials: "DZ", color: "#6E9B8A",
+    bio: "Derek Zadinsky has been a member of The Cleveland Orchestra bass section since 2012, promoted to Assistant Principal Bass in October 2021. A native of Issaquah, Washington, he began his studies with Jordan Anderson, Principal Bass of the Seattle Symphony, and went on to earn his Bachelor of Music from the Curtis Institute of Music, where he studied with Harold Robinson and Edgar Meyer — also studying with Meyer at the Aspen Music Festival over three summers. He won First Place at the International Society of Bassists Orchestral Competition in San Francisco in 2011, the same year he began substitute work with the orchestra; prior to joining Cleveland full time he held the position of Principal Bass of Symphony in C (formerly Haddonfield Symphony) in New Jersey from 2008 to 2011. In 2019 he released the solo album Bach + Brahms on the Oberlin Music label, featuring Bach's Cello Suite No. 5 and Brahms's Sonata for Cello and Piano, Op. 38, both arranged for double bass. He teaches at the Cleveland Institute of Music, Oberlin Conservatory of Music, and Cleveland State University.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Assistant Principal since 2021", "With TCO since 2012", "Curtis Institute; studied with Harold Robinson & Edgar Meyer", "1st Place, ISB Orchestral Competition (2011)", "Solo album Bach + Brahms (Oberlin Music, 2019)"],
+    new2025: false,
+  },
+  {
+    id: "cle-paul", orchestraId: "cle", name: "Charles Paul",
+    role: "First Assistant Principal Bass", since: 2022, chair: "Mary E. and F. Joseph Callahan Chair",
+    initials: "CP", color: "#8A6EB0",
+    bio: "Charles Paul joined The Cleveland Orchestra in January 2022 and was named First Assistant Principal Bass in 2023, holding the Mary E. and F. Joseph Callahan Chair. A native of Detroit, Michigan, he earned both his Bachelor and Master of Music in Double Bass Performance from Rice University's Shepherd School of Music, studying under Paul Ellison and Timothy Pitts. He won First Prize at the TCU International Double Bass Competition in 2016 and was a semifinalist at the International Society of Bassists Solo Competition in 2017; his festival credentials include Tanglewood Music Center (2016, 2017), the Aspen Music Festival and School (2015), and Spoleto Festival USA (2018, 2019). Before joining Cleveland he held a section bass position with the Baltimore Symphony Orchestra. As a chamber musician, Paul is a founding member of the Kinetic Ensemble and has collaborated with the Teatro Nuovo Bel Canto Orchestra and Complexions Contemporary Ballet, performing world premieres of works by Doug Balliet, Erin Gee, and others. He has been featured on American Public Media's Performance Today and in the Boston Globe and Houston Chronicle.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["First Assistant Principal since 2023", "Mary E. and F. Joseph Callahan Chair", "Rice University/Shepherd School; studied with Paul Ellison & Timothy Pitts", "1st Prize, TCU International Double Bass Competition (2016)", "Founding member, Kinetic Ensemble"],
+    new2025: false,
+  },
+  {
+    id: "cle-atherton", orchestraId: "cle", name: "Mark Atherton",
+    role: "Section Bass", since: 1983, chair: null,
+    initials: "MA", color: "#B09070",
+    bio: "Mark Atherton is the longest-tenured member of The Cleveland Orchestra bass section, joining in 1983 and now in his fifth decade with the ensemble. A native of Bangor, Maine, he earned his Bachelor of Science magna cum laude from Boston University's School for the Arts, studying with Henry Portnoi and David Cobb, and previously held positions with the Indianapolis Symphony Orchestra and the Boston Pops Esplanade Orchestra. Atherton has taught at Kent State University, the Cleveland Institute of Music, and Indiana State University, and has coached the bass section of the Cleveland Orchestra Youth Orchestra since its founding. He maintains an active performance schedule with the Myriad Ensemble and has appeared as soloist with Trinity Chamber Orchestra in Cleveland. Among his instruments are two historically notable basses: an Italian-made Tenoni bass and an American-made Prescott bass — the latter in the tradition of Abraham Prescott of New Hampshire, one of the few historically significant early American double bass makers.",
+    instruments: [
+      { name: "Italian Tenoni double bass", maker: "Tenoni, Italy", era: null, story: false, detail: "An Italian-made bass used in orchestral performance." },
+      { name: "American Prescott double bass", maker: "Abraham Prescott, New Hampshire", era: "19th century", story: true, storyTitle: "A rare American instrument", detail: "Abraham Prescott (1789–1858) of Deerfield, New Hampshire was one of the few historically significant American double bass makers of the early-to-mid 19th century. His instruments are rare in active professional use, making Atherton's Prescott bass an unusual piece of American lutherie history in the bass section of a major orchestra." },
+    ],
+    highlights: ["TCO since 1983 — longest-tenured section member", "Boston University magna cum laude", "COYO bass section coach since founding", "Kent State University faculty"],
+    new2025: false,
+  },
+  {
+    id: "cle-sperl", orchestraId: "cle", name: "Thomas Sperl",
+    role: "Section Bass", since: 1992, chair: null,
+    initials: "TS", color: "#6E8AB0",
+    bio: "Thomas Sperl has been a member of The Cleveland Orchestra bass section since 1992. A native of Buffalo, New York, he studied at the Eastman School of Music under James Van Denmark and previously held positions with the Buffalo Philharmonic Orchestra and the Rochester Philharmonic Orchestra before joining The Cleveland Orchestra.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["TCO since 1992", "Eastman School of Music", "Former: Buffalo Philharmonic, Rochester Philharmonic"],
+    new2025: false,
+  },
+  {
+    id: "cle-peyrebrune", orchestraId: "cle", name: "Henry Peyrebrune",
+    role: "Section Bass", since: 1997, chair: "Charles Barr Memorial Chair",
+    initials: "HP", color: "#8AB06E",
+    bio: "Henry Peyrebrune has held the Charles Barr Memorial Chair in The Cleveland Orchestra bass section since 2006 — a seat whose story is inseparable from the history of the orchestra's bass section. He earned his Bachelor of Music from the New England Conservatory of Music studying under Edwin Barker of the Boston Symphony, and his early career included the Boston Pops Esplanade Orchestra, Albany Symphony, Pro Arte Chamber Orchestra, Boston Philharmonic, Portland Symphony, and Cantata Singers, before he served as Principal Bass of the National Arts Centre Orchestra in Ottawa, Canada from 1994 to 1997. He has served as a teaching artist in The Cleveland Orchestra's Learning Through Music school program for nearly twenty years and has taught at Baldwin Wallace University Conservatory, the University of Southern Maine, and the Longy School of Music. Since 2014 he has held a dual role at the orchestra, serving both as a section bass member and as a development gift officer in the Philanthropy and Advancement office — a unique arrangement reflecting his deep commitment to the orchestra's community mission. He has served as a board member of the League of American Orchestras and as board president of NoteWorthy Federal Credit Union, which serves the Northeast Ohio arts community. The Charles Barr Memorial Chair honors bassist Charles Barr (1974–2006), who joined the Cleveland Orchestra section in September 2002 and was killed at age 31 in a cycling accident after a morning rehearsal on August 11, 2006. It was the first endowed chair in Cleveland Orchestra history funded collectively by multiple community donors rather than a single philanthropist.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["TCO since 1997", "Charles Barr Memorial Chair", "NEC; studied with Edwin Barker (BSO)", "Former Principal Bass, National Arts Centre Orchestra, Ottawa", "League of American Orchestras board member", "TCO Learning Through Music teaching artist"],
+    new2025: false,
+  },
+  {
+    id: "cle-carleton", orchestraId: "cle", name: "Charles Carleton",
+    role: "Section Bass", since: 2001, chair: null,
+    initials: "CC", color: "#B06E8A",
+    bio: "Charles Carleton joined The Cleveland Orchestra bass section in the spring of 2001, appointed by Music Director Christoph von Dohnányi and tenured under Franz Welser-Möst in 2003. He earned his Bachelor of Music from The Juilliard School in 2000 and his Master of Music from the New England Conservatory of Music in 2001, studying with Eugene Levinson and Orin O'Brien at Juilliard and with Edwin Barker at NEC. His additional teachers have included Albert Lazlo at the Aspen Music Festival and Constantin Popescu. As a chamber musician and conductor, he founded the Cleveland Ensemble, a chamber orchestra for which he serves as Music Director. He has given guest masterclasses at the Cleveland Institute of Music, the Frost School of Music at the University of Miami, and the Cincinnati College-Conservatory of Music, and teaches at Cleveland State University and the Cleveland Institute of Music. His primary instrument is a double bass handcrafted in 1837 by London maker Thomas Kennedy, paired with a French bow by Victor Fetique.",
+    instruments: [
+      { name: "Thomas Kennedy double bass", maker: "Thomas Kennedy, London", era: "1837", story: true, storyTitle: "London Romantic-era bass with a Fetique bow", detail: "Handcrafted in 1837 by Thomas Kennedy, a prominent London instrument maker of the early Romantic period, and paired with a French bow by Victor Fetique — one of the premier French bowmakers of the 19th century. The combination unites two distinct European traditions: English instrument-making and the French school of bow-making, in active daily orchestral use." },
+    ],
+    highlights: ["TCO since 2001", "Juilliard BM; NEC MM", "Studied with Eugene Levinson & Orin O'Brien (NYP)", "Studied with Edwin Barker (BSO)", "Founder & Music Director, Cleveland Ensemble"],
+    new2025: false,
+  },
+  {
+    id: "cle-dixon", orchestraId: "cle", name: "Scott Dixon",
+    role: "Section Bass", since: 2007, chair: null,
+    initials: "SD", color: "#6E8A8A",
+    bio: "Scott Dixon has been a member of The Cleveland Orchestra bass section since 2007. He earned his Bachelor of Music from the Oberlin Conservatory of Music and his Master of Music from Rice University's Shepherd School of Music, and was a fellow at the New World Symphony under Michael Tilson Thomas and at the Aspen Music Festival. Dixon has a particular commitment to both historical performance practice and contemporary music; he is an active member of the International Contemporary Ensemble (ICE), with whom he has performed at the Mostly Mozart Festival at Lincoln Center, and his recordings include the world premiere of John Adams's Son of Chamber Symphony conducted by the composer. He teaches at the Cleveland Institute of Music and the Oberlin Conservatory of Music.",
+    instruments: [
+      { name: "Carlo Loveri double bass", maker: "Carlo Loveri, Naples, Italy", era: "1880s", story: true, storyTitle: "Neapolitan craftsmanship", detail: "Made in Naples, Italy, in the 1880s by Carlo Loveri, this bass reflects the rich tradition of Neapolitan string instrument making. Dixon — whose performing interests span historical performance practice to contemporary premieres — performs on this late 19th-century instrument in both The Cleveland Orchestra and with the International Contemporary Ensemble." },
+    ],
+    highlights: ["TCO since 2007", "Oberlin BM; Rice/Shepherd School MM", "New World Symphony fellow", "Member, International Contemporary Ensemble (ICE)", "John Adams world premiere recording"],
+    new2025: false,
+  },
+  {
+    id: "cle-mason", orchestraId: "cle", name: "Brandon Mason",
+    role: "Section Bass", since: 2025, chair: null,
+    initials: "BM", color: "#B0906E",
+    bio: "Brandon Mason joined The Cleveland Orchestra bass section in July 2025, the orchestra's only bass section addition for the 2025–26 season. A native of Arlington, Texas, he earned his Bachelor of Music from Boston University studying with Edwin Barker, and his Master of Music from Rice University's Shepherd School of Music studying with Paul Ellison. Before joining Cleveland, he spent five seasons with the Kansas City Symphony and five seasons with the Detroit Symphony Orchestra, and served as guest principal bass of the Chicago Symphony Orchestra in 2020. He has been a regular member of the Grand Teton Music Festival Orchestra since 2019, and has appeared as a guest with the Boston, Houston, and Dallas symphonies. His festival training included Tanglewood Music Center, the Aspen Music Festival and School, and the Music Academy of the West.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["TCO since July 2025", "BU; studied with Edwin Barker (BSO)", "Rice/Shepherd School; studied with Paul Ellison", "Former: Kansas City Symphony, Detroit Symphony Orchestra", "Guest Principal Bass, Chicago Symphony Orchestra (2020)"],
+    new2025: true,
+  },
+];
 
 const ALL_PLAYERS = {
   sfs: [...SFS_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "sfs")],
@@ -610,7 +708,8 @@ const ALL_PLAYERS = {
   cso: CSO_PLAYERS,
   nyp: [...NYP_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "nyp")],
   phi: [...PHI_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "phi")],
+  cle: CLE_PLAYERS,
 };
 const ALL_PLAYERS_FLAT = Object.values(ALL_PLAYERS).flat();
 
-export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };
+export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, CLE_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };

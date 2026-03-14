@@ -12,7 +12,7 @@ const S = {
 
 const SERIF = "'Cormorant Garamond', Georgia, serif";
 const LABEL_STYLE = { fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "#B09070" };
-const LEADERSHIP_ROLES = ["Principal Bass", "Associate Principal Bass", "Assistant Principal Bass"];
+const LEADERSHIP_ROLES = ["Principal Bass", "Associate Principal Bass", "Assistant Principal Bass", "First Assistant Principal Bass"];
 
 /* ── HELPERS ── */
 function numberToWord(n) {
