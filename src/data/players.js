@@ -604,6 +604,42 @@ const PHI_PLAYERS = [
     highlights: ["Philadelphia Orchestra since 2017", "Curtis Institute; studied with Harold Robinson & Edgar Meyer", "Former member, Kennedy Center Opera House Orchestra", "Guest principal: Atlanta Symphony, Toronto Symphony", "Marlboro Music Festival — three summers", "Chamber Music Society of Lincoln Center"],
     new2025: false,
   },
+  {
+    id: "phi-fay", orchestraId: "phi", name: "David Fay",
+    role: "Section Bass", since: 1984, chair: null,
+    initials: "DF", color: "#7A6EA8",
+    bio: "David Fay joined the Philadelphia Orchestra bass section in 1984. Born in England, he immigrated to Canada and grew up in Ottawa. He studied at the Curtis Institute of Music under Roger Scott, a former Principal Bass of the Philadelphia Orchestra, and served as Principal Bass of the National Arts Centre Orchestra of Canada for two seasons before joining Philadelphia. He received the C. Hartman Kuhn Award in 2014 — the orchestra's highest musician honor, selected by Music Director Yannick Nézet-Séguin. He has served as Chair of the Members' Committee of the Philadelphia Orchestra and has appeared as guest principal bass with the Manitoba Chamber Orchestra.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Philadelphia Orchestra since 1984", "C. Hartman Kuhn Award (2014) — Orchestra's highest musician honor", "Curtis Institute; studied with Roger Scott", "Former Principal Bass, National Arts Centre Orchestra, Ottawa", "Chair, Philadelphia Orchestra Members' Committee"],
+    new2025: false,
+  },
+  {
+    id: "phi-rosengard", orchestraId: "phi", name: "Duane Rosengard",
+    role: "Section Bass", since: 1986, chair: null,
+    initials: "DR", color: "#6E8A7A",
+    bio: "Duane Rosengard joined the Philadelphia Orchestra bass section in December 1986. Born in Chicago in 1960, he began playing double bass at age eleven and studied at Interlochen Arts Academy and the Cleveland Institute of Music. He previously performed with the Rochester Philharmonic, the Buffalo Philharmonic, and the Orquesta Sinfónica de Veracruz in Mexico.\n\nParallel to his orchestral career, Rosengard has built a second career as an instrument scholar. He is the author of Cremonese Double Basses (1992) and co-author of The Stradivari Legacy and The Late Cremonese Violin Makers, and has published books on Giuseppe Guarneri del Gesù, Giovanni Battista Guadagnini, Carlo Bergonzi, and Paolo Diana. He contributes to Strings and Strad magazines and is currently preparing a monograph on the Parisian bowmakers the Tourte brothers. He holds associate membership in the American Federation of Violin and Bow Makers, serves on the Scientific Committee of the Ente Triennale Internazionale degli Strumenti ad Arco in Cremona, Italy, and lectures at the Violin Society of America and the International Society of Bassists.\n\nWith Mark Kindig and luthier Zachary S. Martin, he co-founded a project to CT-scan approximately twenty of the world's finest historical double basses, conducted with Penn Medicine researchers at the Kimmel Center.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Philadelphia Orchestra since December 1986", "Interlochen Arts Academy; Cleveland Institute of Music", "Author: Cremonese Double Basses (1992)", "Co-author: The Stradivari Legacy; The Late Cremonese Violin Makers", "Preparing monograph on the Tourte brothers", "Scientific Committee, Ente Triennale, Cremona", "Co-founder: Penn Medicine CT scan project for historic double basses"],
+    new2025: false,
+  },
+  {
+    id: "phi-franz", orchestraId: "phi", name: "Michael Franz",
+    role: "Section Bass", since: 2022, chair: null,
+    initials: "MF", color: "#A87A6E",
+    bio: "Michael Franz joined the Philadelphia Orchestra bass section in 2022. A native of Burlington, Vermont, he began playing double bass in public school at age fourteen. He earned his Bachelor of Music in Applied Double Bass and Music Education with High Distinction from the Eastman School of Music (2014) and was a member of the inaugural class of The Orchestra Now (TŌN) at Bard College, completing his master's studies there in 2018.\n\nFranz was a New World Symphony Fellow from 2018 to 2019 and worked as a substitute musician with the Philadelphia Orchestra beginning in 2017, including on European and Asian tours. He served as Principal Bass of the Pacific Symphony in Costa Mesa, California beginning in January 2019 and as Principal Bass of the Hollywood Bowl Orchestra concurrently from 2020, holding both positions until joining Philadelphia in 2022. During his years in Los Angeles he co-founded Block x Block, a chamber ensemble that performed more than one hundred outdoor concerts in Southern California.\n\nHis festival appearances include the New York String Orchestra Seminar, the Verbier Festival Orchestra, the Moritzburg Festival Academy, and the Bard Music Festival.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Philadelphia Orchestra since 2022", "Eastman School of Music BM, High Distinction (2014)", "The Orchestra Now (TŌN), Bard College — inaugural class", "Former Principal Bass: Pacific Symphony & Hollywood Bowl Orchestra", "New World Symphony Fellow (2018–19)", "Co-founder: Block x Block chamber ensemble"],
+    new2025: false,
+  },
+  {
+    id: "phi-gray", orchestraId: "phi", name: "Christian Gray",
+    role: "Section Bass", since: 2022, chair: null,
+    initials: "CG", color: "#7A9BA8",
+    bio: "Christian Gray joined the Philadelphia Orchestra bass section in 2022. A native of Winston-Salem, North Carolina, he attended the University of North Carolina School of the Arts and went on to earn his Bachelor of Music and Performance Diploma from Boston University's College of Fine Arts, studying with Edwin Barker. He continued his studies at Rice University's Shepherd School of Music under Paul Ellison, with additional study with Paul Sharpe.\n\nGray held fellowships at the Tanglewood Music Center — where he performed with the Boston Symphony Orchestra over two summers — the Music Academy of the West, and the Garth Newel Music Center in Hot Springs, Virginia, where he was the institution's first double bass fellow. He won second prize and the Audience Favorite award in the Senior Division of the 2021 Sphinx Competition.\n\nBefore joining Philadelphia, he was a member of the Kennedy Center Opera House Orchestra from the start of the 2017–18 season through 2022.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Philadelphia Orchestra since 2022", "Boston University BM & Performance Diploma; studied with Edwin Barker", "Rice University/Shepherd School; studied with Paul Ellison", "2nd Prize & Audience Favorite, Sphinx Competition 2021", "Tanglewood Music Center Fellow — performed with BSO", "First double bass fellow, Garth Newel Music Center", "Former member, Kennedy Center Opera House Orchestra (2017–22)"],
+    new2025: false,
+  },
 ];
 
 /* ── CLEVELAND ORCHESTRA PLAYERS ── */
