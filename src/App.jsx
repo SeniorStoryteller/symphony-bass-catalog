@@ -617,7 +617,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                           <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
                           <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>
                             {principal.name}
-                            <span style={{ fontSize: 15, color: S.textPrimary, fontStyle: "italic" }}>, Principal Bass</span>
+                            <span style={{ fontSize: 15, color: S.textPrimary }}>, Principal Bass</span>
                             {principal.since && <span style={{ fontSize: 15, color: S.textPrimary }}> · since {principal.since}</span>}
                           </span>
                         </>
