@@ -729,7 +729,7 @@ export default function App() {
     : `${orchestra.venue} · Est. ${orchestra.founded} · ${players.length} bassists`;
 
   return (
-    <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", height: "100vh", background: S.cream, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+    <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", height: "100%", background: S.cream, display: "flex", flexDirection: "column", overflow: "hidden" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
