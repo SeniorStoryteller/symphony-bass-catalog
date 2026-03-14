@@ -93,7 +93,11 @@ function PlayerDetail({ player, orchestra, onBack }) {
       )}
 
       <div style={{ height: 1, background: S.border, marginBottom: 20 }} />
-      <div style={{ fontFamily: SERIF, fontSize: isMobile ? 15 : 17, lineHeight: 1.8, color: "#2C231A", marginBottom: 32 }}>{player.bio}</div>
+      <div style={{ fontFamily: SERIF, fontSize: isMobile ? 15 : 17, lineHeight: 1.8, color: "#2C231A", marginBottom: 32 }}>
+        {player.bio.split("\n\n").map((para, i) => (
+          <p key={i} style={{ margin: i === 0 ? "0 0 1em" : "0 0 1em" }}>{para}</p>
+        ))}
+      </div>
 
       <SectionLabel>Instruments</SectionLabel>
       {player.instruments.map((inst, i) => <InstrumentCard key={i} inst={inst} />)}
