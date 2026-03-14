@@ -86,18 +86,18 @@ function PlayerDetail({ player, orchestra, onBack }) {
         </div>
       </div>
 
-      {player.highlights.length > 0 && (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 14px", marginBottom: 20 }}>
-          {player.highlights.map((h, i) => <span key={i} style={{ fontSize: 12, color: S.textSecondary }}>· {h}</span>)}
-        </div>
-      )}
-
       <div style={{ height: 1, background: S.border, marginBottom: 20 }} />
-      <div style={{ fontFamily: SERIF, fontSize: isMobile ? 15 : 17, lineHeight: 1.8, color: "#2C231A", marginBottom: 32 }}>
+      <div style={{ fontFamily: SERIF, fontSize: isMobile ? 15 : 17, lineHeight: 1.8, color: "#2C231A", marginBottom: 24 }}>
         {player.bio.split("\n\n").map((para, i) => (
           <p key={i} style={{ margin: i === 0 ? "0 0 1em" : "0 0 1em" }}>{para}</p>
         ))}
       </div>
+
+      {player.highlights.length > 0 && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 14px", marginBottom: 28 }}>
+          {player.highlights.map((h, i) => <span key={i} style={{ fontSize: 12, color: S.textSecondary }}>· {h}</span>)}
+        </div>
+      )}
 
       <SectionLabel>Instruments</SectionLabel>
       {player.instruments.map((inst, i) => <InstrumentCard key={i} inst={inst} />)}
