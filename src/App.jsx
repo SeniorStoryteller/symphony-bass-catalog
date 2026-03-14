@@ -190,14 +190,16 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
     const playerOrchestra = ORCHESTRAS[selectedPlayer.orchestraId];
     return (
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
-        <div style={{ padding: isMobile ? "8px 14px" : "10px 24px", borderBottom: `1px solid ${S.border}`, background: S.cream, flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
-          <button onClick={onClearSelected} style={{ background: "none", border: `1px solid ${S.border}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, color: S.textSecondary, fontFamily: "inherit", cursor: "pointer" }}>← Back</button>
-          {playerOrchestra && (
-            <>
-              <span style={{ fontSize: 12, color: S.textMuted }}>/</span>
-              <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>{playerOrchestra.shortName} · {playerOrchestra.name}</span>
-            </>
-          )}
+        <div style={{ padding: isMobile ? "8px 14px" : "10px 24px", borderBottom: `1px solid ${S.border}`, background: S.cream, flexShrink: 0 }}>
+          <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 8 }}>
+            <button onClick={onClearSelected} style={{ background: "none", border: `1px solid ${S.border}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, color: S.textSecondary, fontFamily: "inherit", cursor: "pointer" }}>← Back</button>
+            {playerOrchestra && (
+              <>
+                <span style={{ fontSize: 12, color: S.textMuted }}>/</span>
+                <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>{playerOrchestra.shortName} · {playerOrchestra.name}</span>
+              </>
+            )}
+          </div>
         </div>
         <div ref={scrollRef} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "16px 14px 48px" : "24px 24px 48px" }}>
           <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
