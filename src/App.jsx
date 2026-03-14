@@ -64,6 +64,7 @@ function InstrumentCard({ inst }) {
 
 /* ── PLAYER DETAIL (profile view) ── */
 function PlayerDetail({ player, orchestra, onBack }) {
+  const isMobile = window.innerWidth < 768;
   return (
     <div style={{ padding: "0 0 48px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
@@ -76,23 +77,23 @@ function PlayerDetail({ player, orchestra, onBack }) {
         )}
       </div>
 
-      <div style={{ display: "flex", gap: 20, alignItems: "flex-start", marginBottom: 20 }}>
-        <Avatar initials={player.initials} color={player.color} size={72} />
-        <div style={{ flex: 1 }}>
-          <h2 style={{ fontFamily: SERIF, fontSize: 30, fontWeight: 700, color: S.textPrimary, margin: 0, lineHeight: 1.1, marginBottom: 5 }}>{player.name}</h2>
-          <div style={{ fontSize: 14, color: S.textSecondary, marginBottom: 8 }}>{player.role}</div>
+      <div style={{ display: "flex", gap: isMobile ? 14 : 20, alignItems: "flex-start", marginBottom: 20 }}>
+        <Avatar initials={player.initials} color={player.color} size={isMobile ? 52 : 72} />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 24 : 30, fontWeight: 700, color: S.textPrimary, margin: 0, lineHeight: 1.1, marginBottom: 5 }}>{player.name}</h2>
+          <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: 8 }}>{player.role}</div>
           {player.chair && <div style={{ display: "inline-block", fontSize: 11, color: "#8C6B3A", background: S.accent, border: `1px solid ${S.accentBorder}`, borderRadius: 20, padding: "3px 10px", fontStyle: "italic" }}>{player.chair}</div>}
         </div>
       </div>
 
       {player.highlights.length > 0 && (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 18px", marginBottom: 22 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 14px", marginBottom: 20 }}>
           {player.highlights.map((h, i) => <span key={i} style={{ fontSize: 12, color: S.textSecondary }}>· {h}</span>)}
         </div>
       )}
 
-      <div style={{ height: 1, background: S.border, marginBottom: 24 }} />
-      <div style={{ fontFamily: SERIF, fontSize: 17, lineHeight: 1.8, color: "#2C231A", marginBottom: 32 }}>{player.bio}</div>
+      <div style={{ height: 1, background: S.border, marginBottom: 20 }} />
+      <div style={{ fontFamily: SERIF, fontSize: isMobile ? 15 : 17, lineHeight: 1.8, color: "#2C231A", marginBottom: 32 }}>{player.bio}</div>
 
       <SectionLabel>Instruments</SectionLabel>
       {player.instruments.map((inst, i) => <InstrumentCard key={i} inst={inst} />)}
@@ -150,7 +151,7 @@ function SectionMemberCard({ player, onClick }) {
 }
 
 /* ── BASSISTS TAB ── */
-function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, selectedPlayer, onSelectPlayer, onClearSelected, subView, onSubViewChange }) {
+function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, selectedPlayer, onSelectPlayer, onClearSelected, subView, onSubViewChange, isMobile }) {
   const scrollRef = useRef(null);
 
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = 0; }, [selectedPlayer]);
@@ -183,7 +184,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
   if (selectedPlayer) {
     const playerOrchestra = ORCHESTRAS[selectedPlayer.orchestraId];
     return (
-      <div ref={scrollRef} style={{ flex: 1, overflowY: "auto", padding: "20px 24px 0" }}>
+      <div ref={scrollRef} style={{ flex: 1, overflowY: "auto", padding: isMobile ? "14px 14px 0" : "20px 24px 0" }}>
         <PlayerDetail player={selectedPlayer} orchestra={playerOrchestra} onBack={onClearSelected} />
       </div>
     );
@@ -191,7 +192,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
 
   return (
     <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
-      <div style={{ padding: "12px 20px 10px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
+      <div style={{ padding: isMobile ? "10px 12px 8px" : "12px 20px 10px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
         <input
           type="text"
           placeholder="Search all bassists across orchestras…"
@@ -214,7 +215,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
         )}
       </div>
 
-      <div style={{ flex: 1, overflowY: "auto", padding: "18px 20px 32px" }}>
+      <div style={{ flex: 1, overflowY: "auto", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
         {isSearching ? (
           globalFiltered.length === 0
             ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
@@ -232,7 +233,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
                       </div>
                     )}
                     {sect.length > 0 && (
-                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 8 }}>
+                      <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
                         {sect.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
                       </div>
                     )}
@@ -240,7 +241,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
                 );
               })
         ) : subView === "instruments" ? (
-          <InstrumentsTab players={players} onGoToRoster={onSelectPlayer} />
+          <InstrumentsTab players={players} onGoToRoster={onSelectPlayer} isMobile={isMobile} />
         ) : (
           <>
             {leadership.length > 0 && (
@@ -255,7 +256,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
             {section.length > 0 && (
               <div style={{ marginBottom: 24 }}>
                 <SectionLabel>Section members</SectionLabel>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 8 }}>
+                <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
                   {section.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
                 </div>
               </div>
@@ -333,7 +334,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
 }
 
 /* ── INSTRUMENTS TAB ── */
-function InstrumentsTab({ players, onGoToRoster }) {
+function InstrumentsTab({ players, onGoToRoster, isMobile }) {
   const playerMap = getPlayerMap(players);
   const instruments = getAllInstruments(players);
   const notable = instruments.filter(i => i.story);
@@ -381,7 +382,7 @@ function InstrumentsTab({ players, onGoToRoster }) {
   );
 
   return (
-    <div style={{ overflowY: "auto", padding: "24px 24px 40px" }}>
+    <div style={{ overflowY: "auto", padding: isMobile ? "16px 12px 32px" : "24px 24px 40px" }}>
       {notable.length > 0 && (
         <div style={{ marginBottom: 28 }}>
           <SectionLabel>Instruments with notable histories</SectionLabel>
@@ -411,7 +412,7 @@ function HomeIcon({ size = 16, color = S.gold }) {
 }
 
 /* ── LANDING PAGE ── */
-function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, onSelectPlayer, sortOrder, onSortChange }) {
+function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, onSelectPlayer, sortOrder, onSortChange, isMobile }) {
   const isSearching = globalSearch.trim() !== "";
   const searchTerm = globalSearch.toLowerCase();
   const [hoveredId, setHoveredId] = useState(null);
@@ -473,15 +474,18 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         .idx-bottom { transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.22,1,0.36,1), max-height 0.25s ease; }
         .idx-row:not(:hover) .idx-bottom { opacity: 0; transform: translateY(-6px); pointer-events: none; max-height: 0; overflow: hidden; padding-top: 0 !important; padding-bottom: 0 !important; }
         .idx-row:hover .idx-bottom { opacity: 1; transform: translateY(0); max-height: 120px; }
+        @media (hover: none) {
+          .idx-row:not(:hover) .idx-bottom { opacity: 1; transform: none; pointer-events: auto; max-height: 200px; padding-top: 8px !important; }
+        }
         .idx-arrow { transition: opacity 0.2s ease, transform 0.2s ease; }
         .idx-number { transition: color 0.2s ease; }
         .idx-bar { transition: height 0.28s cubic-bezier(0.22,1,0.36,1); }
       `}</style>
 
       {/* Search + Sort bar */}
-      <div style={{ padding: "14px 20px 12px", background: S.cream, borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
+      <div style={{ padding: isMobile ? "10px 12px 8px" : "14px 20px 12px", background: S.cream, borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-          <div style={{ position: "relative", flex: "1 1 200px" }}>
+          <div style={{ position: "relative", flex: "1 1 160px" }}>
             <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
               style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", opacity: 0.4 }}>
               <circle cx="8.5" cy="8.5" r="5.5" stroke={S.textPrimary} strokeWidth="1.6"/>
@@ -514,7 +518,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
 
       <div style={{ flex: 1, overflowY: "auto" }}>
         {isSearching ? (
-          <div style={{ padding: "18px 20px 32px" }}>
+          <div style={{ padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
             {globalFiltered.length === 0
               ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
               : globalGrouped.map(({ orchestra: orch, players: ps }) => {
@@ -531,7 +535,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                         </div>
                       )}
                       {sect.length > 0 && (
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 8 }}>
+                        <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
                           {sect.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
                         </div>
                       )}
@@ -558,7 +562,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                     onMouseEnter={() => setHoveredId(orch.id)}
                     onMouseLeave={() => setHoveredId(null)}
                     style={{
-                      padding: "20px 24px 20px",
+                      padding: isMobile ? "14px 12px" : "20px 24px 20px",
                       cursor: "pointer",
                       borderBottom: `1px solid ${isHovered ? S.accentBorder : S.border}`,
                       background: isHovered ? S.accent : "transparent",
@@ -577,7 +581,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
 
                       <div className="idx-name" style={{
                         flex: 1,
-                        fontFamily: SERIF, fontSize: 34, fontWeight: 700,
+                        fontFamily: SERIF, fontSize: isMobile ? 22 : 34, fontWeight: 700,
                         lineHeight: 1.25, letterSpacing: "-0.01em",
                         color: isAnyHovered && !isHovered ? "#C0A882" : S.textPrimary,
                         whiteSpace: "nowrap", overflow: "hidden",
@@ -832,6 +836,7 @@ export default function App() {
             onSelectPlayer={handleSelectPlayer}
             sortOrder={sortOrder}
             onSortChange={setSortOrder}
+            isMobile={isMobile}
           />
         )}
         {view === "orchestra" && (
@@ -845,6 +850,7 @@ export default function App() {
             onClearSelected={() => setSelectedPlayer(null)}
             subView={subView}
             onSubViewChange={setSubView}
+            isMobile={isMobile}
           />
         )}
       </div>
