@@ -211,6 +211,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
   return (
     <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
       <div style={{ padding: isMobile ? "10px 12px 8px" : "12px 20px 10px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
+        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
         <input
           type="text"
           placeholder="Search all bassists across orchestras…"
@@ -231,6 +232,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
             <button onClick={() => onGlobalSearchChange("")} style={{ fontSize: 12, color: S.textSecondary, background: "none", border: `1px solid ${S.border}`, borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear</button>
           </div>
         )}
+        </div>
       </div>
 
       <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
