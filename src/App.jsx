@@ -503,6 +503,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
             value={sortOrder}
             onChange={e => onSortChange(e.target.value)}
             style={{ flex: "0 0 auto", padding: "10px 12px", fontSize: 12, fontFamily: "inherit", background: S.cardBg, border: `1.5px solid ${S.borderHover}`, borderRadius: 10, color: S.textSecondary, outline: "none", cursor: "pointer", appearance: "none", WebkitAppearance: "none", paddingRight: 28, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238C7B6A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}>
+            <option value="" disabled>Sort by…</option>
             {SORT_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
           </select>
         </div>
