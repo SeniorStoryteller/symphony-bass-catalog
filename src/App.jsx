@@ -582,7 +582,8 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       <div className="idx-name" style={{
                         flex: 1,
                         fontFamily: SERIF, fontSize: isMobile ? 22 : 34, fontWeight: 700,
-                        lineHeight: 1.25, letterSpacing: "-0.01em",
+                        lineHeight: 1.25, letterSpacing: "0.04em",
+                        textTransform: "uppercase",
                         color: isAnyHovered && !isHovered ? "#C0A882" : S.textPrimary,
                         whiteSpace: "nowrap", overflow: "hidden",
                         textAlign: "left",
@@ -608,10 +609,10 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       paddingTop: 8,
                     }}>
                       {/* Left: meta under orchestra name */}
-                      <div style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 4 }}>
-                        <span style={{ fontFamily: SERIF, fontSize: 24, fontWeight: 700, color: S.textPrimary, lineHeight: 1.05 }}>Est. {orch.founded}</span>
-                        <span style={{ color: S.textMuted, fontSize: 20, fontWeight: 300 }}>|</span>
-                        <span style={{ fontFamily: SERIF, fontSize: 24, fontWeight: 700, color: S.textPrimary, lineHeight: 1.05 }}>{playerCount} bassists</span>
+                      <div style={{ display: "flex", alignItems: "center", gap: 10, paddingTop: 4 }}>
+                        <span style={{ fontFamily: SERIF, fontSize: 16, fontWeight: 600, color: S.textSecondary, lineHeight: 1.05 }}>Est. {orch.founded}</span>
+                        <span style={{ color: S.textMuted, fontSize: 13, fontWeight: 300 }}>|</span>
+                        <span style={{ fontFamily: SERIF, fontSize: 16, fontWeight: 600, color: S.textSecondary, lineHeight: 1.05 }}>{playerCount} bassists</span>
                       </div>
 
                       {/* Right: principal bass label aligns with meta line */}
