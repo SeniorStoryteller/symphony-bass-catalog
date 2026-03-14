@@ -194,14 +194,14 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
   if (selectedPlayer) {
     const playerOrchestra = ORCHESTRAS[selectedPlayer.orchestraId];
     return (
-      <div ref={scrollRef} style={{ flex: 1, overflowY: "auto", padding: isMobile ? "14px 14px 0" : "20px 24px 0" }}>
+      <div ref={scrollRef} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "14px 14px 0" : "20px 24px 0" }}>
         <PlayerDetail player={selectedPlayer} orchestra={playerOrchestra} onBack={onClearSelected} />
       </div>
     );
   }
 
   return (
-    <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+    <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
       <div style={{ padding: isMobile ? "10px 12px 8px" : "12px 20px 10px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
         <input
           type="text"
@@ -225,7 +225,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
         )}
       </div>
 
-      <div style={{ flex: 1, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
+      <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
         {isSearching ? (
           globalFiltered.length === 0
             ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
@@ -480,7 +480,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
   ).join("\n        ");
 
   return (
-    <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+    <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
       <style>{`
         @keyframes slideIn {
           from { opacity: 0; transform: translateX(-18px); }
@@ -541,7 +541,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         )}
       </div>
 
-      <div style={{ flex: 1, overflowY: "auto", overflowX: "hidden" }}>
+      <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden" }}>
         {isSearching ? (
           <div style={{ padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
             {globalFiltered.length === 0
@@ -837,7 +837,7 @@ export default function App() {
       </div>
 
       {/* ── CONTENT ── */}
-      <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+      <div style={{ flex: 1, minWidth: 0, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
         {view === "landing" && (
           <LandingPage
             onSelectOrchestra={handleSelectOrchestra}
