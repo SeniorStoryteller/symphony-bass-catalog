@@ -581,6 +581,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                         lineHeight: 1.25, letterSpacing: "-0.01em",
                         color: isAnyHovered && !isHovered ? "#C0A882" : S.textPrimary,
                         whiteSpace: "nowrap", overflow: "hidden",
+                        textAlign: "left",
                       }}>
                         {orch.name}
                       </div>
@@ -672,6 +673,13 @@ export default function App() {
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [sortOrder, setSortOrder] = useState("founded");
   const [subView, setSubView] = useState("bassists");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
 
   const orchestra = ORCHESTRAS[orchestraId];
   const players = ALL_PLAYERS[orchestraId];
@@ -721,8 +729,8 @@ export default function App() {
       <div style={{ background: S.dark, flexShrink: 0, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle at 80% 40%, rgba(200,169,110,0.12) 0%, transparent 65%)", pointerEvents: "none" }} />
 
-        <div style={{ padding: "14px 20px 0", position: "relative" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, flexWrap: "nowrap", minWidth: 0 }}>
+        <div style={{ padding: isMobile ? "8px 12px 0" : "14px 20px 0", position: "relative" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: isMobile ? 8 : 12, flexWrap: "nowrap", minWidth: 0 }}>
 
             {/* Home icon */}
             <button onClick={handleGoHome}
@@ -777,35 +785,37 @@ export default function App() {
             )}
 
             {view === "landing" && (
-              <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "#8C7A68" }}>Symphony Bassists Catalog</span>
+              <span style={{ fontSize: isMobile ? 9 : 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "#8C7A68" }}>Symphony Bassists Catalog</span>
             )}
           </div>
 
           {view === "landing" ? (
             <>
               <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: S.gold, opacity: 0.7, marginBottom: 6 }}>Catalog of Professional Symphony Bassists</div>
-              <h1 style={{ fontFamily: SERIF, fontSize: 28, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 12 }}>
+              <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 22 : 28, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: isMobile ? 8 : 12 }}>
                 The Bass Section: {numberToWord(Object.keys(ORCHESTRAS).length)} American Orchestra{Object.keys(ORCHESTRAS).length !== 1 ? "s" : ""}
               </h1>
-              <div style={{ display: "flex", gap: 0, borderTop: "1px solid rgba(255,255,255,0.08)", marginBottom: 0 }}>
-                {[
-                  { num: Object.keys(ORCHESTRAS).length, label: "Orchestras" },
-                  { num: ALL_PLAYERS_FLAT.length, label: "Bassists" },
-                  { num: ALL_PLAYERS_FLAT.filter(p => p.chair).length, label: "Named chairs" },
-                  { num: ALL_PLAYERS_FLAT.flatMap(p => p.instruments).filter(i => i.story || i.maker).length, label: "Historical instruments" },
-                ].map((stat, i, arr) => (
-                  <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
-                    <div style={{ fontFamily: SERIF, fontSize: 20, fontWeight: 700, color: "#F0E8DC", lineHeight: 1 }}>{stat.num}</div>
-                    <div style={{ fontSize: 10, color: "#9A8878", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 4, fontWeight: 600 }}>{stat.label}</div>
-                  </div>
-                ))}
-              </div>
+              {!isMobile && (
+                <div style={{ display: "flex", gap: 0, borderTop: "1px solid rgba(255,255,255,0.08)", marginBottom: 0 }}>
+                  {[
+                    { num: Object.keys(ORCHESTRAS).length, label: "Orchestras" },
+                    { num: ALL_PLAYERS_FLAT.length, label: "Bassists" },
+                    { num: ALL_PLAYERS_FLAT.filter(p => p.chair).length, label: "Named chairs" },
+                    { num: ALL_PLAYERS_FLAT.flatMap(p => p.instruments).filter(i => i.story || i.maker).length, label: "Historical instruments" },
+                  ].map((stat, i, arr) => (
+                    <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
+                      <div style={{ fontFamily: SERIF, fontSize: 20, fontWeight: 700, color: "#F0E8DC", lineHeight: 1 }}>{stat.num}</div>
+                      <div style={{ fontSize: 10, color: "#9A8878", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 4, fontWeight: 600 }}>{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </>
           ) : (
             <>
               <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#8C7A68", marginBottom: 4 }}>{superLabel}</div>
-              <h1 style={{ fontFamily: SERIF, fontSize: 26, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 4 }}>{headerTitle}</h1>
-              <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#8C7A68", marginBottom: 12 }}>{headerSub}</div>
+              <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 20 : 26, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 4 }}>{headerTitle}</h1>
+              <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#8C7A68", marginBottom: isMobile ? 8 : 12 }}>{headerSub}</div>
             </>
           )}
         </div>
@@ -813,7 +823,7 @@ export default function App() {
       </div>
 
       {/* ── CONTENT ── */}
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+      <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
         {view === "landing" && (
           <LandingPage
             onSelectOrchestra={handleSelectOrchestra}
