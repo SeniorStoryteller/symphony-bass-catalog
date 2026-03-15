@@ -236,6 +236,18 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
         </div>
       </div>
 
+      {/* View toggle — Bassists / Historical Instruments */}
+      <div style={{ padding: isMobile ? "8px 12px 4px" : "10px 20px 4px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
+        <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", gap: 4 }}>
+          {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Historical Instruments" }].map(sv => (
+            <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
+              style={{ fontSize: 11, padding: "4px 14px", borderRadius: 20, fontFamily: "inherit", fontWeight: subView === sv.key ? 600 : 400, background: subView === sv.key ? "rgba(200,169,110,0.15)" : "transparent", color: subView === sv.key ? S.gold : S.textMuted, border: `1px solid ${subView === sv.key ? "rgba(200,169,110,0.55)" : S.border}`, transition: "all 0.15s", cursor: "pointer" }}>
+              {sv.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
         {isSearching ? (
@@ -759,52 +771,7 @@ export default function App() {
             {/* Pipe */}
             <div style={{ width: 1.5, height: 18, background: "rgba(200,169,110,0.4)", flexShrink: 0 }} />
 
-            {/* Orchestra destination selector */}
-            {view === "orchestra" && (() => {
-              const orchList = Object.values(ORCHESTRAS);
-              const regions = [...new Set(orchList.map(o => o.region))].sort();
-              const grouped = regions.length > 1;
-              return (
-                <select
-                  value={orchestraId}
-                  onChange={e => handleSelectOrchestra(e.target.value)}
-                  style={{ fontSize: 11, padding: "3px 28px 3px 10px", borderRadius: 20, fontFamily: "inherit", fontWeight: 500, background: "rgba(200,169,110,0.15)", color: S.gold, border: "1px solid rgba(200,169,110,0.45)", outline: "none", cursor: "pointer", appearance: "none", WebkitAppearance: "none", backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23C8A96E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 8px center", maxWidth: "38vw", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flexShrink: 1, minWidth: 0 }}>
-                  {grouped
-                    ? regions.map(region => (
-                        <optgroup key={region} label={region}>
-                          {orchList.filter(o => o.region === region).map(o => (
-                            <option key={o.id} value={o.id}>{o.name}</option>
-                          ))}
-                        </optgroup>
-                      ))
-                    : orchList.map(o => (
-                        <option key={o.id} value={o.id}>{o.name}</option>
-                      ))
-                  }
-                </select>
-              );
-            })()}
-
-            {/* Pipe — destination / view toggle (orchestra only) */}
-            {view === "orchestra" && !selectedPlayer && (
-              <div style={{ width: 1, height: 14, background: "rgba(255,255,255,0.18)", flexShrink: 0 }} />
-            )}
-
-            {/* View toggle — segmented control style, flat and lighter than destination selector */}
-            {view === "orchestra" && !selectedPlayer && (
-              <div style={{ display: "flex", gap: 4, flexShrink: 0 }}>
-                {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Historical Instruments" }].map(sv => (
-                  <button key={sv.key} onClick={() => setSubView(sv.key)}
-                    style={{ fontSize: 11, padding: "3px 12px", borderRadius: 20, fontFamily: "inherit", fontWeight: subView === sv.key ? 600 : 400, background: subView === sv.key ? "rgba(200,169,110,0.25)" : "transparent", color: subView === sv.key ? S.gold : "#B09A7A", border: `1px solid ${subView === sv.key ? "rgba(200,169,110,0.6)" : "rgba(255,255,255,0.25)"}`, transition: "all 0.15s", cursor: "pointer", whiteSpace: "nowrap" }}>
-                    {sv.label}
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {view === "landing" && (
-              <span style={{ fontSize: isMobile ? 10 : 11, fontWeight: 500, color: S.gold, letterSpacing: "0.04em" }}>The people beneath the sound</span>
-            )}
+            <span style={{ fontSize: isMobile ? 10 : 11, fontWeight: 500, color: S.gold, letterSpacing: "0.04em" }}>The people beneath the sound</span>
           </div>
 
           {view === "landing" ? (
@@ -815,9 +782,9 @@ export default function App() {
             </>
           ) : (
             <>
-              <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#8C7A68", marginBottom: 4 }}>{superLabel}</div>
-              <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 20 : 26, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 4 }}>{headerTitle}</h1>
-              <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#8C7A68", marginBottom: isMobile ? 8 : 12 }}>{headerSub}</div>
+              <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "#9A8878", marginBottom: 4 }}>{superLabel}</div>
+              <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 40, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 6 }}>{headerTitle}</h1>
+              <div style={{ fontSize: 13, color: "#9A8878", marginBottom: isMobile ? 8 : 12 }}>{headerSub}</div>
             </>
           )}
         </div>
