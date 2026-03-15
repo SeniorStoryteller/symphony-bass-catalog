@@ -480,9 +480,8 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
   const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
   const SORT_OPTIONS = [
-    { key: "name",    label: "Orchestra Name", short: "Name" },
-    { key: "city",    label: "City",           short: "City" },
-    { key: "size",    label: "Section Size",   short: "Players" },
+    { key: "name", label: "Orchestra Name" },
+    { key: "size", label: "Section Size" },
   ];
 
   const rawOrchList = Object.values(ORCHESTRAS);
@@ -596,7 +595,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
               {SORT_OPTIONS.map(o => (
                 <button key={o.key} onClick={() => onSortChange(o.key)}
                   style={{ fontSize: 11, padding: "3px 10px", borderRadius: 20, fontFamily: "inherit", background: sortOrder === o.key ? S.accent : "transparent", color: sortOrder === o.key ? "#7A5C1E" : S.textSecondary, border: `1px solid ${sortOrder === o.key ? S.accentBorder : S.border}`, cursor: "pointer", fontWeight: sortOrder === o.key ? 600 : 400, transition: "all 0.15s", whiteSpace: "nowrap" }}>
-                  {isMobile ? o.short : o.label}
+                  {o.label}
                 </button>
               ))}
             </div>
