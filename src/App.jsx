@@ -11,7 +11,7 @@ const S = {
 };
 
 const SERIF = "'Cormorant Garamond', Georgia, serif";
-const LABEL_STYLE = { fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "#B09070" };
+const LABEL_STYLE = { fontSize: 12, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#B09070" };
 const LEADERSHIP_ROLES = ["Principal Bass", "Associate Principal Bass", "Assistant Principal Bass", "First Assistant Principal Bass"];
 const MAX_W = 860;
 
@@ -116,20 +116,16 @@ function LeadershipCard({ player, onClick }) {
 function SectionMemberCard({ player, onClick }) {
   const [hov, setHov] = useState(false);
   const isMobile = window.innerWidth < 768;
-  const hasInfo = player.highlights.length > 0 || player.since;
   return (
     <div onClick={() => onClick(player)}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ width: "100%", boxSizing: "border-box", background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: isMobile ? "12px 14px" : "14px 22px", cursor: "pointer", transition: "all 0.15s ease", transform: hov ? "translateY(-1px)" : "none", boxShadow: hov ? "0 4px 16px rgba(100,80,50,0.08)" : "none", borderLeft: "3px solid #D4C8B4" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <Avatar initials={player.initials} color={player.color} size={isMobile ? 36 : 42} />
+      style={{ width: "100%", boxSizing: "border-box", background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: isMobile ? "14px 14px" : "20px 22px", cursor: "pointer", transition: "all 0.15s ease", transform: hov ? "translateY(-1px)" : "none", boxShadow: hov ? "0 4px 16px rgba(100,80,50,0.08)" : "none", borderLeft: "3px solid #D4C8B4" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 12 : 16 }}>
+        <Avatar initials={player.initials} color={player.color} size={isMobile ? 40 : 52} />
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontFamily: SERIF, fontSize: isMobile ? 15 : 17, fontWeight: 700, color: S.textPrimary, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{player.name}</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 2 }}>
-            {player.since && <span style={{ fontSize: 11, color: S.textMuted }}>since {player.since}</span>}
-            {player.chair && <span style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{player.chair.split(" ").slice(0, 3).join(" ")}…</span>}
-            {!hasInfo && <span style={{ fontSize: 11, color: S.textMuted }}>Section Bass</span>}
-          </div>
+          <div style={{ fontFamily: SERIF, fontSize: isMobile ? 17 : 20, fontWeight: 700, color: S.textPrimary, marginBottom: 2, lineHeight: 1.1 }}>{player.name}</div>
+          {player.since && <div style={{ fontSize: 12, color: S.textMuted }}>since {player.since}</div>}
+          {player.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic", marginTop: 2 }}>{player.chair}</div>}
         </div>
       </div>
     </div>
@@ -286,7 +282,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
           <>
             {leadership.length > 0 && (
               <div style={{ marginBottom: 24 }}>
-                <SectionLabel>Leadership</SectionLabel>
+                <SectionLabel>Principals</SectionLabel>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {leadership.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
                 </div>
@@ -295,8 +291,8 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
 
             {section.length > 0 && (
               <div style={{ marginBottom: 24 }}>
-                <SectionLabel>Section members</SectionLabel>
-                <div style={{ display: "grid", gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "160px" : "220px"}, 1fr))`, gap: 8 }}>
+                <SectionLabel>Section Members</SectionLabel>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {section.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
                 </div>
               </div>
@@ -305,7 +301,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
             {alumni.length > 0 && (
               <div style={{ marginTop: 28 }}>
                 <div style={{ height: 1, background: S.border, marginBottom: 20 }} />
-                <SectionLabel>Distinguished Alumni</SectionLabel>
+                <SectionLabel>Alumni</SectionLabel>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {alumni.map(p => (
                     <div key={p.id} onClick={() => onSelectPlayer(p)}
