@@ -239,7 +239,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
       {/* View toggle — Bassists / Their Instruments */}
       <div style={{ padding: isMobile ? "8px 14px 6px" : "10px 24px 8px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 }}>
-          <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: S.textMuted }}>View</span>
+          <span style={{ fontSize: 13, fontWeight: 400, color: S.textMuted }}>View:</span>
           {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Their Instruments" }].map((sv, i) => (
             <>
               {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 14, userSelect: "none" }}>|</span>}
