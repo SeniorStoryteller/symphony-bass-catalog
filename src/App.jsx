@@ -505,7 +505,6 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         }
         .idx-row { animation: slideIn 0.45s cubic-bezier(0.22,1,0.36,1) both; }
         ${animDelays}
-        .catalog-stats { animation: fadeIn 0.6s ease both; animation-delay: ${(0.04 + orchCount * 0.06).toFixed(2)}s; }
         .idx-name  { transition: color 0.2s ease, letter-spacing 0.3s ease; }
         .idx-row:hover .idx-name { letter-spacing: 0.01em; }
         .idx-bottom { transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.22,1,0.36,1), max-height 0.25s ease; }
@@ -602,7 +601,6 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                 const players = ALL_PLAYERS[orch.id];
                 const principal = players.find(p => p.role === "Principal Bass");
                 const isHovered = hoveredId === orch.id;
-                const isAnyHovered = hoveredId !== null;
                 const playerCount = players.length;
 
                 return (
@@ -618,22 +616,14 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                     }}>
                   <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "14px 12px" : "20px 24px 20px" }}>
 
-                    {/* ROW 1 — index number · orchestra name · arrow */}
+                    {/* ROW 1 — orchestra name · arrow */}
                     <div style={{ display: "flex", alignItems: "flex-start", gap: 0 }}>
-                      <div className="idx-number" style={{
-                        fontFamily: SERIF, fontSize: 13, fontWeight: 400, fontStyle: "italic",
-                        color: isHovered ? orch.accentColor : S.textMuted,
-                        width: 28, flexShrink: 0,
-                      }}>
-                        {String(idx + 1).padStart(2, "0")}
-                      </div>
-
                       <div className="idx-name" style={{
                         flex: 1,
                         fontFamily: SERIF, fontSize: isMobile ? 22 : 34, fontWeight: 700,
                         lineHeight: 1.15, letterSpacing: "0.04em",
                         textTransform: "uppercase",
-                        color: isAnyHovered && !isHovered ? "#C0A882" : S.textPrimary,
+                        color: S.textPrimary,
                         textAlign: "left",
                         wordBreak: "break-word",
                       }}>
