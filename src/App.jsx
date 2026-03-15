@@ -239,9 +239,10 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
       {/* View toggle — Bassists / Their Instruments */}
       <div style={{ padding: isMobile ? "8px 14px 6px" : "10px 24px 8px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 }}>
+          <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: S.textMuted }}>View</span>
           {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Their Instruments" }].map((sv, i) => (
             <>
-              {i > 0 && <span key={`pipe-${i}`} style={{ color: S.border, fontSize: 14, userSelect: "none" }}>|</span>}
+              {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 14, userSelect: "none" }}>|</span>}
               <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
                 style={{ background: "none", border: "none", padding: "2px 0", fontFamily: "inherit", fontSize: 13, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
                 {sv.label}
