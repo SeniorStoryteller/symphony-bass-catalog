@@ -255,11 +255,11 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
         </div>
       </div>
 
-      {/* View toggle — Bassists / Their Instruments */}
+      {/* View toggle — Bassists / Notable Instruments */}
       <div style={{ padding: isMobile ? "8px 14px 6px" : "10px 24px 8px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 }}>
           <span style={{ fontSize: 13, fontWeight: 400, color: S.textMuted }}>View:</span>
-          {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Their Instruments" }].map((sv, i) => (
+          {[{ key: "bassists", label: "Bassists" }, ...(getAllInstruments(players).length > 0 ? [{ key: "instruments", label: "Notable Instruments" }] : [])].map((sv, i) => (
             <>
               {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 14, userSelect: "none" }}>|</span>}
               <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
@@ -466,6 +466,9 @@ function InstrumentsTab({ players, onGoToRoster, isMobile }) {
 
   return (
     <div style={{ overflowY: "auto", padding: isMobile ? "16px 12px 32px" : "24px 24px 40px" }}>
+      <div style={{ fontFamily: SERIF, fontSize: isMobile ? 14 : 15, color: S.textSecondary, lineHeight: 1.7, marginBottom: 24, fontStyle: "italic" }}>
+        Professional orchestral basses are often instruments of significant age and value. Where known, we document what these players are playing.
+      </div>
       {notable.length > 0 && (
         <div style={{ marginBottom: 28 }}>
           <SectionLabel>Instruments with notable histories</SectionLabel>
