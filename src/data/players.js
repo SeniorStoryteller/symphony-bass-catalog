@@ -48,6 +48,12 @@ const ORCHESTRAS = {
     accentColor: "#B05A5A", headerColor: "#6B2828", founded: 1918,
     seasonNote: "The 2025–26 season is the orchestra's 108th, and Franz Welser-Möst's 24th as Music Director. Brandon Mason joined the bass section in July 2025, the only bass personnel change from the prior season.",
   },
+  nso: {
+    id: "nso", name: "National Symphony Orchestra", shortName: "NSO",
+    venue: "Kennedy Center Concert Hall", city: "Washington, D.C.", region: "Mid-Atlantic",
+    accentColor: "#8C3A4A", headerColor: "#3D1020", founded: 1931,
+    seasonNote: "The 2025–26 season is Music Director Gianandrea Noseda's ninth at the helm.",
+  },
   pso: {
     id: "pso", name: "Pittsburgh Symphony Orchestra", shortName: "PSO",
     venue: "Heinz Hall for the Performing Arts", city: "Pittsburgh", region: "Northeast",
@@ -867,6 +873,88 @@ const PSO_PLAYERS = [
   },
 ];
 
+/* ── NSO PLAYERS ── */
+const NSO_PLAYERS = [
+  {
+    id: "nso-oppelt", orchestraId: "nso", name: "Robert Oppelt",
+    role: "Principal Bass", since: 1982, chair: null,
+    initials: "RO", color: "#7B5E8A",
+    bio: "Robert Oppelt joined the National Symphony Orchestra in 1982 at age 21, auditioning directly for Music Director Mstislav Rostropovich. He was promoted to Assistant Principal in 1984 and appointed Principal Bass in 1996 by Music Director Leonard Slatkin. A native of Richmond, Kentucky, he earned a Bachelor of Music from the University of North Carolina School of the Arts.\n\nOppelt has performed solo concertos with the NSO including the Koussevitzky Concerto, Paganini's Moses Fantasy, and Mozart's Per queste belle mano. He is a member of the Kennedy Center Chamber Players and has collaborated with Yo-Yo Ma, Hilary Hahn, Joseph Kalichstein, and the Guarneri String Quartet. He taught at the University of Maryland for 16 years and has recorded two solo albums: The Double Bass — Robert Oppelt and Friends (MSR Classics, 2006) and Just Music.",
+    instruments: [
+      { name: "Italian double bass", maker: null, era: "c. 1800", story: true, storyTitle: "Over two centuries in service", detail: "An Italian double bass over 200 years old, specific maker not publicly documented. Oppelt employs scordatura — tuning the instrument a whole step higher — for solo concerto performances, a practice that increases projection and alters the instrument's tonal character." },
+    ],
+    highlights: ["Principal since 1996; NSO member since 1982", "Appointed by Mstislav Rostropovich", "Kennedy Center Chamber Players", "UMD faculty 16 years", "Solo recordings on MSR Classics"],
+    new2025: false,
+  },
+  {
+    id: "nso-barber", orchestraId: "nso", name: "Richard Barber",
+    role: "Assistant Principal Bass", since: 1995, chair: null,
+    initials: "RB", color: "#5E7B8A",
+    bio: "Richard Barber joined the National Symphony Orchestra in 1995 and was promoted to Assistant Principal Bass seven months later after winning a second national audition. A native of Chicago, he began piano at age 7 and double bass at age 9, studying privately with bassists from the Chicago Lyric Opera and Chicago Symphony before attending the Peabody Conservatory, where he earned a Bachelor of Music in three years. His teachers at Peabody included Harold Robinson and Timothy Cobb.\n\nAfter graduation, Barber spent three seasons with the Phoenix Symphony and performed with the Schleswig-Holstein Music Festival Orchestra. He has toured the US, Europe, Japan, and China with the NSO, and performs in the DC chamber music community with the 21st Century Consort and Eclipse Chamber Orchestra. He is a lecturer in double bass at the University of Maryland.",
+    instruments: [
+      { name: "Giovanni Paolo Maggini double bass", maker: "Giovanni Paolo Maggini, Brescia, Italy", era: "c. 1620", story: true, storyTitle: "Among the oldest instruments in American orchestral use", detail: "Made around 1620 by Giovanni Paolo Maggini of Brescia, Italy — one of the great masters of the Brescian school of instrument making, active alongside the Amati family in the early 17th century. Now over 400 years old, this bass predates most instruments in any American orchestra. Maggini instruments are among the most sought after in the world for their distinctive tone and historical significance." },
+    ],
+    highlights: ["Assistant Principal since 1995", "Peabody BM; studied with Harold Robinson & Timothy Cobb", "Previously Phoenix Symphony", "UMD lecturer in double bass"],
+    new2025: false,
+  },
+  {
+    id: "nso-weisner", orchestraId: "nso", name: "Jeffrey Weisner",
+    role: "Section Bass", since: 1995, chair: null,
+    initials: "JW", color: "#7B8A5E",
+    bio: "Jeffrey Weisner has been a member of the National Symphony Orchestra bass section since 1995. He earned a Bachelor of Music from Boston University, studying with Lawrence Wolfe and Edwin Barker, and a Master of Music from the Peabody Conservatory, studying with Hal Robinson. He is a member of the faculty at the Peabody Institute.\n\nWeisner released a solo album, Neomonology (Innova Records, 2012), featuring three newly commissioned works. He has given recitals and masterclasses at the San Francisco Conservatory, the Colburn School, and Interlochen Arts Academy, and chairs the NSO Artistic Advisory Committee and DEI Committee.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["NSO since 1995", "BU BM; studied with Lawrence Wolfe & Edwin Barker", "Peabody MM; studied with Hal Robinson", "Solo album: Neomonology (Innova Records, 2012)", "NSO Artistic Advisory Committee chair"],
+    new2025: false,
+  },
+  {
+    id: "nso-gold", orchestraId: "nso", name: "Ira Gold",
+    role: "Section Bass", since: 2005, chair: null,
+    initials: "IG", color: "#8A7B5E",
+    bio: "Ira Gold has been a member of the National Symphony Orchestra bass section since 2005. A native of Houston, Texas, he earned a Bachelor of Music from Boston University and a Master of Music from Rice University's Shepherd School of Music. His primary teachers have included Edwin Barker, Paul Ellison, Dennis Whittaker, and Mark Shapiro.\n\nBefore joining the NSO, Gold held a position with the Minnesota Orchestra and has served as guest principal bass with the San Francisco Symphony and Detroit Symphony Orchestra. He won the strings division of the Rice University Concerto Competition in 2005. Gold is Associate Professor of Double Bass at the Peabody Conservatory and co-founded DCBass, an intensive summer workshop for bass players, with NSO colleague Paul DeNola.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["NSO since 2005", "Rice/Shepherd School MM; studied with Paul Ellison", "Previously Minnesota Orchestra", "Guest Principal: SFS, Detroit Symphony", "Peabody Conservatory, Associate Professor"],
+    new2025: false,
+  },
+  {
+    id: "nso-denola", orchestraId: "nso", name: "Paul DeNola",
+    role: "Section Bass", since: 2006, chair: null,
+    initials: "PD", color: "#5E8A7B",
+    bio: "Paul DeNola joined the National Symphony Orchestra bass section in July 2006. A native of the San Francisco Bay Area, he studied at Indiana University with Bruce Bransby and at the University of Southern California with Nico Abondolo. Before joining the NSO, he spent three seasons with the Oregon Symphony.\n\nDeNola has appeared with the Los Angeles Philharmonic, the Smithsonian Chamber Music Society, and the Cabrillo Festival of Contemporary Music. He co-founded DCBass, an intensive summer double bass workshop in Washington, with NSO colleague Ira Gold, and created The String Thing, a music comedy for children performed at the Kennedy Center. He teaches at the University of Maryland.",
+    instruments: [
+      { name: "Thomas Dodd double bass", maker: "Thomas Dodd, London, England", era: "c. 1810", story: true, storyTitle: "A London instrument from the Romantic era", detail: "Made in London around 1810 by Thomas Dodd, a prominent English instrument dealer and maker active in the late 18th and early 19th centuries. Dodd instruments — basses, cellos, and violins — were widely distributed across England and are noted for their craftsmanship and tonal warmth. Now over 200 years old." },
+    ],
+    highlights: ["NSO since 2006", "Indiana University; studied with Bruce Bransby", "USC; studied with Nico Abondolo", "Co-founder, DCBass workshop", "UMD lecturer"],
+    new2025: false,
+  },
+  {
+    id: "nso-nilles", orchestraId: "nso", name: "Charles Nilles",
+    role: "Section Bass", since: null, chair: null,
+    initials: "CN", color: "#8A5E7B",
+    bio: "Charles Nilles is a member of the National Symphony Orchestra bass section. A native of Wheaton, Illinois, he began playing bass in third grade and participated in Disney's Young Musicians Symphony Orchestra as a youth. He earned bachelor's and master's degrees from Rice University's Shepherd School of Music, studying with Paul Ellison, and has held festival positions at the Aspen Music Festival and the Schleswig-Holstein Musik Festival.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Rice/Shepherd School BM & MM; studied with Paul Ellison", "Aspen Music Festival & Schleswig-Holstein Musik Festival"],
+    new2025: false,
+  },
+  {
+    id: "nso-jacobsen", orchestraId: "nso", name: "Alexander Jacobsen",
+    role: "Section Bass", since: 2013, chair: null,
+    initials: "AJ", color: "#6B7B5E",
+    bio: "Alexander Jacobsen has been a member of the National Symphony Orchestra bass section since 2013. A native of Albuquerque, New Mexico, he began the double bass in ninth grade and spent summers at the Brevard Music Center before entering the Curtis Institute of Music in 2008, where he studied with Edgar Meyer and Harold Robinson.\n\nJacobsen placed third in the International Society of Bassists Solo Competition in 2015. He teaches at George Washington University and Howard University, and has composed and arranged works for ensembles ranging from big band to bass orchestra.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["NSO since 2013", "Curtis Institute; studied with Edgar Meyer & Harold Robinson", "3rd Prize, ISB Solo Competition (2015)", "GWU & Howard University faculty"],
+    new2025: false,
+  },
+  {
+    id: "nso-marks", orchestraId: "nso", name: "Michael Marks",
+    role: "Section Bass", since: 2020, chair: null,
+    initials: "MM", color: "#5E6B8A",
+    bio: "Michael Marks joined the National Symphony Orchestra bass section in September 2020. A native of Gilbert, Arizona, he earned a Bachelor of Music from the Colburn Conservatory, studying with Peter Lloyd, and a Master of Music from Rice University's Shepherd School of Music, studying with Timothy Pitts.\n\nBefore joining the NSO, Marks served as Principal Bass of the Arizona Opera for three seasons — an appointment he received at age 19, making him the youngest rostered musician in the company's history at the time. He has worked as a substitute with the Phoenix Symphony, Los Angeles Opera, and Los Angeles Chamber Orchestra, and was a Zarin Mehta Fellow at the Music Academy of the West.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["NSO since 2020", "Colburn BM; studied with Peter Lloyd", "Rice/Shepherd School MM; studied with Timothy Pitts", "Principal Bass, Arizona Opera (appointed age 19)", "Zarin Mehta Fellow, Music Academy of the West"],
+    new2025: false,
+  },
+];
+
 const ALL_PLAYERS = {
   sfs: [...SFS_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "sfs")],
   bso: [...BSO_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "bso")],
@@ -876,8 +964,9 @@ const ALL_PLAYERS = {
   nyp: [...NYP_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "nyp")],
   phi: [...PHI_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "phi")],
   cle: CLE_PLAYERS,
+  nso: NSO_PLAYERS,
   pso: PSO_PLAYERS,
 };
 const ALL_PLAYERS_FLAT = Object.values(ALL_PLAYERS).flat();
 
-export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, CLE_PLAYERS, PSO_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };
+export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, CLE_PLAYERS, NSO_PLAYERS, PSO_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };

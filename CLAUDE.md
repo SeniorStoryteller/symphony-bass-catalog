@@ -50,6 +50,7 @@
 | phi   | Philadelphia Orchestra           | #B5863C     |
 | sfs   | San Francisco Symphony           | #8B6E9E     |
 | cle   | Cleveland Orchestra              | #B05A5A     |
+| nso   | National Symphony Orchestra      | #8C3A4A     |
 | pso   | Pittsburgh Symphony Orchestra    | #B87333     |
 
 ## Git Workflow
