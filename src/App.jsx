@@ -115,24 +115,21 @@ function LeadershipCard({ player, onClick }) {
 
 function SectionMemberCard({ player, onClick }) {
   const [hov, setHov] = useState(false);
-  const rich = isRich(player);
+  const isMobile = window.innerWidth < 768;
   const hasInfo = player.highlights.length > 0 || player.since;
   return (
     <div onClick={() => onClick(player)}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 12, padding: "14px 16px", cursor: "pointer", transition: "all 0.15s ease", transform: hov ? "translateY(-1px)" : "none", boxShadow: hov ? "0 4px 16px rgba(100,80,50,0.08)" : "none" }}>
+      style={{ width: "100%", boxSizing: "border-box", background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: isMobile ? "12px 14px" : "14px 22px", cursor: "pointer", transition: "all 0.15s ease", transform: hov ? "translateY(-1px)" : "none", boxShadow: hov ? "0 4px 16px rgba(100,80,50,0.08)" : "none", borderLeft: "3px solid #D4C8B4" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <Avatar initials={player.initials} color={player.color} size={38} />
+        <Avatar initials={player.initials} color={player.color} size={isMobile ? 36 : 42} />
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 700, color: S.textPrimary, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{player.name}</div>
+          <div style={{ fontFamily: SERIF, fontSize: isMobile ? 15 : 17, fontWeight: 700, color: S.textPrimary, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{player.name}</div>
           <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 2 }}>
             {player.since && <span style={{ fontSize: 11, color: S.textMuted }}>since {player.since}</span>}
             {player.chair && <span style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{player.chair.split(" ").slice(0, 3).join(" ")}…</span>}
             {!hasInfo && <span style={{ fontSize: 11, color: S.textMuted }}>Section Bass</span>}
           </div>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4, flexShrink: 0 }}>
-          {rich && <span style={{ fontSize: 10, color: S.gold, fontWeight: 600 }}>◆</span>}
         </div>
       </div>
     </div>
