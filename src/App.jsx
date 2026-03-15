@@ -733,9 +733,6 @@ export default function App() {
     setView("orchestra");
   };
 
-  const superLabel = selectedPlayer
-    ? `${ORCHESTRAS[selectedPlayer.orchestraId].shortName} · ${ORCHESTRAS[selectedPlayer.orchestraId].name}`
-    : "Catalog of Professional Symphony Bassists";
 
   const headerTitle = selectedPlayer ? selectedPlayer.name : orchestra.name;
   const headerSub = selectedPlayer
@@ -782,7 +779,6 @@ export default function App() {
             </>
           ) : (
             <>
-              <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "#9A8878", marginBottom: 4 }}>{superLabel}</div>
               <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 40, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 6 }}>{headerTitle}</h1>
               <div style={{ fontSize: 13, color: "#9A8878", marginBottom: isMobile ? 8 : 12 }}>{headerSub}</div>
             </>
