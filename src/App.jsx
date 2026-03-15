@@ -65,7 +65,7 @@ function PlayerDetail({ player, orchestra, onBack }) {
         <Avatar initials={player.initials} color={player.color} size={isMobile ? 52 : 72} />
         <div style={{ flex: 1, minWidth: 0, paddingTop: 4 }}>
           <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: player.chair ? 8 : 0 }}>{player.role}{player.since ? ` · since ${player.since}` : ""}</div>
-          {player.chair && <div style={{ display: "inline-block", fontSize: 11, color: "#8C6B3A", background: S.accent, border: `1px solid ${S.accentBorder}`, borderRadius: 20, padding: "3px 10px", fontStyle: "italic" }}>{player.chair}</div>}
+          {player.chair && <div style={{ fontSize: 12, color: "#8C6B3A", fontStyle: "italic", marginTop: 4 }}>{player.chair}</div>}
         </div>
       </div>
 
