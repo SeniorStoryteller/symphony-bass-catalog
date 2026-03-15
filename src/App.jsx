@@ -591,7 +591,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
 
             {/* ── SORT CONTROL ── */}
             <div style={{ padding: isMobile ? "10px 12px 4px" : "10px 20px 4px", display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", maxWidth: MAX_W, margin: "0 auto" }}>
-              <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: S.textMuted, marginRight: 4 }}>Sort</span>
+              <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: S.textMuted, marginRight: 4 }}>Sort by</span>
               {SORT_OPTIONS.map(o => (
                 <button key={o.key} onClick={() => onSortChange(o.key)}
                   style={{ fontSize: 11, padding: "3px 10px", borderRadius: 20, fontFamily: "inherit", background: sortOrder === o.key ? S.accent : "transparent", color: sortOrder === o.key ? "#7A5C1E" : S.textSecondary, border: `1px solid ${sortOrder === o.key ? S.accentBorder : S.border}`, cursor: "pointer", fontWeight: sortOrder === o.key ? 600 : 400, transition: "all 0.15s", whiteSpace: "nowrap" }}>
