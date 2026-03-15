@@ -48,6 +48,12 @@ const ORCHESTRAS = {
     accentColor: "#B05A5A", headerColor: "#6B2828", founded: 1918,
     seasonNote: "The 2025–26 season is the orchestra's 108th, and Franz Welser-Möst's 24th as Music Director. Brandon Mason joined the bass section in July 2025, the only bass personnel change from the prior season.",
   },
+  dso: {
+    id: "dso", name: "Detroit Symphony Orchestra", shortName: "DSO",
+    venue: "Orchestra Hall at Max M. Fisher Music Center", city: "Detroit", region: "Midwest",
+    accentColor: "#4A7A5E", headerColor: "#1E3828", founded: 1914,
+    seasonNote: "The 2025–26 season is Music Director Jader Bignamini's fifth at the helm. Brandon Mason, a DSO bass section member since 2020, joined The Cleveland Orchestra in July 2025.",
+  },
   nso: {
     id: "nso", name: "National Symphony Orchestra", shortName: "NSO",
     venue: "Kennedy Center Concert Hall", city: "Washington, D.C.", region: "Mid-Atlantic",
@@ -873,6 +879,55 @@ const PSO_PLAYERS = [
   },
 ];
 
+/* ── DSO PLAYERS ── */
+const DSO_PLAYERS = [
+  {
+    id: "dso-brown", orchestraId: "dso", name: "Kevin Brown",
+    role: "Principal Bass", since: 2014, chair: "Van Dusen Family Chair",
+    initials: "KB", color: "#4A7A5E",
+    bio: "Kevin Brown has served as Principal Bass of the Detroit Symphony Orchestra since 2014, appointed at age 27. A native of Minnesota, he began playing bass at age three. He earned both his bachelor's and master's degrees at Rice University's Shepherd School of Music under Paul Ellison, performing extensively with the Houston Symphony during his studies, including tours to New York and Moscow.\n\nBefore joining the DSO, Brown appeared as guest Principal Bass with the Atlanta Symphony Orchestra. He made his concerto debut with the Detroit Symphony in 2015 and joined the faculty of Michigan State University as Associate Professor of Double Bass in 2017. He has also taught as a guest instructor at the Cleveland Institute of Music, Northwestern University, USC, and Rice University.\n\nBrown won the International Society of Bassists Orchestral Competition in 2009, earning a guest position in the Philadelphia Orchestra bass section. His appointment succeeded Alexander Hanna, who departed to become Principal Bass of the Chicago Symphony Orchestra in 2012.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Principal since 2014", "Van Dusen Family Chair", "Michigan State University faculty", "ISB Orchestral Competition winner (2009)", "Rice/Shepherd School BM & MM; studied with Paul Ellison"],
+    new2025: false,
+  },
+  {
+    id: "dso-molina", orchestraId: "dso", name: "Stephen Molina",
+    role: "Assistant Principal Bass", since: 1976, chair: "Renato and Elizabeth Jamett Chair",
+    initials: "SM", color: "#6E9A88",
+    bio: "Stephen Molina has been a member of the Detroit Symphony Orchestra bass section since September 1976, making him one of the orchestra's longest-serving musicians. A native of New York City, he began music lessons at age six and graduated from the College-Conservatory of Music at the University of Cincinnati in 1975, studying under Marvin Topolsky of the Metropolitan Opera Orchestra and Barry Green, former Principal Bass of the Cincinnati Symphony.\n\nHis summer training included programs at Interlochen, Aspen, Tanglewood, the Utah Music Festival, and the Grand Teton Music Festival. Before joining the DSO, Molina performed with the New Orleans Philharmonic and the New Orleans Bass Quartet.\n\nIn addition to performing, Molina served in DSO administrative roles for over three decades: Assistant Personnel Manager (1983), Associate Personnel Manager (1989), and Orchestra Personnel Manager (1998–2015). He served as Acting Principal Bass during two extended periods: 2002–2008 and 2012–2014. He has taught at the University of Michigan, Michigan State University, and Wayne State University, and has appeared with Detroit ensembles including the Lyric Chamber Ensemble and the Great Lakes Chamber Music Festival.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["DSO since 1976 — 49 years", "Renato and Elizabeth Jamett Chair", "Acting Principal Bass 2002–08 and 2012–14", "Orchestra Personnel Manager 1998–2015", "U. of Cincinnati CCM; studied with Marvin Topolsky & Barry Green"],
+    new2025: false,
+  },
+  {
+    id: "dso-hamlen", orchestraId: "dso", name: "Christopher Hamlen",
+    role: "Section Bass", since: 2017, chair: null,
+    initials: "CH", color: "#8A7BA0",
+    bio: "Christopher Hamlen joined the Detroit Symphony Orchestra bass section in 2017. Before arriving in Detroit, he served as Principal Bass of the Grand Rapids Symphony for five seasons and as a member of the Syracuse Symphony Orchestra for two seasons. He held a fellowship at the New World Symphony orchestral training academy in Miami Beach from 2006 to 2009, and was later a full-time member of the Reading Symphony Orchestra, with whom he performed the Koussevitzky Concerto.\n\nHamlen studied at the Peabody Conservatory, earning a Bachelor of Music under John Hood and a Graduate Performance Diploma under Robert Kesselman. As a youth, he served as principal bassist for multiple regional and national honors orchestras, including the Music Educators National Conference All-Eastern States Honors Orchestra, and participated in the New York String Orchestra Seminar in 2003.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["DSO since 2017", "Peabody BM & GPD; studied with John Hood & Robert Kesselman", "Former Principal Bass, Grand Rapids Symphony", "New World Symphony fellow 2006–09"],
+    new2025: false,
+  },
+  {
+    id: "dso-hatch", orchestraId: "dso", name: "Peter Hatch",
+    role: "Section Bass", since: 2023, chair: null,
+    initials: "PH", color: "#9E7A5A",
+    bio: "Peter Hatch joined the Detroit Symphony Orchestra bass section in 2023. A native of suburban Chicago, he began his musical training in public school and studied privately with Andrew Anderson, bassist for the Lyric Opera of Chicago. By age twelve he had decided to pursue an orchestral career, inspired in part by hearing news of the Chicago Symphony Orchestra's contract negotiations.\n\nHatch served as co-principal bassist of the Chicago Youth Symphony Orchestra, earned recognition as a two-year member of the Illinois All-State Honors Orchestra, and participated in international tours with the Blue Lake International Symphony Orchestra. He earned his Bachelor of Music from Rice University's Shepherd School of Music under Timothy Pitts, receiving the Louis Sudler Prize in the Arts upon graduation, and completed his Master of Music at The Juilliard School as a Kovner Fellow.\n\nBefore joining the DSO, he performed with the Milwaukee Symphony Orchestra, Grant Park Music Festival, The Philadelphia Orchestra, the Metropolitan Opera, and the Minnesota Orchestra.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["DSO since 2023", "Rice/Shepherd School BM (Louis Sudler Prize); studied with Timothy Pitts", "Juilliard MM, Kovner Fellow", "Previously: Milwaukee Symphony, Grant Park Music Festival, Philadelphia Orchestra"],
+    new2025: false,
+  },
+  {
+    id: "dso-luciano", orchestraId: "dso", name: "Vincent Luciano",
+    role: "Section Bass", since: 2023, chair: null,
+    initials: "VL", color: "#5A7A9E",
+    bio: "Vincent Luciano joined the Detroit Symphony Orchestra bass section in 2023. Originally from Philadelphia, he began playing bass at age twelve and attended The Philadelphia High School for Creative and Performing Arts. He earned his bachelor's degree from Temple University under Joseph Conyers, and completed his Master of Music at The Juilliard School under Al Laszlo and Rex Surany.\n\nBefore joining the DSO, Luciano served as Principal Bass of the Louisville Orchestra for the 2022–23 season. He has performed with ensembles including the New Jersey Symphony Orchestra, the Chamber Orchestra of Philadelphia, the Princeton Symphony, and Symphony in C. He has held fellowships at the Aspen Music Festival, the National Repertory Orchestra, the Music Academy of the West, and the New York String Orchestra Seminar.\n\nLuciano is an active music educator, having taught through Play on Philly and the Temple University Community Music Scholars Program.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["DSO since 2023", "Temple BM; studied with Joseph Conyers", "Juilliard MM; studied with Al Laszlo & Rex Surany", "Former Principal Bass, Louisville Orchestra (2022–23)"],
+    new2025: false,
+  },
+];
+
 /* ── NSO PLAYERS ── */
 const NSO_PLAYERS = [
   {
@@ -964,9 +1019,10 @@ const ALL_PLAYERS = {
   nyp: [...NYP_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "nyp")],
   phi: [...PHI_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "phi")],
   cle: CLE_PLAYERS,
+  dso: DSO_PLAYERS,
   nso: NSO_PLAYERS,
   pso: PSO_PLAYERS,
 };
 const ALL_PLAYERS_FLAT = Object.values(ALL_PLAYERS).flat();
 
-export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, CLE_PLAYERS, NSO_PLAYERS, PSO_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };
+export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, CLE_PLAYERS, DSO_PLAYERS, NSO_PLAYERS, PSO_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };

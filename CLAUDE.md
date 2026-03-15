@@ -50,6 +50,7 @@
 | phi   | Philadelphia Orchestra           | #B5863C     |
 | sfs   | San Francisco Symphony           | #8B6E9E     |
 | cle   | Cleveland Orchestra              | #B05A5A     |
+| dso   | Detroit Symphony Orchestra       | #4A7A5E     |
 | nso   | National Symphony Orchestra      | #8C3A4A     |
 | pso   | Pittsburgh Symphony Orchestra    | #B87333     |
 
@@ -67,4 +68,4 @@
 - Header title on landing: large (44px desktop / 30px mobile), dominant — should feel bigger than the orchestra names below it
 
 ## Pending Verification
-- None outstanding as of March 14, 2026. Full 8-orchestra audit completed; all rosters confirmed against official sites.
+- **DSO bass roster — confirm section completeness (March 2026):** The DSO musicians page loads dynamically and could not be scraped. The five current members (Brown, Molina, Hamlen, Hatch, Luciano) were confirmed from individual DSO profile pages and press releases. Robert Stiles (Principal Librarian, DMA in double bass) appeared in a bass-section search; his section membership status needs manual verification against the live roster. Brandon Mason is documented as departed to The Cleveland Orchestra in July 2025.
