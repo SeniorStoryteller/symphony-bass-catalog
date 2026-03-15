@@ -614,7 +614,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       background: isHovered ? S.accent : "transparent",
                       transition: "background 0.2s ease, border-color 0.2s ease",
                     }}>
-                  <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "14px 12px" : "20px 24px 20px" }}>
+                  <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "14px 20px" : "20px 36px 20px" }}>
 
                     {/* ROW 1 — orchestra name · arrow */}
                     <div style={{ display: "flex", alignItems: "flex-start", gap: 0 }}>
@@ -644,7 +644,6 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       alignItems: "center",
                       flexWrap: "wrap",
                       gap: "4px 10px",
-                      paddingLeft: 28,
                       paddingTop: 8,
                     }}>
                       <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>Est. {orch.founded}</span>
