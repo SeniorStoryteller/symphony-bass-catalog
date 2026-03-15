@@ -476,7 +476,7 @@ function InstrumentsTab({ players, onGoToRoster, isMobile }) {
       )}
       {known.length > 0 && (
         <div style={{ marginBottom: 28 }}>
-          <SectionLabel>Known instruments</SectionLabel>
+          <SectionLabel>Other Instruments</SectionLabel>
           {known.map((inst, i) => <InstBlock key={i} inst={inst} />)}
         </div>
       )}
