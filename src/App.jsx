@@ -185,7 +185,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
         <div style={{ padding: isMobile ? "8px 14px" : "10px 24px", borderBottom: `1px solid ${S.border}`, background: S.cream, flexShrink: 0 }}>
           <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 8 }}>
-            <button onClick={onClearSelected} style={{ background: "none", border: `1px solid ${S.border}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, color: S.textSecondary, fontFamily: "inherit", cursor: "pointer" }}>← Back</button>
+            <button onClick={onClearSelected} style={{ background: S.accent, border: `1px solid ${S.accentBorder}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, fontWeight: 500, color: S.textPrimary, fontFamily: "inherit", cursor: "pointer" }}>← Back</button>
             {playerOrchestra && (
               <>
                 <span style={{ fontSize: 12, color: S.textMuted }}>/</span>
@@ -207,7 +207,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
     <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
       <div style={{ padding: isMobile ? "8px 14px" : "10px 24px", borderBottom: `1px solid ${S.border}`, background: S.cream, flexShrink: 0 }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 8 }}>
-          <button onClick={onGoHome} style={{ background: "none", border: `1px solid ${S.border}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, color: S.textSecondary, fontFamily: "inherit", cursor: "pointer" }}>← Orchestras</button>
+          <button onClick={onGoHome} style={{ background: S.accent, border: `1px solid ${S.accentBorder}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, fontWeight: 500, color: S.textPrimary, fontFamily: "inherit", cursor: "pointer" }}>← Orchestras</button>
           {orchestra && (
             <>
               <span style={{ fontSize: 12, color: S.textMuted }}>/</span>
