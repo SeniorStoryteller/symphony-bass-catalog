@@ -216,16 +216,11 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
         <input
           type="text"
-          placeholder="Search all bassists across orchestras…"
+          placeholder="Search for a bassist by name…"
           value={globalSearch}
           onChange={e => onGlobalSearchChange(e.target.value)}
           style={{ width: "100%", padding: "9px 13px", fontSize: 16, fontFamily: "inherit", background: S.cardBg, border: `1px solid ${isSearching ? S.gold : S.border}`, borderRadius: 10, color: S.textPrimary, outline: "none", transition: "border-color 0.15s" }}
         />
-        {!isSearching && (
-          <div style={{ marginTop: 6, fontSize: 11, fontWeight: 600, color: S.textSecondary, letterSpacing: "0.04em" }}>
-            ↳ Searches all {Object.keys(ORCHESTRAS).length} orchestras
-          </div>
-        )}
         {isSearching && (
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
             <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>
@@ -529,7 +524,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
             </svg>
             <input
               type="text"
-              placeholder="Search all bassists across orchestras…"
+              placeholder="Search for a bassist by name…"
               value={globalSearch}
               onChange={e => onGlobalSearchChange(e.target.value)}
               style={{ width: "100%", padding: "10px 13px 10px 34px", fontSize: 16, fontFamily: "inherit", background: S.cardBg, border: `1.5px solid ${isSearching ? S.gold : S.borderHover}`, borderRadius: 10, color: S.textPrimary, outline: "none", boxShadow: "0 2px 10px rgba(26,20,16,0.08)" }}
