@@ -247,17 +247,22 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
               </button>
             </>
           ))}
-          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 4 }}>
-            <button onClick={() => prevOrch && onSelectOrchestra(prevOrch.id)} disabled={!prevOrch}
-              style={{ display: "flex", alignItems: "center", gap: 4, background: "none", border: `1px solid ${prevOrch ? S.border : "transparent"}`, borderRadius: 8, padding: "3px 8px", fontSize: 12, fontWeight: 500, color: prevOrch ? S.textSecondary : "transparent", fontFamily: "inherit", cursor: prevOrch ? "pointer" : "default", transition: "all 0.15s" }}>
-              <ChevronLeft size={13} color={prevOrch ? S.textSecondary : "transparent"} />
-              {prevOrch?.shortName}
-            </button>
-            <button onClick={() => nextOrch && onSelectOrchestra(nextOrch.id)} disabled={!nextOrch}
-              style={{ display: "flex", alignItems: "center", gap: 4, background: "none", border: `1px solid ${nextOrch ? S.border : "transparent"}`, borderRadius: 8, padding: "3px 8px", fontSize: 12, fontWeight: 500, color: nextOrch ? S.textSecondary : "transparent", fontFamily: "inherit", cursor: nextOrch ? "pointer" : "default", transition: "all 0.15s" }}>
-              {nextOrch?.shortName}
-              <ChevronRight size={13} color={nextOrch ? S.textSecondary : "transparent"} />
-            </button>
+          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
+            {prevOrch && (
+              <button onClick={() => onSelectOrchestra(prevOrch.id)}
+                style={{ display: "flex", alignItems: "center", gap: 4, background: "none", border: "none", padding: 0, fontSize: 13, fontWeight: 400, color: "#8C7B6A", fontFamily: "inherit", cursor: "pointer", transition: "color 0.15s" }}>
+                <ChevronLeft size={13} color="#8C7B6A" />
+                {prevOrch.shortName}
+              </button>
+            )}
+            {prevOrch && nextOrch && <span style={{ color: S.borderHover, fontSize: 14, userSelect: "none" }}>|</span>}
+            {nextOrch && (
+              <button onClick={() => onSelectOrchestra(nextOrch.id)}
+                style={{ display: "flex", alignItems: "center", gap: 4, background: "none", border: "none", padding: 0, fontSize: 13, fontWeight: 400, color: "#8C7B6A", fontFamily: "inherit", cursor: "pointer", transition: "color 0.15s" }}>
+                {nextOrch.shortName}
+                <ChevronRight size={13} color="#8C7B6A" />
+              </button>
+            )}
           </div>
         </div>
       </div>
