@@ -35,6 +35,7 @@
 ## Data Conventions
 - `highlights` array: short bullet facts displayed beneath the bio, above instruments — keep each entry under ~60 characters
 - `new2025: true` for players who joined in the 2024–25 season or later
+- `researchDepth: "initial"` — bio sourced from official orchestra bio page only; deep research not yet done. `researchDepth: "deep"` — full research pass completed (podcasts, interviews, press, personal/university pages). Always upgrade to "deep" after completing a research pass. Query with `ALL_PLAYERS_FLAT.filter(p => p.researchDepth === "initial")` to find players awaiting deeper research.
 - `status: "alumni"` for Distinguished Alumni entries (go in the `ALUMNI` array, not the orchestra array)
 - `LEADERSHIP_ROLES` in App.jsx controls which roles get a LeadershipCard vs SectionMemberCard; currently: Principal Bass, Associate Principal Bass, Assistant Principal Bass, First Assistant Principal Bass
 - Chair names go in the `chair` field, not the bio
