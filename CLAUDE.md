@@ -68,4 +68,7 @@
 - Header title on landing: large (44px desktop / 30px mobile), dominant — should feel bigger than the orchestra names below it
 
 ## Pending Verification
-- **DSO bass roster — confirm section completeness (March 2026):** The DSO musicians page loads dynamically and could not be scraped. The five current members (Brown, Molina, Hamlen, Hatch, Luciano) were confirmed from individual DSO profile pages and press releases. Robert Stiles (Principal Librarian, DMA in double bass) appeared in a bass-section search; his section membership status needs manual verification against the live roster. Brandon Mason is documented as departed to The Cleveland Orchestra in July 2025.
+- None outstanding as of March 15, 2026.
+
+## Sourcing & Audit Notes
+- **DSO initial audit (March 2026):** The DSO musicians page loads dynamically and could not be scraped programmatically. Five current members (Brown, Molina, Hamlen, Hatch, Luciano) were confirmed against the official roster image and individual bio pages uploaded directly by the user. Robert Stiles (Principal Librarian, DMA in double bass) appeared in a bass-section search but is not listed on the official roster image; excluded per "when in doubt, leave it out." Brandon Mason (DSO 2020–2025) departed to The Cleveland Orchestra in July 2025; his DSO page remained live at time of audit. Documented in CLE bio as "formerly with the Detroit Symphony Orchestra (2020–2025)."
