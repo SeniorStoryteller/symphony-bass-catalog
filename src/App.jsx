@@ -15,6 +15,54 @@ const LABEL_STYLE = { fontSize: 12, fontWeight: 600, letterSpacing: "0.14em", te
 const LEADERSHIP_ROLES = ["Principal Bass", "Associate Principal Bass", "Assistant Principal Bass", "First Assistant Principal Bass"];
 const MAX_W = 860;
 
+/* ── NATURAL LANGUAGE QUERY PARSER ── */
+function parseNaturalLanguage(raw) {
+  const q = raw.trim().toLowerCase();
+  let m;
+
+  // "who studied at/from X" / "who went to X" / "who attended X"
+  m = q.match(/^(?:who )?(?:studied|went|attended|trained|graduated)(?: at| from| to) (.+)$/);
+  if (m) return { term: m[1], label: `Players who studied at ${m[1]}`, filterType: "bio" };
+
+  // "who studied with X" / "student of X"
+  m = q.match(/^(?:who )?(?:studied|trained|worked|learned) with (.+)$/);
+  if (m) return { term: m[1], label: `Players who studied with ${m[1]}`, filterType: "bio" };
+
+  m = q.match(/^students? of (.+)$/);
+  if (m) return { term: m[1], label: `Students of ${m[1]}`, filterType: "bio" };
+
+  // "who teaches at X" / "who is faculty at X"
+  m = q.match(/^(?:who )?(?:teaches?|taught|is faculty)(?: at)? (.+)$/);
+  if (m) return { term: m[1], label: `Players who teach at ${m[1]}`, filterType: "bio" };
+
+  // "who won X" / "X competition winners"
+  m = q.match(/^(?:who )?won (?:the )?(.+?)(?:\s*competition)?$/);
+  if (m) return { term: m[1], label: `${m[1]} competition`, filterType: "bio" };
+
+  m = q.match(/^(.+?) competition(?:\s*winners?)?$/);
+  if (m) return { term: m[1] + " competition", label: `${m[1]} competition`, filterType: "bio" };
+
+  // "new players" / "new this season" / "who is new"
+  if (/^(?:who (?:is|are) )?new(?: players?| this season| additions?| members?)?$/.test(q)) {
+    return { term: null, label: "Players new in the 2024–25 season or later", filterType: "new" };
+  }
+
+  // "principals" / "who is principal"
+  if (/^(?:who (?:is|are) (?:the )?)?(?:all )?(?:the )?principals?(?:\s*bass(?:ists?)?)?$/.test(q)) {
+    return { term: null, label: "Principal Bass players", filterType: "principal" };
+  }
+
+  // "who is from X" / "originally from X" / "native of X"
+  m = q.match(/^(?:who (?:is|are) )?(?:from|originally from|native of|grew up in) (.+)$/);
+  if (m) return { term: m[1], label: `Players from ${m[1]}`, filterType: "bio" };
+
+  // "who played/performed with X"
+  m = q.match(/^(?:who )?(?:played|performed|appeared)(?: with)? (?:with |the )?(.+)$/);
+  if (m) return { term: m[1], label: `Players who performed with ${m[1]}`, filterType: "bio" };
+
+  return null;
+}
+
 /* ── HELPERS ── */
 function getPlayerMap(players) {
   const map = {};
@@ -145,23 +193,30 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = 0; }, [selectedPlayer]);
 
   const isSearching = globalSearch.trim() !== "";
-  const searchTerm = globalSearch.toLowerCase();
+  const nlResult = isSearching ? parseNaturalLanguage(globalSearch) : null;
+  const effectiveTerm = nlResult ? (nlResult.term || "") : globalSearch.toLowerCase();
 
   const directMatches = isSearching
-    ? ALL_PLAYERS_FLAT.filter(p =>
-        p.name.toLowerCase().includes(searchTerm) ||
-        p.role.toLowerCase().includes(searchTerm)
-      )
+    ? nlResult?.filterType === "new"
+      ? ALL_PLAYERS_FLAT.filter(p => p.new2025)
+      : nlResult?.filterType === "principal"
+      ? ALL_PLAYERS_FLAT.filter(p => LEADERSHIP_ROLES.includes(p.role))
+      : nlResult?.filterType === "bio"
+      ? ALL_PLAYERS_FLAT.filter(p => p.bio && p.bio.toLowerCase().includes(effectiveTerm))
+      : ALL_PLAYERS_FLAT.filter(p =>
+          p.name.toLowerCase().includes(effectiveTerm) ||
+          p.role.toLowerCase().includes(effectiveTerm)
+        )
     : null;
 
-  const bioMentions = isSearching
+  const bioMentions = isSearching && !nlResult
     ? ALL_PLAYERS_FLAT.filter(p =>
         !directMatches.find(d => d.id === p.id) &&
-        p.bio && p.bio.toLowerCase().includes(searchTerm)
+        p.bio && p.bio.toLowerCase().includes(effectiveTerm)
       )
-    : null;
+    : isSearching ? [] : null;
 
-  const globalFiltered = isSearching ? [...directMatches, ...bioMentions] : null;
+  const globalFiltered = isSearching ? [...(directMatches || []), ...(bioMentions || [])] : null;
 
   const groupByOrch = (arr) => Object.entries(
     arr.reduce((acc, p) => {
@@ -241,7 +296,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
         <input
           type="text"
-          placeholder="Search for a bassist by name…"
+          placeholder="Search by name, or ask: who studied at Juilliard…"
           value={globalSearch}
           onChange={e => onGlobalSearchChange(e.target.value)}
           style={{ width: "100%", padding: "9px 13px", fontSize: 16, fontFamily: "inherit", background: S.cardBg, border: `1px solid ${isSearching ? S.gold : S.border}`, borderRadius: 10, color: S.textPrimary, outline: "none", transition: "border-color 0.15s" }}
@@ -249,7 +304,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
         {isSearching && (
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
             <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>
-              {globalFiltered.length} bassist{globalFiltered.length !== 1 ? "s" : ""} found across all orchestras
+              {nlResult ? `${nlResult.label} · ${globalFiltered.length} found` : `${globalFiltered.length} bassist${globalFiltered.length !== 1 ? "s" : ""} found across all orchestras`}
             </span>
             <button onClick={() => onGlobalSearchChange("")} style={{ fontSize: 12, color: S.textSecondary, background: "none", border: `1px solid ${S.border}`, borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear</button>
           </div>
@@ -518,24 +573,31 @@ function ChevronRight({ size = 14, color = "currentColor" }) {
 /* ── LANDING PAGE ── */
 function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, onSelectPlayer, sortOrder, onSortChange, isMobile }) {
   const isSearching = globalSearch.trim() !== "";
-  const searchTerm = globalSearch.toLowerCase();
+  const nlResult = isSearching ? parseNaturalLanguage(globalSearch) : null;
+  const effectiveTerm = nlResult ? (nlResult.term || "") : globalSearch.toLowerCase();
   const [hoveredId, setHoveredId] = useState(null);
 
   const directMatches = isSearching
-    ? ALL_PLAYERS_FLAT.filter(p =>
-        p.name.toLowerCase().includes(searchTerm) ||
-        p.role.toLowerCase().includes(searchTerm)
-      )
+    ? nlResult?.filterType === "new"
+      ? ALL_PLAYERS_FLAT.filter(p => p.new2025)
+      : nlResult?.filterType === "principal"
+      ? ALL_PLAYERS_FLAT.filter(p => LEADERSHIP_ROLES.includes(p.role))
+      : nlResult?.filterType === "bio"
+      ? ALL_PLAYERS_FLAT.filter(p => p.bio && p.bio.toLowerCase().includes(effectiveTerm))
+      : ALL_PLAYERS_FLAT.filter(p =>
+          p.name.toLowerCase().includes(effectiveTerm) ||
+          p.role.toLowerCase().includes(effectiveTerm)
+        )
     : null;
 
-  const bioMentions = isSearching
+  const bioMentions = isSearching && !nlResult
     ? ALL_PLAYERS_FLAT.filter(p =>
         !directMatches.find(d => d.id === p.id) &&
-        p.bio && p.bio.toLowerCase().includes(searchTerm)
+        p.bio && p.bio.toLowerCase().includes(effectiveTerm)
       )
-    : null;
+    : isSearching ? [] : null;
 
-  const globalFiltered = isSearching ? [...directMatches, ...bioMentions] : null;
+  const globalFiltered = isSearching ? [...(directMatches || []), ...(bioMentions || [])] : null;
 
   const groupByOrch = (arr) => Object.entries(
     arr.reduce((acc, p) => {
@@ -603,7 +665,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
             </svg>
             <input
               type="text"
-              placeholder="Search for a bassist by name…"
+              placeholder="Search by name, or ask: who studied at Juilliard…"
               value={globalSearch}
               onChange={e => onGlobalSearchChange(e.target.value)}
               style={{ width: "100%", padding: "10px 13px 10px 34px", fontSize: 16, fontFamily: "inherit", background: S.cardBg, border: `1.5px solid ${isSearching ? S.gold : S.borderHover}`, borderRadius: 10, color: S.textPrimary, outline: "none", boxShadow: "0 2px 10px rgba(26,20,16,0.08)" }}
@@ -612,7 +674,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
           {isSearching && (
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
               <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>
-                {globalFiltered.length} bassist{globalFiltered.length !== 1 ? "s" : ""} found
+                {nlResult ? `${nlResult.label} · ${globalFiltered.length} found` : `${globalFiltered.length} bassist${globalFiltered.length !== 1 ? "s" : ""} found`}
               </span>
               <button onClick={() => onGlobalSearchChange("")} style={{ fontSize: 12, color: S.textSecondary, background: "none", border: `1px solid ${S.border}`, borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear</button>
             </div>
