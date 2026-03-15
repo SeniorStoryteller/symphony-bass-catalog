@@ -16,13 +16,6 @@ const LEADERSHIP_ROLES = ["Principal Bass", "Associate Principal Bass", "Assista
 const MAX_W = 860;
 
 /* ── HELPERS ── */
-function numberToWord(n) {
-  const words = ["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
-                 "Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty"];
-  return n >= 0 && n < words.length ? words[n] : String(n);
-}
-
-
 function getPlayerMap(players) {
   const map = {};
   for (const p of players) map[p.id] = p;
@@ -817,7 +810,7 @@ export default function App() {
           {view === "landing" ? (
             <>
               <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 30 : 44, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: isMobile ? 8 : 12 }}>
-                The Bass Section: {numberToWord(Object.keys(ORCHESTRAS).length)} American Orchestra{Object.keys(ORCHESTRAS).length !== 1 ? "s" : ""}
+                The Bass Section: {Object.keys(ORCHESTRAS).length} American Orchestras
               </h1>
             </>
           ) : (
