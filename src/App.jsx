@@ -241,7 +241,7 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
         <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", gap: 4 }}>
           {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Historical Instruments" }].map(sv => (
             <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
-              style={{ fontSize: 11, padding: "4px 14px", borderRadius: 20, fontFamily: "inherit", fontWeight: subView === sv.key ? 600 : 400, background: subView === sv.key ? "rgba(200,169,110,0.15)" : "transparent", color: subView === sv.key ? S.gold : S.textMuted, border: `1px solid ${subView === sv.key ? "rgba(200,169,110,0.55)" : S.border}`, transition: "all 0.15s", cursor: "pointer" }}>
+              style={{ fontSize: 12, padding: "5px 16px", borderRadius: 20, fontFamily: "inherit", fontWeight: subView === sv.key ? 600 : 400, background: subView === sv.key ? "rgba(200,169,110,0.2)" : "rgba(255,255,255,0.5)", color: subView === sv.key ? S.gold : S.textSecondary, border: `1px solid ${subView === sv.key ? "#C8A96E" : S.border}`, transition: "all 0.15s", cursor: "pointer" }}>
               {sv.label}
             </button>
           ))}
@@ -760,7 +760,7 @@ export default function App() {
 
             {/* Home button */}
             <button onClick={handleGoHome}
-              style={{ display: "flex", alignItems: "center", gap: 5, background: view === "landing" ? "transparent" : "rgba(200,169,110,0.15)", border: `1px solid ${view === "landing" ? "rgba(200,169,110,0.25)" : "rgba(200,169,110,0.55)"}`, borderRadius: 20, padding: "4px 12px 4px 8px", fontSize: 11, fontFamily: "inherit", fontWeight: 500, color: view === "landing" ? "#7A6A58" : S.gold, cursor: view === "landing" ? "default" : "pointer", flexShrink: 0, transition: "all 0.15s" }}>
+              style={{ display: "flex", alignItems: "center", gap: 5, background: view === "landing" ? "transparent" : "rgba(200,169,110,0.15)", border: `1px solid ${view === "landing" ? "rgba(200,169,110,0.25)" : "#C8A96E"}`, borderRadius: 20, padding: "4px 12px 4px 8px", fontSize: 11, fontFamily: "inherit", fontWeight: 500, color: view === "landing" ? "#7A6A58" : S.gold, cursor: view === "landing" ? "default" : "pointer", flexShrink: 0, transition: "all 0.15s" }}>
               <HomeIcon size={13} color={view === "landing" ? "#7A6A58" : "#F0C97A"} />
               Home
             </button>
