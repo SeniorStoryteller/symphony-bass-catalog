@@ -827,10 +827,6 @@ export default function App() {
               Home
             </button>
 
-            {/* Pipe */}
-            <div style={{ width: 1.5, height: 18, background: "rgba(200,169,110,0.4)", flexShrink: 0 }} />
-
-            <span style={{ fontSize: isMobile ? 10 : 11, fontWeight: 500, color: S.gold, letterSpacing: "0.04em" }}>The people beneath the sound</span>
           </div>
 
           {view === "landing" ? (
@@ -838,8 +834,8 @@ export default function App() {
               <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 30 : 44, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: isMobile ? 6 : 8 }}>
                 The Bass Section: {Object.keys(ORCHESTRAS).length} American Orchestras
               </h1>
-              <div style={{ fontSize: isMobile ? 13 : 15, fontWeight: 400, color: S.gold, letterSpacing: "0.02em", marginBottom: isMobile ? 10 : 14 }}>
-                {Object.keys(ORCHESTRAS).length} of America's great orchestras and the bass players who anchor them.
+              <div style={{ fontSize: isMobile ? 13 : 15, fontWeight: 400, color: S.gold, letterSpacing: "0.01em", marginBottom: isMobile ? 10 : 14 }}>
+                The bass players who anchor America's great orchestras — their careers, their instruments, their stories.
               </div>
             </>
           ) : (
