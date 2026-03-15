@@ -236,14 +236,17 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
         </div>
       </div>
 
-      {/* View toggle — Bassists / Historical Instruments */}
-      <div style={{ padding: isMobile ? "8px 12px 4px" : "10px 20px 4px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
-        <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", gap: 4 }}>
-          {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Their Instruments" }].map(sv => (
-            <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
-              style={{ fontSize: 12, padding: "5px 16px", borderRadius: 20, fontFamily: "inherit", fontWeight: subView === sv.key ? 600 : 400, background: subView === sv.key ? "rgba(200,169,110,0.2)" : "rgba(255,255,255,0.5)", color: subView === sv.key ? S.gold : S.textSecondary, border: `1px solid ${subView === sv.key ? "#C8A96E" : S.border}`, transition: "all 0.15s", cursor: "pointer" }}>
-              {sv.label}
-            </button>
+      {/* View toggle — Bassists / Their Instruments */}
+      <div style={{ padding: isMobile ? "8px 14px 6px" : "10px 24px 8px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
+        <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 }}>
+          {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Their Instruments" }].map((sv, i) => (
+            <>
+              {i > 0 && <span key={`pipe-${i}`} style={{ color: S.border, fontSize: 14, userSelect: "none" }}>|</span>}
+              <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
+                style={{ background: "none", border: "none", padding: "2px 0", fontFamily: "inherit", fontSize: 13, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
+                {sv.label}
+              </button>
+            </>
           ))}
         </div>
       </div>
