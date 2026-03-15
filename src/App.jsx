@@ -754,14 +754,15 @@ export default function App() {
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: isMobile ? 8 : 12, flexWrap: "nowrap", minWidth: 0 }}>
 
-            {/* Home icon */}
+            {/* Home button */}
             <button onClick={handleGoHome}
-              style={{ background: "none", border: "none", padding: "2px 4px 2px 0", display: "flex", alignItems: "center", flexShrink: 0, opacity: view === "landing" ? 0.4 : 1, cursor: view === "landing" ? "default" : "pointer", transition: "opacity 0.15s" }}>
-              <HomeIcon size={18} color="#F0C97A" />
+              style={{ display: "flex", alignItems: "center", gap: 5, background: view === "landing" ? "transparent" : "rgba(200,169,110,0.15)", border: `1px solid ${view === "landing" ? "rgba(200,169,110,0.25)" : "rgba(200,169,110,0.55)"}`, borderRadius: 20, padding: "4px 12px 4px 8px", fontSize: 11, fontFamily: "inherit", fontWeight: 500, color: view === "landing" ? "#7A6A58" : S.gold, cursor: view === "landing" ? "default" : "pointer", flexShrink: 0, transition: "all 0.15s" }}>
+              <HomeIcon size={13} color={view === "landing" ? "#7A6A58" : "#F0C97A"} />
+              Home
             </button>
 
-            {/* Pipe — home / destination */}
-            <div style={{ width: 1.5, height: 18, background: "rgba(200,169,110,0.7)", flexShrink: 0 }} />
+            {/* Pipe */}
+            <div style={{ width: 1.5, height: 18, background: "rgba(200,169,110,0.4)", flexShrink: 0 }} />
 
             {/* Orchestra destination selector */}
             {view === "orchestra" && (() => {
@@ -807,14 +808,13 @@ export default function App() {
             )}
 
             {view === "landing" && (
-              <span style={{ fontSize: isMobile ? 9 : 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "#8C7A68" }}>Symphony Bassists Catalog</span>
+              <span style={{ fontSize: isMobile ? 10 : 11, fontWeight: 500, color: S.gold, letterSpacing: "0.04em" }}>Symphony Bass Catalog</span>
             )}
           </div>
 
           {view === "landing" ? (
             <>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: S.gold, opacity: 0.7, marginBottom: 6 }}>Catalog of Professional Symphony Bassists</div>
-              <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 22 : 28, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: isMobile ? 8 : 12 }}>
+              <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 30 : 44, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: isMobile ? 8 : 12 }}>
                 The Bass Section: {numberToWord(Object.keys(ORCHESTRAS).length)} American Orchestra{Object.keys(ORCHESTRAS).length !== 1 ? "s" : ""}
               </h1>
             </>
