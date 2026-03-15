@@ -169,7 +169,8 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
   const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
   const leadership = players.filter(p => !p.status && LEADERSHIP_ROLES.includes(p.role));
-  const section = players.filter(p => !p.status && p.role === "Section Bass");
+  const section = players.filter(p => !p.status && p.role === "Section Bass")
+    .sort((a, b) => a.name.split(" ").at(-1).localeCompare(b.name.split(" ").at(-1)));
   const alumni = players.filter(p => p.status === "alumni");
 
   if (selectedPlayer) {
