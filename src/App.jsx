@@ -147,7 +147,7 @@ function SectionMemberCard({ player, onClick }) {
 }
 
 /* ── BASSISTS TAB ── */
-function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, selectedPlayer, onSelectPlayer, onClearSelected, subView, onSubViewChange, isMobile }) {
+function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, selectedPlayer, onSelectPlayer, onClearSelected, subView, onSubViewChange, isMobile, onGoHome }) {
   const scrollRef = useRef(null);
 
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = 0; }, [selectedPlayer]);
@@ -212,6 +212,17 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
 
   return (
     <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+      <div style={{ padding: isMobile ? "8px 14px" : "10px 24px", borderBottom: `1px solid ${S.border}`, background: S.cream, flexShrink: 0 }}>
+        <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 8 }}>
+          <button onClick={onGoHome} style={{ background: "none", border: `1px solid ${S.border}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, color: S.textSecondary, fontFamily: "inherit", cursor: "pointer" }}>← Orchestras</button>
+          {orchestra && (
+            <>
+              <span style={{ fontSize: 12, color: S.textMuted }}>/</span>
+              <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>{orchestra.shortName} · {orchestra.name}</span>
+            </>
+          )}
+        </div>
+      </div>
       <div style={{ padding: isMobile ? "10px 12px 8px" : "12px 20px 10px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
         <input
@@ -845,6 +856,7 @@ export default function App() {
             subView={subView}
             onSubViewChange={setSubView}
             isMobile={isMobile}
+            onGoHome={handleGoHome}
           />
         )}
       </div>
