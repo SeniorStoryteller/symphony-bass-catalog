@@ -48,6 +48,12 @@ const ORCHESTRAS = {
     accentColor: "#B05A5A", headerColor: "#6B2828", founded: 1918,
     seasonNote: "The 2025–26 season is the orchestra's 108th, and Franz Welser-Möst's 24th as Music Director. Brandon Mason joined the bass section in July 2025, the only bass personnel change from the prior season.",
   },
+  pso: {
+    id: "pso", name: "Pittsburgh Symphony Orchestra", shortName: "PSO",
+    venue: "Heinz Hall for the Performing Arts", city: "Pittsburgh", region: "Northeast",
+    accentColor: "#B87333", headerColor: "#4A2800", founded: 1895,
+    seasonNote: "The 2025–26 season is Music Director Manfred Honeck's 18th at the helm. Michael Banks joined the bass section as Assistant Principal in spring 2025.",
+  },
 };
 
 /* ── SFS PLAYERS ── */
@@ -761,6 +767,106 @@ const CLE_PLAYERS = [
   },
 ];
 
+/* ── PSO PLAYERS ── */
+const PSO_PLAYERS = [
+  {
+    id: "pso-myers", orchestraId: "pso", name: "Nicholas Myers",
+    role: "Principal Bass", since: 2022, chair: null,
+    initials: "NM", color: "#7B9BAF",
+    bio: "Nicholas Myers joined the Pittsburgh Symphony as Principal Bass in 2022, appointed by Music Director Manfred Honeck after four seasons with the Detroit Symphony Orchestra (2018–2022). A native of Cadillac, Michigan, he earned a Bachelor of Music from New England Conservatory, studying with Lawrence Wolfe and Todd Seeber, and a Master of Music from The Juilliard School on a Kovner Fellowship, studying with Rex Surany and Hal Robinson.\n\nMyers attended summer festivals at the Pacific Music Festival, Music Academy of the West, and Tanglewood Music Center. He serves on the PSO Orchestra Committee and is a Pirastro Strings artist.",
+    instruments: [
+      { name: "Abraham Prescott double bass", maker: "Abraham Prescott, Concord, New Hampshire", era: "1836", story: true, storyTitle: "A rare American instrument", detail: "Built in 1836 by Abraham Prescott of Concord, New Hampshire, one of the most significant American instrument makers of the 19th century. Prescott — a farmer, cabinetmaker, and self-taught luthier — produced a large number of double basses in an era when virtually all professional instruments were European. Myers' Prescott is one of a small number of surviving examples still in active orchestral use." },
+    ],
+    highlights: ["Principal since 2022", "Previously DSO 2018–2022", "Juilliard MM, Kovner Fellow; studied with Rex Surany & Hal Robinson", "NEC BM; studied with Lawrence Wolfe & Todd Seeber", "Pirastro Strings artist"],
+    new2025: false,
+  },
+  {
+    id: "pso-mclean", orchestraId: "pso", name: "Brandon McLean",
+    role: "Associate Principal Bass", since: 2016, chair: null,
+    initials: "BM", color: "#6B9B7A",
+    bio: "Brandon McLean joined the Pittsburgh Symphony as Associate Principal Bass in 2016. A native of Seattle, Washington, he holds a bachelor's degree from the University of North Texas and a master's degree from Boston Conservatory, with additional studies at Carnegie Mellon University. His teachers have included Jeff Bradetich, Jeffrey Turner, Ben Levy, and Ben Musa.\n\nMcLean spent three years as a fellow with the New World Symphony before holding positions as Assistant Principal Bass of the Florida Orchestra, Associate Principal Bass of the Vancouver Symphony, and Principal Bass of the Colorado Symphony. He has appeared at Tanglewood, Verbier, the National Repertory Orchestra, and Artosphere.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Associate Principal since 2016", "Previously Principal, Colorado Symphony", "New World Symphony fellow", "UNT + Boston Conservatory; studied with Jeff Bradetich & Ben Levy"],
+    new2025: false,
+  },
+  {
+    id: "pso-banks", orchestraId: "pso", name: "Michael Banks",
+    role: "Assistant Principal Bass", since: 2025, chair: null,
+    initials: "MB", color: "#8B7BA8",
+    bio: "Michael Banks joined the Pittsburgh Symphony as Assistant Principal Bass in spring 2025. He earned a bachelor's degree from The Juilliard School, studying with Rex Surany, and a master's degree from the Colburn School, studying with Peter Lloyd.\n\nPrior to joining the PSO, Banks worked as a substitute with the Los Angeles Philharmonic, the LA Phil New Music Group, and the Los Angeles Chamber Orchestra, and was a fellow at the Center for Orchestral Leadership at the Aspen Music Festival and School.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Assistant Principal since Spring 2025", "Juilliard BM; studied with Rex Surany", "Colburn School MM; studied with Peter Lloyd", "Sub: LA Phil, LACO"],
+    new2025: true,
+  },
+  {
+    id: "pso-campagna", orchestraId: "pso", name: "Joseph Campagna",
+    role: "Section Bass", since: 2016, chair: null,
+    initials: "JC", color: "#B87A5A",
+    bio: "Joseph Campagna joined the Pittsburgh Symphony bass section in May 2016. He studied at Temple University and the Curtis Institute of Music, where his teachers included John Hood and Harold Robinson of the Philadelphia Orchestra, and bassist-composer Edgar Meyer.\n\nBefore joining the PSO, Campagna spent five years with the New Jersey Symphony Orchestra and worked as a substitute with the Philadelphia Orchestra, Chicago Symphony, New York Philharmonic, Cleveland Orchestra, National Symphony, and Minnesota Orchestra. He has also performed with the Verbier Festival Orchestra in Switzerland (2009–2011) and is a member of Symphony in C in Camden, New Jersey.",
+    instruments: [
+      { name: "Giovanni Cavani double bass", maker: "Giovanni Cavani, Modena, Italy", era: "c. 1890", story: false, detail: "Made in Modena, Italy, around 1890 by Giovanni Cavani, an instrument reflecting the northern Italian tradition of double bass making active through the late 19th century." },
+    ],
+    highlights: ["PSO since 2016", "Curtis Institute; studied with Harold Robinson & Edgar Meyer", "NJSO five years before PSO", "Verbier Festival Orchestra 2009–2011"],
+    new2025: false,
+  },
+  {
+    id: "pso-grubbs", orchestraId: "pso", name: "Jeffrey Grubbs",
+    role: "Section Bass", since: 1996, chair: null,
+    initials: "JG", color: "#6B8FAF",
+    bio: "Jeffrey Grubbs has been a member of the Pittsburgh Symphony bass section since 1996. A native of Cleveland, Ohio, he came to the double bass at age eighteen after beginning on violin, and studied at Youngstown State University, the Cleveland Institute of Music, and the University of Southern California. An early recipient of a Music Assistance Fund (now Sphinx Organization) Orchestral Fellowship, he held a position with the Atlanta Symphony Orchestra before winning his seat in the Florida Philharmonic Orchestra in 1991.\n\nAn active jazz bassist, Grubbs has performed and recorded with internationally known jazz artists and remains engaged in the Pittsburgh jazz community. He has taught at Carnegie Mellon University, Florida International University, Clark-Atlanta University, the University of Pittsburgh, Slippery Rock University, and the University of Illinois at Urbana-Champaign.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["PSO since 1996", "Sphinx (Music Assistance Fund) fellow", "Florida Philharmonic 1991–1996", "Active jazz performer and recording artist", "CIM + USC"],
+    new2025: false,
+  },
+  {
+    id: "pso-guild", orchestraId: "pso", name: "Peter Guild",
+    role: "Section Bass", since: 1999, chair: null,
+    initials: "PG", color: "#8FA87A",
+    bio: "Peter Guild has been a member of the Pittsburgh Symphony bass section since 1999. A native of Portland, Oregon, he studied at Mount Hood Community College before earning bachelor's and master's degrees in bass performance from the University of Michigan, where he studied with Stuart Sankey. He previously held positions with the Columbus Symphony and Toledo Symphony.\n\nGuild teaches orchestral repertoire at Carnegie Mellon University and pursues composing and arranging across multiple genres.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["PSO since 1999", "U of Michigan; studied with Stuart Sankey", "Previously Columbus & Toledo Symphony", "CMU faculty"],
+    new2025: false,
+  },
+  {
+    id: "pso-howard", orchestraId: "pso", name: "Micah Howard",
+    role: "Section Bass", since: 1996, chair: "Stephen & Kimberly Keen Chair",
+    initials: "MH", color: "#AF8B5A",
+    bio: "Micah Howard has been a member of the Pittsburgh Symphony bass section since 1996, where he holds the Stephen & Kimberly Keen Chair. He earned a bachelor's degree from Youngstown State University and a master's degree from Duquesne University, studying with Tony Leonardi, Rodney Van Sickle, Edward Pales, Peter Paul Adamiac, and Jeffrey Turner.\n\nHoward won first place in the International Society of Bassists Orchestral Competition in 1995, the year before joining the PSO. He is Assistant Teaching Professor of Double Bass at Carnegie Mellon University, has served as a contributing writer for Bass World Magazine, and has chaired the PSO audition committee. He has toured five continents with the orchestra.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["PSO since 1996", "1st Prize, ISB Orchestral Competition (1995)", "Carnegie Mellon, Assistant Teaching Professor", "PSO audition committee chair", "Bass World Magazine contributing writer"],
+    new2025: false,
+  },
+  {
+    id: "pso-moore", orchestraId: "pso", name: "John Moore",
+    role: "Section Bass", since: 1996, chair: null,
+    initials: "JM", color: "#7A8BAF",
+    bio: "John Moore has been a member of the Pittsburgh Symphony bass section since 1996, hired by Music Director Lorin Maazel. A graduate of the Curtis Institute of Music (1988), where he studied with Philadelphia Orchestra bassist Roger Scott, he pursued advanced studies with Lawrence Wolfe at New England Conservatory.\n\nMoore previously held positions as Associate Principal Bass of the Honolulu Symphony (1989–1991) and as a member of the San Diego Symphony, also serving as Principal Bass of the San Diego Chamber Orchestra (1991–1996). He has appeared at festivals including Tanglewood, the Schleswig-Holstein Musik Festival, the Grand Teton Music Festival, and the Colorado Music Festival. In 1993, he won first place in the La Jolla Symphony Solo Competition performing the Koussevitzky Double Bass Concerto.",
+    instruments: [
+      { name: "English double bass", maker: "Jon Betts, London, England", era: "c. 1825", story: true, storyTitle: "Two centuries in service", detail: "Made in London around 1825 by Jon Betts, an English instrument maker active in the early 19th century. Now approximately 200 years old, the bass remains in active orchestral service with the Pittsburgh Symphony." },
+    ],
+    highlights: ["PSO since 1996", "Curtis Institute; studied with Roger Scott (Philadelphia Orchestra)", "1st Prize, La Jolla Symphony Solo Competition (1993)", "Previously Honolulu Symphony & San Diego Symphony"],
+    new2025: false,
+  },
+  {
+    id: "pso-white", orchestraId: "pso", name: "Aaron White",
+    role: "Section Bass", since: null, chair: null,
+    initials: "AW", color: "#AF7A7A",
+    bio: "Aaron White grew up in Irving, Texas, and studied at Southern Methodist University and Duquesne University, where his teachers included Thomas Lederer and Jeffrey Turner. He held positions with the Louisville Orchestra and the Florida Orchestra before joining the Pittsburgh Symphony.\n\nWhite is adjunct professor of double bass and string area coordinator at Duquesne University. He has performed as part of the All-Star Orchestra led by Gerard Schwarz, which aired nationally on PBS in 2012, 2014, and 2016.",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Duquesne University faculty", "All-Star Orchestra/PBS (2012, 2014, 2016)", "Previously Louisville & Florida Orchestra", "SMU + Duquesne; studied with Jeffrey Turner"],
+    new2025: false,
+  },
+  {
+    id: "pso-harvey", orchestraId: "pso", name: "Christian Harvey",
+    role: "Paul J. Ross Fellow", since: 2025, chair: null,
+    initials: "CH", color: "#8B9BAF",
+    bio: "Christian Harvey is the Paul J. Ross Fellow with the Pittsburgh Symphony Orchestra, a residency position running 2025–2027. A native of Riverdale, Georgia, he received early training at the Martha Ellen Stilwell School of the Arts, where he performed at Carnegie Hall. He earned a bachelor's degree from Columbus State University, studying with Jackie Pickett and Patricia Weitzel, and a master's degree from Rice University's Shepherd School of Music, studying with Paul Ellison and Timothy Pitts.\n\nHarvey served as a Community Embedded Fellow with the Houston Symphony and was part of the DACAMERA Young Artist Program in Houston. He has participated in festivals including the Tanglewood Music Center, Spoleto Festival USA Orchestra, Texas Music Festival, Domaine Forgét, and Sewanee Music Center. His competition awards include third place in the National Association for Negro Musicians Strings Competition (2023) and finalist recognition in the Ima Hogg Concerto Competition (2024).",
+    instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
+    highlights: ["Paul J. Ross Fellow 2025–2027", "Rice/Shepherd School MM; studied with Paul Ellison & Timothy Pitts", "Tanglewood Music Center fellow", "NANM Strings Competition 3rd place (2023)", "Ima Hogg Concerto Competition finalist (2024)"],
+    new2025: true,
+  },
+];
+
 const ALL_PLAYERS = {
   sfs: [...SFS_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "sfs")],
   bso: [...BSO_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "bso")],
@@ -770,7 +876,8 @@ const ALL_PLAYERS = {
   nyp: [...NYP_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "nyp")],
   phi: [...PHI_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "phi")],
   cle: CLE_PLAYERS,
+  pso: PSO_PLAYERS,
 };
 const ALL_PLAYERS_FLAT = Object.values(ALL_PLAYERS).flat();
 
-export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, CLE_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };
+export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, CLE_PLAYERS, PSO_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };
