@@ -803,7 +803,7 @@ export default function App() {
             )}
 
             {view === "landing" && (
-              <span style={{ fontSize: isMobile ? 10 : 11, fontWeight: 500, color: S.gold, letterSpacing: "0.04em" }}>Symphony Bass Catalog</span>
+              <span style={{ fontSize: isMobile ? 10 : 11, fontWeight: 500, color: S.gold, letterSpacing: "0.04em" }}>The people beneath the sound</span>
             )}
           </div>
 
