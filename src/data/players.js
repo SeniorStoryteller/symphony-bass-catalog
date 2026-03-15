@@ -66,6 +66,12 @@ const ORCHESTRAS = {
     accentColor: "#B87333", headerColor: "#4A2800", founded: 1895,
     seasonNote: "The 2025–26 season is Music Director Manfred Honeck's 18th at the helm. Michael Banks joined the bass section as Assistant Principal in spring 2025.",
   },
+  aso: {
+    id: "aso", name: "Atlanta Symphony Orchestra", shortName: "ASO",
+    venue: "Symphony Hall at Woodruff Arts Center", city: "Atlanta", region: "South",
+    accentColor: "#4A6B99", headerColor: "#1E3560", founded: 1945,
+    seasonNote: "The 2025–26 season is Music Director Nathalie Stutzmann's fourth at the helm.",
+  },
 };
 
 /* ── SFS PLAYERS ── */
@@ -1010,6 +1016,87 @@ const NSO_PLAYERS = [
   },
 ];
 
+/* ── ASO PLAYERS ── */
+const ASO_PLAYERS = [
+  {
+    id: "aso-mcfadden", orchestraId: "aso", name: "Joseph McFadden",
+    role: "Principal Bass", since: 2011, chair: "Marcia & John Donnell Chair",
+    initials: "JM", color: "#4A6B99",
+    bio: "Joseph McFadden has served as Principal Bass of the Atlanta Symphony Orchestra since 2017, having joined the bass section in September 2011. He holds the Marcia & John Donnell Chair.\n\nMcFadden earned a bachelor's degree from California State University, Northridge, studying with Oscar Meza, and a master's degree from Indiana University, studying with Bruce Bransby. He was a two-time fellowship recipient at the Aspen Music Festival and School, where he also worked with Chris Hanulik.\n\nBefore joining the ASO, he served as Principal Bass of the Alabama Symphony Orchestra, where he performed Bottesini's Double Bass Concerto No. 2 as soloist. With the ASO he has appeared as soloist performing Vanhal's Double Bass Concerto in D Major (2021/2022 season). McFadden has appeared as guest principal with the Los Angeles Philharmonic, New York Philharmonic, Minnesota Orchestra, Toronto Symphony, Milwaukee Symphony, and Nashville Symphony, and serves as Principal Bass of the Grand Teton Music Festival. He is a faculty member for Carnegie Hall's National Youth Orchestra and has participated in the Chamber Music Society of the Carolinas and the Highlands-Cashiers Chamber Music Festival.",
+    instruments: [
+      { name: "Custom double bass by Chris Threlkeld", maker: "Chris Threlkeld", era: "2009", story: false, detail: "Commissioned by McFadden; completed October 2009. No further details have been publicly documented." },
+    ],
+    highlights: ["Principal Bass since 2017", "With ASO since 2011", "Former Principal, Alabama Symphony", "Grand Teton Music Festival Principal Bass", "Carnegie Hall NYO faculty", "Cal State Northridge BM; IU MM (Bruce Bransby)"],
+    new2025: false,
+  },
+  {
+    id: "aso-allgood", orchestraId: "aso", name: "Gloria Jones Allgood",
+    role: "Associate Principal Bass", since: 1984, chair: "Lucy R. & Gary Lee Jr. Chair",
+    initials: "GA", color: "#5E7FA8",
+    bio: "Gloria Jones Allgood has been a member of the Atlanta Symphony Orchestra bass section since 1984, joining at age 20. She holds the Lucy R. & Gary Lee Jr. Chair and has served as Associate Principal Bass since 2001. She previously served as Acting Principal Bass during the 2013/14 and 2014/15 seasons.\n\nA native of Greenville, South Carolina, Allgood began studying double bass at age 12, having previously studied violin and piano. She was a member of the Greenville Symphony for five years before college and made her concerto debut with the Charleston Symphony at age 14. She earned her bachelor's degree in double bass performance from the University of Michigan, where she received the Mstislav Rostropovich Award for Outstanding Musicianship. She also studied at the Interlochen Center for the Arts over six summers with Lawrence Hurst, Oscar Zimmerman, and Jack Budrow, and held a full fellowship at the Aspen Music Festival and School in 1983 and 1984, studying with Stuart Sankey.\n\nBefore joining the ASO, she served as Principal Bass of the Flint Symphony Orchestra from 1982 to 1984. She teaches privately, coaches the Atlanta Symphony Youth Orchestra, and participates in the ASO Talent Development Program.",
+    instruments: [
+      { name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." },
+    ],
+    highlights: ["With ASO since 1984 — 41 years", "Associate Principal since 2001", "Former Principal, Flint Symphony (1982–84)", "U. of Michigan BM; Rostropovich Award", "Aspen fellow 1983–84 (Stuart Sankey)", "ASYO coach; Talent Development instructor"],
+    new2025: false,
+  },
+  {
+    id: "aso-fenner", orchestraId: "aso", name: "Karl Fenner",
+    role: "Section Bass", since: 2016, chair: null,
+    initials: "KF", color: "#3D5C8A",
+    bio: "Karl Fenner joined the Atlanta Symphony Orchestra bass section in January 2016. A native of Houston, Texas, he earned a Bachelor of Music from the Cleveland Institute of Music, studying with Max Dimoff, and a Master of Music from Rice University, studying with Timothy Pitts and Paul Ellison. He also studied with Albert Laszlo, Ken Harper, Dennis Whittaker, Sandor Ostlund, and Robert Stiles.\n\nFenner held festival positions at Tanglewood Music Center, the Aspen Music Festival and School, the National Repertory Orchestra, the Music Academy of the West, Spoleto USA, and the Festival-Institute at Round Top. He previously served with the Colorado Symphony — where he held both section and principal bass roles — and the New World Symphony in Miami Beach, and also performed with the Canton Symphony and as a substitute with the San Antonio and Houston Symphonies.\n\nHe presented a solo recital at the 2013 International Society of Bassists convention. Fenner has taught as interim bass instructor at the University of Colorado–Boulder, given masterclasses at the University of Denver and University of Colorado, and instructed at Rocky Ridge Music Center in Estes Park, Colorado.",
+    instruments: [
+      { name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." },
+    ],
+    highlights: ["With ASO since 2016", "Cleveland Inst. of Music BM (Max Dimoff)", "Rice University MM (Pitts, Ellison)", "Former principal, Colorado Symphony", "Tanglewood & Aspen fellow", "ISB convention recitalist, 2013"],
+    new2025: false,
+  },
+  {
+    id: "aso-kurth", orchestraId: "aso", name: "Michael Kurth",
+    role: "Section Bass", since: 1994, chair: "Jane Little Chair",
+    initials: "MK", color: "#6B7FA8",
+    bio: "Michael Kurth has been a member of the Atlanta Symphony Orchestra bass section since 1994. He holds the Jane Little Chair and is an Artist Affiliate in Double Bass at Emory University.\n\nKurth earned a Bachelor of Music with honors from Peabody Conservatory in Baltimore, studying with Harold Robinson. He previously served as Co-Principal Bass of the New World Symphony in Miami during the 1993–94 season.\n\nIn addition to his performing career, Kurth is a composer whose works the ASO has performed since 2011, including orchestral pieces 'Everything Lasts Forever,' 'May Cause Dizziness,' 'A Thousand Words,' and 'Miserere.' His compositions have also been performed by the Houston Symphony, Florida Orchestra, and Melbourne Symphony. The Atlanta Chamber Players has commissioned his work twice, and the Riverside Chamber Players recorded his string quartet collection in 2012. He directs and composes for the Forest Quintet, which blends classical and popular music. He has held artist residencies at Serenbe and the Hermitage.",
+    instruments: [
+      { name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." },
+    ],
+    highlights: ["With ASO since 1994 — 31 years", "Jane Little Chair", "Emory University Artist Affiliate", "Peabody Conservatory BM (Harold Robinson)", "Composer; works performed by ASO, Houston Symphony, Melbourne Symphony", "Co-Principal, New World Symphony (1993–94)"],
+    new2025: false,
+  },
+  {
+    id: "aso-lee", orchestraId: "aso", name: "Jungsu Lee",
+    role: "Section Bass", since: null, chair: null,
+    initials: "JL", color: "#4A7AB5",
+    bio: "Jungsu Lee is a member of the Atlanta Symphony Orchestra bass section. A native of South Korea, he studied at Seoul National University before earning an Artist Diploma and a Professional Studies Certificate from the Colburn School.\n\nLee has won first prize in the Korea Kontrabass Association Competition and the Music Association of Korea Competition, and second prize in the ISB International Music Competition (Junior Division). He also advanced to the preliminary round of the ARD International Music Competition.\n\nHe previously performed with the KBS Symphony Orchestra and the Seongnam Philharmonic Orchestra, and has participated in the Tanglewood Music Festival, PMF, TMAF, and the Kumho & Kuhmo Chamber Music Festival.",
+    instruments: [
+      { name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." },
+    ],
+    highlights: ["Colburn School (Artist Diploma & PS Certificate)", "1st Prize, Korea Kontrabass Assoc. Competition", "1st Prize, Music Assoc. of Korea Competition", "2nd Prize, ISB Int'l Competition (Junior)"],
+    new2025: false,
+  },
+  {
+    id: "aso-scholefield", orchestraId: "aso", name: "Nicholas Scholefield",
+    role: "Section Bass", since: 2022, chair: null,
+    initials: "NS", color: "#5A6E99",
+    bio: "Nicholas Scholefield joined the Atlanta Symphony Orchestra bass section at the start of the 2022/23 season. He began his studies at Kennesaw State University, where his teachers included Douglas Sommer and ASO Principal Bass Joseph McFadden, before transferring to Indiana University's Jacobs School of Music, where he earned a Bachelor of Music with high distinction. He subsequently completed a Master of Music in Performance with an outside area in music theory and a Performance Diploma in Orchestral Studies at Indiana, studying with Bruce Bransby and Jeffrey Turner.\n\nBefore joining the ASO, Scholefield was a member of the Alabama Symphony Orchestra from 2019 to 2022. He has also participated in the Aspen Music Festival and School and the National Orchestral Institute.",
+    instruments: [
+      { name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." },
+    ],
+    highlights: ["With ASO since 2022", "IU Jacobs School BM (high distinction), MM, PD", "Studied with Bruce Bransby & Jeffrey Turner", "Former member, Alabama Symphony (2019–22)", "Aspen Music Festival fellow"],
+    new2025: false,
+  },
+  {
+    id: "aso-tosky", orchestraId: "aso", name: "Daniel Tosky",
+    role: "Section Bass", since: 2015, chair: null,
+    initials: "DT", color: "#6E8CB5",
+    bio: "Daniel Tosky joined the Atlanta Symphony Orchestra bass section at the start of the 2015/16 season. He studied at Indiana University's Jacobs School of Music and earned a Master of Music in Orchestral Performance from the Manhattan School of Music, studying with Timothy Cobb. He also worked with Lawrence Hurst, Peter Lloyd, Jeffrey Turner, Hal Robinson, and Orin O'Brien.\n\nTosky previously performed with the New World Symphony in Miami Beach and has appeared as guest musician with the New York Philharmonic and the Philadelphia Orchestra. He served as Distinguished Artist at the Robert McDuffie Center for Strings at Mercer University. He has appeared as a soloist performing Nino Rota's Divertimento Concertante with the Western Piedmont Symphony.\n\nTosky teaches privately, instructs through the ASO Talent Development Program, and has given masterclasses in Colombia through La Academia Filarmónica de Medellín. He has participated in festivals including the Aspen Music Festival, Music Academy of the West, New York String Orchestra Seminar, Le Domaine Forget, Aldeburgh Festival, Brevard Music Center, and Wabass Institute.",
+    instruments: [
+      { name: "Ludovico Rastelli double bass", maker: "Ludovico Rastelli, Genoa, Italy", era: "c. 1835", story: false, detail: "An Italian double bass attributed to Genoa-based maker Ludovico Rastelli, dating to approximately 1835." },
+    ],
+    highlights: ["With ASO since 2015", "Indiana University & Manhattan School of Music", "MSM MM; studied with Timothy Cobb", "Former New World Symphony member", "Guest with NY Phil & Philadelphia Orchestra", "Plays c. 1835 Ludovico Rastelli bass (Genoa)"],
+    new2025: false,
+  },
+];
+
 const ALL_PLAYERS = {
   sfs: [...SFS_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "sfs")],
   bso: [...BSO_PLAYERS, ...ALUMNI.filter(a => a.orchestraId === "bso")],
@@ -1022,7 +1109,8 @@ const ALL_PLAYERS = {
   dso: DSO_PLAYERS,
   nso: NSO_PLAYERS,
   pso: PSO_PLAYERS,
+  aso: ASO_PLAYERS,
 };
 const ALL_PLAYERS_FLAT = Object.values(ALL_PLAYERS).flat();
 
-export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, CLE_PLAYERS, DSO_PLAYERS, NSO_PLAYERS, PSO_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };
+export { ORCHESTRAS, SFS_PLAYERS, BSO_PLAYERS, HSO_PLAYERS, LAP_PLAYERS, CSO_PLAYERS, NYP_PLAYERS, PHI_PLAYERS, CLE_PLAYERS, DSO_PLAYERS, NSO_PLAYERS, PSO_PLAYERS, ASO_PLAYERS, ALUMNI, ALL_PLAYERS, ALL_PLAYERS_FLAT };

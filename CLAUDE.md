@@ -53,6 +53,7 @@
 | dso   | Detroit Symphony Orchestra       | #4A7A5E     |
 | nso   | National Symphony Orchestra      | #8C3A4A     |
 | pso   | Pittsburgh Symphony Orchestra    | #B87333     |
+| aso   | Atlanta Symphony Orchestra       | #4A6B99     |
 
 ## Git Workflow
 - Commit with a clear subject line describing what changed and why
@@ -72,3 +73,4 @@
 
 ## Sourcing & Audit Notes
 - **DSO initial audit (March 2026):** The DSO musicians page loads dynamically and could not be scraped programmatically. Five current members (Brown, Molina, Hamlen, Hatch, Luciano) were confirmed against the official roster image and individual bio pages uploaded directly by the user. Robert Stiles (Principal Librarian, DMA in double bass) appeared in a bass-section search but is not listed on the official roster image; excluded per "when in doubt, leave it out." Brandon Mason (DSO 2020–2025) departed to The Cleveland Orchestra in July 2025; his DSO page remained live at time of audit. Documented in CLE bio as "formerly with the Detroit Symphony Orchestra (2020–2025)."
+- **ASO initial audit (March 2026):** Seven bass section members confirmed against the official ASO musicians page (aso.org/about-the-aso/conductors-musicians) and individual artist detail pages. All seven bio pages were accessible and scraped. No exclusions. Juan de Gomar (Contrabassoon/Bassoon) appeared in a bass-section context but is a woodwind player; correctly excluded.
