@@ -839,7 +839,7 @@ export default function App() {
                 The Bass Section: {Object.keys(ORCHESTRAS).length} American Orchestras
               </h1>
               <p style={{ fontFamily: SERIF, fontSize: isMobile ? 14 : 16, color: "#B09A7A", lineHeight: 1.6, marginBottom: isMobile ? 10 : 14, fontStyle: "italic" }}>
-                {Object.keys(ORCHESTRAS).length} of America's great orchestras. The bass players who anchor them — their careers, their instruments, their stories.
+                {Object.keys(ORCHESTRAS).length} of America's great orchestras and the bass players who anchor them.
               </p>
             </>
           ) : (
