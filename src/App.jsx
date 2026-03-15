@@ -838,9 +838,9 @@ export default function App() {
               <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 30 : 44, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: isMobile ? 6 : 8 }}>
                 The Bass Section: {Object.keys(ORCHESTRAS).length} American Orchestras
               </h1>
-              <p style={{ fontFamily: SERIF, fontSize: isMobile ? 14 : 16, color: "#B09A7A", lineHeight: 1.6, marginBottom: isMobile ? 10 : 14, fontStyle: "italic" }}>
+              <div style={{ fontSize: isMobile ? 10 : 11, fontWeight: 500, color: S.gold, letterSpacing: "0.04em", marginBottom: isMobile ? 10 : 14 }}>
                 {Object.keys(ORCHESTRAS).length} of America's great orchestras and the bass players who anchor them.
-              </p>
+              </div>
             </>
           ) : (
             <>
