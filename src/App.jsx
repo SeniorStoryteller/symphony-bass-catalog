@@ -133,7 +133,11 @@ function SectionMemberCard({ player, onClick }) {
 }
 
 /* ── BASSISTS TAB ── */
-function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, selectedPlayer, onSelectPlayer, onClearSelected, subView, onSubViewChange, isMobile, onGoHome }) {
+function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globalSearch, onGlobalSearchChange, selectedPlayer, onSelectPlayer, onClearSelected, subView, onSubViewChange, isMobile, onGoHome }) {
+  const orchList = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
+  const currentIdx = orchList.findIndex(o => o.id === orchestraId);
+  const prevOrch = currentIdx > 0 ? orchList[currentIdx - 1] : null;
+  const nextOrch = currentIdx < orchList.length - 1 ? orchList[currentIdx + 1] : null;
   const scrollRef = useRef(null);
 
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = 0; }, [selectedPlayer]);
@@ -243,6 +247,18 @@ function BassistsTab({ players, orchestra, globalSearch, onGlobalSearchChange, s
               </button>
             </>
           ))}
+          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 4 }}>
+            <button onClick={() => prevOrch && onSelectOrchestra(prevOrch.id)} disabled={!prevOrch}
+              style={{ display: "flex", alignItems: "center", gap: 4, background: "none", border: `1px solid ${prevOrch ? S.border : "transparent"}`, borderRadius: 8, padding: "3px 8px", fontSize: 12, fontWeight: 500, color: prevOrch ? S.textSecondary : "transparent", fontFamily: "inherit", cursor: prevOrch ? "pointer" : "default", transition: "all 0.15s" }}>
+              <ChevronLeft size={13} color={prevOrch ? S.textSecondary : "transparent"} />
+              {prevOrch?.shortName}
+            </button>
+            <button onClick={() => nextOrch && onSelectOrchestra(nextOrch.id)} disabled={!nextOrch}
+              style={{ display: "flex", alignItems: "center", gap: 4, background: "none", border: `1px solid ${nextOrch ? S.border : "transparent"}`, borderRadius: 8, padding: "3px 8px", fontSize: 12, fontWeight: 500, color: nextOrch ? S.textSecondary : "transparent", fontFamily: "inherit", cursor: nextOrch ? "pointer" : "default", transition: "all 0.15s" }}>
+              {nextOrch?.shortName}
+              <ChevronRight size={13} color={nextOrch ? S.textSecondary : "transparent"} />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -445,6 +461,22 @@ function HomeIcon({ size = 16, color = S.gold }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", flexShrink: 0 }}>
       <path d="M3 9.5L10 3L17 9.5V17H13V13H7V17H3V9.5Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
+    </svg>
+  );
+}
+
+function ChevronLeft({ size = 14, color = "currentColor" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block" }}>
+      <path d="M10 3L5 8L10 13" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+function ChevronRight({ size = 14, color = "currentColor" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block" }}>
+      <path d="M6 3L11 8L6 13" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -803,6 +835,8 @@ export default function App() {
           <BassistsTab
             players={players}
             orchestra={orchestra}
+            orchestraId={orchestraId}
+            onSelectOrchestra={handleSelectOrchestra}
             globalSearch={globalSearch}
             onGlobalSearchChange={setGlobalSearch}
             selectedPlayer={selectedPlayer}
