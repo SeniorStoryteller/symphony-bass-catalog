@@ -18,6 +18,13 @@
 - If a player appears on the official site but is missing from the data, add them
 - If a player does not appear on the official site and is not a Distinguished Alumnus, remove them
 
+## Trust & Sourcing Policy
+- **Never publish information shared in confidence by players**, even if it is factually accurate — instrument transactions, ownership changes, personal details, or anything not already public
+- Information shared privately by players is background context only — it informs how we handle existing data but does not become new data unless the player has made it public themselves
+- Acceptable public sources: orchestra press releases, official musician websites, published interviews, program notes, verifiable competition results
+- When instrument ownership is known to have changed but the new owner has not made it public, remove or note the previous owner's entry as unconfirmed — do not document the new owner
+- **The catalog's value to players depends entirely on their trust.** When in doubt, leave it out.
+
 ## Bio Writing Standards
 - **Facts only — no hyperbole, no inferences**
 - Do not describe anything as "remarkable," "extraordinary," "celebrated," or similar superlatives unless quoting a named source
