@@ -119,13 +119,16 @@ function SectionMemberCard({ player, onClick }) {
     <div onClick={() => onClick(player)}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
       style={{ width: "100%", boxSizing: "border-box", background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: isMobile ? "14px 14px" : "20px 22px", cursor: "pointer", transition: "all 0.15s ease", transform: hov ? "translateY(-1px)" : "none", boxShadow: hov ? "0 4px 16px rgba(100,80,50,0.08)" : "none", borderLeft: "3px solid #D4C8B4" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 12 : 16 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 12 : 16, marginBottom: 12 }}>
         <Avatar initials={player.initials} color={player.color} size={isMobile ? 40 : 52} />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: SERIF, fontSize: isMobile ? 17 : 20, fontWeight: 700, color: S.textPrimary, marginBottom: 2, lineHeight: 1.1 }}>{player.name}</div>
           {player.since && <div style={{ fontSize: 12, color: S.textMuted }}>since {player.since}</div>}
           {player.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic", marginTop: 2 }}>{player.chair}</div>}
         </div>
+      </div>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+        <span style={{ fontSize: 12, color: player.color, fontWeight: 500 }}>View profile →</span>
       </div>
     </div>
   );
