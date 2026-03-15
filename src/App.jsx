@@ -63,9 +63,8 @@ function PlayerDetail({ player, orchestra, onBack }) {
     <div style={{ padding: "0 0 48px" }}>
       <div style={{ display: "flex", gap: isMobile ? 14 : 20, alignItems: "flex-start", marginBottom: 20 }}>
         <Avatar initials={player.initials} color={player.color} size={isMobile ? 52 : 72} />
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 24 : 30, fontWeight: 700, color: S.textPrimary, margin: 0, lineHeight: 1.1, marginBottom: 5 }}>{player.name}</h2>
-          <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: 8 }}>{player.role}</div>
+        <div style={{ flex: 1, minWidth: 0, paddingTop: 4 }}>
+          <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: player.chair ? 8 : 0 }}>{player.role}{player.since ? ` · since ${player.since}` : ""}</div>
           {player.chair && <div style={{ display: "inline-block", fontSize: 11, color: "#8C6B3A", background: S.accent, border: `1px solid ${S.accentBorder}`, borderRadius: 20, padding: "3px 10px", fontStyle: "italic" }}>{player.chair}</div>}
         </div>
       </div>
