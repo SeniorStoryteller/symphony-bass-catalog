@@ -770,7 +770,7 @@ const CLE_PLAYERS = [
     ],
     highlights: ["Principal since 1997", "Clarence T. Reinberger Chair", "CIM faculty 2000–2017", "University of Michigan faculty", "Soloist: Carnegie Hall & European tours"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "cle-zadinsky", orchestraId: "cle", name: "Derek Zadinsky",
@@ -780,7 +780,7 @@ const CLE_PLAYERS = [
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
     highlights: ["Assistant Principal since 2021", "With TCO since 2012", "Curtis Institute; studied with Harold Robinson & Edgar Meyer", "1st Place, ISB Orchestral Competition (2011)", "Solo album Bach + Brahms (Oberlin Music, 2019)"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "cle-paul", orchestraId: "cle", name: "Charles Paul",
@@ -790,7 +790,7 @@ const CLE_PLAYERS = [
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
     highlights: ["First Assistant Principal since 2023", "Mary E. and F. Joseph Callahan Chair", "Rice University/Shepherd School; studied with Paul Ellison & Timothy Pitts", "1st Prize, TCU International Double Bass Competition (2016)", "Founding member, Kinetic Ensemble"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "cle-atherton", orchestraId: "cle", name: "Mark Atherton",
@@ -803,7 +803,7 @@ const CLE_PLAYERS = [
     ],
     highlights: ["TCO since 1983 — longest-tenured section member", "Boston University magna cum laude", "COYO bass section coach since founding", "Kent State University faculty"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "cle-sperl", orchestraId: "cle", name: "Thomas Sperl",
@@ -823,7 +823,7 @@ const CLE_PLAYERS = [
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
     highlights: ["TCO since 1997", "Charles Barr Memorial Chair", "NEC; studied with Edwin Barker (BSO)", "Former Principal Bass, National Arts Centre Orchestra, Ottawa", "League of American Orchestras board member", "TCO Learning Through Music teaching artist"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "cle-carleton", orchestraId: "cle", name: "Charles Carleton",
@@ -835,7 +835,7 @@ const CLE_PLAYERS = [
     ],
     highlights: ["TCO since 2001", "Juilliard BM; NEC MM", "Studied with Eugene Levinson & Orin O'Brien (NYP)", "Studied with Edwin Barker (BSO)", "Founder & Music Director, Cleveland Ensemble"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "cle-dixon", orchestraId: "cle", name: "Scott Dixon",
@@ -847,7 +847,7 @@ const CLE_PLAYERS = [
     ],
     highlights: ["TCO since 2007", "Oberlin BM; Rice/Shepherd School MM", "New World Symphony fellow", "Member, International Contemporary Ensemble (ICE)", "John Adams world premiere recording"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "cle-mason", orchestraId: "cle", name: "Brandon Mason",
@@ -981,7 +981,7 @@ const DSO_PLAYERS = [
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
     highlights: ["Principal since 2014", "Van Dusen Family Chair", "Michigan State University faculty", "ISB Orchestral Competition winner (2009)", "Rice/Shepherd School BM & MM; studied with Paul Ellison"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "dso-molina", orchestraId: "dso", name: "Stephen Molina",
@@ -991,7 +991,7 @@ const DSO_PLAYERS = [
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
     highlights: ["DSO since 1976 — 49 years", "Renato and Elizabeth Jamett Chair", "Acting Principal Bass 2002–08 and 2012–14", "Orchestra Personnel Manager 1998–2015", "U. of Cincinnati CCM; studied with Marvin Topolsky & Barry Green", "Faculty: U of M, MSU, Eastern Michigan, Wayne State, Oakland"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "dso-hamlen", orchestraId: "dso", name: "Christopher Hamlen",
@@ -1001,7 +1001,7 @@ const DSO_PLAYERS = [
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
     highlights: ["DSO since 2017", "Peabody BM & GPD; studied with John Hood & Robert Kesselman", "Former Principal Bass, Grand Rapids Symphony", "New World Symphony fellow 2006–09"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "dso-hatch", orchestraId: "dso", name: "Peter Hatch",
@@ -1011,7 +1011,7 @@ const DSO_PLAYERS = [
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
     highlights: ["DSO since 2023", "Rice/Shepherd School BM (Louis Sudler Prize); studied with Timothy Pitts", "Juilliard MM, Kovner Fellow; studied with Harold Robinson & Rex Surany", "ISB Orchestra Competition winner", "Previously: Milwaukee Symphony, Grant Park, Dallas Symphony, Chicago Symphony"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
   {
     id: "dso-luciano", orchestraId: "dso", name: "Vincent Luciano",
@@ -1021,7 +1021,7 @@ const DSO_PLAYERS = [
     instruments: [{ name: "Professional orchestral double bass", maker: null, era: null, story: false, detail: "Specific instrument details have not been publicly documented." }],
     highlights: ["DSO since 2023", "Temple BM; studied with Joseph Conyers", "Juilliard MM; studied with Al Laszlo & Rex Surany", "Former Principal Bass, Louisville Orchestra (2022–23)"],
     new2025: false,
-    researchDepth: "initial",
+    researchDepth: "deep",
   },
 ];
 
