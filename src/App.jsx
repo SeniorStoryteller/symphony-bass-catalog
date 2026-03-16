@@ -61,12 +61,10 @@ function PlayerDetail({ player, orchestra, onBack }) {
   const isMobile = window.innerWidth < 768;
   return (
     <div style={{ padding: "0 0 48px" }}>
-      <div style={{ display: "flex", gap: isMobile ? 14 : 20, alignItems: "flex-start", marginBottom: 20 }}>
-        <Avatar initials={player.initials} color={player.color} size={isMobile ? 52 : 72} />
-        <div style={{ flex: 1, minWidth: 0, paddingTop: 4 }}>
-          <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: player.chair ? 8 : 0 }}>{player.role}{player.since ? ` · since ${player.since}` : ""}</div>
-          {player.chair && <div style={{ fontSize: 12, color: "#8C6B3A", fontStyle: "italic", marginTop: 4 }}>{player.chair}</div>}
-        </div>
+      <div style={{ marginBottom: 20 }}>
+        <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 40, fontWeight: 700, color: S.textPrimary, lineHeight: 1.1, marginBottom: 6 }}>{player.name}</h2>
+        <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: player.chair ? 6 : 0 }}>{player.role}{player.since ? ` · since ${player.since}` : ""}</div>
+        {player.chair && <div style={{ fontSize: 12, color: "#8C6B3A", fontStyle: "italic", marginTop: 4 }}>{player.chair}</div>}
       </div>
 
       <div style={{ height: 1, background: S.border, marginBottom: 20 }} />
@@ -798,10 +796,8 @@ export default function App() {
   };
 
 
-  const headerTitle = selectedPlayer ? selectedPlayer.name : orchestra.name;
-  const headerSub = selectedPlayer
-    ? selectedPlayer.role + (selectedPlayer.since ? ` · since ${selectedPlayer.since}` : "")
-    : `${orchestra.venue} · Est. ${orchestra.founded} · ${players.length} bassists`;
+  const headerTitle = orchestra.name;
+  const headerSub = `${orchestra.venue} · Est. ${orchestra.founded} · ${players.length} bassists`;
 
   return (
     <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", height: "100%", background: S.cream, display: "flex", flexDirection: "column", overflow: "hidden" }}>
