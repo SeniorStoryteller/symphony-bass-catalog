@@ -63,8 +63,13 @@ function PlayerDetail({ player, orchestra, onBack }) {
     <div style={{ padding: "0 0 48px" }}>
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 40, fontWeight: 700, color: S.textPrimary, lineHeight: 1.1, marginBottom: 6 }}>{player.name}</h2>
-        <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: player.chair ? 6 : 0 }}>{player.role}{player.since ? ` · since ${player.since}` : ""}</div>
-        {player.chair && <div style={{ fontSize: 12, color: "#8C6B3A", fontStyle: "italic", marginTop: 4 }}>{player.chair}</div>}
+        <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: (player.appointedSince || player.chair) ? 4 : 0 }}>
+          {player.role}{player.appointedSince ? ` · since ${player.appointedSince}` : player.since ? ` · since ${player.since}` : ""}
+        </div>
+        {player.appointedSince && player.since && (
+          <div style={{ fontSize: 12, color: S.textMuted, marginBottom: player.chair ? 4 : 0 }}>with orchestra since {player.since}</div>
+        )}
+        {player.chair && <div style={{ fontSize: 12, color: "#8C6B3A", fontStyle: "italic", marginTop: 2 }}>{player.chair}</div>}
       </div>
 
       <div style={{ height: 1, background: S.border, marginBottom: 20 }} />
@@ -98,7 +103,12 @@ function LeadershipCard({ player, onClick }) {
         <Avatar initials={player.initials} color={player.color} size={isMobile ? 40 : 52} />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: SERIF, fontSize: isMobile ? 17 : 20, fontWeight: 700, color: S.textPrimary, marginBottom: 2, lineHeight: 1.1 }}>{player.name}</div>
-          <div style={{ fontSize: 12, color: S.textSecondary, marginBottom: player.chair ? 6 : 0 }}>{player.role}{player.since ? ` · since ${player.since}` : ""}</div>
+          <div style={{ fontSize: 12, color: S.textSecondary, marginBottom: (player.appointedSince || player.chair) ? 3 : 0 }}>
+            {player.role}{player.appointedSince ? ` · since ${player.appointedSince}` : player.since ? ` · since ${player.since}` : ""}
+          </div>
+          {player.appointedSince && player.since && (
+            <div style={{ fontSize: 11, color: S.textMuted, marginBottom: player.chair ? 3 : 0 }}>with orchestra since {player.since}</div>
+          )}
           {player.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic" }}>{player.chair}</div>}
         </div>
       </div>
