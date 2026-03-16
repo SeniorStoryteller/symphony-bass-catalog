@@ -768,21 +768,25 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                 { value: namedInstruments, label: "Named Instruments" },
               ];
               return (
-                <div style={{ background: S.dark, padding: isMobile ? "20px 16px" : "24px 36px", flexShrink: 0 }}>
-                  <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
-                    <div style={{ display: "flex", justifyContent: "center", gap: isMobile ? 28 : 56, marginBottom: 14 }}>
-                      {stats.map(s => (
-                        <div key={s.label} style={{ textAlign: "center" }}>
-                          <div style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 36, fontWeight: 700, color: S.gold, lineHeight: 1 }}>{s.value}</div>
-                          <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#7A6A58", marginTop: 5 }}>{s.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                    <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#4A3E34", textAlign: "center" }}>
-                      Data reviewed weekly from orchestra press materials, musician profiles, and season rosters
+                <>
+                  <div style={{ background: S.dark, padding: isMobile ? "20px 16px" : "24px 36px", flexShrink: 0 }}>
+                    <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+                      <div style={{ display: "flex", justifyContent: "center", gap: isMobile ? 28 : 56 }}>
+                        {stats.map(s => (
+                          <div key={s.label} style={{ textAlign: "center" }}>
+                            <div style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 36, fontWeight: 700, color: S.gold, lineHeight: 1 }}>{s.value}</div>
+                            <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#A09080", marginTop: 5 }}>{s.label}</div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                  <div style={{ padding: isMobile ? "8px 16px" : "8px 36px", textAlign: "center" }}>
+                    <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: S.textMuted }}>
+                      Data reviewed weekly from orchestra press materials, musician profiles, and season rosters
+                    </span>
+                  </div>
+                </>
               );
             })()}
 
