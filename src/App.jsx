@@ -759,7 +759,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
             </div>
 
             {/* ── FOOTER ── */}
-            <div style={{ borderTop: `1px solid ${S.gold}`, margin: isMobile ? "36px 16px 0" : "54px 36px 0", padding: isMobile ? "10px 0" : "12px 0", textAlign: "center" }}>
+            <div style={{ borderTop: `1px solid ${S.gold}`, margin: isMobile ? "20px 16px 0" : "28px 36px 0", padding: isMobile ? "10px 0" : "12px 0", textAlign: "center" }}>
               <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: S.textMuted }}>
                 Data reviewed weekly from orchestra press materials, musician profiles, and season rosters
               </span>
