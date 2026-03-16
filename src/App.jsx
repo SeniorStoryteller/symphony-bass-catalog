@@ -759,36 +759,11 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
             </div>
 
             {/* ── FOOTER ── */}
-            {(() => {
-              const activePlayers = ALL_PLAYERS_FLAT.filter(p => !p.status);
-              const namedInstruments = ALL_PLAYERS_FLAT.flatMap(p => p.instruments).filter(i => i.story).length;
-              const stats = [
-                { value: Object.keys(ORCHESTRAS).length, label: "Orchestras" },
-                { value: activePlayers.length, label: "Active Bassists" },
-                { value: namedInstruments, label: "Named Instruments" },
-              ];
-              return (
-                <>
-                  <div style={{ background: S.dark, padding: isMobile ? "20px 16px" : "24px 36px", flexShrink: 0 }}>
-                    <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
-                      <div style={{ display: "flex", justifyContent: "center", gap: isMobile ? 28 : 56 }}>
-                        {stats.map(s => (
-                          <div key={s.label} style={{ textAlign: "center" }}>
-                            <div style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 36, fontWeight: 700, color: S.gold, lineHeight: 1 }}>{s.value}</div>
-                            <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#A09080", marginTop: 5 }}>{s.label}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <div style={{ padding: isMobile ? "8px 16px" : "8px 36px", textAlign: "center" }}>
-                    <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: S.textMuted }}>
-                      Data reviewed weekly from orchestra press materials, musician profiles, and season rosters
-                    </span>
-                  </div>
-                </>
-              );
-            })()}
+            <div style={{ borderTop: `1px solid ${S.gold}`, padding: isMobile ? "10px 16px" : "12px 36px", textAlign: "center" }}>
+              <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: S.textMuted }}>
+                Data reviewed weekly from orchestra press materials, musician profiles, and season rosters
+              </span>
+            </div>
 
           </div>
         )}
