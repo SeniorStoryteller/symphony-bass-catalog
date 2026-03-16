@@ -717,14 +717,15 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                           </svg>
                         ) : (
                           <div style={{
-                            width: 30, height: 30, borderRadius: "50%",
-                            background: orch.accentColor,
+                            width: 24, height: 24, borderRadius: "50%",
+                            background: S.textPrimary,
                             display: "flex", alignItems: "center", justifyContent: "center",
                             flexShrink: 0,
-                            transform: isHovered ? "translateX(5px)" : "none",
-                            transition: "transform 0.2s ease",
+                            opacity: isHovered ? 1 : 0,
+                            transform: isHovered ? "translateX(4px)" : "translateX(0)",
+                            transition: "opacity 0.18s ease, transform 0.18s ease",
                           }}>
-                            <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                            <svg width="11" height="11" viewBox="0 0 20 20" fill="none">
                               <path d="M7 5l5 5-5 5" stroke="white" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                           </div>
