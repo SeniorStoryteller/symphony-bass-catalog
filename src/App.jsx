@@ -695,21 +695,40 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                     }}>
                   <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "14px 20px" : "20px 36px 20px" }}>
 
-                    {/* ROW 1 — orchestra name · arrow */}
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: 0 }}>
-                      <div className="idx-name" style={{
-                        flex: 1,
-                        fontFamily: SERIF, fontSize: isMobile ? 22 : 34, fontWeight: 700,
-                        lineHeight: 1.15, letterSpacing: "0.04em",
-                        textTransform: "uppercase",
-                        color: S.textPrimary,
-                        textAlign: "left",
-                        wordBreak: "break-word",
-                      }}>
-                        {orch.name}
+                    <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
+                      {/* Left: name + meta */}
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div className="idx-name" style={{
+                          fontFamily: SERIF, fontSize: isMobile ? 22 : 34, fontWeight: 700,
+                          lineHeight: 1.15, letterSpacing: "0.04em",
+                          textTransform: "uppercase",
+                          color: S.textPrimary,
+                          wordBreak: "break-word",
+                        }}>
+                          {orch.name}
+                        </div>
+                        <div className="idx-bottom" style={{
+                          display: "flex", alignItems: "center", flexWrap: "wrap",
+                          gap: "4px 10px", paddingTop: 8,
+                        }}>
+                          <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>Est. {orch.founded}</span>
+                          <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
+                          <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>{playerCount} bassists</span>
+                          {principal && (
+                            <>
+                              <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
+                              <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>
+                                {principal.name}
+                                <span style={{ fontSize: 15, color: S.textPrimary }}>, Principal Bass</span>
+                                {(principal.appointedSince || principal.since) && <span style={{ fontSize: 15, color: S.textPrimary }}> · appointed {principal.appointedSince || principal.since}</span>}
+                              </span>
+                            </>
+                          )}
+                        </div>
                       </div>
 
-                      <div style={{ flexShrink: 0, paddingLeft: 12, display: "flex", alignItems: "center" }}>
+                      {/* Right: arrow, vertically centered across both rows */}
+                      <div style={{ flexShrink: 0, paddingLeft: 16, display: "flex", alignItems: "center" }}>
                         {isMobile ? (
                           <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
                             style={{ opacity: isHovered ? 1 : 0.45, display: "block" }}>
@@ -717,7 +736,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                           </svg>
                         ) : (
                           <div style={{
-                            width: 24, height: 24, borderRadius: "50%",
+                            width: 32, height: 32, borderRadius: "50%",
                             background: S.textPrimary,
                             display: "flex", alignItems: "center", justifyContent: "center",
                             flexShrink: 0,
@@ -725,35 +744,12 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                             transform: isHovered ? "translateX(4px)" : "translateX(0)",
                             transition: "opacity 0.18s ease, transform 0.18s ease",
                           }}>
-                            <svg width="11" height="11" viewBox="0 0 20 20" fill="none">
+                            <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
                               <path d="M7 5l5 5-5 5" stroke="white" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                           </div>
                         )}
                       </div>
-                    </div>
-
-                    {/* ROW 2 — slides in on hover: single meta strip */}
-                    <div className="idx-bottom" style={{
-                      display: "flex",
-                      alignItems: "center",
-                      flexWrap: "wrap",
-                      gap: "4px 10px",
-                      paddingTop: 8,
-                    }}>
-                      <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>Est. {orch.founded}</span>
-                      <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
-                      <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>{playerCount} bassists</span>
-                      {principal && (
-                        <>
-                          <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
-                          <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>
-                            {principal.name}
-                            <span style={{ fontSize: 15, color: S.textPrimary }}>, Principal Bass</span>
-                            {(principal.appointedSince || principal.since) && <span style={{ fontSize: 15, color: S.textPrimary }}> · appointed {principal.appointedSince || principal.since}</span>}
-                          </span>
-                        </>
-                      )}
                     </div>
                   </div>
 
