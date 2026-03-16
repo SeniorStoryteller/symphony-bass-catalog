@@ -689,7 +689,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                     onMouseLeave={() => setHoveredId(null)}
                     style={{
                       cursor: "pointer",
-                      borderBottom: `1px solid ${isHovered ? S.accentBorder : S.border}`,
+                      borderBottom: idx < orchList.length - 1 ? `1px solid ${isHovered ? S.accentBorder : S.border}` : "none",
                       background: isHovered ? S.accent : "transparent",
                       transition: "background 0.2s ease, border-color 0.2s ease",
                     }}>
