@@ -709,11 +709,26 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                         {orch.name}
                       </div>
 
-                      <div style={{ flexShrink: 0, paddingLeft: 10, paddingTop: 4 }}>
-                        <svg className="idx-arrow" width="16" height="16" viewBox="0 0 20 20" fill="none"
-                          style={{ opacity: isHovered ? 1 : 0.45, transform: isHovered ? "translateX(3px)" : "none", display: "block" }}>
-                          <path d="M7 5l5 5-5 5" stroke={S.textPrimary} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                      <div style={{ flexShrink: 0, paddingLeft: 12, display: "flex", alignItems: "center" }}>
+                        {isMobile ? (
+                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
+                            style={{ opacity: isHovered ? 1 : 0.45, display: "block" }}>
+                            <path d="M7 5l5 5-5 5" stroke={S.textPrimary} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        ) : (
+                          <div style={{
+                            width: 30, height: 30, borderRadius: "50%",
+                            background: orch.accentColor,
+                            display: "flex", alignItems: "center", justifyContent: "center",
+                            flexShrink: 0,
+                            transform: isHovered ? "translateX(5px)" : "none",
+                            transition: "transform 0.2s ease",
+                          }}>
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                              <path d="M7 5l5 5-5 5" stroke="white" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                        )}
                       </div>
                     </div>
 
