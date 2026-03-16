@@ -347,7 +347,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
             {alumni.length > 0 && (
               <div style={{ marginTop: 28 }}>
                 <div style={{ height: 1, background: S.border, marginBottom: 20 }} />
-                <SectionLabel>Alumni</SectionLabel>
+                <SectionLabel>Distinguished Alumni</SectionLabel>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {alumni.map(p => (
                     <div key={p.id} onClick={() => onSelectPlayer(p)}
