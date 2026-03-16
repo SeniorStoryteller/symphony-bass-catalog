@@ -739,7 +739,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                           <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>
                             {principal.name}
                             <span style={{ fontSize: 15, color: S.textPrimary }}>, Principal Bass</span>
-                            {principal.since && <span style={{ fontSize: 15, color: S.textPrimary }}> · since {principal.since}</span>}
+                            {(principal.appointedSince || principal.since) && <span style={{ fontSize: 15, color: S.textPrimary }}> · appointed {principal.appointedSince || principal.since}</span>}
                           </span>
                         </>
                       )}
