@@ -587,11 +587,6 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         }
         .idx-row { animation: slideIn 0.45s cubic-bezier(0.22,1,0.36,1) both; }
         ${animDelays}
-        .idx-name  { transition: color 0.2s ease, letter-spacing 0.3s ease; }
-        .idx-row:hover .idx-name { letter-spacing: 0.01em; }
-        .idx-bottom { transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.22,1,0.36,1), max-height 0.25s ease; }
-        .idx-row:not(:hover) .idx-bottom { opacity: 0; transform: translateY(-6px); pointer-events: none; max-height: 0; overflow: hidden; padding-top: 0 !important; padding-bottom: 0 !important; }
-        .idx-row:hover .idx-bottom { opacity: 1; transform: translateY(0); max-height: 120px; }
         @media (hover: none) {
           .idx-row:not(:hover) .idx-bottom { opacity: 1; transform: none; pointer-events: auto; max-height: 200px; padding-top: 8px !important; }
         }
