@@ -64,7 +64,7 @@ function PlayerDetail({ player, orchestra, onBack }) {
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 40, fontWeight: 700, color: S.textPrimary, lineHeight: 1.1, marginBottom: 6 }}>{player.name}</h2>
         <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: (player.appointedSince || player.chair) ? 4 : 0 }}>
-          {player.role}{player.appointedSince ? ` · since ${player.appointedSince}` : player.since ? ` · since ${player.since}` : ""}
+          {player.role}{player.appointedSince ? ` · appointed ${player.appointedSince}` : LEADERSHIP_ROLES.includes(player.role) && player.since ? ` · appointed ${player.since}` : player.since ? ` · since ${player.since}` : ""}
         </div>
         {player.appointedSince && player.since && (
           <div style={{ fontSize: 12, color: S.textMuted, marginBottom: player.chair ? 4 : 0 }}>with orchestra since {player.since}</div>
@@ -104,7 +104,7 @@ function LeadershipCard({ player, onClick }) {
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: SERIF, fontSize: isMobile ? 17 : 20, fontWeight: 700, color: S.textPrimary, marginBottom: 2, lineHeight: 1.1 }}>{player.name}</div>
           <div style={{ fontSize: 12, color: S.textSecondary, marginBottom: (player.appointedSince || player.chair) ? 3 : 0 }}>
-            {player.role}{player.appointedSince ? ` · since ${player.appointedSince}` : player.since ? ` · since ${player.since}` : ""}
+            {player.role}{player.appointedSince ? ` · appointed ${player.appointedSince}` : player.since ? ` · appointed ${player.since}` : ""}
           </div>
           {player.appointedSince && player.since && (
             <div style={{ fontSize: 11, color: S.textMuted, marginBottom: player.chair ? 3 : 0 }}>with orchestra since {player.since}</div>
