@@ -759,11 +759,32 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
             </div>
 
             {/* ── FOOTER ── */}
-            <div style={{ padding: "20px 24px", borderTop: `1px solid ${S.border}` }}>
-              <div style={{ maxWidth: MAX_W, margin: "0 auto", fontSize: 9, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: S.textMuted, textAlign: "center" }}>
-                Data reviewed weekly from orchestra press materials, musician profiles, and season rosters
-              </div>
-            </div>
+            {(() => {
+              const activePlayers = ALL_PLAYERS_FLAT.filter(p => !p.status);
+              const namedInstruments = ALL_PLAYERS_FLAT.flatMap(p => p.instruments).filter(i => i.story).length;
+              const stats = [
+                { value: Object.keys(ORCHESTRAS).length, label: "Orchestras" },
+                { value: activePlayers.length, label: "Active Bassists" },
+                { value: namedInstruments, label: "Named Instruments" },
+              ];
+              return (
+                <div style={{ background: S.dark, padding: isMobile ? "20px 16px" : "24px 36px", flexShrink: 0 }}>
+                  <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+                    <div style={{ display: "flex", justifyContent: "center", gap: isMobile ? 28 : 56, marginBottom: 14 }}>
+                      {stats.map(s => (
+                        <div key={s.label} style={{ textAlign: "center" }}>
+                          <div style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 36, fontWeight: 700, color: S.gold, lineHeight: 1 }}>{s.value}</div>
+                          <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#7A6A58", marginTop: 5 }}>{s.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#4A3E34", textAlign: "center" }}>
+                      Data reviewed weekly from orchestra press materials, musician profiles, and season rosters
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
 
           </div>
         )}
