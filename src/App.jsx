@@ -19,25 +19,25 @@ const MAX_W = 860;
 function bioExcerpt(bio, maxLen) {
   const text = bio.replace(/\n\n/g, " ");
   if (text.length <= maxLen) return text;
-  // Collect all sentence boundaries within maxLen + 100 chars
-  const extendedMax = maxLen + 150;
+  // Find sentence boundaries within ±60 chars of target
+  const tolerance = 60;
   let lastBefore = -1;
   let firstAfter = -1;
   let pos = 0;
-  while (pos < extendedMax) {
+  while (pos < maxLen + tolerance) {
     const next = text.indexOf(". ", pos);
-    if (next === -1 || next >= extendedMax) break;
+    if (next === -1 || next >= maxLen + tolerance) break;
     if (next < maxLen) lastBefore = next;
     else if (firstAfter === -1) firstAfter = next;
     pos = next + 1;
   }
-  // Pick the sentence boundary closest to maxLen
-  let cutAt = -1;
-  if (lastBefore > 0 && firstAfter > 0)
-    cutAt = (maxLen - lastBefore <= firstAfter - maxLen) ? lastBefore : firstAfter;
-  else if (lastBefore > 0) cutAt = lastBefore;
-  else if (firstAfter > 0) cutAt = firstAfter;
-  if (cutAt > 0) return text.slice(0, cutAt + 1) + "…";
+  // Accept closest sentence boundary only if it falls within tolerance
+  const candidates = [lastBefore, firstAfter].filter(p => p > 0);
+  if (candidates.length) {
+    const best = candidates.reduce((a, b) => Math.abs(a - maxLen) <= Math.abs(b - maxLen) ? a : b);
+    if (Math.abs(best - maxLen) <= tolerance) return text.slice(0, best + 1) + "…";
+  }
+  // No sentence boundary close enough — cut at word boundary
   const lastSpace = text.slice(0, maxLen).lastIndexOf(" ");
   return text.slice(0, lastSpace > 0 ? lastSpace : maxLen) + "…";
 }
