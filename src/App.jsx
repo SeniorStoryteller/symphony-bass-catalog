@@ -16,6 +16,16 @@ const LEADERSHIP_ROLES = ["Principal Bass", "Associate Principal Bass", "Assista
 const MAX_W = 860;
 
 /* ── HELPERS ── */
+function bioExcerpt(bio, maxLen) {
+  const text = bio.replace(/\n\n/g, " ");
+  if (text.length <= maxLen) return text;
+  const sub = text.slice(0, maxLen);
+  const lastPeriod = sub.lastIndexOf(". ");
+  if (lastPeriod > maxLen * 0.55) return text.slice(0, lastPeriod + 1) + "…";
+  const lastSpace = sub.lastIndexOf(" ");
+  return text.slice(0, lastSpace > 0 ? lastSpace : maxLen) + "…";
+}
+
 function getPlayerMap(players) {
   const map = {};
   for (const p of players) map[p.id] = p;
@@ -112,9 +122,9 @@ function LeadershipCard({ player, onClick }) {
           {player.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic" }}>{player.chair}</div>}
         </div>
       </div>
-      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", wordBreak: "break-word", marginBottom: 12 }}>{player.bio.split(". ")[0] + "."}</div>
+      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, marginBottom: 12 }}>{bioExcerpt(player.bio, isMobile ? 250 : 400)}</div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-        <span style={{ fontSize: 12, color: player.color, fontWeight: 500 }}>View profile →</span>
+        <span style={{ fontSize: 12, color: player.color, fontWeight: 500 }}>Read full profile →</span>
       </div>
     </div>
   );
@@ -135,8 +145,9 @@ function SectionMemberCard({ player, onClick }) {
           {player.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic", marginTop: 2 }}>{player.chair}</div>}
         </div>
       </div>
+      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, marginBottom: 12 }}>{bioExcerpt(player.bio, isMobile ? 250 : 400)}</div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-        <span style={{ fontSize: 12, color: player.color, fontWeight: 500 }}>View profile →</span>
+        <span style={{ fontSize: 12, color: player.color, fontWeight: 500 }}>Read full profile →</span>
       </div>
     </div>
   );
