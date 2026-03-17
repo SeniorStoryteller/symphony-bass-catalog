@@ -20,7 +20,7 @@ function bioExcerpt(bio, maxLen) {
   const text = bio.replace(/\n\n/g, " ");
   if (text.length <= maxLen) return text;
   // Collect all sentence boundaries within maxLen + 100 chars
-  const extendedMax = maxLen + 100;
+  const extendedMax = maxLen + 150;
   let lastBefore = -1;
   let firstAfter = -1;
   let pos = 0;
