@@ -19,10 +19,26 @@ const MAX_W = 860;
 function bioExcerpt(bio, maxLen) {
   const text = bio.replace(/\n\n/g, " ");
   if (text.length <= maxLen) return text;
-  const sub = text.slice(0, maxLen);
-  const lastPeriod = sub.lastIndexOf(". ");
-  if (lastPeriod > maxLen * 0.55) return text.slice(0, lastPeriod + 1) + "…";
-  const lastSpace = sub.lastIndexOf(" ");
+  // Collect all sentence boundaries within maxLen + 100 chars
+  const extendedMax = maxLen + 100;
+  let lastBefore = -1;
+  let firstAfter = -1;
+  let pos = 0;
+  while (pos < extendedMax) {
+    const next = text.indexOf(". ", pos);
+    if (next === -1 || next >= extendedMax) break;
+    if (next < maxLen) lastBefore = next;
+    else if (firstAfter === -1) firstAfter = next;
+    pos = next + 1;
+  }
+  // Pick the sentence boundary closest to maxLen
+  let cutAt = -1;
+  if (lastBefore > 0 && firstAfter > 0)
+    cutAt = (maxLen - lastBefore <= firstAfter - maxLen) ? lastBefore : firstAfter;
+  else if (lastBefore > 0) cutAt = lastBefore;
+  else if (firstAfter > 0) cutAt = firstAfter;
+  if (cutAt > 0) return text.slice(0, cutAt + 1) + "…";
+  const lastSpace = text.slice(0, maxLen).lastIndexOf(" ");
   return text.slice(0, lastSpace > 0 ? lastSpace : maxLen) + "…";
 }
 
