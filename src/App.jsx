@@ -708,28 +708,28 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
       `}</style>
 
       {/* Search bar */}
-      <div style={{ padding: isMobile ? "10px 12px 8px" : "14px 20px 12px", background: S.cream, borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
+      <div style={{ padding: isMobile ? "10px 12px 8px" : "14px 20px 12px", background: isMobile ? S.cream : S.dark, borderBottom: isMobile ? `1px solid ${S.border}` : "none", flexShrink: 0 }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
           <div style={{ position: "relative" }}>
             <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
-              style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", opacity: 0.4 }}>
-              <circle cx="8.5" cy="8.5" r="5.5" stroke={S.textPrimary} strokeWidth="1.6"/>
-              <path d="M13 13l3.5 3.5" stroke={S.textPrimary} strokeWidth="1.6" strokeLinecap="round"/>
+              style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", opacity: isMobile ? 0.4 : 0.35 }}>
+              <circle cx="8.5" cy="8.5" r="5.5" stroke={isMobile ? S.textPrimary : "#F0E8DC"} strokeWidth="1.6"/>
+              <path d="M13 13l3.5 3.5" stroke={isMobile ? S.textPrimary : "#F0E8DC"} strokeWidth="1.6" strokeLinecap="round"/>
             </svg>
             <input
               type="text"
               placeholder="Search for a bassist by name…"
               value={globalSearch}
               onChange={e => onGlobalSearchChange(e.target.value)}
-              style={{ width: "100%", padding: "10px 13px 10px 34px", fontSize: 16, fontFamily: "inherit", background: S.cardBg, border: `1.5px solid ${isSearching ? S.gold : S.borderHover}`, borderRadius: 10, color: S.textPrimary, outline: "none", boxShadow: "0 2px 10px rgba(26,20,16,0.08)" }}
+              style={{ width: "100%", padding: "10px 13px 10px 34px", fontSize: 16, fontFamily: "inherit", background: isMobile ? S.cardBg : "rgba(255,255,255,0.07)", border: `1.5px solid ${isSearching ? S.gold : isMobile ? S.borderHover : "rgba(240,232,220,0.15)"}`, borderRadius: 10, color: isMobile ? S.textPrimary : "#F0E8DC", outline: "none", boxShadow: isMobile ? "0 2px 10px rgba(26,20,16,0.08)" : "none" }}
             />
           </div>
           {isSearching && (
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
-              <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>
+              <span style={{ fontSize: 12, color: isMobile ? S.textMuted : "rgba(240,232,220,0.5)", fontStyle: "italic" }}>
                 {globalFiltered.length} bassist{globalFiltered.length !== 1 ? "s" : ""} found
               </span>
-              <button onClick={() => onGlobalSearchChange("")} style={{ fontSize: 12, color: S.textSecondary, background: "none", border: `1px solid ${S.border}`, borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear</button>
+              <button onClick={() => onGlobalSearchChange("")} style={{ fontSize: 12, color: isMobile ? S.textSecondary : "rgba(240,232,220,0.6)", background: "none", border: `1px solid ${isMobile ? S.border : "rgba(240,232,220,0.2)"}`, borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear</button>
             </div>
           )}
         </div>
