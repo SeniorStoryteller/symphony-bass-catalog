@@ -585,11 +585,11 @@ function ChevronRight({ size = 14, color = "currentColor" }) {
 function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
   const orchList = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
   const now = new Date();
-  const startOfYear = new Date(now.getFullYear(), 0, 1);
-  const dayOfYear = Math.floor((now - startOfYear) / (1000 * 60 * 60 * 24));
+  const startDate = new Date(2026, 2, 18); // March 18, 2026 — day 0: orchestra 1, player 1
+  const dayIndex = Math.max(0, Math.floor((now - startDate) / (1000 * 60 * 60 * 24)));
   const numOrchs = orchList.length;
-  const orchIdx = dayOfYear % numOrchs;
-  const playerRound = Math.floor(dayOfYear / numOrchs);
+  const orchIdx = dayIndex % numOrchs;
+  const playerRound = Math.floor(dayIndex / numOrchs);
   const featuredOrch = orchList[orchIdx];
   const orchPlayers = (ALL_PLAYERS[featuredOrch.id] || []).filter(p => !p.status);
   if (!orchPlayers.length) return null;
