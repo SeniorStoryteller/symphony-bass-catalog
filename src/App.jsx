@@ -99,6 +99,7 @@ function ShareIcons({ player, orchestra }) {
   ];
   return (
     <div style={{ display: "flex", gap: 16, alignItems: "center", justifyContent: "flex-end", marginTop: 10 }}>
+      <span style={{ fontSize: 11, color: S.textMuted, letterSpacing: "0.05em", textTransform: "uppercase" }}>Share:</span>
       {links.map(({ href, title, path, onClick }) => (
         <a key={title} href={href} target="_blank" rel="noopener noreferrer" title={title}
           onClick={onClick}
