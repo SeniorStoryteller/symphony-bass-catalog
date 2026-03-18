@@ -813,13 +813,13 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                           display: "flex", alignItems: "center", flexWrap: "wrap",
                           gap: "4px 10px", paddingTop: 8,
                         }}>
-                          <span style={{ fontSize: 15, color: S.textPrimary }}>Est. {orch.founded}</span>
+                          <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>Est. {orch.founded}</span>
                           <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
-                          <span style={{ fontSize: 15, color: S.textPrimary }}>{playerCount} bassists</span>
+                          <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>{playerCount} bassists</span>
                           {principal && (
                             <>
                               <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
-                              <span style={{ fontSize: 15, color: S.textPrimary }}>
+                              <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>
                                 {principal.name}
                                 <span style={{ fontSize: 15, color: S.textPrimary }}>, Principal Bass</span>
                                 {(principal.appointedSince || principal.since) && <span style={{ fontSize: 15, color: S.textPrimary }}> · appointed {principal.appointedSince || principal.since}</span>}
