@@ -603,7 +603,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
     <div onClick={() => onSelectPlayer(featured)}
       style={{ background: S.dark, borderBottom: `3px solid ${accent}`, cursor: "pointer", flexShrink: 0 }}>
       <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "16px 20px 18px" : "28px 36px 32px" }}>
-        <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: S.gold, marginBottom: isMobile ? 8 : 14, opacity: 0.9 }}>
+        <div style={{ fontFamily: SERIF, fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: S.gold, marginBottom: isMobile ? 8 : 14, opacity: 0.9 }}>
           Today's Featured Bassist
         </div>
 
@@ -627,7 +627,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
               <h2 style={{ fontFamily: SERIF, fontSize: 48, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.05, marginBottom: 20 }}>
                 {featured.name}
               </h2>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: S.gold, letterSpacing: "0.05em" }}>
+              <div style={{ fontFamily: SERIF, display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: S.gold, letterSpacing: "0.05em" }}>
                 View Full Profile <span style={{ fontSize: 15 }}>→</span>
               </div>
             </div>
@@ -966,7 +966,7 @@ export default function App() {
               <h1 style={{ fontFamily: SERIF, fontSize: isMobile ? 30 : 44, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: isMobile ? 6 : 8 }}>
                 The Bass Section: {Object.keys(ORCHESTRAS).length} American Orchestras
               </h1>
-              <div style={{ fontSize: isMobile ? 13 : 15, fontWeight: 400, color: S.gold, letterSpacing: "0.01em", marginBottom: isMobile ? 10 : 14 }}>
+              <div style={{ fontFamily: SERIF, fontSize: isMobile ? 13 : 15, fontWeight: 400, color: S.gold, letterSpacing: "0.01em", marginBottom: isMobile ? 10 : 14 }}>
                 The bass players who anchor America's great orchestras — their careers, their instruments, their stories.
               </div>
             </>
