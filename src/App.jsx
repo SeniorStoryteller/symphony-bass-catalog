@@ -597,30 +597,45 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
   if (!featured) return null;
 
   const accent = featuredOrch.accentColor || S.gold;
-  const maxChars = isMobile ? 150 : 220;
-  const rawText = (featured.bio || "").replace(/\n\n/g, " ");
-  const excerpt = rawText.length <= maxChars ? rawText : rawText.slice(0, maxChars).replace(/\s+\S*$/, "") + "…";
+  const highlights = (featured.highlights || []).slice(0, 2);
 
   return (
     <div onClick={() => onSelectPlayer(featured)}
       style={{ background: S.dark, borderBottom: `3px solid ${accent}`, cursor: "pointer", flexShrink: 0 }}>
-      <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "24px 20px 28px" : "32px 36px 36px" }}>
+      <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "24px 20px 28px" : "28px 36px 32px" }}>
         <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: accent, marginBottom: 14, opacity: 0.9 }}>
           Today's Featured Bassist
         </div>
-        <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 34 : 52, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.05, marginBottom: 8 }}>
-          {featured.name}
-        </h2>
-        <div style={{ fontSize: isMobile ? 13 : 15, color: "rgba(240,232,220,0.6)", marginBottom: 16, letterSpacing: "0.01em" }}>
-          {featured.role} · {featuredOrch.name}
-        </div>
-        {excerpt && (
-          <div style={{ fontSize: isMobile ? 13 : 14, color: "rgba(240,232,220,0.45)", lineHeight: 1.7, marginBottom: 22, maxWidth: 580 }}>
-            {excerpt}
+        <div style={{ display: "flex", alignItems: isMobile ? "flex-start" : "center", gap: isMobile ? 0 : 32, flexDirection: isMobile ? "column" : "row" }}>
+
+          {/* LEFT — name + CTA */}
+          <div style={{ flex: "0 0 auto" }}>
+            <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 32 : 48, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.05, marginBottom: isMobile ? 14 : 20 }}>
+              {featured.name}
+            </h2>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: accent, letterSpacing: "0.05em" }}>
+              View Full Profile <span style={{ fontSize: 15 }}>→</span>
+            </div>
           </div>
-        )}
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: accent, letterSpacing: "0.05em" }}>
-          View Full Profile <span style={{ fontSize: 15 }}>→</span>
+
+          {/* DIVIDER */}
+          {!isMobile && (
+            <div style={{ width: 1, alignSelf: "stretch", background: `${accent}40`, flexShrink: 0 }} />
+          )}
+
+          {/* RIGHT — role, orchestra, highlights */}
+          <div style={{ flex: 1, paddingTop: isMobile ? 0 : 2 }}>
+            <div style={{ fontSize: 13, color: "rgba(240,232,220,0.75)", marginBottom: 4, letterSpacing: "0.01em" }}>
+              {featured.role}
+            </div>
+            <div style={{ fontSize: 13, color: "rgba(240,232,220,0.5)", marginBottom: highlights.length ? 12 : 0 }}>
+              {featuredOrch.name}
+            </div>
+            {highlights.map((h, i) => (
+              <div key={i} style={{ fontSize: 12, color: "rgba(240,232,220,0.38)", lineHeight: 1.7 }}>· {h}</div>
+            ))}
+          </div>
+
         </div>
       </div>
     </div>
