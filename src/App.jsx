@@ -99,9 +99,9 @@ function ShareIcons({ player, orchestra }) {
     <div style={{ display: "flex", gap: 14, alignItems: "center", flexShrink: 0, paddingTop: 4 }}>
       {links.map(({ href, title, path }) => (
         <a key={title} href={href} target="_blank" rel="noopener noreferrer" title={title}
-          style={{ display: "flex", alignItems: "center", opacity: 0.45, transition: "opacity 0.15s" }}
-          onMouseEnter={e => e.currentTarget.style.opacity = 0.85}
-          onMouseLeave={e => e.currentTarget.style.opacity = 0.45}>
+          style={{ display: "flex", alignItems: "center", opacity: 0.75, transition: "opacity 0.15s" }}
+          onMouseEnter={e => e.currentTarget.style.opacity = 1}
+          onMouseLeave={e => e.currentTarget.style.opacity = 0.75}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill={S.textSecondary}><path d={path} /></svg>
         </a>
       ))}
