@@ -581,8 +581,54 @@ function ChevronRight({ size = 14, color = "currentColor" }) {
   );
 }
 
+/* ── FEATURED BASSIST HERO ── */
+function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
+  const orchList = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
+  const now = new Date();
+  const startOfYear = new Date(now.getFullYear(), 0, 1);
+  const dayOfYear = Math.floor((now - startOfYear) / (1000 * 60 * 60 * 24));
+  const numOrchs = orchList.length;
+  const orchIdx = dayOfYear % numOrchs;
+  const playerRound = Math.floor(dayOfYear / numOrchs);
+  const featuredOrch = orchList[orchIdx];
+  const orchPlayers = (ALL_PLAYERS[featuredOrch.id] || []).filter(p => !p.status);
+  if (!orchPlayers.length) return null;
+  const featured = orchPlayers[playerRound % orchPlayers.length];
+  if (!featured) return null;
+
+  const accent = featuredOrch.accentColor || S.gold;
+  const maxChars = isMobile ? 150 : 220;
+  const rawText = (featured.bio || "").replace(/\n\n/g, " ");
+  const excerpt = rawText.length <= maxChars ? rawText : rawText.slice(0, maxChars).replace(/\s+\S*$/, "") + "…";
+
+  return (
+    <div onClick={() => onSelectPlayer(featured)}
+      style={{ background: S.dark, borderBottom: `3px solid ${accent}`, cursor: "pointer", flexShrink: 0 }}>
+      <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "24px 20px 28px" : "32px 36px 36px" }}>
+        <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: accent, marginBottom: 14, opacity: 0.9 }}>
+          Today's Featured Bassist
+        </div>
+        <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 34 : 52, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.05, marginBottom: 8 }}>
+          {featured.name}
+        </h2>
+        <div style={{ fontSize: isMobile ? 13 : 15, color: "rgba(240,232,220,0.6)", marginBottom: 16, letterSpacing: "0.01em" }}>
+          {featured.role} · {featuredOrch.name}
+        </div>
+        {excerpt && (
+          <div style={{ fontSize: isMobile ? 13 : 14, color: "rgba(240,232,220,0.45)", lineHeight: 1.7, marginBottom: 22, maxWidth: 580 }}>
+            {excerpt}
+          </div>
+        )}
+        <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: accent, letterSpacing: "0.05em" }}>
+          View Full Profile <span style={{ fontSize: 15 }}>→</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ── LANDING PAGE ── */
-function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, onSelectPlayer, sortOrder, onSortChange, isMobile }) {
+function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, onSelectPlayer, isMobile }) {
   const isSearching = globalSearch.trim() !== "";
   const searchTerm = globalSearch.toLowerCase();
   const [hoveredId, setHoveredId] = useState(null);
@@ -614,18 +660,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
   const directGrouped = isSearching && directMatches.length ? groupByOrch(directMatches) : [];
   const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
-  const SORT_OPTIONS = [
-    { key: "name", label: "Orchestra Name" },
-    { key: "size", label: "Section Size" },
-  ];
-
-  const rawOrchList = Object.values(ORCHESTRAS);
-  const orchList = [...rawOrchList].sort((a, b) => {
-    if (sortOrder === "name")    return a.name.localeCompare(b.name);
-    if (sortOrder === "city")    return a.city.localeCompare(b.city);
-    if (sortOrder === "size")    return (ALL_PLAYERS[b.id]?.length ?? 0) - (ALL_PLAYERS[a.id]?.length ?? 0);
-    return a.founded - b.founded; // default: founded
-  });
+  const orchList = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
 
   const orchCount = orchList.length;
   const animDelays = Array.from({ length: orchCount }, (_, i) =>
@@ -719,18 +754,8 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         ) : (
           <div style={{ padding: "0 0 48px" }}>
 
-            {/* ── SORT CONTROL ── */}
-            <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
-            <div style={{ padding: isMobile ? "10px 20px 4px" : "10px 36px 4px", display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-              <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: S.textMuted, marginRight: 4 }}>Sort by</span>
-              {SORT_OPTIONS.map(o => (
-                <button key={o.key} onClick={() => onSortChange(o.key)}
-                  style={{ fontSize: 11, padding: "3px 10px", borderRadius: 20, fontFamily: "inherit", background: sortOrder === o.key ? S.accent : "transparent", color: sortOrder === o.key ? "#7A5C1E" : S.textSecondary, border: `1px solid ${sortOrder === o.key ? S.accentBorder : S.border}`, cursor: "pointer", fontWeight: sortOrder === o.key ? 600 : 400, transition: "all 0.15s", whiteSpace: "nowrap" }}>
-                  {o.label}
-                </button>
-              ))}
-            </div>
-            </div>
+            {/* ── FEATURED BASSIST ── */}
+            <FeaturedBassistHero onSelectPlayer={onSelectPlayer} isMobile={isMobile} />
 
             {/* ── TYPOGRAPHIC INDEX ── */}
             <div style={{ padding: "4px 0 0" }}>
@@ -836,7 +861,6 @@ export default function App() {
   const [orchestraId, setOrchestraid] = useState("sfs");
   const [globalSearch, setGlobalSearch] = useState("");
   const [selectedPlayer, setSelectedPlayer] = useState(null);
-  const [sortOrder, setSortOrder] = useState("name");
   const [subView, setSubView] = useState("bassists");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -946,8 +970,6 @@ export default function App() {
             globalSearch={globalSearch}
             onGlobalSearchChange={setGlobalSearch}
             onSelectPlayer={handleSelectPlayer}
-            sortOrder={sortOrder}
-            onSortChange={setSortOrder}
             isMobile={isMobile}
           />
         )}
