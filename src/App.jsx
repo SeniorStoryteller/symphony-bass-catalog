@@ -90,19 +90,22 @@ function ShareIcons({ player, orchestra }) {
   const encodedUrl = encodeURIComponent(playerUrl);
   const encodedTitle = encodeURIComponent(noteText);
   const encodedSummary = encodeURIComponent("Symphony Bass Catalog — the bass players who anchor America's great orchestras.");
+  const ICON_COLOR = "#2C231A";
   const links = [
     { href: `https://twitter.com/intent/tweet?text=${shareText}&url=${encodedUrl}`, title: "Share on X", path: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" },
+    { href: `https://www.instagram.com/`, title: "Share on Instagram", path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z", onClick: (e) => { e.preventDefault(); if (navigator.share) { navigator.share({ title: noteText, url: playerUrl }); } } },
     { href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, title: "Share on Facebook", path: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" },
     { href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}&summary=${encodedSummary}`, title: "Share on LinkedIn", path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
   ];
   return (
-    <div style={{ display: "flex", gap: 14, alignItems: "center", flexShrink: 0, paddingTop: 4 }}>
-      {links.map(({ href, title, path }) => (
+    <div style={{ display: "flex", gap: 16, alignItems: "center", justifyContent: "flex-end", marginTop: 10 }}>
+      {links.map(({ href, title, path, onClick }) => (
         <a key={title} href={href} target="_blank" rel="noopener noreferrer" title={title}
-          style={{ display: "flex", alignItems: "center", opacity: 0.75, transition: "opacity 0.15s" }}
+          onClick={onClick}
+          style={{ display: "flex", alignItems: "center", opacity: 0.8, transition: "opacity 0.15s" }}
           onMouseEnter={e => e.currentTarget.style.opacity = 1}
-          onMouseLeave={e => e.currentTarget.style.opacity = 0.75}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill={S.textSecondary}><path d={path} /></svg>
+          onMouseLeave={e => e.currentTarget.style.opacity = 0.8}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill={ICON_COLOR}><path d={path} /></svg>
         </a>
       ))}
     </div>
@@ -114,17 +117,15 @@ function PlayerDetail({ player, orchestra, onBack }) {
   const isMobile = window.innerWidth < 768;
   return (
     <div style={{ padding: "0 0 48px" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 40, fontWeight: 700, color: S.textPrimary, lineHeight: 1.1, marginBottom: 6 }}>{player.name}</h2>
-          <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: (player.appointedSince || player.chair) ? 4 : 0 }}>
-            {player.role}{player.appointedSince ? ` · appointed ${player.appointedSince}` : LEADERSHIP_ROLES.includes(player.role) && player.since ? ` · appointed ${player.since}` : player.since ? ` · since ${player.since}` : ""}
-          </div>
-          {player.appointedSince && player.since && (
-            <div style={{ fontSize: 12, color: S.textMuted, marginBottom: player.chair ? 4 : 0 }}>with orchestra since {player.since}</div>
-          )}
-          {player.chair && <div style={{ fontSize: 12, color: "#8C6B3A", fontStyle: "italic", marginTop: 2 }}>{player.chair}</div>}
+      <div style={{ marginBottom: 20 }}>
+        <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 40, fontWeight: 700, color: S.textPrimary, lineHeight: 1.1, marginBottom: 6 }}>{player.name}</h2>
+        <div style={{ fontSize: 13, color: S.textSecondary, marginBottom: (player.appointedSince || player.chair) ? 4 : 0 }}>
+          {player.role}{player.appointedSince ? ` · appointed ${player.appointedSince}` : LEADERSHIP_ROLES.includes(player.role) && player.since ? ` · appointed ${player.since}` : player.since ? ` · since ${player.since}` : ""}
         </div>
+        {player.appointedSince && player.since && (
+          <div style={{ fontSize: 12, color: S.textMuted, marginBottom: player.chair ? 4 : 0 }}>with orchestra since {player.since}</div>
+        )}
+        {player.chair && <div style={{ fontSize: 12, color: "#8C6B3A", fontStyle: "italic", marginTop: 2 }}>{player.chair}</div>}
         <ShareIcons player={player} orchestra={orchestra} />
       </div>
 
