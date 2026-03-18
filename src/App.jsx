@@ -618,7 +618,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
                 {featured.role} · {featuredOrch.name}
               </div>
             </div>
-            <div style={{ fontSize: 18, color: accent, flexShrink: 0 }}>→</div>
+            <div style={{ fontFamily: SERIF, fontSize: 18, color: S.gold, flexShrink: 0 }}>→</div>
           </div>
         ) : (
           /* DESKTOP — split panel */
