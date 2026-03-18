@@ -509,7 +509,7 @@ function InstrumentsTab({ players, onGoToRoster, isMobile }) {
       {inst.story && (
         <div style={{ background: S.dark, padding: "7px 16px", display: "flex", alignItems: "center", gap: 10 }}>
           <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: S.gold }}>Notable history</span>
-          {inst.storyTitle && <span style={{ fontSize: 11, color: "#6B5D52" }}>· {inst.storyTitle}</span>}
+          {inst.storyTitle && <span style={{ fontSize: 13, color: "rgba(240,232,220,0.65)" }}>· {inst.storyTitle}</span>}
         </div>
       )}
       <div style={{ padding: "16px 18px" }}>
