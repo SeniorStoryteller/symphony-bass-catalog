@@ -130,7 +130,7 @@ function PlayerDetail({ player, orchestra, onBack }) {
       </div>
 
       <div style={{ height: 1, background: S.border, marginBottom: 20 }} />
-      <div style={{ fontFamily: SERIF, fontSize: isMobile ? 15 : 17, lineHeight: 1.8, color: "#2C231A", marginBottom: 24 }}>
+      <div style={{ fontSize: isMobile ? 15 : 17, lineHeight: 1.8, color: "#2C231A", marginBottom: 24 }}>
         {player.bio.split("\n\n").map((para, i) => (
           <p key={i} style={{ margin: i === 0 ? "0 0 1em" : "0 0 1em" }}>{para}</p>
         ))}
@@ -534,7 +534,7 @@ function InstrumentsTab({ players, onGoToRoster, isMobile }) {
 
   return (
     <div style={{ overflowY: "auto", padding: isMobile ? "16px 12px 32px" : "24px 24px 40px" }}>
-      <div style={{ fontFamily: SERIF, fontSize: isMobile ? 14 : 15, color: S.textSecondary, lineHeight: 1.7, marginBottom: 24, fontStyle: "italic" }}>
+      <div style={{ fontSize: isMobile ? 14 : 15, color: S.textSecondary, lineHeight: 1.7, marginBottom: 24, fontStyle: "italic" }}>
         Professional orchestral basses are often instruments of significant age and value. Where known, we document what these players are playing.
       </div>
       {notable.length > 0 && (
@@ -813,13 +813,13 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                           display: "flex", alignItems: "center", flexWrap: "wrap",
                           gap: "4px 10px", paddingTop: 8,
                         }}>
-                          <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>Est. {orch.founded}</span>
+                          <span style={{ fontSize: 15, color: S.textPrimary }}>Est. {orch.founded}</span>
                           <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
-                          <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>{playerCount} bassists</span>
+                          <span style={{ fontSize: 15, color: S.textPrimary }}>{playerCount} bassists</span>
                           {principal && (
                             <>
                               <span style={{ color: S.borderHover, fontSize: 13 }}>·</span>
-                              <span style={{ fontFamily: SERIF, fontSize: 16, color: S.textPrimary }}>
+                              <span style={{ fontSize: 15, color: S.textPrimary }}>
                                 {principal.name}
                                 <span style={{ fontSize: 15, color: S.textPrimary }}>, Principal Bass</span>
                                 {(principal.appointedSince || principal.since) && <span style={{ fontSize: 15, color: S.textPrimary }}> · appointed {principal.appointedSince || principal.since}</span>}
