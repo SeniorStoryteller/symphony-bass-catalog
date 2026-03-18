@@ -201,7 +201,7 @@ function SectionMemberCard({ player, onClick }) {
 }
 
 /* ── BASSISTS TAB ── */
-function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globalSearch, onGlobalSearchChange, selectedPlayer, onSelectPlayer, onClearSelected, subView, onSubViewChange, isMobile, onGoHome }) {
+function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selectedPlayer, onSelectPlayer, onClearSelected, subView, onSubViewChange, isMobile, onGoHome }) {
   const orchList = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
   const currentIdx = orchList.findIndex(o => o.id === orchestraId);
   const prevOrch = currentIdx > 0 ? orchList[currentIdx - 1] : null;
@@ -209,36 +209,6 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
   const scrollRef = useRef(null);
 
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = 0; }, [selectedPlayer]);
-
-  const isSearching = globalSearch.trim() !== "";
-  const searchTerm = globalSearch.toLowerCase();
-
-  const directMatches = isSearching
-    ? ALL_PLAYERS_FLAT.filter(p =>
-        p.name.toLowerCase().includes(searchTerm) ||
-        p.role.toLowerCase().includes(searchTerm)
-      )
-    : null;
-
-  const bioMentions = isSearching
-    ? ALL_PLAYERS_FLAT.filter(p =>
-        !directMatches.find(d => d.id === p.id) &&
-        p.bio && p.bio.toLowerCase().includes(searchTerm)
-      )
-    : null;
-
-  const globalFiltered = isSearching ? [...directMatches, ...bioMentions] : null;
-
-  const groupByOrch = (arr) => Object.entries(
-    arr.reduce((acc, p) => {
-      if (!acc[p.orchestraId]) acc[p.orchestraId] = [];
-      acc[p.orchestraId].push(p);
-      return acc;
-    }, {})
-  ).map(([orchId, ps]) => ({ orchestra: ORCHESTRAS[orchId], players: ps }));
-
-  const directGrouped = isSearching && directMatches.length ? groupByOrch(directMatches) : [];
-  const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
   const leadership = players.filter(p => !p.status && LEADERSHIP_ROLES.includes(p.role));
   const section = players.filter(p => !p.status && p.role === "Section Bass")
@@ -302,25 +272,14 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
           )}
         </div>
       </div>
-      <div style={{ padding: isMobile ? "10px 12px 8px" : "12px 20px 10px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
-        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
-        <input
-          type="text"
-          placeholder="Search for a bassist by name…"
-          value={globalSearch}
-          onChange={e => onGlobalSearchChange(e.target.value)}
-          style={{ width: "100%", padding: "9px 13px", fontSize: 16, fontFamily: "inherit", background: S.cardBg, border: `1px solid ${isSearching ? S.gold : S.border}`, borderRadius: 10, color: S.textPrimary, outline: "none", transition: "border-color 0.15s" }}
-        />
-        {isSearching && (
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
-            <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>
-              {globalFiltered.length} bassist{globalFiltered.length !== 1 ? "s" : ""} found across all orchestras
-            </span>
-            <button onClick={() => onGlobalSearchChange("")} style={{ fontSize: 12, color: S.textSecondary, background: "none", border: `1px solid ${S.border}`, borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear</button>
+      {/* Season note */}
+      {orchestra.seasonNote && (
+        <div style={{ padding: isMobile ? "10px 16px" : "12px 24px", borderBottom: `1px solid ${S.border}`, background: S.surface, flexShrink: 0 }}>
+          <div style={{ maxWidth: MAX_W, margin: "0 auto", fontSize: isMobile ? 12 : 13, color: S.textSecondary, lineHeight: 1.6, fontStyle: "italic" }}>
+            {orchestra.seasonNote}
           </div>
-        )}
         </div>
-      </div>
+      )}
 
       {/* View toggle — Bassists / Notable Instruments */}
       <div style={{ padding: isMobile ? "8px 14px 6px" : "10px 24px 8px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
@@ -362,36 +321,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
 
       <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
-        {isSearching ? (
-          globalFiltered.length === 0
-            ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
-            : <>
-                {directGrouped.map(({ orchestra: orch, players: ps }) => (
-                  <div key={orch.id} style={{ marginBottom: 28 }}>
-                    <SectionLabel style={{ marginBottom: 14 }}>
-                      {orch.name} <span style={{ fontWeight: 400, color: S.textMuted, textTransform: "none", letterSpacing: 0, fontSize: 10 }}>· {ps.length} result{ps.length !== 1 ? "s" : ""}</span>
-                    </SectionLabel>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                      {ps.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
-                    </div>
-                  </div>
-                ))}
-                {mentionGrouped.length > 0 && (
-                  <div style={{ marginTop: 8 }}>
-                    <div style={{ height: 1, background: S.border, marginBottom: 16 }} />
-                    <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: S.textMuted, marginBottom: 16 }}>Also mentioned in bios</div>
-                    {mentionGrouped.map(({ orchestra: orch, players: ps }) => (
-                      <div key={orch.id} style={{ marginBottom: 24, opacity: 0.75 }}>
-                        <SectionLabel style={{ marginBottom: 12 }}>{orch.name}</SectionLabel>
-                        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                          {ps.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </>
-        ) : subView === "instruments" ? (
+        {subView === "instruments" ? (
           <InstrumentsTab players={players} onGoToRoster={onSelectPlayer} isMobile={isMobile} />
         ) : (
           <>
@@ -481,7 +411,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, globa
         )}
 
         {/* ── BOTTOM ORCHESTRA NAV ── */}
-        {!isSearching && (
+        {(
           <div style={{ borderTop: `1px solid ${S.border}`, marginTop: 32, display: "flex", justifyContent: "space-between", gap: 12 }}>
             <div style={{ flex: 1 }}>
               {prevOrch && (
@@ -1034,8 +964,6 @@ export default function App() {
             orchestra={orchestra}
             orchestraId={orchestraId}
             onSelectOrchestra={handleSelectOrchestra}
-            globalSearch={globalSearch}
-            onGlobalSearchChange={setGlobalSearch}
             selectedPlayer={selectedPlayer}
             onSelectPlayer={handleSelectPlayer}
             onClearSelected={() => { setSelectedPlayer(null); window.history.replaceState(null, "", window.location.pathname); }}
