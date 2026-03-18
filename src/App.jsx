@@ -842,6 +842,20 @@ export default function App() {
     return () => window.removeEventListener("resize", handler);
   }, []);
 
+  // Deep link: read ?player= on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const playerId = params.get("player");
+    if (playerId) {
+      const player = ALL_PLAYERS_FLAT.find(p => p.id === playerId);
+      if (player) {
+        setOrchestraid(player.orchestraId);
+        setSelectedPlayer(player);
+        setView("orchestra");
+      }
+    }
+  }, []);
+
   const orchestra = ORCHESTRAS[orchestraId];
   const players = ALL_PLAYERS[orchestraId];
 
@@ -857,6 +871,7 @@ export default function App() {
     setView("landing");
     setGlobalSearch("");
     setSelectedPlayer(null);
+    window.history.replaceState(null, "", window.location.pathname);
   };
 
   const handleSelectPlayer = (player) => {
@@ -864,6 +879,7 @@ export default function App() {
     setSelectedPlayer(player);
     setGlobalSearch("");
     setView("orchestra");
+    window.history.replaceState(null, "", `?player=${player.id}`);
   };
 
 
@@ -941,7 +957,7 @@ export default function App() {
             onGlobalSearchChange={setGlobalSearch}
             selectedPlayer={selectedPlayer}
             onSelectPlayer={handleSelectPlayer}
-            onClearSelected={() => setSelectedPlayer(null)}
+            onClearSelected={() => { setSelectedPlayer(null); window.history.replaceState(null, "", window.location.pathname); }}
             subView={subView}
             onSubViewChange={setSubView}
             isMobile={isMobile}
