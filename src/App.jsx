@@ -207,8 +207,10 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
   const prevOrch = currentIdx > 0 ? orchList[currentIdx - 1] : null;
   const nextOrch = currentIdx < orchList.length - 1 ? orchList[currentIdx + 1] : null;
   const scrollRef = useRef(null);
+  const contentScrollRef = useRef(null);
 
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = 0; }, [selectedPlayer]);
+  useEffect(() => { if (contentScrollRef.current) contentScrollRef.current.scrollTop = 0; }, [orchestraId]);
 
   const leadership = players.filter(p => !p.status && LEADERSHIP_ROLES.includes(p.role));
   const section = players.filter(p => !p.status && p.role === "Section Bass")
@@ -271,7 +273,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
         </div>
       )}
 
-      <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
+      <div ref={contentScrollRef} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
           {/* View toggle — mobile inline, inside scroll area */}
           {isMobile && getAllInstruments(players).length > 0 && (
