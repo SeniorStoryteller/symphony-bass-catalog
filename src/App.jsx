@@ -333,7 +333,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
                           <div style={{ fontFamily: SERIF, fontSize: 18, fontWeight: 700, color: S.textMuted }}>{p.retiredYear}</div>
                         </div>
                       </div>
-                      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", marginBottom: 10 }}>{p.bio.split(". ")[0] + "."}</div>
+                      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, marginBottom: 10 }}>{bioExcerpt(p.bio, isMobile ? 250 : 400)}</div>
                       <div style={{ display: "flex", justifyContent: "flex-end" }}>
                         <span style={{ fontSize: 12, color: p.color, fontWeight: 500 }}>View profile →</span>
                       </div>
