@@ -252,43 +252,41 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
               </>
             )}
           </div>
-          {isMobile && (
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 8 }}>
-              {prevOrch && (
-                <button onClick={() => onSelectOrchestra(prevOrch.id)}
-                  style={{ display: "flex", alignItems: "center", gap: 4, background: "rgba(200,169,110,0.12)", border: "1px solid rgba(200,169,110,0.35)", borderRadius: 20, padding: "4px 10px 4px 7px", fontSize: 11, color: S.gold, fontFamily: "inherit", cursor: "pointer", fontWeight: 500 }}>
-                  <ChevronLeft size={11} color={S.gold} />
-                  {prevOrch.shortName}
-                </button>
-              )}
-              {nextOrch && (
-                <button onClick={() => onSelectOrchestra(nextOrch.id)}
-                  style={{ display: "flex", alignItems: "center", gap: 4, background: "rgba(200,169,110,0.12)", border: "1px solid rgba(200,169,110,0.35)", borderRadius: 20, padding: "4px 7px 4px 10px", fontSize: 11, color: S.gold, fontFamily: "inherit", cursor: "pointer", fontWeight: 500 }}>
-                  {nextOrch.shortName}
-                  <ChevronRight size={11} color={S.gold} />
-                </button>
-              )}
-            </div>
-          )}
         </div>
       </div>
-      {/* View toggle — Bassists / Notable Instruments */}
-      <div style={{ padding: isMobile ? "12px 16px 10px" : "14px 24px 12px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
-        <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 20 }}>
-          {[{ key: "bassists", label: "Bassists" }, ...(getAllInstruments(players).length > 0 ? [{ key: "instruments", label: "Notable Instruments" }] : [])].map((sv, i) => (
-            <>
-              {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 20, userSelect: "none" }}>|</span>}
-              <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
-                style={{ background: "none", border: "none", padding: "2px 0", fontFamily: "inherit", fontSize: isMobile ? 22 : 26, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
-                {sv.label}
-              </button>
-            </>
-          ))}
+      {/* View toggle — desktop sticky bar only */}
+      {!isMobile && (
+        <div style={{ padding: "14px 24px 12px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
+          <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 20 }}>
+            {[{ key: "bassists", label: "Bassists" }, ...(getAllInstruments(players).length > 0 ? [{ key: "instruments", label: "Notable Instruments" }] : [])].map((sv, i) => (
+              <>
+                {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 20, userSelect: "none" }}>|</span>}
+                <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
+                  style={{ background: "none", border: "none", padding: "2px 0", fontFamily: "inherit", fontSize: 26, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
+                  {sv.label}
+                </button>
+              </>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+          {/* View toggle — mobile inline, inside scroll area */}
+          {isMobile && getAllInstruments(players).length > 0 && (
+            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16 }}>
+              {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Notable Instruments" }].map((sv, i) => (
+                <>
+                  {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 14, userSelect: "none" }}>|</span>}
+                  <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
+                    style={{ background: "none", border: "none", padding: "2px 0", fontFamily: "inherit", fontSize: 15, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
+                    {sv.label}
+                  </button>
+                </>
+              ))}
+            </div>
+          )}
         {subView === "instruments" ? (
           <InstrumentsTab players={players} onGoToRoster={onSelectPlayer} isMobile={isMobile} />
         ) : (
