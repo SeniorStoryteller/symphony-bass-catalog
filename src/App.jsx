@@ -441,9 +441,9 @@ function InstrumentsTab({ players, onGoToRoster, isMobile }) {
       onMouseLeave={e => e.currentTarget.style.borderColor = S.border}
       style={{ background: S.cardBg, border: `1px solid ${S.border}`, borderRadius: 14, overflow: "hidden", cursor: "pointer", marginBottom: 12, transition: "border-color 0.15s" }}>
       {inst.story && (
-        <div style={{ background: S.dark, padding: "7px 16px", display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: S.gold }}>Notable history</span>
-          {inst.storyTitle && <span style={{ fontSize: 13, color: "rgba(240,232,220,0.65)" }}>· {inst.storyTitle}</span>}
+        <div style={{ background: S.dark, padding: "7px 16px" }}>
+          <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: S.gold, marginBottom: inst.storyTitle ? 2 : 0 }}>Notable history</div>
+          {inst.storyTitle && <div style={{ fontSize: 13, color: "rgba(240,232,220,0.65)", lineHeight: 1.3 }}>{inst.storyTitle}</div>}
         </div>
       )}
       <div style={{ padding: "16px 18px" }}>
