@@ -272,11 +272,36 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
           )}
         </div>
       </div>
-      {/* Season note */}
+      {/* Season note + stats split panel */}
       {orchestra.seasonNote && (
-        <div style={{ padding: isMobile ? "10px 16px" : "12px 24px", borderBottom: `1px solid ${S.border}`, background: S.surface, flexShrink: 0 }}>
-          <div style={{ maxWidth: MAX_W, margin: "0 auto", fontSize: isMobile ? 12 : 13, color: S.textSecondary, lineHeight: 1.6, fontStyle: "italic" }}>
-            {orchestra.seasonNote}
+        <div style={{ borderBottom: `1px solid ${S.border}`, background: S.surface, flexShrink: 0 }}>
+          <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "14px 16px" : "16px 24px", display: "flex", alignItems: "center", gap: isMobile ? 0 : 28, flexDirection: isMobile ? "column" : "row" }}>
+
+            {/* Left — season note */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontFamily: SERIF, fontSize: isMobile ? 12 : 13, color: S.textSecondary, lineHeight: 1.7, fontStyle: "italic" }}>
+                {orchestra.seasonNote}
+              </div>
+            </div>
+
+            {/* Divider */}
+            {!isMobile && <div style={{ width: 1, alignSelf: "stretch", background: S.border, flexShrink: 0 }} />}
+            {isMobile && orchestra.seasonNote && <div style={{ height: 1, width: "100%", background: S.border, margin: "12px 0" }} />}
+
+            {/* Right — stats */}
+            <div style={{ display: "flex", flexDirection: isMobile ? "row" : "column", gap: isMobile ? 20 : 8, flexShrink: 0 }}>
+              {[
+                { label: "Bassists", value: players.filter(p => !p.status).length },
+                { label: "Named Chairs", value: players.filter(p => !p.status && p.chair).length },
+                { label: "Instruments", value: getAllInstruments(players).length },
+              ].map(({ label, value }) => (
+                <div key={label} style={{ textAlign: isMobile ? "center" : "right" }}>
+                  <div style={{ fontFamily: SERIF, fontSize: isMobile ? 20 : 22, fontWeight: 700, color: S.textPrimary, lineHeight: 1 }}>{value}</div>
+                  <div style={{ fontSize: 10, color: S.textMuted, letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 2 }}>{label}</div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       )}
