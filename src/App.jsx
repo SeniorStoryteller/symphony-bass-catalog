@@ -272,75 +272,18 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
           )}
         </div>
       </div>
-      {/* Season note + stats split panel */}
-      {orchestra.seasonNote && (
-        <div style={{ borderBottom: `1px solid ${S.border}`, background: S.surface, flexShrink: 0 }}>
-          <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "14px 16px" : "16px 24px", display: "flex", alignItems: "center", gap: isMobile ? 0 : 28, flexDirection: isMobile ? "column" : "row" }}>
-
-            {/* Left — season note */}
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontFamily: SERIF, fontSize: isMobile ? 12 : 13, color: S.textSecondary, lineHeight: 1.7, fontStyle: "italic" }}>
-                {orchestra.seasonNote}
-              </div>
-            </div>
-
-            {/* Divider */}
-            {!isMobile && <div style={{ width: 1, alignSelf: "stretch", background: S.border, flexShrink: 0 }} />}
-            {isMobile && orchestra.seasonNote && <div style={{ height: 1, width: "100%", background: S.border, margin: "12px 0" }} />}
-
-            {/* Right — stats */}
-            <div style={{ display: "flex", flexDirection: isMobile ? "row" : "column", gap: isMobile ? 20 : 8, flexShrink: 0 }}>
-              {[
-                { label: "Bassists", value: players.filter(p => !p.status).length },
-                { label: "Named Chairs", value: players.filter(p => !p.status && p.chair).length },
-                { label: "Instruments", value: getAllInstruments(players).length },
-              ].map(({ label, value }) => (
-                <div key={label} style={{ textAlign: isMobile ? "center" : "right" }}>
-                  <div style={{ fontFamily: SERIF, fontSize: isMobile ? 20 : 22, fontWeight: 700, color: S.textPrimary, lineHeight: 1 }}>{value}</div>
-                  <div style={{ fontSize: 10, color: S.textMuted, letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 2 }}>{label}</div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </div>
-      )}
-
       {/* View toggle — Bassists / Notable Instruments */}
-      <div style={{ padding: isMobile ? "8px 14px 6px" : "10px 24px 8px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
-        <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 }}>
-          <span style={{ fontSize: 13, fontWeight: 400, color: S.textMuted }}>View:</span>
+      <div style={{ padding: isMobile ? "12px 16px 10px" : "14px 24px 12px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
+        <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 20 }}>
           {[{ key: "bassists", label: "Bassists" }, ...(getAllInstruments(players).length > 0 ? [{ key: "instruments", label: "Notable Instruments" }] : [])].map((sv, i) => (
             <>
-              {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 14, userSelect: "none" }}>|</span>}
+              {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 20, userSelect: "none" }}>|</span>}
               <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
-                style={{ background: "none", border: "none", padding: "2px 0", fontFamily: "inherit", fontSize: 13, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
+                style={{ background: "none", border: "none", padding: "2px 0", fontFamily: "inherit", fontSize: isMobile ? 22 : 26, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
                 {sv.label}
               </button>
             </>
           ))}
-          {!isMobile && (
-            <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
-              {prevOrch && (
-                <button onClick={() => onSelectOrchestra(prevOrch.id)}
-                  style={{ display: "flex", alignItems: "center", gap: 5, background: "rgba(200,169,110,0.12)", border: "1px solid rgba(200,169,110,0.35)", borderRadius: 20, padding: "4px 12px 4px 8px", fontSize: 12, color: S.gold, fontFamily: "inherit", cursor: "pointer", fontWeight: 500, transition: "background 0.15s" }}
-                  onMouseEnter={e => e.currentTarget.style.background = "rgba(200,169,110,0.2)"}
-                  onMouseLeave={e => e.currentTarget.style.background = "rgba(200,169,110,0.12)"}>
-                  <ChevronLeft size={12} color={S.gold} />
-                  {prevOrch.shortName}
-                </button>
-              )}
-              {nextOrch && (
-                <button onClick={() => onSelectOrchestra(nextOrch.id)}
-                  style={{ display: "flex", alignItems: "center", gap: 5, background: "rgba(200,169,110,0.12)", border: "1px solid rgba(200,169,110,0.35)", borderRadius: 20, padding: "4px 8px 4px 12px", fontSize: 12, color: S.gold, fontFamily: "inherit", cursor: "pointer", fontWeight: 500, transition: "background 0.15s" }}
-                  onMouseEnter={e => e.currentTarget.style.background = "rgba(200,169,110,0.2)"}
-                  onMouseLeave={e => e.currentTarget.style.background = "rgba(200,169,110,0.12)"}>
-                  {nextOrch.shortName}
-                  <ChevronRight size={12} color={S.gold} />
-                </button>
-              )}
-            </div>
-          )}
         </div>
       </div>
 
