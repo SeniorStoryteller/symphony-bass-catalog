@@ -42,12 +42,16 @@ const ORCHESTRAS = {
         "https://contrabassconversations.com/2018/02/05/daniel-smith/",
         "https://www.sfsymphony.org/About-SFS/Press-Room/Press-Releases/New-Musicians-and-Orchestra-Updates-2024-25",
         "https://doublebassblog.org/2016/03/scott-pingel-back-at-san-francisco-conservatory-for-2016-17.html",
+        "https://newmusicusa.org/nmbx/clique-you-heels/",
+        "https://www.discogs.com/artist/1950181-Michael-Burr",
+        "https://bachddsoc.org/concerts/historical-musicians/",
+        "https://www.discogs.com/release/546423-Metallica-San-Francisco-Symphony-SM",
       ],
       sections: [
         {
           heading: null,
           paragraphs: [
-            "Only two musicians have been publicly documented as principal bass of the San Francisco Symphony \u2014 Philip Karp, who held the position during the mid-twentieth century, and Scott Pingel, who has held it since 2004.[1] The section is also defined by longevity: at the close of the 2024\u201325 season, four active members had served more than thirty-five years each,[2] and the section\u2019s senior player, Chris Gilbert, retired after forty-seven.[3]",
+            "Three musicians have been publicly documented as principal bass of the San Francisco Symphony \u2014 Philip Karp, who held the position during the mid-twentieth century, Michael Burr, who won the chair around 1970,[34] and Scott Pingel, who has held it since 2004.[1] The section is also defined by longevity: at the close of the 2024\u201325 season, four active members had served more than thirty-five years each,[2] and the section\u2019s senior player, Chris Gilbert, retired after forty-seven.[3]",
           ],
         },
         {
@@ -71,6 +75,14 @@ const ORCHESTRAS = {
             "In 1959, Charles Burrell \u2014 a bassist from Denver who had performed with the Denver Symphony \u2014 was visiting a cousin in San Francisco near the War Memorial Opera House. As he left his car, he noticed a bass case in the back seat of a vehicle pulling up nearby. He struck up a conversation with the driver, who turned out to be Philip Karp.[16] Karp arranged an audition for Burrell with the orchestra, then led by Pierre Monteux.",
             "Burrell won the audition and became the first African American member of the San Francisco Symphony.[16] He later described being moved to tears after receiving a standing ovation during his first performance.[17] He remained with the SFS through 1965, serving under both Monteux and his successor Josef Krips.[16] Larry Rothe\u2019s centennial history, Music for a City, Music for the World (2011), documents the encounter.[16]",
             "Karp also participated in SFS musicians\u2019 extracurricular performances \u2014 he appears among SFS members in a 1957 Dixieland concert alongside trumpet player Marvin Nelson and others.[18] He died in 2005 in Hillsborough, California.[19]",
+          ],
+        },
+        {
+          heading: "Burr: From Last Chair to First",
+          paragraphs: [
+            "Michael Burr, born in 1938,[35] was sitting in the last chair of the SFS bass section during the Josef Krips era when the principal position came open.[34] Ozawa had just succeeded Krips in 1970, and the orchestra held an open audition \u2014 Burr, already in the section, auditioned and won the chair.[34]",
+            "In a 2012 essay for NewMusicBox, the jazz bassist Ratzo B. Harris \u2014 who studied privately with Burr as a teenager in San Francisco \u2014 recalled him as \"an exceptional improviser.\"[34] Harris wrote that Burr had studied jazz with Ray Brown and with Doug Watkins, who died in 1962, years before Burr\u2019s promotion and while Burr was still in his early twenties.[34] That dual fluency carried into his life outside the orchestra: Burr performed regularly at the Bach Dancing & Dynamite Society, the oceanfront jazz venue in Half Moon Bay that has presented live music since 1964, appearing there on both bass and piano.[36]",
+            "His exact tenure as principal has not been documented. He does not appear in the personnel credits of the orchestra\u2019s 1999 S&M recording with Metallica, which lists Tramontozzi, Chandler, Gilbert, Wright, and Ritchen in the bass section.[37] Harris referred to him as \"a past principal bass for SFS\" in 2012.[34] The status of the chair between Burr\u2019s departure and Scott Pingel\u2019s appointment in 2004 has not been publicly documented.",
           ],
         },
         {
