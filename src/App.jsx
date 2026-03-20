@@ -15,6 +15,26 @@ const LABEL_STYLE = { fontSize: 12, fontWeight: 600, letterSpacing: "0.14em", te
 const LEADERSHIP_ROLES = ["Principal Bass", "Associate Principal Bass", "Assistant Principal Bass", "First Assistant Principal Bass"];
 const MAX_W = 860;
 
+/* ── SHARED STYLES ── */
+const CENTERED = { maxWidth: MAX_W, margin: "0 auto" };
+const FULL_FLEX = { flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" };
+const CARD_LIST = { display: "flex", flexDirection: "column", gap: 10 };
+const BIO_TEXT = { fontSize: 13, color: "#7A6A58", lineHeight: 1.55, marginBottom: 12 };
+const CHAIR = { fontSize: 11, color: "#8C6B3A", fontStyle: "italic" };
+const NAV_BTN = { display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" };
+const NAV_LABEL = { fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 };
+const NAV_NAME = { fontFamily: SERIF, fontSize: 15, fontWeight: 600 };
+const BREADCRUMB_BTN = { background: S.accent, border: `1px solid ${S.accentBorder}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, fontWeight: 500, color: S.textPrimary, fontFamily: "inherit", cursor: "pointer" };
+const BOTTOM_STRIP = { borderTop: `1px solid ${S.border}`, marginTop: 32, display: "flex", justifyContent: "space-between", gap: 12 };
+const navHoverOn = e => e.currentTarget.style.color = S.gold;
+const navHoverOff = e => e.currentTarget.style.color = S.textSecondary;
+
+/* ── PRE-COMPUTED DATA ── */
+const SORTED_ORCHS = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
+const PRINCIPAL_BY_ORCH = Object.fromEntries(
+  Object.entries(ALL_PLAYERS).map(([id, ps]) => [id, ps.find(p => p.role === "Principal Bass")])
+);
+
 /* ── HELPERS ── */
 function bioExcerpt(bio, maxLen) {
   const text = bio.replace(/\n\n/g, " ");
@@ -56,6 +76,16 @@ function getAllInstruments(players) {
 
 function isRich(player) {
   return player.instruments.some(i => i.story || i.maker) || player.highlights.length > 1;
+}
+
+function groupByOrch(arr) {
+  return Object.entries(
+    arr.reduce((acc, p) => {
+      if (!acc[p.orchestraId]) acc[p.orchestraId] = [];
+      acc[p.orchestraId].push(p);
+      return acc;
+    }, {})
+  ).map(([orchId, ps]) => ({ orchestra: ORCHESTRAS[orchId], players: ps }));
 }
 
 /* ── SHARED COMPONENTS ── */
@@ -125,7 +155,7 @@ function PlayerDetail({ player, orchestra, onBack }) {
         {player.appointedSince && player.since && (
           <div style={{ fontSize: 12, color: S.textMuted, marginBottom: player.chair ? 4 : 0 }}>with orchestra since {player.since}</div>
         )}
-        {player.chair && <div style={{ fontSize: 12, color: "#8C6B3A", fontStyle: "italic", marginTop: 2 }}>{player.chair}</div>}
+        {player.chair && <div style={{ ...CHAIR, fontSize: 12, marginTop: 2 }}>{player.chair}</div>}
         <ShareIcons player={player} orchestra={orchestra} />
       </div>
 
@@ -168,10 +198,10 @@ function LeadershipCard({ player, onClick }) {
           {player.appointedSince && player.since && (
             <div style={{ fontSize: 11, color: S.textMuted, marginBottom: player.chair ? 3 : 0 }}>with orchestra since {player.since}</div>
           )}
-          {player.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic" }}>{player.chair}</div>}
+          {player.chair && <div style={CHAIR}>{player.chair}</div>}
         </div>
       </div>
-      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, marginBottom: 12 }}>{bioExcerpt(player.bio, isMobile ? 250 : 400)}</div>
+      <div style={BIO_TEXT}>{bioExcerpt(player.bio, isMobile ? 250 : 400)}</div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
         <span style={{ fontSize: 12, color: player.color, fontWeight: 500 }}>Read full profile →</span>
       </div>
@@ -193,10 +223,10 @@ function SectionMemberCard({ player, onClick }) {
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: SERIF, fontSize: isMobile ? 17 : 20, fontWeight: 700, color: S.textPrimary, marginBottom: 2, lineHeight: 1.1 }}>{player.name}</div>
           {player.since && <div style={{ fontSize: 12, color: S.textMuted }}>since {player.since}</div>}
-          {player.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic", marginTop: 2 }}>{player.chair}</div>}
+          {player.chair && <div style={{ ...CHAIR, marginTop: 2 }}>{player.chair}</div>}
         </div>
       </div>
-      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, marginBottom: 12 }}>{bioExcerpt(player.bio, isMobile ? 250 : 400)}</div>
+      <div style={BIO_TEXT}>{bioExcerpt(player.bio, isMobile ? 250 : 400)}</div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
         <span style={{ fontSize: 12, color: player.color, fontWeight: 500 }}>Read full profile →</span>
       </div>
@@ -206,10 +236,9 @@ function SectionMemberCard({ player, onClick }) {
 
 /* ── BASSISTS TAB ── */
 function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selectedPlayer, onSelectPlayer, onClearSelected, subView, onSubViewChange, isMobile, onGoHome }) {
-  const orchList = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
-  const currentIdx = orchList.findIndex(o => o.id === orchestraId);
-  const prevOrch = currentIdx > 0 ? orchList[currentIdx - 1] : null;
-  const nextOrch = currentIdx < orchList.length - 1 ? orchList[currentIdx + 1] : null;
+  const currentIdx = SORTED_ORCHS.findIndex(o => o.id === orchestraId);
+  const prevOrch = currentIdx > 0 ? SORTED_ORCHS[currentIdx - 1] : null;
+  const nextOrch = currentIdx < SORTED_ORCHS.length - 1 ? SORTED_ORCHS[currentIdx + 1] : null;
   const scrollRef = useRef(null);
   const contentScrollRef = useRef(null);
 
@@ -235,10 +264,10 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
     const prevPlayer = playerIdx > 0 ? rosterOrder[playerIdx - 1] : null;
     const nextPlayer = playerIdx < rosterOrder.length - 1 ? rosterOrder[playerIdx + 1] : null;
     return (
-      <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+      <div style={FULL_FLEX}>
         <div style={{ padding: isMobile ? "8px 14px" : "10px 24px", borderBottom: `1px solid ${S.border}`, background: S.cream, flexShrink: 0 }}>
-          <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 8 }}>
-            <button onClick={onClearSelected} style={{ background: S.accent, border: `1px solid ${S.accentBorder}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, fontWeight: 500, color: S.textPrimary, fontFamily: "inherit", cursor: "pointer" }}>← Back</button>
+          <div style={{ ...CENTERED, display: "flex", alignItems: "center", gap: 8 }}>
+            <button onClick={onClearSelected} style={BREADCRUMB_BTN}>← Back</button>
             {playerOrchestra && (
               <>
                 <span style={{ fontSize: 12, color: S.textMuted }}>/</span>
@@ -248,54 +277,42 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
           </div>
         </div>
         <div ref={scrollRef} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "16px 14px 48px" : "24px 24px 48px" }}>
-          <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+          <div style={CENTERED}>
             <PlayerDetail player={selectedPlayer} orchestra={playerOrchestra} onBack={onClearSelected} />
 
             {/* ── BOTTOM PLAYER NAV ── */}
-            <div style={{ borderTop: `1px solid ${S.border}`, marginTop: 32, display: "flex", justifyContent: "space-between", gap: 12 }}>
+            <div style={BOTTOM_STRIP}>
               <div style={{ flex: 1 }}>
                 {prevPlayer ? (
-                  <button onClick={() => onSelectPlayer(prevPlayer)}
-                    style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                    onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                    onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                  <button onClick={() => onSelectPlayer(prevPlayer)} style={NAV_BTN} onMouseEnter={navHoverOn} onMouseLeave={navHoverOff}>
                     <ChevronLeft size={14} color="currentColor" />
                     <div style={{ textAlign: "left" }}>
-                      <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Previous</div>
-                      <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{prevPlayer.name}</div>
+                      <div style={NAV_LABEL}>Previous</div>
+                      <div style={NAV_NAME}>{prevPlayer.name}</div>
                     </div>
                   </button>
                 ) : (
-                  <button onClick={onGoHome}
-                    style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                    onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                    onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                  <button onClick={onGoHome} style={NAV_BTN} onMouseEnter={navHoverOn} onMouseLeave={navHoverOff}>
                     <HomeIcon size={14} color="currentColor" />
                     <div style={{ textAlign: "left" }}>
-                      <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>All Orchestras</div>
+                      <div style={NAV_NAME}>All Orchestras</div>
                     </div>
                   </button>
                 )}
               </div>
               <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
                 {nextPlayer ? (
-                  <button onClick={() => onSelectPlayer(nextPlayer)}
-                    style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                    onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                    onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                  <button onClick={() => onSelectPlayer(nextPlayer)} style={NAV_BTN} onMouseEnter={navHoverOn} onMouseLeave={navHoverOff}>
                     <div style={{ textAlign: "right" }}>
-                      <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Next</div>
-                      <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{nextPlayer.name}</div>
+                      <div style={NAV_LABEL}>Next</div>
+                      <div style={NAV_NAME}>{nextPlayer.name}</div>
                     </div>
                     <ChevronRight size={14} color="currentColor" />
                   </button>
                 ) : (
-                  <button onClick={onGoHome}
-                    style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                    onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                    onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                  <button onClick={onGoHome} style={NAV_BTN} onMouseEnter={navHoverOn} onMouseLeave={navHoverOff}>
                     <div style={{ textAlign: "right" }}>
-                      <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>All Orchestras</div>
+                      <div style={NAV_NAME}>All Orchestras</div>
                     </div>
                     <HomeIcon size={14} color="currentColor" />
                   </button>
@@ -310,11 +327,11 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
   }
 
   return (
-    <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+    <div style={FULL_FLEX}>
       <div style={{ padding: isMobile ? "8px 14px" : "10px 24px", borderBottom: `1px solid ${S.border}`, background: S.cream, flexShrink: 0 }}>
-        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+        <div style={CENTERED}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <button onClick={onGoHome} style={{ background: S.accent, border: `1px solid ${S.accentBorder}`, borderRadius: 8, padding: "5px 12px", fontSize: 12, fontWeight: 500, color: S.textPrimary, fontFamily: "inherit", cursor: "pointer" }}>← Orchestras</button>
+            <button onClick={onGoHome} style={BREADCRUMB_BTN}>← Orchestras</button>
             {orchestra && (
               <>
                 <span style={{ fontSize: 12, color: S.textMuted }}>/</span>
@@ -327,7 +344,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
       {/* View toggle — desktop sticky bar */}
       {!isMobile && tabs.length > 1 && (
         <div style={{ padding: "14px 24px 12px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
-          <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 20 }}>
+          <div style={{ ...CENTERED, display: "flex", alignItems: "center", justifyContent: "center", gap: 20 }}>
             {tabs.map((sv, i) => (
               <React.Fragment key={sv.key}>
                 {i > 0 && <span style={{ color: S.borderHover, fontSize: 20, userSelect: "none" }}>|</span>}
@@ -342,7 +359,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
       )}
 
       <div ref={contentScrollRef} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
-        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+        <div style={CENTERED}>
           {/* View toggle — mobile inline, inside scroll area */}
           {isMobile && tabs.length > 1 && (
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 16 }}>
@@ -371,7 +388,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
             {leadership.length > 0 && (
               <div style={{ marginBottom: 24 }}>
                 <SectionLabel>Principals</SectionLabel>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <div style={CARD_LIST}>
                   {leadership.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
                 </div>
               </div>
@@ -380,7 +397,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
             {section.length > 0 && (
               <div style={{ marginBottom: 24 }}>
                 <SectionLabel>Section Members</SectionLabel>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <div style={CARD_LIST}>
                   {section.map(p => <SectionMemberCard key={p.id} player={p} onClick={onSelectPlayer} />)}
                 </div>
               </div>
@@ -390,7 +407,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
               <div style={{ marginTop: 28 }}>
                 <div style={{ height: 1, background: S.border, marginBottom: 20 }} />
                 <SectionLabel>Distinguished Alumni</SectionLabel>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <div style={CARD_LIST}>
                   {alumni.map(p => (
                     <div key={p.id} role="button" tabIndex={0} onClick={() => onSelectPlayer(p)}
                       onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelectPlayer(p); } }}
@@ -402,14 +419,14 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
                         <div style={{ flex: 1, minWidth: 0 }}>
                           <div style={{ fontFamily: SERIF, fontSize: 18, fontWeight: 700, color: S.textPrimary, lineHeight: 1.1, marginBottom: 2 }}>{p.name}</div>
                           <div style={{ fontSize: 12, color: S.textSecondary }}>{p.role} · {p.since}–{p.retiredYear}</div>
-                          {p.chair && <div style={{ fontSize: 11, color: "#8C6B3A", fontStyle: "italic", marginTop: 2 }}>{p.chair}</div>}
+                          {p.chair && <div style={{ ...CHAIR, marginTop: 2 }}>{p.chair}</div>}
                         </div>
                         <div style={{ textAlign: "right", flexShrink: 0 }}>
                           <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: S.textMuted }}>Retired</div>
                           <div style={{ fontFamily: SERIF, fontSize: 18, fontWeight: 700, color: S.textMuted }}>{p.retiredYear}</div>
                         </div>
                       </div>
-                      <div style={{ fontSize: 13, color: "#7A6A58", lineHeight: 1.55, marginBottom: 10 }}>{bioExcerpt(p.bio, isMobile ? 250 : 400)}</div>
+                      <div style={{ ...BIO_TEXT, marginBottom: 10 }}>{bioExcerpt(p.bio, isMobile ? 250 : 400)}</div>
                       <div style={{ display: "flex", justifyContent: "flex-end" }}>
                         <span style={{ fontSize: 12, color: p.color, fontWeight: 500 }}>View profile →</span>
                       </div>
@@ -472,50 +489,38 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
         )}
 
         {/* ── BOTTOM ORCHESTRA NAV ── */}
-        <div style={{ borderTop: `1px solid ${S.border}`, marginTop: 32, display: "flex", justifyContent: "space-between", gap: 12 }}>
+        <div style={BOTTOM_STRIP}>
           <div style={{ flex: 1 }}>
             {prevOrch ? (
-              <button onClick={() => onSelectOrchestra(prevOrch.id)}
-                style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+              <button onClick={() => onSelectOrchestra(prevOrch.id)} style={NAV_BTN} onMouseEnter={navHoverOn} onMouseLeave={navHoverOff}>
                 <ChevronLeft size={14} color="currentColor" />
                 <div style={{ textAlign: "left" }}>
-                  <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Previous</div>
-                  <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{prevOrch.name}</div>
+                  <div style={NAV_LABEL}>Previous</div>
+                  <div style={NAV_NAME}>{prevOrch.name}</div>
                 </div>
               </button>
             ) : (
-              <button onClick={onGoHome}
-                style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+              <button onClick={onGoHome} style={NAV_BTN} onMouseEnter={navHoverOn} onMouseLeave={navHoverOff}>
                 <HomeIcon size={14} color="currentColor" />
                 <div style={{ textAlign: "left" }}>
-                  <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>All Orchestras</div>
+                  <div style={NAV_NAME}>All Orchestras</div>
                 </div>
               </button>
             )}
           </div>
           <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
             {nextOrch ? (
-              <button onClick={() => onSelectOrchestra(nextOrch.id)}
-                style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+              <button onClick={() => onSelectOrchestra(nextOrch.id)} style={NAV_BTN} onMouseEnter={navHoverOn} onMouseLeave={navHoverOff}>
                 <div style={{ textAlign: "right" }}>
-                  <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Next</div>
-                  <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{nextOrch.name}</div>
+                  <div style={NAV_LABEL}>Next</div>
+                  <div style={NAV_NAME}>{nextOrch.name}</div>
                 </div>
                 <ChevronRight size={14} color="currentColor" />
               </button>
             ) : (
-              <button onClick={onGoHome}
-                style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+              <button onClick={onGoHome} style={NAV_BTN} onMouseEnter={navHoverOn} onMouseLeave={navHoverOff}>
                 <div style={{ textAlign: "right" }}>
-                  <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>All Orchestras</div>
+                  <div style={NAV_NAME}>All Orchestras</div>
                 </div>
                 <HomeIcon size={14} color="currentColor" />
               </button>
@@ -632,14 +637,13 @@ function ChevronRight({ size = 14, color = "currentColor" }) {
 
 /* ── FEATURED BASSIST HERO ── */
 function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
-  const orchList = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
   const now = new Date();
   const startDate = new Date(2026, 2, 18); // March 18, 2026 — day 0: orchestra 1, player 1
   const dayIndex = Math.max(0, Math.floor((now - startDate) / (1000 * 60 * 60 * 24)));
-  const numOrchs = orchList.length;
+  const numOrchs = SORTED_ORCHS.length;
   const orchIdx = dayIndex % numOrchs;
   const playerRound = Math.floor(dayIndex / numOrchs);
-  const featuredOrch = orchList[orchIdx];
+  const featuredOrch = SORTED_ORCHS[orchIdx];
   const orchPlayers = (ALL_PLAYERS[featuredOrch.id] || []).filter(p => !p.status);
   if (!orchPlayers.length) return null;
   const featured = orchPlayers[playerRound % orchPlayers.length];
@@ -653,7 +657,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
     <div role="button" tabIndex={0} onClick={handleClick}
       onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(); } }}
       style={{ background: S.dark, borderBottom: `3px solid ${accent}`, cursor: "pointer", flexShrink: 0, outline: "none" }}>
-      <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "16px 20px 18px" : "28px 36px 32px" }}>
+      <div style={{ ...CENTERED, padding: isMobile ? "16px 20px 18px" : "28px 36px 32px" }}>
         <div style={{ fontFamily: SERIF, fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(240,232,220,0.85)", marginBottom: isMobile ? 8 : 14 }}>
           Today's Featured Bassist
         </div>
@@ -718,26 +722,16 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
 
   const globalFiltered = isSearching ? [...directMatches, ...bioMentions] : null;
 
-  const groupByOrch = (arr) => Object.entries(
-    arr.reduce((acc, p) => {
-      if (!acc[p.orchestraId]) acc[p.orchestraId] = [];
-      acc[p.orchestraId].push(p);
-      return acc;
-    }, {})
-  ).map(([orchId, ps]) => ({ orchestra: ORCHESTRAS[orchId], players: ps }));
-
   const directGrouped = isSearching && directMatches.length ? groupByOrch(directMatches) : [];
   const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
-  const orchList = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
-
-  const orchCount = orchList.length;
+  const orchCount = SORTED_ORCHS.length;
   const animDelays = Array.from({ length: orchCount }, (_, i) =>
     `.idx-row:nth-child(${i + 1}) { animation-delay: ${(0.04 + i * 0.06).toFixed(2)}s; }`
   ).join("\n        ");
 
   return (
-    <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+    <div style={FULL_FLEX}>
       <style>{`
         @keyframes slideIn {
           from { opacity: 0; transform: translateX(-18px); }
@@ -762,7 +756,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
 
       {/* Search bar */}
       <div style={{ padding: isMobile ? "10px 12px 8px" : "14px 20px 12px", background: S.dark, borderBottom: "none", flexShrink: 0 }}>
-        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+        <div style={CENTERED}>
           <div style={{ position: "relative" }}>
             <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
               style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", opacity: 0.35 }}>
@@ -791,7 +785,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
       <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden" }}>
         {isSearching ? (
           <div style={{ padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
-          <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+          <div style={CENTERED}>
             {globalFiltered.length === 0
               ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
               : <>
@@ -800,7 +794,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       <SectionLabel style={{ marginBottom: 14 }}>
                         {orch.name} <span style={{ fontWeight: 400, color: S.textMuted, textTransform: "none", letterSpacing: 0, fontSize: 10 }}>· {ps.length} result{ps.length !== 1 ? "s" : ""}</span>
                       </SectionLabel>
-                      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                      <div style={CARD_LIST}>
                         {ps.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
                       </div>
                     </div>
@@ -812,7 +806,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       {mentionGrouped.map(({ orchestra: orch, players: ps }) => (
                         <div key={orch.id} style={{ marginBottom: 24, opacity: 0.75 }}>
                           <SectionLabel style={{ marginBottom: 12 }}>{orch.name}</SectionLabel>
-                          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                          <div style={CARD_LIST}>
                             {ps.map(p => <LeadershipCard key={p.id} player={p} onClick={onSelectPlayer} />)}
                           </div>
                         </div>
@@ -831,10 +825,9 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
 
             {/* ── TYPOGRAPHIC INDEX ── */}
             <div style={{ padding: "4px 0 0" }}>
-              {orchList.map((orch, idx) => {
-                const players = ALL_PLAYERS[orch.id];
-                const principal = players.find(p => p.role === "Principal Bass");
-                const playerCount = players.length;
+              {SORTED_ORCHS.map((orch, idx) => {
+                const principal = PRINCIPAL_BY_ORCH[orch.id];
+                const playerCount = ALL_PLAYERS[orch.id].length;
                 const handleOrchClick = () => onSelectOrchestra(orch.id);
 
                 return (
@@ -843,9 +836,9 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                     onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleOrchClick(); } }}
                     style={{
                       cursor: "pointer",
-                      borderBottom: idx < orchList.length - 1 ? `1px solid ${S.border}` : "none",
+                      borderBottom: idx < SORTED_ORCHS.length - 1 ? `1px solid ${S.border}` : "none",
                     }}>
-                  <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "14px 20px" : "20px 36px 20px" }}>
+                  <div style={{ ...CENTERED, padding: isMobile ? "14px 20px" : "20px 36px 20px" }}>
 
                     <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
                       {/* Left: name + meta */}
@@ -998,7 +991,7 @@ export default function App() {
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle at 80% 40%, rgba(200,169,110,0.12) 0%, transparent 65%)", pointerEvents: "none" }} />
 
         <div style={{ padding: isMobile ? "8px 12px 0" : "14px 20px 0", position: "relative" }}>
-        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
+        <div style={CENTERED}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: isMobile ? 8 : 12, flexWrap: "nowrap", minWidth: 0 }}>
 
             {/* Home button */}
