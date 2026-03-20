@@ -216,9 +216,13 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
   const section = players.filter(p => !p.status && p.role === "Section Bass")
     .sort((a, b) => a.name.split(" ").at(-1).localeCompare(b.name.split(" ").at(-1)));
   const alumni = players.filter(p => p.status === "alumni");
+  const rosterOrder = [...leadership, ...section, ...alumni];
 
   if (selectedPlayer) {
     const playerOrchestra = ORCHESTRAS[selectedPlayer.orchestraId];
+    const playerIdx = rosterOrder.findIndex(p => p.id === selectedPlayer.id);
+    const prevPlayer = playerIdx > 0 ? rosterOrder[playerIdx - 1] : null;
+    const nextPlayer = playerIdx < rosterOrder.length - 1 ? rosterOrder[playerIdx + 1] : null;
     return (
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
         <div style={{ padding: isMobile ? "8px 14px" : "10px 24px", borderBottom: `1px solid ${S.border}`, background: S.cream, flexShrink: 0 }}>
@@ -235,6 +239,59 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
         <div ref={scrollRef} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "16px 14px 48px" : "24px 24px 48px" }}>
           <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
             <PlayerDetail player={selectedPlayer} orchestra={playerOrchestra} onBack={onClearSelected} />
+
+            {/* ── BOTTOM PLAYER NAV ── */}
+            <div style={{ borderTop: `1px solid ${S.border}`, marginTop: 32, display: "flex", justifyContent: "space-between", gap: 12 }}>
+              <div style={{ flex: 1 }}>
+                {prevPlayer ? (
+                  <button onClick={() => onSelectPlayer(prevPlayer)}
+                    style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
+                    onMouseEnter={e => e.currentTarget.style.color = S.gold}
+                    onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                    <ChevronLeft size={14} color="currentColor" />
+                    <div style={{ textAlign: "left" }}>
+                      <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Previous</div>
+                      <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{prevPlayer.name}</div>
+                    </div>
+                  </button>
+                ) : (
+                  <button onClick={onGoHome}
+                    style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
+                    onMouseEnter={e => e.currentTarget.style.color = S.gold}
+                    onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                    <HomeIcon size={14} color="currentColor" />
+                    <div style={{ textAlign: "left" }}>
+                      <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>All Orchestras</div>
+                    </div>
+                  </button>
+                )}
+              </div>
+              <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
+                {nextPlayer ? (
+                  <button onClick={() => onSelectPlayer(nextPlayer)}
+                    style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
+                    onMouseEnter={e => e.currentTarget.style.color = S.gold}
+                    onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Next</div>
+                      <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{nextPlayer.name}</div>
+                    </div>
+                    <ChevronRight size={14} color="currentColor" />
+                  </button>
+                ) : (
+                  <button onClick={onGoHome}
+                    style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
+                    onMouseEnter={e => e.currentTarget.style.color = S.gold}
+                    onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>All Orchestras</div>
+                    </div>
+                    <HomeIcon size={14} color="currentColor" />
+                  </button>
+                )}
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -379,38 +436,56 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
         )}
 
         {/* ── BOTTOM ORCHESTRA NAV ── */}
-        {(
-          <div style={{ borderTop: `1px solid ${S.border}`, marginTop: 32, display: "flex", justifyContent: "space-between", gap: 12 }}>
-            <div style={{ flex: 1 }}>
-              {prevOrch && (
-                <button onClick={() => onSelectOrchestra(prevOrch.id)}
-                  style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                  onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                  onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
-                  <ChevronLeft size={14} color="currentColor" />
-                  <div style={{ textAlign: "left" }}>
-                    <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Previous</div>
-                    <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{prevOrch.name}</div>
-                  </div>
-                </button>
-              )}
-            </div>
-            <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
-              {nextOrch && (
-                <button onClick={() => onSelectOrchestra(nextOrch.id)}
-                  style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
-                  onMouseEnter={e => e.currentTarget.style.color = S.gold}
-                  onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
-                  <div style={{ textAlign: "right" }}>
-                    <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Next</div>
-                    <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{nextOrch.name}</div>
-                  </div>
-                  <ChevronRight size={14} color="currentColor" />
-                </button>
-              )}
-            </div>
+        <div style={{ borderTop: `1px solid ${S.border}`, marginTop: 32, display: "flex", justifyContent: "space-between", gap: 12 }}>
+          <div style={{ flex: 1 }}>
+            {prevOrch ? (
+              <button onClick={() => onSelectOrchestra(prevOrch.id)}
+                style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
+                onMouseEnter={e => e.currentTarget.style.color = S.gold}
+                onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                <ChevronLeft size={14} color="currentColor" />
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Previous</div>
+                  <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{prevOrch.name}</div>
+                </div>
+              </button>
+            ) : (
+              <button onClick={onGoHome}
+                style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
+                onMouseEnter={e => e.currentTarget.style.color = S.gold}
+                onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                <HomeIcon size={14} color="currentColor" />
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>All Orchestras</div>
+                </div>
+              </button>
+            )}
           </div>
-        )}
+          <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
+            {nextOrch ? (
+              <button onClick={() => onSelectOrchestra(nextOrch.id)}
+                style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
+                onMouseEnter={e => e.currentTarget.style.color = S.gold}
+                onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                <div style={{ textAlign: "right" }}>
+                  <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2, opacity: 0.6 }}>Next</div>
+                  <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>{nextOrch.name}</div>
+                </div>
+                <ChevronRight size={14} color="currentColor" />
+              </button>
+            ) : (
+              <button onClick={onGoHome}
+                style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", padding: "20px 0", fontFamily: "inherit", cursor: "pointer", color: S.textSecondary, transition: "color 0.15s" }}
+                onMouseEnter={e => e.currentTarget.style.color = S.gold}
+                onMouseLeave={e => e.currentTarget.style.color = S.textSecondary}>
+                <div style={{ textAlign: "right" }}>
+                  <div style={{ fontFamily: SERIF, fontSize: 15, fontWeight: 600 }}>All Orchestras</div>
+                </div>
+                <HomeIcon size={14} color="currentColor" />
+              </button>
+            )}
+          </div>
+        </div>
 
         </div>
       </div>
