@@ -537,7 +537,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
     <div onClick={() => onSelectPlayer(featured)}
       style={{ background: S.dark, borderBottom: `3px solid ${accent}`, cursor: "pointer", flexShrink: 0 }}>
       <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "16px 20px 18px" : "28px 36px 32px" }}>
-        <div style={{ fontFamily: SERIF, fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: S.gold, marginBottom: isMobile ? 8 : 14, opacity: 0.9 }}>
+        <div style={{ fontFamily: SERIF, fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(240,232,220,0.85)", marginBottom: isMobile ? 8 : 14 }}>
           Today's Featured Bassist
         </div>
 
@@ -548,7 +548,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
               <h2 style={{ fontFamily: SERIF, fontSize: 26, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 4 }}>
                 {featured.name}
               </h2>
-              <div style={{ fontSize: 12, color: "rgba(240,232,220,0.55)", lineHeight: 1.5 }}>
+              <div style={{ fontSize: 12, color: "rgba(240,232,220,0.85)", lineHeight: 1.5 }}>
                 {featured.role} · {featuredOrch.name}
               </div>
             </div>
@@ -567,10 +567,10 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
             </div>
             <div style={{ width: 1, alignSelf: "stretch", background: `${accent}40`, flexShrink: 0 }} />
             <div style={{ flex: 1, paddingTop: 2 }}>
-              <div style={{ fontSize: 13, color: "rgba(240,232,220,0.75)", marginBottom: 4 }}>{featured.role}</div>
-              <div style={{ fontSize: 13, color: "rgba(240,232,220,0.5)", marginBottom: highlights.length ? 12 : 0 }}>{featuredOrch.name}</div>
+              <div style={{ fontSize: 13, color: "rgba(240,232,220,0.85)", marginBottom: 4 }}>{featured.role}</div>
+              <div style={{ fontSize: 13, color: "rgba(240,232,220,0.85)", marginBottom: highlights.length ? 12 : 0 }}>{featuredOrch.name}</div>
               {highlights.map((h, i) => (
-                <div key={i} style={{ fontSize: 12, color: "rgba(240,232,220,0.38)", lineHeight: 1.7 }}>· {h}</div>
+                <div key={i} style={{ fontSize: 12, color: "rgba(240,232,220,0.55)", lineHeight: 1.7 }}>· {h}</div>
               ))}
             </div>
           </div>
