@@ -451,14 +451,14 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
 
         {/* ── BOTTOM TAB NAV ── */}
         {tabs.length > 1 && (
-          <div style={{ borderTop: `1px solid ${S.border}`, marginTop: 32, paddingTop: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: isMobile ? 12 : 16 }}>
+          <div style={{ borderTop: `1px solid ${S.border}`, marginTop: 32, paddingTop: 18, display: "flex", alignItems: "center", justifyContent: "center", gap: isMobile ? 14 : 20 }}>
             {tabs.map((sv, i) => (
               <React.Fragment key={sv.key}>
-                {i > 0 && <span style={{ color: S.borderHover, fontSize: isMobile ? 11 : 13, userSelect: "none" }}>|</span>}
+                {i > 0 && <span style={{ color: S.borderHover, fontSize: isMobile ? 14 : 16, userSelect: "none" }}>|</span>}
                 <button onClick={() => subView !== sv.key && onSubViewChange(sv.key)}
-                  style={{ background: "none", border: "none", padding: "2px 0", fontFamily: SERIF, fontSize: isMobile ? 12 : 13, fontWeight: 400, color: subView === sv.key ? S.textMuted : S.textSecondary, cursor: subView === sv.key ? "default" : "pointer", transition: "color 0.15s" }}
+                  style={{ background: "none", border: "none", padding: "2px 0", fontFamily: SERIF, fontSize: isMobile ? 15 : 17, fontWeight: 500, color: subView === sv.key ? S.textMuted : S.textPrimary, cursor: subView === sv.key ? "default" : "pointer", transition: "color 0.15s" }}
                   onMouseEnter={e => { if (subView !== sv.key) e.currentTarget.style.color = S.gold; }}
-                  onMouseLeave={e => { if (subView !== sv.key) e.currentTarget.style.color = S.textSecondary; }}>
+                  onMouseLeave={e => { if (subView !== sv.key) e.currentTarget.style.color = S.textPrimary; }}>
                   {sv.label}
                 </button>
               </React.Fragment>
