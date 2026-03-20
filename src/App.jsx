@@ -150,12 +150,14 @@ function PlayerDetail({ player, orchestra, onBack }) {
 
 /* ── PLAYER CARDS ── */
 function LeadershipCard({ player, onClick }) {
-  const [hov, setHov] = useState(false);
   const isMobile = window.innerWidth < 768;
+  const handleClick = () => onClick(player);
   return (
-    <div onClick={() => onClick(player)}
-      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ width: "100%", boxSizing: "border-box", background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: isMobile ? "14px 14px" : "20px 22px", cursor: "pointer", transition: "all 0.18s ease", transform: hov ? "translateY(-2px)" : "none", boxShadow: hov ? "0 6px 24px rgba(100,80,50,0.10)" : "none", borderLeft: `4px solid ${player.color}` }}>
+    <div role="button" tabIndex={0} onClick={handleClick}
+      onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(); } }}
+      onMouseEnter={e => { const s = e.currentTarget.style; s.background = "#F8F4EE"; s.borderColor = S.borderHover; s.transform = "translateY(-2px)"; s.boxShadow = "0 6px 24px rgba(100,80,50,0.10)"; }}
+      onMouseLeave={e => { const s = e.currentTarget.style; s.background = S.cardBg; s.borderColor = S.border; s.transform = "none"; s.boxShadow = "none"; }}
+      style={{ width: "100%", boxSizing: "border-box", background: S.cardBg, border: `1px solid ${S.border}`, borderRadius: 14, padding: isMobile ? "14px 14px" : "20px 22px", cursor: "pointer", transition: "all 0.18s ease", borderLeft: `4px solid ${player.color}`, outline: "none" }}>
       <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 12 : 16, marginBottom: isMobile ? 10 : 14 }}>
         <Avatar initials={player.initials} color={player.color} size={isMobile ? 40 : 52} />
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -178,12 +180,14 @@ function LeadershipCard({ player, onClick }) {
 }
 
 function SectionMemberCard({ player, onClick }) {
-  const [hov, setHov] = useState(false);
   const isMobile = window.innerWidth < 768;
+  const handleClick = () => onClick(player);
   return (
-    <div onClick={() => onClick(player)}
-      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ width: "100%", boxSizing: "border-box", background: hov ? "#F8F4EE" : S.cardBg, border: `1px solid ${hov ? S.borderHover : S.border}`, borderRadius: 14, padding: isMobile ? "14px 14px" : "20px 22px", cursor: "pointer", transition: "all 0.15s ease", transform: hov ? "translateY(-1px)" : "none", boxShadow: hov ? "0 4px 16px rgba(100,80,50,0.08)" : "none", borderLeft: "3px solid #D4C8B4" }}>
+    <div role="button" tabIndex={0} onClick={handleClick}
+      onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(); } }}
+      onMouseEnter={e => { const s = e.currentTarget.style; s.background = "#F8F4EE"; s.borderColor = S.borderHover; s.transform = "translateY(-1px)"; s.boxShadow = "0 4px 16px rgba(100,80,50,0.08)"; }}
+      onMouseLeave={e => { const s = e.currentTarget.style; s.background = S.cardBg; s.borderColor = S.border; s.transform = "none"; s.boxShadow = "none"; }}
+      style={{ width: "100%", boxSizing: "border-box", background: S.cardBg, border: `1px solid ${S.border}`, borderRadius: 14, padding: isMobile ? "14px 14px" : "20px 22px", cursor: "pointer", transition: "all 0.15s ease", borderLeft: "3px solid #D4C8B4", outline: "none" }}>
       <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 12 : 16, marginBottom: 12 }}>
         <Avatar initials={player.initials} color={player.color} size={isMobile ? 40 : 52} />
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -388,10 +392,11 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
                 <SectionLabel>Distinguished Alumni</SectionLabel>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {alumni.map(p => (
-                    <div key={p.id} onClick={() => onSelectPlayer(p)}
+                    <div key={p.id} role="button" tabIndex={0} onClick={() => onSelectPlayer(p)}
+                      onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelectPlayer(p); } }}
                       onMouseEnter={e => { e.currentTarget.style.borderColor = S.borderHover; e.currentTarget.style.background = "#F8F4EE"; }}
                       onMouseLeave={e => { e.currentTarget.style.borderColor = S.border; e.currentTarget.style.background = S.cardBg; }}
-                      style={{ background: S.cardBg, border: `1px solid ${S.border}`, borderLeft: `4px solid ${p.color}50`, borderRadius: 14, padding: "16px 20px", cursor: "pointer", transition: "all 0.15s", opacity: 0.88 }}>
+                      style={{ background: S.cardBg, border: `1px solid ${S.border}`, borderLeft: `4px solid ${p.color}50`, borderRadius: 14, padding: "16px 20px", cursor: "pointer", transition: "all 0.15s", opacity: 0.88, outline: "none" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 10 }}>
                         <Avatar initials={p.initials} color={p.color} size={44} />
                         <div style={{ flex: 1, minWidth: 0 }}>
@@ -541,11 +546,14 @@ function InstrumentsTab({ players, onGoToRoster, isMobile }) {
     );
   }
 
-  const InstBlock = ({ inst }) => (
-    <div onClick={() => onGoToRoster(playerMap[inst.ownerId])}
+  const InstBlock = ({ inst }) => {
+    const handleClick = () => onGoToRoster(playerMap[inst.ownerId]);
+    return (
+    <div role="button" tabIndex={0} onClick={handleClick}
+      onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(); } }}
       onMouseEnter={e => e.currentTarget.style.borderColor = S.borderHover}
       onMouseLeave={e => e.currentTarget.style.borderColor = S.border}
-      style={{ background: S.cardBg, border: `1px solid ${S.border}`, borderRadius: 14, overflow: "hidden", cursor: "pointer", marginBottom: 12, transition: "border-color 0.15s" }}>
+      style={{ background: S.cardBg, border: `1px solid ${S.border}`, borderRadius: 14, overflow: "hidden", cursor: "pointer", marginBottom: 12, transition: "border-color 0.15s", outline: "none" }}>
       {inst.story && (
         <div style={{ background: S.dark, padding: "7px 16px" }}>
           <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: S.gold, marginBottom: inst.storyTitle ? 2 : 0 }}>Notable history</div>
@@ -570,7 +578,8 @@ function InstrumentsTab({ players, onGoToRoster, isMobile }) {
         <div style={{ fontSize: 12, color: inst.ownerColor, fontWeight: 500 }}>View {inst.owner.split(" ")[0]}'s full profile →</div>
       </div>
     </div>
-  );
+    );
+  };
 
   return (
     <div style={{ overflowY: "auto", padding: isMobile ? "16px 12px 32px" : "24px 24px 40px" }}>
@@ -639,9 +648,11 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
   const accent = featuredOrch.accentColor || S.gold;
   const highlights = (featured.highlights || []).slice(0, 2);
 
+  const handleClick = () => onSelectPlayer(featured);
   return (
-    <div onClick={() => onSelectPlayer(featured)}
-      style={{ background: S.dark, borderBottom: `3px solid ${accent}`, cursor: "pointer", flexShrink: 0 }}>
+    <div role="button" tabIndex={0} onClick={handleClick}
+      onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(); } }}
+      style={{ background: S.dark, borderBottom: `3px solid ${accent}`, cursor: "pointer", flexShrink: 0, outline: "none" }}>
       <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "16px 20px 18px" : "28px 36px 32px" }}>
         <div style={{ fontFamily: SERIF, fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(240,232,220,0.85)", marginBottom: isMobile ? 8 : 14 }}>
           Today's Featured Bassist
@@ -690,7 +701,6 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
 function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, onSelectPlayer, isMobile }) {
   const isSearching = globalSearch.trim() !== "";
   const searchTerm = globalSearch.toLowerCase();
-  const [hoveredId, setHoveredId] = useState(null);
 
   const directMatches = isSearching
     ? ALL_PLAYERS_FLAT.filter(p =>
@@ -737,7 +747,10 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
           from { opacity: 0; }
           to   { opacity: 1; }
         }
-        .idx-row { animation: slideIn 0.45s cubic-bezier(0.22,1,0.36,1) both; }
+        .idx-row { animation: slideIn 0.45s cubic-bezier(0.22,1,0.36,1) both; transition: background 0.2s ease; outline: none; }
+        .idx-row:hover { background: ${S.accent}; }
+        .idx-row:hover .idx-arrow-circle { opacity: 1; transform: translateX(4px); }
+        .idx-row:hover .idx-arrow-mobile { opacity: 1; }
         ${animDelays}
         @media (hover: none) {
           .idx-row:not(:hover) .idx-bottom { opacity: 1; transform: none; pointer-events: auto; max-height: 200px; padding-top: 8px !important; }
@@ -821,19 +834,16 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
               {orchList.map((orch, idx) => {
                 const players = ALL_PLAYERS[orch.id];
                 const principal = players.find(p => p.role === "Principal Bass");
-                const isHovered = hoveredId === orch.id;
                 const playerCount = players.length;
+                const handleOrchClick = () => onSelectOrchestra(orch.id);
 
                 return (
-                  <div key={orch.id} className="idx-row"
-                    onClick={() => onSelectOrchestra(orch.id)}
-                    onMouseEnter={() => setHoveredId(orch.id)}
-                    onMouseLeave={() => setHoveredId(null)}
+                  <div key={orch.id} className="idx-row" role="button" tabIndex={0}
+                    onClick={handleOrchClick}
+                    onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleOrchClick(); } }}
                     style={{
                       cursor: "pointer",
-                      borderBottom: idx < orchList.length - 1 ? `1px solid ${isHovered ? S.accentBorder : S.border}` : "none",
-                      background: isHovered ? S.accent : "transparent",
-                      transition: "background 0.2s ease, border-color 0.2s ease",
+                      borderBottom: idx < orchList.length - 1 ? `1px solid ${S.border}` : "none",
                     }}>
                   <div style={{ maxWidth: MAX_W, margin: "0 auto", padding: isMobile ? "14px 20px" : "20px 36px 20px" }}>
 
@@ -872,18 +882,17 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       {/* Right: arrow, vertically centered across both rows */}
                       <div style={{ flexShrink: 0, paddingLeft: 16, display: "flex", alignItems: "center" }}>
                         {isMobile ? (
-                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                            style={{ opacity: isHovered ? 1 : 0.45, display: "block" }}>
+                          <svg className="idx-arrow-mobile" width="16" height="16" viewBox="0 0 20 20" fill="none"
+                            style={{ opacity: 0.45, display: "block", transition: "opacity 0.2s ease" }}>
                             <path d="M7 5l5 5-5 5" stroke={S.textPrimary} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         ) : (
-                          <div style={{
+                          <div className="idx-arrow-circle" style={{
                             width: 32, height: 32, borderRadius: "50%",
                             background: S.textPrimary,
                             display: "flex", alignItems: "center", justifyContent: "center",
                             flexShrink: 0,
-                            opacity: isHovered ? 1 : 0,
-                            transform: isHovered ? "translateX(4px)" : "translateX(0)",
+                            opacity: 0,
                             transition: "opacity 0.18s ease, transform 0.18s ease",
                           }}>
                             <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
@@ -917,7 +926,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
 /* ── ROOT ── */
 export default function App() {
   const [view, setView] = useState("landing");
-  const [orchestraId, setOrchestraid] = useState("sfs");
+  const [orchestraId, setOrchestraId] = useState("sfs");
   const [globalSearch, setGlobalSearch] = useState("");
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [subView, setSubView] = useState("bassists");
@@ -936,7 +945,7 @@ export default function App() {
     if (playerId) {
       const player = ALL_PLAYERS_FLAT.find(p => p.id === playerId);
       if (player) {
-        setOrchestraid(player.orchestraId);
+        setOrchestraId(player.orchestraId);
         setSelectedPlayer(player);
         setView("orchestra");
       }
@@ -947,7 +956,7 @@ export default function App() {
   const players = ALL_PLAYERS[orchestraId];
 
   const handleSelectOrchestra = (id) => {
-    setOrchestraid(id);
+    setOrchestraId(id);
     setGlobalSearch("");
     setSelectedPlayer(null);
     setSubView("bassists");
@@ -962,7 +971,7 @@ export default function App() {
   };
 
   const handleSelectPlayer = (player) => {
-    setOrchestraid(player.orchestraId);
+    setOrchestraId(player.orchestraId);
     setSelectedPlayer(player);
     setGlobalSearch("");
     setView("orchestra");
