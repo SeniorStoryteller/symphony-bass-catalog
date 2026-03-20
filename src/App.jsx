@@ -456,9 +456,9 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
               <React.Fragment key={sv.key}>
                 {i > 0 && <span style={{ color: S.borderHover, fontSize: isMobile ? 14 : 16, userSelect: "none" }}>|</span>}
                 <button onClick={() => subView !== sv.key && onSubViewChange(sv.key)}
-                  style={{ background: "none", border: "none", padding: "2px 0", fontFamily: SERIF, fontSize: isMobile ? 15 : 17, fontWeight: 500, color: subView === sv.key ? S.textMuted : S.textPrimary, cursor: subView === sv.key ? "default" : "pointer", transition: "color 0.15s" }}
+                  style={{ background: "none", border: "none", padding: "2px 0", fontFamily: SERIF, fontSize: isMobile ? 15 : 17, fontWeight: 500, color: subView === sv.key ? S.textPrimary : S.textMuted, cursor: subView === sv.key ? "default" : "pointer", transition: "color 0.15s" }}
                   onMouseEnter={e => { if (subView !== sv.key) e.currentTarget.style.color = S.gold; }}
-                  onMouseLeave={e => { if (subView !== sv.key) e.currentTarget.style.color = S.textPrimary; }}>
+                  onMouseLeave={e => { if (subView !== sv.key) e.currentTarget.style.color = S.textMuted; }}>
                   {sv.label}
                 </button>
               </React.Fragment>
