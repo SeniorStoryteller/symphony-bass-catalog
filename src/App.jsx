@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ORCHESTRAS, ALL_PLAYERS, ALL_PLAYERS_FLAT } from "./data/players";
 
 /* ── DESIGN TOKENS ── */
@@ -211,6 +211,13 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
 
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = 0; }, [selectedPlayer]);
   useEffect(() => { if (contentScrollRef.current) contentScrollRef.current.scrollTop = 0; }, [orchestraId]);
+  useEffect(() => { if (contentScrollRef.current) contentScrollRef.current.scrollTop = 0; }, [subView]);
+
+  const tabs = [
+    { key: "bassists", label: "Bassists" },
+    ...(orchestra.history ? [{ key: "history", label: "A Brief History" }] : []),
+    ...(getAllInstruments(players).length > 0 ? [{ key: "instruments", label: "Notable Instruments" }] : []),
+  ];
 
   const leadership = players.filter(p => !p.status && LEADERSHIP_ROLES.includes(p.role));
   const section = players.filter(p => !p.status && p.role === "Section Bass")
@@ -313,18 +320,18 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
           </div>
         </div>
       </div>
-      {/* View toggle — desktop sticky bar only */}
-      {!isMobile && (
+      {/* View toggle — desktop sticky bar */}
+      {!isMobile && tabs.length > 1 && (
         <div style={{ padding: "14px 24px 12px", borderBottom: `1px solid ${S.border}`, flexShrink: 0 }}>
-          <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", gap: 20 }}>
-            {[{ key: "bassists", label: "Bassists" }, ...(getAllInstruments(players).length > 0 ? [{ key: "instruments", label: "Notable Instruments" }] : [])].map((sv, i) => (
-              <>
-                {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 20, userSelect: "none" }}>|</span>}
-                <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
-                  style={{ background: "none", border: "none", padding: "2px 0", fontFamily: "inherit", fontSize: 26, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
+          <div style={{ maxWidth: MAX_W, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 20 }}>
+            {tabs.map((sv, i) => (
+              <React.Fragment key={sv.key}>
+                {i > 0 && <span style={{ color: S.borderHover, fontSize: 20, userSelect: "none" }}>|</span>}
+                <button onClick={() => onSubViewChange(sv.key)}
+                  style={{ background: "none", border: "none", padding: "2px 0", fontFamily: SERIF, fontSize: 22, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
                   {sv.label}
                 </button>
-              </>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -333,21 +340,28 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
       <div ref={contentScrollRef} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
           {/* View toggle — mobile inline, inside scroll area */}
-          {isMobile && getAllInstruments(players).length > 0 && (
-            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16 }}>
-              {[{ key: "bassists", label: "Bassists" }, { key: "instruments", label: "Notable Instruments" }].map((sv, i) => (
-                <>
-                  {i > 0 && <span key={`pipe-${i}`} style={{ color: S.borderHover, fontSize: 14, userSelect: "none" }}>|</span>}
-                  <button key={sv.key} onClick={() => onSubViewChange(sv.key)}
-                    style={{ background: "none", border: "none", padding: "2px 0", fontFamily: "inherit", fontSize: 15, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
+          {isMobile && tabs.length > 1 && (
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 16 }}>
+              {tabs.map((sv, i) => (
+                <React.Fragment key={sv.key}>
+                  {i > 0 && <span style={{ color: S.borderHover, fontSize: 14, userSelect: "none" }}>|</span>}
+                  <button onClick={() => onSubViewChange(sv.key)}
+                    style={{ background: "none", border: "none", padding: "2px 0", fontFamily: SERIF, fontSize: 15, fontWeight: subView === sv.key ? 700 : 400, color: subView === sv.key ? S.textPrimary : "#8C7B6A", cursor: subView === sv.key ? "default" : "pointer", transition: "all 0.15s" }}>
                     {sv.label}
                   </button>
-                </>
+                </React.Fragment>
               ))}
             </div>
           )}
         {subView === "instruments" ? (
           <InstrumentsTab players={players} onGoToRoster={onSelectPlayer} isMobile={isMobile} />
+        ) : subView === "history" && orchestra.history ? (
+          <div style={{ padding: isMobile ? "8px 0 16px" : "12px 0 24px" }}>
+            <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 20 : 24, fontWeight: 700, color: S.textPrimary, lineHeight: 1.3, marginBottom: isMobile ? 16 : 20 }}>{orchestra.history.title}</h2>
+            {orchestra.history.paragraphs.map((para, i) => (
+              <p key={i} style={{ fontSize: isMobile ? 14 : 15, color: S.textSecondary, lineHeight: 1.75, marginBottom: i < orchestra.history.paragraphs.length - 1 ? 16 : 0 }}>{para}</p>
+            ))}
+          </div>
         ) : (
           <>
             {leadership.length > 0 && (
@@ -433,6 +447,23 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
               ) : null;
             })()}
           </>
+        )}
+
+        {/* ── BOTTOM TAB NAV ── */}
+        {tabs.length > 1 && (
+          <div style={{ borderTop: `1px solid ${S.border}`, marginTop: 32, paddingTop: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: isMobile ? 12 : 16 }}>
+            {tabs.map((sv, i) => (
+              <React.Fragment key={sv.key}>
+                {i > 0 && <span style={{ color: S.borderHover, fontSize: isMobile ? 11 : 13, userSelect: "none" }}>|</span>}
+                <button onClick={() => subView !== sv.key && onSubViewChange(sv.key)}
+                  style={{ background: "none", border: "none", padding: "2px 0", fontFamily: SERIF, fontSize: isMobile ? 12 : 13, fontWeight: subView === sv.key ? 600 : 400, color: subView === sv.key ? S.textMuted : S.textSecondary, cursor: subView === sv.key ? "default" : "pointer", transition: "color 0.15s" }}
+                  onMouseEnter={e => { if (subView !== sv.key) e.currentTarget.style.color = S.gold; }}
+                  onMouseLeave={e => { if (subView !== sv.key) e.currentTarget.style.color = S.textSecondary; }}>
+                  {sv.label}
+                </button>
+              </React.Fragment>
+            ))}
+          </div>
         )}
 
         {/* ── BOTTOM ORCHESTRA NAV ── */}

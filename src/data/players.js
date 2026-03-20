@@ -11,6 +11,17 @@ const ORCHESTRAS = {
     venue: "Symphony Hall", city: "Boston", region: "Northeast",
     accentColor: "#6E8FC8", headerColor: "#1C3A6B", founded: 1881,
     seasonNote: "Edwin Barker retired after 48 years as Principal Bass at the close of 2024–25. Caleb Quillen joined as the orchestra's tenth principal bass for 2025–26.",
+    history: {
+      title: "Ten Principal Bassists: The BSO's Bass Chair Since 1881",
+      paragraphs: [
+        "In nearly a century and a half, only ten musicians have held the principal bass chair of the Boston Symphony Orchestra — a position that has changed hands just nine times since Henry Lee Higginson founded the ensemble in 1881.",
+        "The modern era of the chair is defined by two long tenures. Edwin Barker was appointed principal bass in 1976 at age 22, making him the youngest principal player in the orchestra's history. He held the position for nearly five decades, retiring at the close of the 2024–25 season.",
+        "Barker's predecessor, Henry Portnoi, served 34 years in the BSO's bass section, including nine as principal. A graduate of the Curtis Institute who studied with Anton Torello, Portnoi later joined the faculty at New England Conservatory, where he taught the young Edwin Barker. That teacher-student succession within the same orchestra chair is a notable thread in the BSO's bass section history.",
+        "Before Portnoi, the chair belonged to Georges Moleux, a French-trained bassist whom Serge Koussevitzky brought to Boston from Paris. BSO concert programs from the 1954–55 and 1957–58 seasons list Moleux first in the bass section, confirming his tenure extended into the Charles Munch era. A graduate of the Paris Conservatory — where he won gold medals in double bass, clarinet, and solfège in a single year — Moleux also conducted the NEC Concert Band and recorded the Schubert Quintet with the Budapest String Quartet.",
+        "The earlier history of the chair reaches back to the orchestra's founding in 1881, but the record is harder to establish with certainty. Archival concert programs from the early twentieth century — digitized via OCR and sometimes difficult to read — show different bassists listed first in the section across different decades, including M. Kunze in the 1910s, O. Ludwig in the late 1920s, and E. Fabrizio in the mid-1930s. Whether each served as principal, or whether the listing order reflected seniority or other conventions of the period, remains unconfirmed.",
+        "Caleb Quillen, who takes the Harold D. Hodgkinson Chair in the 2025–26 season, is the tenth. A New England Conservatory graduate and Tanglewood Music Center fellow, Quillen arrives from the Dallas Symphony Orchestra.",
+      ],
+    },
   },
   hso: {
     id: "hso", name: "Houston Symphony", shortName: "HSO",
