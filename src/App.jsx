@@ -267,7 +267,7 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
 
   const tabs = [
     { key: "bassists", label: "Bassists" },
-    ...(orchestra.history ? [{ key: "history", label: "A Brief History" }] : []),
+    ...(orchestra.history ? [{ key: "history", label: "Section History" }] : []),
     ...(getAllInstruments(players).length > 0 ? [{ key: "instruments", label: "Notable Instruments" }] : []),
   ];
 
