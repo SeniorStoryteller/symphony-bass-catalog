@@ -88,6 +88,25 @@ function groupByOrch(arr) {
   ).map(([orchId, ps]) => ({ orchestra: ORCHESTRAS[orchId], players: ps }));
 }
 
+/* ── CITATION RENDERING ── */
+function renderCitedText(text, sources) {
+  if (!sources) return text;
+  const parts = text.split(/\[(\d+)\]/g);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) => {
+    if (i % 2 === 1) {
+      const num = parseInt(part, 10);
+      const url = sources[num];
+      return url ? (
+        <sup key={i} style={{ fontSize: "0.7em", lineHeight: 0 }}>
+          <a href={url} target="_blank" rel="noopener noreferrer" style={{ color: S.textPrimary, textDecoration: "none" }}>({num})</a>
+        </sup>
+      ) : <sup key={i} style={{ fontSize: "0.7em", lineHeight: 0 }}>({num})</sup>;
+    }
+    return part;
+  });
+}
+
 /* ── SHARED COMPONENTS ── */
 function Avatar({ initials, color, size = 48 }) {
   return (
@@ -379,7 +398,16 @@ function BassistsTab({ players, orchestra, orchestraId, onSelectOrchestra, selec
         ) : subView === "history" && orchestra.history ? (
           <div style={{ padding: isMobile ? "8px 0 16px" : "12px 0 24px" }}>
             <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 20 : 24, fontWeight: 700, color: S.textPrimary, lineHeight: 1.3, marginBottom: isMobile ? 16 : 20 }}>{orchestra.history.title}</h2>
-            {orchestra.history.paragraphs.map((para, i) => (
+            {orchestra.history.sections ? orchestra.history.sections.map((section, si) => (
+              <div key={si} style={{ marginBottom: si < orchestra.history.sections.length - 1 ? (isMobile ? 24 : 28) : 0 }}>
+                {section.heading && (
+                  <h3 style={{ fontFamily: SERIF, fontSize: isMobile ? 17 : 19, fontWeight: 700, color: S.textPrimary, lineHeight: 1.3, marginBottom: isMobile ? 10 : 12, marginTop: si > 0 ? 4 : 0 }}>{section.heading}</h3>
+                )}
+                {section.paragraphs.map((para, pi) => (
+                  <p key={pi} style={{ fontSize: isMobile ? 14 : 15, color: S.textSecondary, lineHeight: 1.75, marginBottom: pi < section.paragraphs.length - 1 ? 16 : 0 }}>{renderCitedText(para, orchestra.history.sources)}</p>
+                ))}
+              </div>
+            )) : orchestra.history.paragraphs.map((para, i) => (
               <p key={i} style={{ fontSize: isMobile ? 14 : 15, color: S.textSecondary, lineHeight: 1.75, marginBottom: i < orchestra.history.paragraphs.length - 1 ? 16 : 0 }}>{para}</p>
             ))}
           </div>
