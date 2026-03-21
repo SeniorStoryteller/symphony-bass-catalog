@@ -30,7 +30,8 @@ const navHoverOn = e => e.currentTarget.style.color = S.gold;
 const navHoverOff = e => e.currentTarget.style.color = S.textSecondary;
 
 /* ── PRE-COMPUTED DATA ── */
-const SORTED_ORCHS = Object.values(ORCHESTRAS).sort((a, b) => a.name.localeCompare(b.name));
+const sortName = n => n.replace(/^The\s+/i, "");
+const SORTED_ORCHS = Object.values(ORCHESTRAS).sort((a, b) => sortName(a.name).localeCompare(sortName(b.name)));
 const PRINCIPAL_BY_ORCH = Object.fromEntries(
   Object.entries(ALL_PLAYERS).map(([id, ps]) => [id, ps.find(p => p.role === "Principal Bass")])
 );
