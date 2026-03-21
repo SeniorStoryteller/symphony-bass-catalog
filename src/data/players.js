@@ -415,6 +415,108 @@ const ORCHESTRAS = {
     venue: "Orchestra Hall at Symphony Center", city: "Chicago", region: "Midwest",
     accentColor: "#4A90A4", headerColor: "#0D3D4F", founded: 1891,
     seasonNote: "The 2025–26 season is the CSO's 135th. Klaus Mäkelä serves as Zell Music Director Designate, beginning his full tenure in 2027–28. Riccardo Muti remains Music Director Emeritus for Life. No bass section personnel changes were announced for 2025–26.",
+    history: {
+      title: "Seven Principals in 133 Years: The CSO\u2019s Bass Chair",
+      sections: [
+        {
+          heading: null,
+          paragraphs: [
+            "The Chicago Symphony Orchestra was founded in 1891 by Theodore Thomas, who brought with him a nucleus of players from the Theodore Thomas Orchestra. Seven musicians have held the principal bass chair in the years since \u2014 three of them accounting for more than a century of combined service. The section\u2019s identity has been shaped by two conservatories above all: the Curtis Institute of Music, which produced a pedagogical chain from Anton Torello through Warren Benfield to Hal Robinson to Alexander Hanna, and the Juilliard School, which connected Frederick Zimmermann to Joseph Guastafeste to Mark Kraemer. Both lines converge in the current section.",
+          ],
+        },
+        {
+          heading: "Hanna: The Youngest Principal in a Generation",
+          paragraphs: [
+            "Alexander Hanna was born on January 30, 1986, in Mobile, Alabama.[1] He began playing bass at fourteen, and within four years had won the principal bass audition at the Minnesota Orchestra under Osmo V\u00e4nsk\u00e4 \u2014 one of the youngest principal players in any major American orchestra at the time.[1][2]",
+            "He studied at the Curtis Institute of Music with Hal Robinson and Edgar Meyer.[1] After four years in Minnesota, he moved to the Detroit Symphony Orchestra as principal bass under Leonard Slatkin.[1] In 2012, Riccardo Muti selected him for the same position at the Chicago Symphony Orchestra. He was twenty-six.[1][3]",
+            "Hanna\u2019s primary instrument is a c. 1750 bass from the Brescian School, donated to the CSO by Joseph DiBello upon DiBello\u2019s retirement in 2020 after forty-four years in the section.[4] Hanna has named it \u201cExcalibur.\u201d[4] In 2022, he performed Bottesini\u2019s Concerto No. 2 with the CSO on the Karr-Koussevitzky bass, borrowed from the International Society of Bassists.[5] He also plays James Vrhel\u2019s eighteenth-century Brescia bass, which has remained in the orchestra since Vrhel\u2019s tenure.[6]",
+            "Hanna teaches at DePaul University and has served on the faculties of the Civic Orchestra of Chicago, the National Repertory Orchestra, and the Grand Teton Music Festival.[1][7]",
+          ],
+        },
+        {
+          heading: "Guastafeste: Forty-Nine Years Under Seven Music Directors",
+          paragraphs: [
+            "Joseph Guastafeste was born in 1930 and studied at the Juilliard School with Frederick Zimmermann.[8] Fritz Reiner hired him as principal bass of the CSO in 1961. He held the position for forty-nine years, serving under Reiner, Jean Martinon, Georg Solti, Daniel Barenboim, and three interim conductors.[8][9]",
+            "During his tenure, two future principals of other major orchestras passed through the CSO bass section. Timothy Cobb joined during his senior year at Curtis and later became principal bass of the Metropolitan Opera, then the New York Philharmonic.[10] Ed Barker spent two seasons in the section before becoming principal bass of the Boston Symphony Orchestra at twenty-two.[11]",
+            "Guastafeste played a Gasparo da Sal\u00f2 bass dating to approximately 1585 and also owned a Domenico Busan (c. 1749).[12] After his retirement in 2010, the da Sal\u00f2 became the subject of a 2017 lawsuit between family members over ownership of the instrument.[12] He taught at Northwestern University, where his former student Jeff Bradetich succeeded him on the faculty.[8] He died on April 11, 2023, at the age of ninety-three.[13]",
+          ],
+        },
+        {
+          heading: "Jiskra: Four Decades as Principal",
+          paragraphs: [
+            "Vaclav Jiskra was born in Bohemia and studied under Josef Sladek and Franz Simandl \u2014 the same Simandl who trained Ludwig Manoly in New York a generation earlier.[14][15] He joined the CSO in 1908, succeeding Joseph Beckel as principal bass, and held the chair for forty-one years under Frederick Stock and D\u00e9sir\u00e9 Defauw.[14]",
+            "In 1934, Jiskra performed as a soloist with the CSO at the Century of Progress International Exposition in Chicago.[14] He married Margaretha Wunderle, the orchestra\u2019s harpist.[14] His student James Vrhel, a Chicago native who joined the bass section in 1944, would eventually succeed him as principal.[6][14]",
+            "Jiskra retired in 1949. An archival collection related to his career exists in institutional holdings but has not been digitized.[16]",
+          ],
+        },
+        {
+          heading: "Wiegner and Beckel: The Founding Principals",
+          paragraphs: [
+            "The CSO\u2019s first principal bassist was Albin Wiegner, who held the position from the orchestra\u2019s inaugural 1891 season through 1895.[17] Joseph Beckel, a founding member who had played in the section since 1891, succeeded him and held the chair until 1908.[17] Both appear in the 1892 CSO tour photograph \u2014 one of the earliest visual records of the orchestra.[17] No biographical details for either musician have been located beyond their years of service.",
+          ],
+        },
+        {
+          heading: "Benfield and Vrhel: A Shared Decade",
+          paragraphs: [
+            "Warren Benfield arrived at the CSO in 1949 from the Philadelphia Orchestra, where he had served as co-principal bass.[8][18] A Curtis graduate who studied with Anton Torello \u2014 the Philadelphia Orchestra\u2019s longtime principal \u2014 Benfield brought the Torello school of playing to Chicago.[18]",
+            "He served as principal bass into the early 1950s before James Vrhel, who had been in the section since 1944 and had studied under Jiskra, assumed the chair.[6][14] The overlap and exact transition between the two has not been explained in available sources. Both are identified as holding the principal title during the 1950s; Vrhel held it through 1961, when Guastafeste succeeded him.[6][8]",
+            "Benfield remained in the section until 1987 \u2014 thirty-eight years \u2014 while building what became the most influential bass studio in the Midwest at Northwestern University, where he taught from 1954 to 1979.[18][19] He co-authored The Art of Double Bass Playing with James Seagrave in 1976, a standard pedagogical text still in use.[18] His students included Hal Robinson, who became principal bass of the Philadelphia Orchestra and later taught Hanna at Curtis; Jeff Bradetich; and the jazz bassist Rufus Reid.[18][20] The American String Teachers Association awarded him its Artist-Teacher Award in 1992.[18]",
+            "Vrhel played two notable instruments: a bass attributed to Nicola Amati \u2014 one of only two surviving double basses by the Cremonese maker \u2014 and an eighteenth-century Brescian bass that remained in the CSO and is now played by Hanna.[6][21]",
+          ],
+        },
+        {
+          heading: "DiBello: The Section\u2019s Quiet Anchor",
+          paragraphs: [
+            "Joseph DiBello joined the CSO bass section in 1976 and remained for forty-four years.[4] Upon his retirement in 2020, the orchestra awarded him the Theodore Thomas Medallion \u2014 the CSO\u2019s highest honor, named for its founder.[4] Rather than sell his c. 1750 Brescian School bass, he donated it to the orchestra. Hanna now plays it as his primary instrument under the name \u201cExcalibur.\u201d[4]",
+          ],
+        },
+        {
+          heading: "Lester, Cline, and Kraemer: A Half-Century Core",
+          paragraphs: [
+            "Three section members who joined in the 1970s have anchored the orchestra\u2019s institutional memory. Mark Kraemer, who joined in 1974, is the longest-serving current member of the CSO at fifty-one years.[22] He studied with Guastafeste, extending the Zimmermann\u2013Guastafeste line into a third generation within the section.[22]",
+            "Stephen Lester joined in 1978 and has served for forty-seven years.[23] He chaired the Orchestra Members\u2019 Committee for twenty-eight of them \u2014 the longest such tenure in the CSO\u2019s history \u2014 representing the players in contract negotiations and governance.[23]",
+            "Roger Cline joined in 1973 and served for forty-five years before retiring in 2018.[24] He spent forty years on the Members\u2019 Committee, twenty as Vice Chairman, and served two terms as a player representative on the board of trustees.[24]",
+          ],
+        },
+        {
+          heading: "Kassinger and the Jazz Thread",
+          paragraphs: [
+            "Robert Kassinger joined the CSO in 1993 after studying with Homer Mensch at the Juilliard School and earning degrees from Indiana University.[25] Before winning the CSO audition, he had built a parallel career in jazz, performing with the Woody Herman Orchestra and recording with Wynton Marsalis.[25]",
+            "That dual fluency has precedent in the section. Rudolf Fahsbender, who spent thirty-seven years in the CSO bass section, taught Richard Davis \u2014 one of the most recorded jazz bassists of the twentieth century and a longtime professor at the University of Wisconsin\u2013Madison.[26] Fahsbender connected the CSO\u2019s orchestral tradition to the jazz world a generation before Kassinger arrived.",
+            "Kassinger teaches at DePaul University and Indiana University\u2019s Jacobs School of Music.[25]",
+          ],
+        },
+      ],
+      sources: [
+        null,
+        "https://cso.org/about/performers/chicago-symphony-orchestra/alexander-hanna/",
+        "https://www.minnesotaorchestra.org/",
+        "https://www.chicagotribune.com/2012/09/27/cso-names-new-principal-bass/",
+        "https://cso.org/experience/article/10831/joseph-dibello-retires",
+        "https://www.isbworldoffice.com/",
+        "https://cso.org/about/performers/chicago-symphony-orchestra/alexander-hanna/",
+        "https://music.depaul.edu/faculty-and-staff/Pages/alexander-hanna.aspx",
+        "https://cso.org/about/performers/alumni/",
+        "https://www.chicagotribune.com/2010/05/13/after-49-years-cso-bassist-retires/",
+        "https://www.nyphil.org/about-us/artists/timothy-cobb/",
+        "https://www.bso.org/performers/edwin-barker",
+        "https://cso.org/about/performers/alumni/",
+        "https://www.legacy.com/obituaries/chicagotribune/name/joseph-guastafeste-obituary",
+        "https://cso.org/about/performers/alumni/",
+        "https://www.billbentgen.com/bass/players/manoly.htm",
+        "https://www.worldcat.org/",
+        "https://cso.org/about/history/",
+        "https://music.northwestern.edu/",
+        "https://music.northwestern.edu/",
+        "https://rufusreid.com/about/",
+        "https://cso.org/about/performers/alumni/",
+        "https://cso.org/about/performers/chicago-symphony-orchestra/mark-kraemer/",
+        "https://cso.org/about/performers/chicago-symphony-orchestra/stephen-lester/",
+        "https://cso.org/experience/article/roger-cline-retires/",
+        "https://cso.org/about/performers/chicago-symphony-orchestra/robert-kassinger/",
+        "https://music.wisc.edu/",
+      ],
+    },
   },
   phi: {
     id: "phi", name: "Philadelphia Orchestra", shortName: "Philadelphia",
