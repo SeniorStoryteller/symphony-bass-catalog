@@ -312,14 +312,14 @@ const ORCHESTRAS = {
           ],
         },
         {
-          heading: "The Early Chair: Manoly and Reinshagen",
+          heading: "Manoly and Reinshagen: The Early Chair",
           paragraphs: [
             "Ludwig Manoly was born in Hungary around 1855 and studied with Franz Simandl at the Vienna Conservatory.[1] After graduating in 1876, he came to the United States and performed with the Theodore Thomas Orchestra, the Mendelssohn Quintette Club of Boston, and the Boston Symphony Orchestra before joining the Philharmonic Society of New York in 1879.[1][2] He became principal bass in 1892 and held the position until his retirement in 1927.[2] Antonin Dvorak recruited him to teach at the National Conservatory of Music in New York, and he also served on the faculty of the Institute of Musical Art, which later became the Juilliard School.[1]",
             "Herman Reinshagen was born in Germany in 1878 and joined the NYP in 1902, initially as assistant principal under Manoly.[3][18] He succeeded Manoly as principal and held the chair under Gustav Mahler and Arturo Toscanini.[3] After retiring from the orchestra around 1935, he moved to California and became head of the bass department at the University of Southern California.[18] His students included Frederick Zimmermann, who would succeed him at both the NYP and Juilliard; Charles Mingus, who studied with him for five years; and Gary Karr.[18][3]",
           ],
         },
         {
-          heading: "The Mid-Century Chair: Fortier, Brennand, and Schaeffer",
+          heading: "Fortier, Brennand, and Schaeffer: The Mid-Century Chair",
           paragraphs: [
             "Anselme Fortier succeeded Reinshagen as principal bass. He appears first in the bass section of the orchestra\u2019s 1941\u201342 personnel records \u2014 a convention indicating the first desk.[19][20] A proponent of the French School, Fortier taught at the Manhattan School of Music,[22] where his students included Homer Mensch.[22] Margaret Bourke-White photographed him in 1938.[21] The Academic Bass Portal lists him as principal bass of the NYP as of 1945;[23] he died in 1957.[23]",
             "Robert Brennand also appears in the 1941\u201342 bass section photograph, at that time as a section member.[19] By 1966, when Orin O\u2019Brien joined the orchestra, he was serving as \u201cfirst bass.\u201d[24] Brennand played gut strings throughout his career and taught at the Manhattan School of Music; his students included Ron Carter.[24] The ISB\u2019s memorial records identify him as principal bass of the New York Philharmonic.[25]",
