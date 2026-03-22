@@ -274,6 +274,104 @@ const ORCHESTRAS = {
     venue: "Jones Hall for the Performing Arts", city: "Houston", region: "South",
     accentColor: "#C87A6E", headerColor: "#6B2A1A", founded: 1913,
     seasonNote: "The 2025–26 season is Music Director Juraj Valčuha's fourth at the helm. No bass section personnel changes have been announced for 2025–26.",
+    history: {
+      title: "The Houston Symphony\u2019s Bass Chair: Four Principals in Six Decades",
+      sections: [
+        {
+          heading: null,
+          paragraphs: [
+            "The Houston Symphony was founded in 1913, but its bass section history becomes traceable in the mid-twentieth century with Keith Robinson, whose exact dates of service have not been established in available sources. Only four musicians have been documented as principal bass \u2014 Robinson, Paul Ellison, Timothy Pitts, and Robin Kesselman. What distinguishes Houston from other orchestras in this catalog is not the principal chair itself but what grew up alongside it: the bass studio at Rice University\u2019s Shepherd School of Music, built by Ellison beginning in 1974 and expanded by Pitts, which has produced players now seated in orchestras across the country \u2014 including at least eight others documented in this catalog.",
+          ],
+        },
+        {
+          heading: "Kesselman: Full Circle",
+          paragraphs: [
+            "Robin Kesselman was appointed principal bass of the Houston Symphony in December 2014 at age twenty-four.[1] He studied at the University of Southern California with David Allen Moore and Christopher Hanulik, then earned an Artist Diploma at the Curtis Institute of Music with Harold Robinson and Edgar Meyer.[1][2] He also studied privately with Paul Ellison in Houston.[1]",
+            "The Curtis connection carries particular weight here. Robinson \u2014 who taught Kesselman at Curtis \u2014 grew up in the Houston Symphony. His father Keith was the orchestra\u2019s principal bassist; his mother Dorothe Fowler was a violinist in the section.[3][4] Robinson studied with Ellison in Houston before leaving for Northwestern and eventually becoming principal bass of the Philadelphia Orchestra and the architect of the Curtis bass studio.[3][4] Kesselman\u2019s appointment brought the lineage back to where it started.",
+            "Before Houston, Kesselman substituted with the Los Angeles Philharmonic, the San Diego Symphony, and the Pacific Symphony.[1] His solo debut with the Houston Symphony came in January 2017 with the Koussevitzky Concerto.[1] In 2024, he published Bow Speed Geography, a method book and video series on legato and sustain, through the International Society of Bassists.[1]",
+          ],
+        },
+        {
+          heading: "Ellison: The Builder",
+          paragraphs: [
+            "Paul Ellison joined the Houston Symphony bass section in 1966 and was promoted to principal approximately six years later.[5] He held the chair for seventeen years, stepping down around 1989.[5]",
+            "In 1974, Ellison joined the faculty of Rice University\u2019s Shepherd School of Music.[5] He was the first student of Fran\u00e7ois Rabbath, the French virtuoso who developed an alternative system of bass technique, and brought elements of Rabbath\u2019s approach into his teaching alongside traditional orchestral methods.[5][6] Over five decades at Rice, Ellison built one of the most productive bass studios in the country.",
+            "His students hold or have held positions across the profession. Harold Robinson became principal bass of the National Symphony Orchestra and then the Philadelphia Orchestra.[3][4] Dennis Whittaker served as principal bass of the Detroit Symphony Orchestra.[7] Mark Shapiro has been in the Houston Symphony section since at least the early 1980s.[8] Ellison served as president of the International Society of Bassists and received the ISB\u2019s Distinguished Teacher Award.[5] He continues to teach at Rice and perform with the Houston Grand Opera after more than fifty seasons in Houston.[5]",
+          ],
+        },
+        {
+          heading: "Pitts: The Other Half of Rice",
+          paragraphs: [
+            "Timothy Pitts spent seven years as a section bassist in The Cleveland Orchestra before being appointed principal bass of the Houston Symphony around 1992.[9] He held the position for approximately seventeen years.[9]",
+            "Pitts joined the Rice faculty alongside Ellison, and together they expanded the Shepherd School\u2019s bass program into a two-studio operation with national reach.[9] His students have filled positions across the country: Caleb Quillen is now principal bass of the Boston Symphony Orchestra;[10] Daniel G. Smith is associate principal of the San Francisco Symphony;[11] Orion Miller joined the SFS section in 2024;[11] Charles Paul is first assistant principal of The Cleveland Orchestra;[12] and others hold positions in Toronto, Kansas City, St. Louis, and Seattle.[9]",
+            "Pitts plays a 1771 Domenico Busan bass from Venice \u2014 an instrument from the same workshop that produced Ralph Jones\u2019s bass at the Atlanta Symphony and instruments owned by Joseph Guastafeste at the Chicago Symphony.[9][13]",
+          ],
+        },
+        {
+          heading: "Keith Robinson: The Dynasty\u2019s Origin",
+          paragraphs: [
+            "Keith Robinson served as principal bass of the Houston Symphony during the mid-twentieth century.[3] His exact years of service have not been established in available sources. His wife, Dorothe Fowler, played violin in the orchestra.[3] Their son Harold Robinson studied with Ellison at Rice and with Warren Benfield at Northwestern, then served as principal bass of the National Symphony Orchestra and the Philadelphia Orchestra and as head of the bass department at the Curtis Institute of Music.[3][4]",
+          ],
+        },
+        {
+          heading: "Shaw: From Curtis to Houston",
+          paragraphs: [
+            "Burke Shaw joined the Houston Symphony in 2000 under Christoph Eschenbach.[14] He studied at the Juilliard School with Homer Mensch and at the Curtis Institute of Music with Roger Scott \u2014 the same Scott who bridged the Torello and Robinson eras in Philadelphia and is the subject of a section in this catalog\u2019s Philadelphia Orchestra history.[14][15] Before Houston, he performed with the Oregon Symphony under James DePreist.[14] He has served as a musician representative on the Houston Symphony Board of Directors.[14]",
+          ],
+        },
+        {
+          heading: "Larson: The Wabass Connection",
+          paragraphs: [
+            "Eric Larson joined the Houston Symphony in 1999 after studying at Boston University with Edwin Barker, then principal bass of the Boston Symphony Orchestra.[16] Before Houston, he spent three years teaching at Settlement Music School in Philadelphia and served as principal bass of the Haddonfield Symphony, now Symphony in C.[16]",
+            "Larson is Affiliate Artist in Double Bass at the University of Houston\u2019s Moores School of Music and co-directs the Wabass Institute alongside Harold Robinson and Ranaan Meyer.[16] He coached double bass and chamber music at the Boston University Tanglewood Institute for ten years.[16]",
+          ],
+        },
+        {
+          heading: "Dilenschneider: The Curtis Pipeline Continues",
+          paragraphs: [
+            "Timothy Dilenschneider was appointed associate principal bass of the Houston Symphony in January 2019.[17] He studied at the Curtis Institute of Music with Harold Robinson and Edgar Meyer \u2014 the same teachers as Kesselman.[17] His first teacher was Ranaan Meyer of Time for Three.[17] Before Houston, he was a New World Symphony fellow and then joined the Baltimore Symphony Orchestra under Marin Alsop.[17]",
+            "Dilenschneider is one of three current HSO bass members who trained at Curtis, alongside Kesselman and Shaw.[17][14]",
+          ],
+        },
+        {
+          heading: "The Current Section",
+          paragraphs: [
+            "The Houston Symphony\u2019s bass section numbers nine players.[1] Kesselman leads as principal. Dilenschneider serves as associate principal.[17] The section includes Mark Shapiro, the longest-serving member, who joined after completing his master\u2019s at Rice in 1982;[8] Eric Larson and Donald Howey, both since 1999;[16][18] Burke Shaw, since 2000;[14] Andrew Pedersen, since 2017;[19] and Logan May and Avery Weeks, who joined in 2025 and 2024 respectively.[20][21]",
+            "The section draws from both of Houston\u2019s pipelines. Curtis graduates include Kesselman, Dilenschneider, and Shaw. Rice alumni include Shapiro, Howey, and Pedersen. The two schools between them account for the majority of the section.",
+          ],
+        },
+        {
+          heading: "The Shepherd School\u2019s National Reach",
+          paragraphs: [
+            "Rice University\u2019s Shepherd School of Music, through Ellison and Pitts, has placed bass players in at least eight of the twelve orchestras documented in this catalog. The Boston Symphony\u2019s current principal studied with Pitts.[10] The San Francisco Symphony\u2019s associate principal and a section member studied with Pitts.[11] The Cleveland Orchestra\u2019s first assistant principal studied with Pitts.[12] The Philadelphia Orchestra\u2019s former principal studied with Ellison.[4] The Detroit Symphony has employed Ellison students.[7] Graduates also hold or have held positions in the Houston, Atlanta, and National symphonies.",
+          ],
+        },
+      ],
+      sources: [
+        null,
+        "https://houstonsymphony.org/musician/robin-kesselman/",
+        "https://www.curtis.edu/academics/faculty/harold-robinson/",
+        "https://contrabassconversations.com/",
+        "https://www.curtis.edu/academics/faculty/harold-robinson/",
+        "https://music.rice.edu/faculty/paul-ellison",
+        "https://www.rabbath.com/",
+        "https://www.dso.org/",
+        "https://houstonsymphony.org/musician/mark-shapiro/",
+        "https://music.rice.edu/faculty/timothy-pitts",
+        "https://www.bso.org/performers/caleb-quillen",
+        "https://www.sfsymphony.org/About-SFS/Musicians",
+        "https://www.clevelandorchestra.com/discover/meet-the-musicians/basses/paul-charles/",
+        "https://www.thestrad.com/atlanta-symphony-orchestra-principal-double-bassist-ralph-jones-dies/553.article",
+        "https://houstonsymphony.org/musician/burke-shaw/",
+        "https://www.legacy.com/obituaries/",
+        "https://houstonsymphony.org/musician/eric-larson/",
+        "https://houstonsymphony.org/musician/timothy-dilenschneider/",
+        "https://houstonsymphony.org/musician/donald-howey/",
+        "https://houstonsymphony.org/musician/andrew-pedersen/",
+        "https://houstonsymphony.org/musician/logan-may/",
+        "https://houstonsymphony.org/musician/avery-weeks/",
+      ],
+    },
   },
   lap: {
     id: "lap", name: "Los Angeles Philharmonic", shortName: "LA Phil",
