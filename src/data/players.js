@@ -304,8 +304,10 @@ const ORCHESTRAS = {
         {
           heading: "Pitts: The Other Half of Rice",
           paragraphs: [
-            "Timothy Pitts spent seven years as a section bassist in The Cleveland Orchestra before being appointed principal bass of the Houston Symphony around 1992.[15] He held the position for approximately seventeen years.[15]",
-            "Pitts joined the Rice faculty alongside Ellison, and together they expanded the Shepherd School\u2019s bass program into a two-studio operation with national reach.[15] His students have filled positions across the country: Caleb Quillen is now principal bass of the Boston Symphony Orchestra;[16] Daniel G. Smith is associate principal of the San Francisco Symphony;[17] Orion Miller joined the SFS section in 2024;[17] Charles Paul is first assistant principal of The Cleveland Orchestra;[18] and others hold positions in Toronto, Kansas City, St. Louis, and Seattle.[15]",
+            "Timothy Pitts began playing bass in fourth grade in public school.[33] He studied at the New England Conservatory with Larry Wolfe, graduating in 1981, and was coached there by Louis Krasner \u2014 who had premiered the Berg Violin Concerto \u2014 and by Eugene Lehner of the Kolisch Quartet.[33] After graduating, he studied privately with Edwin Barker, then principal bass of the Boston Symphony Orchestra, and substituted regularly with the BSO for two years.[33] He also served as principal bass of the Handel and Haydn Society and Boston Musica Viva, and studied with Gunther Schuller at Tanglewood.[33]",
+            "Pitts won a section bass audition with The Cleveland Orchestra during Christoph von Dohn\u00e1nyi\u2019s early tenure and spent seven years in the orchestra.[15][33] He then won the principal bass position at the Houston Symphony, where he served for seventeen years under Christoph Eschenbach before resigning to accept a full-time teaching position at Rice.[15][33]",
+            "At the Shepherd School, Pitts and Ellison built complementary studios. In a Double Bass HQ interview, Pitts described his approach as \u201cincorporating technical skills into musical ideas\u201d rather than treating technique as an end in itself.[33] Together they expanded Rice\u2019s bass program into a two-studio operation with national reach.[15]",
+            "His students have filled positions across the country: Caleb Quillen is now principal bass of the Boston Symphony Orchestra;[16] Daniel G. Smith is associate principal of the San Francisco Symphony;[17] Orion Miller joined the SFS section in 2024;[17] Charles Paul is first assistant principal of The Cleveland Orchestra;[18] and others hold positions in Toronto, Kansas City, St. Louis, and Seattle.[15]",
             "Pitts plays a 1771 Domenico Busan bass from Venice \u2014 its label reads \u201cDomenico Busan fece / in Venecia 1771.\u201d[20] The instrument comes from the same workshop that produced Ralph Jones\u2019s bass at the Atlanta Symphony and instruments owned by Joseph Guastafeste at the Chicago Symphony.[15][19]",
           ],
         },
@@ -386,6 +388,7 @@ const ORCHESTRAS = {
         "https://houstonsymphony.org/musician/avery-weeks/",
         "https://houstonsymphony.org/press-room/the-houston-symphony-and-rice-universitys-shepherd-school-of-music-partner-to-establish-new-brown-foundation-community-embedded-musician-fellowship/",
         "https://news.rice.edu/news/2025/new-shepherd-school-faculty-step-houston-spotlight-symphony-performances",
+        "https://doublebasshq.com/an-interview-with-timothy-pitts/",
       ],
     },
   },
