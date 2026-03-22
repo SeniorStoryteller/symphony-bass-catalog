@@ -674,6 +674,116 @@ const ORCHESTRAS = {
     venue: "Symphony Hall at Woodruff Arts Center", city: "Atlanta", region: "South",
     accentColor: "#4A6B99", headerColor: "#1E3560", founded: 1945,
     seasonNote: "The 2025–26 season is Music Director Nathalie Stutzmann's fourth at the helm.",
+    history: {
+      title: "The ASO\u2019s Bass Chair: Three Principals in Half a Century",
+      sections: [
+        {
+          heading: null,
+          paragraphs: [
+            "The Atlanta Symphony Orchestra traces its origins to 1944, when Henry Sopkin founded the Atlanta Youth Symphony. The ensemble was renamed the Atlanta Symphony Orchestra in 1947 and became fully professional under Robert Shaw in 1967. Only three musicians have been formally appointed to the principal bass chair \u2014 Ralph Jones, who held it for thirty-six years, Colin Corner, who held it for two, and Joseph McFadden, who has held it since 2017. But the section\u2019s defining figure never held the principal title. Jane Little played in the bass section for seventy-one consecutive years \u2014 from the orchestra\u2019s first concert in 1945 to her death onstage in 2016.",
+          ],
+        },
+        {
+          heading: "Little: Seventy-One Years",
+          paragraphs: [
+            "Jane Little was born Jane Findley on February 2, 1929, in Atlanta.[1][2] She stood four feet eleven inches and weighed ninety-eight pounds. Her instrument, a half-size bass, was nearly as tall as she was.[1]",
+            "A music director at Girls\u2019 High School assigned her the bass. On February 4, 1945 \u2014 two days after her sixteenth birthday \u2014 she performed in the Atlanta Youth Symphony\u2019s first concert.[1][2] She would not miss a season for the next seventy-one years.",
+            "When Robert Shaw arrived in 1967 and re-auditioned every player, Little won a seat and was appointed co-principal bass.[1] She later held the title of assistant principal bass, and ultimately assistant principal bass emeritus.[3][4] She married Warren Little, the ASO\u2019s principal flutist, in September 1953. He served forty-one years before retiring in 1992 and died in 2002.[1]",
+            "Little performed under all four of the ASO\u2019s music directors \u2014 Sopkin, Shaw, Levi, and Spano \u2014 and alongside guest artists including Stravinsky, Copland, Isaac Stern, Nathan Milstein, and Arthur Rubinstein.[1][2] For fifteen years, she also performed with the Theater of the Stars, the only woman in the band.[1]",
+            "On February 1, 2016, the Guinness Book of World Records certified her as the longest-tenured symphony musician in history.[5][6] Three and a half months later, on May 15, 2016, she collapsed onstage during the encore of a Pops concert. The song was \u201cThere\u2019s No Business Like Show Business.\u201d She died the same day at eighty-seven.[2][3]",
+            "The International Society of Bassists established the Jane Little Scholarship \u2014 a $10,000 annual award for female double bass students \u2014 in her memory.[7]",
+          ],
+        },
+        {
+          heading: "McFadden: Promoted from Within",
+          paragraphs: [
+            "Joseph McFadden joined the ASO bass section in 2011 and was appointed principal bass in 2017, succeeding Colin Corner.[8] He studied at Indiana University\u2019s Jacobs School of Music with Jeff Bradetich, connecting the ASO\u2019s current principal to the same Northwestern\u2013Curtis pedagogical chain that runs through the Chicago and Cleveland orchestras.[8]",
+            "Before Atlanta, McFadden served as principal bass of the Evansville Philharmonic Orchestra.[8] He teaches at Kennesaw State University.[8]",
+          ],
+        },
+        {
+          heading: "Jones: Thirty-Six Years as Principal",
+          paragraphs: [
+            "Ralph Martin Jones Jr. was born on March 11, 1945, in Decatur, Illinois.[9] He took up the bass at seventeen and earned a bachelor\u2019s degree from the University of Tulsa.[10] His teachers included Henry Loew, principal bass of the St. Louis Symphony; Lew Norton of the New York Philharmonic; Anthony Bianco, principal bass of the Pittsburgh Symphony; and Paul Zepperitz, principal bass of the Berlin Philharmonic.[9][10]",
+            "After a brief tenure with the Pittsburgh Symphony, Jones joined the ASO bass section in 1970.[9] He was promoted to principal in 1977 and held the chair until his retirement at the end of the 2012\u201313 season \u2014 thirty-six years as principal, forty-three in the orchestra.[9][10] He also served summers as principal bass at the Chautauqua Institution.[10]",
+            "In March 2007, Jones performed John Harbison\u2019s Concerto for Bass Viol with the ASO under conductor Laura Jackson, part of a multi-orchestra commission coordinated by the International Society of Bassists.[9] He played a 1740 Domenico Busan bass \u2014 the same Venetian workshop that produced instruments owned by Joseph Guastafeste at the CSO.[9]",
+            "Jones was active in the ASO\u2019s Talent Development Program, mentoring young musicians and helping students acquire instruments.[10] He died on October 9, 2013, after a three-and-a-half-year battle with throat cancer. He was sixty-eight.[9][10]",
+          ],
+        },
+        {
+          heading: "Jones Allgood: Student, Wife, Successor",
+          paragraphs: [
+            "Gloria Jones Allgood\u2019s connection to the ASO bass section began in high school, when she studied privately with Ralph Jones.[11] Born in Greenville, South Carolina, she started bass at twelve and soloed with the Charleston Symphony at fourteen.[11] She spent six summers at the Interlochen Center for the Arts studying with Lawrence Hurst, Oscar Zimmerman, and Jack Budrow, then attended the Aspen Music Festival on a full fellowship under Stuart Sankey.[11] She earned a bachelor\u2019s degree from the University of Michigan.[11]",
+            "She joined the ASO in 1984 at twenty, before completing her degree, having already served as principal bass of the Flint Symphony Orchestra.[11] She was promoted to assistant principal in 1989 and to associate principal in 2001.[11] She and Ralph Jones married; their children are Christopher Douglas Jones and Shelley Marissa Jones.[10]",
+            "After Jones\u2019s death in October 2013, Allgood served as acting principal for two seasons.[11] She holds the Lucy R. & Gary Lee Jr. Associate Principal Bass Chair and continues to teach in the ASO\u2019s Talent Development Program.[11]",
+          ],
+        },
+        {
+          heading: "Corner: A Brief Tenure",
+          paragraphs: [
+            "Colin Corner was appointed principal bass of the ASO in 2015, succeeding Gloria Jones Allgood\u2019s two seasons as acting principal.[12] He studied at Indiana University with Lawrence Hurst \u2014 the same teacher who had trained Allgood at Interlochen decades earlier.[12] Corner held the position for two seasons before leaving for the Oregon Symphony in 2017, where he serves as principal bass.[12]",
+          ],
+        },
+        {
+          heading: "Sommer: A Legacy in Two Orchestras",
+          paragraphs: [
+            "Douglas Sommer joined the ASO bass section in 1989 after positions with the Columbus Symphony and the San Francisco Symphony.[13] He studied at the San Francisco Conservatory and the New England Conservatory.[13] For twenty-five years he played in the section, taught in the Talent Development Program, and coached students in the Atlanta Symphony Youth Orchestra.[13]",
+            "Sommer died of cancer on February 27, 2014, at fifty-four.[13][14] His son Andrew inherited his Enrico Bajoni bass, built around 1875, and now plays it in the Chicago Symphony Orchestra.[15]",
+          ],
+        },
+        {
+          heading: "Kurth: Composer in the Section",
+          paragraphs: [
+            "Michael Kurth joined the ASO in 1994 after a season as co-principal bass of the New World Symphony.[16] He studied at the Peabody Conservatory with Harold Robinson, who later became principal bass of the Philadelphia Orchestra.[16] He holds the Jane Little Chair.[16]",
+            "Kurth is also a composer. The ASO has commissioned and recorded several of his works since 2011.[16][17] He serves as Artist Affiliate in Double Bass at Emory University.[17]",
+          ],
+        },
+        {
+          heading: "Foley: The Talent Development Program\u2019s Prodigy",
+          paragraphs: [
+            "Xavier Foley is not a member of the ASO bass section, but his roots in the orchestra run deep. A native of Marietta, Georgia, he came up through the Talent Development Program \u2014 a pipeline founded in 1993 by Azira G. Hill to increase the participation of children of color in classical music.[18][19]",
+            "Foley studied at the Curtis Institute of Music with Edgar Meyer and Hal Robinson.[19] He won the Sphinx Competition in 2014 and received the Avery Fisher Career Grant in 2018.[19] In 2022, the ASO premiered his Double Bass Concerto with Foley as soloist \u2014 bringing the TDP\u2019s most prominent graduate back to the stage where he started.[19]",
+          ],
+        },
+        {
+          heading: "The 2014 Lockout and Its Aftermath",
+          paragraphs: [
+            "The ASO bass section lost three of its eight members in quick succession. Ralph Jones retired in 2013 and died that October. Douglas Sommer died in February 2014. The ASO\u2019s labor lockout that fall, which lasted from September to November, resulted in further attrition.[20] The section was rebuilt over six years, with McFadden\u2019s promotion to principal in 2017 and subsequent appointments stabilizing the roster.",
+          ],
+        },
+        {
+          heading: "The Indiana Pipeline",
+          paragraphs: [
+            "Indiana University\u2019s Jacobs School of Music has produced more ASO bass section members than any other institution. Lawrence Hurst, who taught at IU from 1986 to 2012, trained both Gloria Jones Allgood at Interlochen and Colin Corner at the university itself.[11][12] His colleague and successor Jeremy Bransby trained Joseph McFadden, Nicholas Scholefield, and Daniel Tosky \u2014 three current members.[8][21][22] The connection runs both directions: Allgood and Kurth have sent students to the Jacobs School, and the Talent Development Program has placed students there as well.",
+          ],
+        },
+      ],
+      sources: [
+        null,
+        "https://internationalmusician.org/jane-little/",
+        "https://www.npr.org/sections/deceptivecadence/2016/05/17/478337126/jane-little-longtime-orchestra-musician-collapses-on-stage-and-dies",
+        "https://www.artsatl.org/news-double-bassist-jane-little-founding-aso-member-dies-after-collapsing-onstage/",
+        "https://www.isbworldoffice.com/in-memory.asp",
+        "https://www.thestrad.com/double-bassist-jane-little-sets-world-record-with-71-seasons-at-atlanta-symphony/1917.article",
+        "https://www.atlantamagazine.com/news-culture-articles/atlanta-symphony-orchestras-jane-little-becomes-longest-serving-orchestral-player-ever/",
+        "https://www.isbworldoffice.com/",
+        "https://www.aso.org/artists/detail/joseph-mcfadden",
+        "https://www.thestrad.com/atlanta-symphony-orchestra-principal-double-bassist-ralph-jones-dies/553.article",
+        "https://symphony.org/obituary-former-atlanta-symphony-bassist-ralph-jones-68/",
+        "https://www.aso.org/artists/detail/gloria-jones-allgood",
+        "https://www.oregonsymphony.org/musicians/colin-corner/",
+        "https://symphony.org/obituary-douglas-sommer-bassist-in-atlanta-symphony-54/",
+        "https://theviolinchannel.com/sad-news-atlanta-symphony-double-bassist-douglas-sommer-died-aged-54/",
+        "https://cso.org/about/performers/chicago-symphony-orchestra/",
+        "https://www.aso.org/artists/detail/michael-kurth",
+        "https://music.emory.edu/people/biography/kurth-michael.html",
+        "https://www.aso.org/education-community/talent-development-program",
+        "https://www.xavierfoley.com/",
+        "https://www.artsatl.org/",
+        "https://www.aso.org/artists/detail/nicholas-scholefield",
+        "https://www.aso.org/artists/detail/daniel-tosky",
+      ],
+    },
   },
 };
 
