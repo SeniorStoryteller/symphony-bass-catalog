@@ -397,6 +397,108 @@ const ORCHESTRAS = {
     venue: "Walt Disney Concert Hall", city: "Los Angeles", region: "West Coast",
     accentColor: "#7A6EC8", headerColor: "#2D2470", founded: 1919,
     seasonNote: "The 2025–26 season is dubbed 'Gracias Gustavo' — the final season of Music Director Gustavo Dudamel's 17-year tenure before he moves to the New York Philharmonic. No bass section personnel changes were announced for 2025–26. Note: the LA Phil uses revolving seating in the string section; principal and associate principal positions are fixed, but section members rotate chairs periodically.",
+    history: {
+      title: "The Los Angeles Philharmonic\u2019s Bass Chair: Three Principals in Nine Decades",
+      sections: [
+        {
+          heading: null,
+          paragraphs: [
+            "The Los Angeles Philharmonic was founded in 1919, and by 1931 a nineteen-year-old named Richard Kelley had joined the bass section. He would become principal and remain for forty-six years. Only three musicians have held the principal title in the nine decades since \u2014 Kelley, Dennis Trembly, and Christopher Hanulik. From 1973 to 2018, the section operated under a co-principal system in which two bassists shared the first desk equally. Hanulik became the sole principal in 2018 when Trembly was named Principal Emeritus.",
+            "The section\u2019s mid-century identity was shaped by a single teacher: Herman Reinshagen, the former New York Philharmonic principal who retired to California and became head of the bass department at the University of Southern California. At one point, all ten members of the LAP bass section \u2014 including principal bassist Kelley \u2014 were Reinshagen\u2019s pupils.[1]",
+          ],
+        },
+        {
+          heading: "Hanulik: From Cleveland to the Disney Chair",
+          paragraphs: [
+            "Christopher Hanulik studied at the Juilliard School with Homer Mensch \u2014 the same Mensch profiled in this catalog\u2019s New York Philharmonic history.[2] He served briefly as principal bass of The Cleveland Orchestra before joining the Los Angeles Philharmonic in 1984 as a section player.[3][4] Three years later, he was promoted to co-principal alongside Dennis Trembly.[3]",
+            "When Trembly was named Principal Emeritus in 2018, Hanulik became the sole principal \u2014 a title he continues to hold.[3] He occupies the Diane Disney Miller and Ron Miller Chair.[3] His primary instrument is an Italian bass from approximately 1750, which he has nicknamed \u201cthe beast.\u201d[5]",
+            "Hanulik teaches at the University of Southern California\u2019s Thornton School of Music and at the Colburn School, extending the LAP-to-USC teaching connection that Reinshagen established in the 1930s.[3][6]",
+          ],
+        },
+        {
+          heading: "Trembly: Fifty Years",
+          paragraphs: [
+            "Dennis Trembly was born in 1946 and studied at the Juilliard School with Stuart Sankey.[7] He joined the Los Angeles Philharmonic in 1970 and was promoted to co-principal three years later, sharing the first desk with a series of partners \u2014 first through 1978 with a co-principal whose identity has not been established in available sources, then with Bruce Bransby from 1978 to 1986, and finally with Hanulik from 1987 onward.[7][3]",
+            "Trembly served under five music directors: Zubin Mehta, Carlo Maria Giulini, Andr\u00e9 Previn, Esa-Pekka Salonen, and Gustavo Dudamel.[7] In 2006, he performed John Harbison\u2019s Concerto for Bass Viol as a soloist with the LAP \u2014 part of the same ISB-coordinated multi-orchestra commission in which Ralph Jones performed the work with the Atlanta Symphony the following year.[7][8]",
+            "He was named Principal Emeritus in 2018 and retired in September 2020, closing a fifty-year career.[7] Trembly taught at USC\u2019s Thornton School of Music from 1981 to 2010. His students include David Allen Moore, now the LAP\u2019s fourth-chair bassist.[7][9]",
+          ],
+        },
+        {
+          heading: "Kelley: Forty-Six Years and a Family Dynasty",
+          paragraphs: [
+            "Richard F. Kelley joined the Los Angeles Philharmonic around 1931 at age nineteen.[10][11] The Reinshagen Collection finding aid at UCLA identifies him as principal bassist of the LAP and a pupil of Herman Reinshagen.[1]",
+            "Kelley served for approximately forty-six years, retiring in 1977.[10] He played under Artur Rodzinski, Otto Klemperer, Alfred Wallenstein, Eduard van Beinum, Georg Solti, and Zubin Mehta \u2014 spanning from the orchestra\u2019s early decades through the beginning of its modern era.[10]",
+            "His son Richard D. Kelley joined the bass section in 1955, also at nineteen.[10][12] Father and son sat in the same section for twenty-two years. A second son, Ray Kelley, played cello in the orchestra from 1963 to 1968, meaning that for five years a father and two sons performed together in the LAP.[13] The combined Kelley family tenure in the bass section spans from 1931 to 2012 \u2014 eighty-one years.",
+            "Richard D. Kelley described his father\u2019s era in a 2008 ICSOM interview: \u201cThe Philharmonic was the worst job in town. Anybody who was anybody played in the studio orchestras.\u201d Pay was $105 a week for an eight-month season with no pension, health insurance, or paid vacation.[10] The son served fifty-seven years. He died in 2013 at seventy-six.[12]",
+          ],
+        },
+        {
+          heading: "Lewis: A Barrier Broken",
+          paragraphs: [
+            "In 1948, a sixteen-year-old bassist named Henry Lewis auditioned for the Los Angeles Philharmonic. Herman Reinshagen, his teacher, had arranged the audition with music director Alfred Wallenstein.[14] Lewis won a position and became the first African American instrumentalist in a major U.S. orchestra.[14]",
+            "Lewis served six years in the bass section before being drafted into the Army.[14] He later became a conductor, serving as music director of the New Jersey Symphony from 1968 to 1976. But his entry into the profession began in the LAP bass section, at a desk alongside Richard Kelley \u2014 both of them Reinshagen students.[1][14]",
+          ],
+        },
+        {
+          heading: "Bransby: Co-Principal and Teacher",
+          paragraphs: [
+            "Bruce Bransby joined the LAP as co-principal bass in 1978, sharing the first desk with Trembly.[15] He studied with Nat Gangursky, Peter Mercurio, and Stuart Sankey.[15]",
+            "Bransby held the co-principal position for eight years before leaving in 1986 for the faculty at Indiana University\u2019s Jacobs School of Music.[15] His students include at least two current LAP members \u2014 Oscar Meza and Brian Johnson \u2014 as well as Maximilian Dimoff, principal bass of The Cleveland Orchestra.[9][16][17]",
+          ],
+        },
+        {
+          heading: "Moore: The Rabbath Connection",
+          paragraphs: [
+            "David Allen Moore joined the LAP in 2000 as fourth-chair bassist.[9] He studied with Trembly at USC and with Fran\u00e7ois Rabbath in Paris, earning a diploma from the Institut International Rabbath.[9] Two other current section members \u2014 Andrew Botsford and Andrew Herman, who both joined in 2017 \u2014 also hold Rabbath diplomas.[18][19] Rabbath\u2019s connection to this catalog runs through Houston as well: Paul Ellison, the longtime Rice University professor and Houston Symphony principal, was Rabbath\u2019s first formal student.",
+            "Moore plays a 1735 Gagliano bass.[9] He teaches at USC\u2019s Thornton School of Music, where his students have included Robin Kesselman, now principal bass of the Houston Symphony, and Oscar Decman, the LAP\u2019s current associate principal.[9][20] The USC teaching line in the LAP now runs Reinshagen\u2013Trembly\u2013Moore\u2013Decman: four generations of section members, each training the next at the same school.",
+          ],
+        },
+        {
+          heading: "Cousin: Fifty-One Years on a Homemade Bass",
+          paragraphs: [
+            "David Cousin joined the Los Angeles Philharmonic in 1974 and has served for fifty-one years \u2014 the longest current tenure in the section.[21] He plays a bass he built himself.[5]",
+          ],
+        },
+        {
+          heading: "Meza: The Gangursky Lineage",
+          paragraphs: [
+            "Oscar Meza joined the LAP in 1993 as assistant principal bass.[16] He studied with Nat Gangursky and with Bransby at Indiana University.[16] Gangursky, a Los Angeles\u2013based teacher, also trained Trembly and Bransby \u2014 three of the section\u2019s longest-serving members across its modern era.",
+          ],
+        },
+        {
+          heading: "The Current Section",
+          paragraphs: [
+            "The Los Angeles Philharmonic\u2019s bass section numbers nine players with two fellows.[3] Hanulik leads as principal. Oscar Decman, who joined in 2022, serves as associate principal \u2014 the position created when the co-principal system ended.[20] Decman studied at Indiana University with Bransby and at USC with Moore, connecting him to both of the section\u2019s teaching pipelines.[20] Meza continues as assistant principal.[16]",
+            "The section members are Moore (2000), Cousin (1974), Botsford (2017), Herman (2017), and Johnson (2013).[9][21][18][19][22] Herman plays an 1848 Rastelli bass.[19] Johnson studied at Indiana University with Bransby and at Rice University\u2019s Shepherd School of Music with Timothy Pitts, linking the section to the Houston pipeline documented elsewhere in this catalog.[22]",
+          ],
+        },
+      ],
+      sources: [
+        null,
+        "https://oac.cdlib.org/findaid/ark:/13030/kt2f59q8ts/entire_text/",
+        "https://playbill.com/article/bassist-and-teacher-homer-mensch-dies-at-91",
+        "https://www.laphil.com/musicdb/artists/2292/christopher-hanulik",
+        "https://www.clevelandorchestra.com/discover/meet-the-musicians/",
+        "https://contrabassconversations.com/",
+        "https://music.usc.edu/",
+        "https://www.laphil.com/musicdb/artists/4846/dennis-trembly",
+        "https://www.thestrad.com/atlanta-symphony-orchestra-principal-double-bassist-ralph-jones-dies/553.article",
+        "https://www.laphil.com/musicdb/artists/4290/david-allen-moore",
+        "https://www.icsom.org/senzasordino/2008/06/fifty-years-and-counting/",
+        "https://symphony.org/obituary-los-angeles-philharmonic-bassist-richard-d-kelley-76/",
+        "https://www.thestrad.com/long-serving-la-philharmonic-bassist-richard-d-kelley-dies-at-the-age-of-76/3609.article",
+        "https://www.thestrad.com/news/us-cellist-ray-kelley-has-died-aged-87/19731.article",
+        "https://www.laalmanac.com/people/pe30hl.php",
+        "https://music.indiana.edu/",
+        "https://www.laphil.com/musicdb/artists/3530/oscar-meza",
+        "https://pittsburghdoublebasssymposium.com/max-dimoff/",
+        "https://www.laphil.com/musicdb/artists/9016/andrew-botsford",
+        "https://www.laphil.com/musicdb/artists/9017/andrew-herman",
+        "https://www.laphil.com/musicdb/artists/10523/oscar-decman",
+        "https://www.laphil.com/musicdb/artists/1252/david-cousin",
+        "https://www.laphil.com/musicdb/artists/8132/brian-johnson",
+      ],
+    },
   },
   nyp: {
     id: "nyp", name: "New York Philharmonic", shortName: "NY Phil",
