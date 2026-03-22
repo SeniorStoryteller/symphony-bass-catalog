@@ -523,6 +523,109 @@ const ORCHESTRAS = {
     venue: "Marian Anderson Hall at the Kimmel Center", city: "Philadelphia", region: "Northeast",
     accentColor: "#8B4A8C", headerColor: "#4A1F6B", founded: 1900,
     seasonNote: "The 2025–26 season marks the Philadelphia Orchestra's 125th anniversary under Music and Artistic Director Yannick Nézet-Séguin. Principal Bass Joseph Conyers will make his Philadelphia Orchestra solo debut performing Tan Dun's Contrabass Concerto: Wolf Totem in May 2026. The Orchestra was renamed from performing at the Kimmel Center to Marian Anderson Hall in 2024.",
+    history: {
+      title: "The Philadelphia Orchestra\u2019s Bass Chair: Four Principals in 110 Years",
+      sections: [
+        {
+          heading: null,
+          paragraphs: [
+            "The Philadelphia Orchestra was founded in 1900, but its bass section history begins in earnest in 1914, when Anton Torello arrived from Barcelona and built what became the most influential bass studio in the United States. Only four musicians have held the principal chair in the 110 years since \u2014 Torello, his student Roger Scott, Scott\u2019s pedagogical grandson Harold Robinson, and Robinson\u2019s student Joseph Conyers. All four are connected through the Curtis Institute of Music. No other American orchestra can trace its principal bass lineage through a single conservatory across four generations.",
+          ],
+        },
+        {
+          heading: "Conyers: A New Era",
+          paragraphs: [
+            "Joseph Conyers studied at the Curtis Institute of Music with Harold Robinson and Edgar Meyer, graduating in 2004.[1][2] Before returning to Philadelphia, he served as principal bass of the Grand Rapids Symphony and held a position with the Atlanta Symphony Orchestra.[1]",
+            "Conyers joined the Philadelphia Orchestra as assistant principal bass in 2010.[1] He was promoted to acting associate principal in 2017 and won the principal bass audition in 2023, succeeding Robinson.[1][3] He became the first Black principal in the orchestra\u2019s 123-year history.[3]",
+            "He plays an 1802 Joseph Panormo bass that he has named \u201cNorma.\u201d[1][4] Panormo, a Sicilian-born maker who worked in London, produced instruments influenced by Stradivari\u2019s designs.[4]",
+            "Beyond the orchestra, Conyers co-founded Project 440, a nonprofit that uses music as a vehicle for youth development in Philadelphia public schools.[1][5] He co-hosts the podcast Tacet No More, which addresses issues of diversity and inclusion in classical music.[1] He teaches at the Curtis Institute and at Temple University\u2019s Boyer College of Music.[1][2]",
+          ],
+        },
+        {
+          heading: "Robinson: Twenty-Seven Years and a Teaching Dynasty",
+          paragraphs: [
+            "Harold Robinson was born on July 14, 1952, in Houston, Texas.[6] Both of his parents were musicians in the Houston Symphony \u2014 his father was the orchestra\u2019s principal bassist.[6][7] He studied at Northwestern University with Warren Benfield, who had been co-principal bass of the Philadelphia Orchestra under Torello before leaving for the Chicago Symphony in 1949.[6][8] Robinson also studied with Paul Ellison at the University of Houston.[6]",
+            "After early positions with the Houston Symphony and the National Symphony Orchestra \u2014 where he served as principal bass under Mstislav Rostropovich from 1985 to 1995 \u2014 Robinson was appointed principal bass of the Philadelphia Orchestra in September 1995.[6][9] He held the position for twenty-seven years, retiring in 2022.[6]",
+            "Robinson joined the Curtis Institute faculty in 1995, the same year he arrived at the orchestra.[2] His students include Alexander Hanna, now principal bass of the Chicago Symphony;[10] Joseph Conyers, his successor in Philadelphia;[1] Bert Witzel, principal bass of the Louisville Orchestra;[6] Braizahn Jones, assistant principal bass of the Oregon Symphony;[6] and Derek Zadinsky, assistant principal of The Cleveland Orchestra.[11] Timothy Cobb, now principal bass of the New York Philharmonic, studied with Roger Scott at Curtis \u2014 the generation before Robinson.[12]",
+            "In 2023, the International Society of Bassists awarded Robinson its Distinguished Achievement Award.[13]",
+          ],
+        },
+        {
+          heading: "Scott: The Bridge from Torello",
+          paragraphs: [
+            "Roger Scott was born in 1922 and entered the Curtis Institute of Music in 1937, studying bass with Anton Torello.[14] He graduated in 1941 and joined the Philadelphia Orchestra, where he would remain for more than half a century.[14]",
+            "Warren Benfield, another Torello student, served as co-principal alongside Scott from approximately 1942 to 1949 before accepting a position with the Chicago Symphony Orchestra.[8] Scott continued as principal after Benfield\u2019s departure and held the chair into the mid-1990s, when Robinson succeeded him.[6][14]",
+            "Scott taught at the Curtis Institute from 1949 to 1997 \u2014 nearly fifty years \u2014 carrying Torello\u2019s methods into the second half of the twentieth century.[14] His students included Timothy Cobb, who joined the Chicago Symphony during his senior year at Curtis before becoming principal bass of the Metropolitan Opera and eventually the New York Philharmonic.[12] Scott died on February 22, 2005, at the age of eighty-two.[14]",
+          ],
+        },
+        {
+          heading: "Torello: The Founder",
+          paragraphs: [
+            "Anton Torello was born in Barcelona in 1884 and studied with Pedro Valls, a student of Giovanni Bottesini.[15][16] He came to the United States and was appointed principal bass of the Philadelphia Orchestra in 1914 under Leopold Stokowski.[15]",
+            "Torello held the position for thirty-four years, retiring in 1948.[15] During that time, he founded the bass department at the Curtis Institute of Music, where he taught from the school\u2019s opening in 1924 until his retirement.[15][16] His students populated orchestras across the country: Roger Scott, his successor in Philadelphia; Warren Benfield, who became co-principal in Philadelphia and then principal bass of the Chicago Symphony; Henry Portnoi, who became principal bass of the Boston Symphony;[17] and Oscar Zimmerman, who built a parallel teaching dynasty at the Eastman School of Music and the Interlochen Center for the Arts.[18]",
+            "Torello brought three basses from Spain. The most notable was a 1767 Guillami \u2014 a three-stringed instrument that passed to his son William and was later sold to Gary Karr in the 1980s.[15] His orchestral bass, a nineteenth-century Italian instrument, passed through the section to Emilio Gravagno, who donated it to the Curtis Institute in 2016. Curtis students now perform on the instrument Torello himself played.[20]",
+            "His sons Carl and William both became professional bassists. Carl Torello played in the Philadelphia Orchestra for approximately forty-eight years.[15] William Torello joined the Los Angeles Philharmonic.[15]",
+          ],
+        },
+        {
+          heading: "Shahan: Fifty-Seven Years",
+          paragraphs: [
+            "Michael Shahan joined the Philadelphia Orchestra in 1964 and retired in 2021 \u2014 fifty-seven years, the longest tenure in the section\u2019s documented history.[21] He studied at the Curtis Institute with Roger Scott.[21] Beyond his orchestral career, Shahan ran a farm in Chester County, Pennsylvania, raising cattle and growing crops.[21]",
+          ],
+        },
+        {
+          heading: "Gravagno: Torello\u2019s Instrument, Torello\u2019s Legacy",
+          paragraphs: [
+            "Emilio Gravagno joined the Philadelphia Orchestra in 1967 and served for forty-two years.[20] During his career, he played the nineteenth-century Italian bass that had belonged to Anton Torello \u2014 an instrument that had been in the orchestra since 1914.[20] Rather than sell it upon his retirement, Gravagno donated the bass to the Curtis Institute of Music in 2016, ensuring that Torello\u2019s instrument would continue to serve the school he had built.[20]",
+          ],
+        },
+        {
+          heading: "The Current Section",
+          paragraphs: [
+            "The Philadelphia Orchestra\u2019s bass section currently numbers eight players. Joseph Conyers leads as principal.[1] Nathaniel Polinsky serves as associate principal \u2014 in 2023, he became the first double bassist to win first prize at the ARD International Music Competition in Munich.[22] Tobias Vigneau joined as assistant principal in 2024.[23]",
+            "The section members are Duane Rosengard, who joined in 1986 and has served for thirty-nine years;[24] David Fay, who joined in 1984 and has served for forty-one years;[25] Joshua Franz;[26] and Kerri Ryan Gray.[27]",
+            "Four of the eight current members studied at the Curtis Institute with Robinson or Meyer \u2014 a proportion that reflects the school\u2019s gravitational pull on the orchestra\u2019s bass section since Torello\u2019s arrival in 1914.",
+          ],
+        },
+        {
+          heading: "The Torello Tree",
+          paragraphs: [
+            "Torello\u2019s teaching reach extends across this catalog. His students and their students hold or have held principal chairs in Philadelphia, Chicago, Boston, New York, Cleveland, Houston, and beyond. The chain from Torello to Benfield to Robinson to Hanna connects Philadelphia to Chicago across three generations. The chain from Torello to Scott to Cobb connects Philadelphia to New York. The chain from Torello to Portnoi connects Philadelphia to Boston. The chain from Torello to Zimmerman connects Philadelphia to Interlochen and Eastman, where Zimmerman trained Lawrence Angell, who became principal bass of The Cleveland Orchestra.",
+            "Five of the twelve orchestras in this catalog have principal bass histories that trace back, directly or through one intermediary, to a single studio at the Curtis Institute of Music.",
+          ],
+        },
+      ],
+      sources: [
+        null,
+        "https://www.philorch.org/your-philadelphiaorchestra/musicians/joseph-conyers/",
+        "https://www.curtis.edu/academics/faculty/joseph-conyers/",
+        "https://www.nytimes.com/2023/05/04/arts/music/joseph-conyers-philadelphia-orchestra.html",
+        "https://tarisio.com/cozio-archive/browse-the-archive/makers/maker/?Maker_ID=573",
+        "https://www.project440.org/",
+        "https://www.curtis.edu/academics/faculty/harold-robinson/",
+        "https://contrabassconversations.com/",
+        "https://music.northwestern.edu/",
+        "https://www.kennedy-center.org/nso/",
+        "https://cso.org/about/performers/chicago-symphony-orchestra/alexander-hanna/",
+        "https://www.clevelandorchestra.com/discover/meet-the-musicians/basses/zadinsky-derek/",
+        "https://www.nyphil.org/about-us/artists/timothy-cobb/",
+        "https://www.isbworldoffice.com/",
+        "https://www.legacy.com/obituaries/",
+        "https://academicbassportal.com/06e/01pr/01prh/01prh9/torel_a/",
+        "https://www.curtis.edu/about/history/",
+        "https://www.bso.org/performers/henry-portnoi",
+        "https://www.esm.rochester.edu/",
+        "https://academicbassportal.com/06e/01pr/01prh/01prh9/zimme_f/",
+        "https://www.curtis.edu/news/",
+        "https://www.philorch.org/",
+        "https://www.philorch.org/your-philadelphiaorchestra/musicians/nathaniel-polinsky/",
+        "https://www.philorch.org/your-philadelphiaorchestra/musicians/tobias-vigneau/",
+        "https://www.philorch.org/your-philadelphiaorchestra/musicians/duane-rosengard/",
+        "https://www.philorch.org/your-philadelphiaorchestra/musicians/david-fay/",
+        "https://www.philorch.org/your-philadelphiaorchestra/musicians/joshua-franz/",
+        "https://www.philorch.org/your-philadelphiaorchestra/musicians/kerri-ryan-gray/",
+      ],
+    },
   },
   cle: {
     id: "cle", name: "The Cleveland Orchestra", shortName: "Cleveland",
