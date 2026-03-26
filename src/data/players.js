@@ -1088,6 +1088,96 @@ const ORCHESTRAS = {
     venue: "Kennedy Center Concert Hall", city: "Washington, D.C.", region: "Mid-Atlantic",
     accentColor: "#8C3A4A", headerColor: "#3D1020", founded: 1931,
     seasonNote: "The 2025–26 season is Music Director Gianandrea Noseda's ninth at the helm.",
+    history: {
+      title: "The National Symphony\u2019s Bass Chair: Four Principals in Seven Decades",
+      sections: [
+        {
+          heading: null,
+          paragraphs: [
+            "The National Symphony Orchestra was founded in 1931 under Hans Kindler, but its bass section history becomes traceable only in 1958, when Neil Courtney assumed the principal chair. Four musicians have held the position in the decades since \u2014 Courtney, H. Stevens Brewster Jr., Harold Robinson, and Robert Oppelt. Six of the eight current members studied with musicians profiled in other articles in this catalog \u2014 Robinson, Edwin Barker, Paul Ellison, Timothy Pitts, Bruce Bransby, or Edgar Meyer. No other section in the catalog draws from as many distinct pipelines.",
+          ],
+        },
+        {
+          heading: "Oppelt: Forty-Four Years and Counting",
+          paragraphs: [
+            "Robert Oppelt was born around 1961 in Richmond, Kentucky.[1] His father held a doctorate in viola and served as president of the American String Teachers Association; his mother was a pianist.[1][2] Oppelt graduated from the University of North Carolina School of the Arts in three years with a Bachelor of Music.[2]",
+            "He auditioned for the NSO three times before winning a section position in 1982, at twenty-one \u2014 the youngest member of the orchestra at the time.[1] Mstislav Rostropovich was music director. Oppelt was promoted to assistant principal in 1984 and to principal in 1996, succeeding Harold Robinson.[1]",
+            "Oppelt is a German bow player \u2014 a minority preference in American orchestral culture, which leans heavily toward the French bow.[1] He has recorded two solo albums on the MSR Classics label. The first was dedicated to his father, who died of ALS; proceeds benefited ALS research.[1] He taught at the University of Maryland for sixteen years.[1]",
+            "He plays an eighteenth-century Testore bass and also owns a Klotz.[1][3]",
+          ],
+        },
+        {
+          heading: "Robinson: Ten Years Under Rostropovich",
+          paragraphs: [
+            "Harold Robinson served as NSO principal bass from 1985 to 1995 \u2014 the full Rostropovich decade. His biography appears in this catalog\u2019s Philadelphia Orchestra history, where he held the principal chair for twenty-seven years and built the Curtis bass studio. But his influence on the NSO section outlasted his tenure by three decades: three current members \u2014 Richard Barber, Jeffrey Weisner, and Alexander Jacobsen \u2014 studied with him.[4][5][6]",
+          ],
+        },
+        {
+          heading: "Courtney: From Washington to Philadelphia",
+          paragraphs: [
+            "Neil Courtney was born in 1932 in Rochester, New York, and studied at the Eastman School of Music with Oscar Zimmerman and at the Curtis Institute with Roger Scott.[7] After four years in the Marine Band (1951\u20131955), he joined the NSO and became principal bass in 1958.[7]",
+            "Courtney held the chair for approximately four years before leaving for the Philadelphia Orchestra in 1962.[7] He remained in Philadelphia for forty-eight years, becoming assistant principal in 1988 and retiring in 2010.[7] His students included Stanley Clarke and Christian McBride.[7] He died on December 3, 2015, at eighty-three.[7]",
+          ],
+        },
+        {
+          heading: "Brewster: Twenty-Two Years",
+          paragraphs: [
+            "H. Stevens Brewster Jr. succeeded Courtney as principal bass around 1962 and held the chair for approximately twenty-two years.[8] He founded youth orchestras in Mount Vernon, Virginia, in the early 1970s.[8] His student Nancy Mizen went on to a career in orchestral bass.[8]",
+            "Brewster was killed in an automobile accident on April 24, 1984.[8] His biographical details \u2014 birth date, education, teachers, and instrument \u2014 have not been located in available sources. The chair sat vacant for approximately one year before Robinson\u2019s appointment in 1985.",
+          ],
+        },
+        {
+          heading: "Barber: The Maggini",
+          paragraphs: [
+            "Richard Barber joined the NSO in 1995 and was promoted to assistant principal in 1996.[4] He studied at the Peabody Conservatory with Harold Robinson and Timothy Cobb of the Metropolitan Opera.[4]",
+            "His instrument is a Giovanni Paolo Maggini bass dating to approximately 1620, built in Brescia.[4] At over four hundred years old, it is one of the oldest double basses in regular orchestral use documented in this catalog. The instrument has been displayed at an exposition in Brescia and is maintained by Wolf Instruments.[4]",
+            "Barber teaches at the University of Maryland.[4]",
+          ],
+        },
+        {
+          heading: "Weisner: Thirty-One Years",
+          paragraphs: [
+            "Jeffrey Weisner joined the NSO in 1995 after studying at Boston University with Edwin Barker \u2014 then principal bass of the Boston Symphony \u2014 and at the Peabody Conservatory with Harold Robinson.[5] He connects the section to both the Boston and Philadelphia lineages documented in this catalog. He has served for thirty-one years and teaches at Peabody.[5]",
+          ],
+        },
+        {
+          heading: "Gold: From Houston to Peabody",
+          paragraphs: [
+            "Ira Gold joined the NSO in 2005.[9] A Houston native, he studied at Boston University with Edwin Barker and at Rice University with Paul Ellison \u2014 linking the section to both the BSO and HSO histories in this catalog.[9] Before Washington, he played in the Minnesota Orchestra and served as guest principal with the San Francisco Symphony and the Detroit Symphony.[9]",
+            "Gold has been Associate Professor of Double Bass at the Peabody Conservatory since 2009.[9] He and Paul DeNola co-founded DCBass, a Washington-area double bass community that hosts master classes, recitals, and workshops.[9]",
+          ],
+        },
+        {
+          heading: "DeNola: Indiana to Washington",
+          paragraphs: [
+            "Paul DeNola joined the NSO in July 2006 after serving with the Oregon Symphony.[10] He studied at Indiana University with Bruce Bransby \u2014 the former LAP co-principal profiled in this catalog\u2019s Los Angeles history \u2014 and at USC with David Allen Moore.[10]",
+            "DeNola plays a Thomas Dodd bass dating to approximately 1810 \u2014 the same London workshop that produced Derek Zadinsky\u2019s instrument in The Cleveland Orchestra.[10][11] He teaches at American University and Catholic University.[10]",
+          ],
+        },
+        {
+          heading: "Jacobsen and Marks: The Next Generation",
+          paragraphs: [
+            "Alexander Jacobsen joined the NSO in 2013 after studying at the Curtis Institute of Music with Edgar Meyer and Harold Robinson.[6] A native of Albuquerque, he placed third in the 2015 ISB Solo Competition.[6] He teaches at Howard University and George Washington University and is also a composer and electronic music producer.[6]",
+            "Michael Marks joined in September 2020.[12] From Gilbert, Arizona, he studied at the Colburn School with Peter Lloyd and at Rice University with Timothy Pitts and Paul Ellison.[12] Before Washington, he served as principal bass of Arizona Opera at nineteen \u2014 the youngest principal in that organization\u2019s history.[12]",
+          ],
+        },
+      ],
+      sources: [
+        null,
+        "https://www.connectionnewspapers.com/",
+        "https://www.uncsa.edu/alumni/",
+        "https://weta.org/",
+        "https://www.kennedy-center.org/nso/",
+        "https://contrabassconversations.com/2009/11/13/cbc-143-jeff-weisner-interview/",
+        "https://www.kennedy-center.org/nso/",
+        "https://www.isbworldoffice.com/in-memory.asp",
+        "https://www.washingtonpost.com/",
+        "https://peabody.jhu.edu/faculty/ira-gold/",
+        "https://www.kennedy-center.org/nso/",
+        "https://tarisio.com/cozio-archive/browse-the-archive/makers/maker/?Maker_ID=1611",
+        "https://www.kennedy-center.org/nso/",
+      ],
+    },
   },
   pso: {
     id: "pso", name: "Pittsburgh Symphony Orchestra", shortName: "PSO",
