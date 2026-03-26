@@ -1326,10 +1326,12 @@ const ORCHESTRAS = {
           ],
         },
         {
-          heading: "McFadden: Promoted from Within",
+          heading: "McFadden: From Los Angeles to the Principal Chair",
           paragraphs: [
-            "Joseph McFadden joined the ASO bass section in 2011 and was appointed principal bass in 2017, succeeding Colin Corner.[8] He studied at Indiana University\u2019s Jacobs School of Music with Jeff Bradetich, connecting the ASO\u2019s current principal to the same Northwestern\u2013Curtis pedagogical chain that runs through the Chicago and Cleveland orchestras.[8]",
-            "Before Atlanta, McFadden served as principal bass of the Evansville Philharmonic Orchestra.[8] He teaches at Kennesaw State University.[8]",
+            "Joseph McFadden is a native of Los Angeles, raised in the Santa Clarita Valley.[8][23] He studied at California State University, Northridge, with Oscar Meza \u2014 the assistant principal bass of the Los Angeles Philharmonic, profiled in this catalog\u2019s LAP history \u2014 and earned a master\u2019s degree at Indiana University\u2019s Jacobs School of Music with Bruce Bransby.[8][24] Bransby, the former LAP co-principal who built the bass studio at Indiana, also appears in this catalog\u2019s Los Angeles and Cleveland histories. At IU, McFadden served as principal bass of both the university\u2019s Chamber Orchestra and Symphony Orchestra.[8] He was a two-time fellow at the Aspen Music Festival, where he studied with Christopher Hanulik and Bransby and performed with the Aspen Chamber Symphony.[24]",
+            "Before Atlanta, McFadden served as principal bass of the Alabama Symphony Orchestra and freelanced with the Los Angeles Philharmonic, New York Philharmonic, Minnesota Orchestra, Toronto Symphony, Milwaukee Symphony, and Nashville Symphony.[8][24] He joined the ASO bass section in September 2011 and won the principal bass audition in 2017, succeeding Colin Corner.[8] He holds the Marcia & John Donnell Chair.[8]",
+            "In September 2021, McFadden made his solo debut with the ASO in the Vanhal Double Bass Concerto in D Major under guest conductor Shiyeon Sung.[25] He performed with a German bow and in non-standard tuning \u2014 a whole step higher than standard, playing the solo part in C major while the orchestra played in D major.[25] Mark Gresham of EarRelevant called it \u201cthe pinnacle of the concert.\u201d[25]",
+            "McFadden plays a custom double bass by luthier Chris Threlkeld, completed in October 2009.[8][24] He serves as principal bass of the Grand Teton Music Festival during summers.[24] He teaches at Kennesaw State University and serves as Artist Affiliate in Double Bass at Emory University.[8][24]",
           ],
         },
         {
@@ -1413,6 +1415,9 @@ const ORCHESTRAS = {
         "https://www.artsatl.org/",
         "https://www.aso.org/artists/detail/nicholas-scholefield",
         "https://www.aso.org/artists/detail/daniel-tosky",
+        "https://scvelitemagazine.com/taking-his-talents-to-atlanta/",
+        "https://music.emory.edu/people/biography/McFadden-Joe.html",
+        "https://www.earrelevant.net/2021/09/asos-joseph-mcfadden-shines-in-vanhal-concerto/",
       ],
     },
   },
