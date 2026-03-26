@@ -978,6 +978,93 @@ const ORCHESTRAS = {
     venue: "Orchestra Hall at Max M. Fisher Music Center", city: "Detroit", region: "Midwest",
     accentColor: "#4A7A5E", headerColor: "#1E3828", founded: 1914,
     seasonNote: "The 2025–26 season is Music Director Jader Bignamini's fifth at the helm. Brandon Mason, a DSO bass section member since 2020, joined The Cleveland Orchestra in July 2025.",
+    history: {
+      title: "The Detroit Symphony\u2019s Bass Chair: Three Principals in Six Decades",
+      sections: [
+        {
+          heading: null,
+          paragraphs: [
+            "The Detroit Symphony Orchestra was founded in 1914, disbanded in 1942 due to financial collapse, and reconstituted in 1943. The earliest confirmed principal bassist is Robert Gladstone, who joined in 1966 and held the chair for thirty-six years. Only three musicians have been formally appointed to the position since \u2014 Gladstone, Alexander Hanna, who held it for four years, and Kevin Brown, who has held it since 2014. The eight years between Gladstone and Brown without a permanent appointment were bridged twice by Stephen Molina, the assistant principal who has served the orchestra for fifty years and counting.",
+          ],
+        },
+        {
+          heading: "Brown: From Rice to the Motor City",
+          paragraphs: [
+            "Kevin Brown was born in Minnesota and studied at Rice University\u2019s Shepherd School of Music with Paul Ellison, then earned a graduate certificate at USC\u2019s Thornton School of Music with David Allen Moore.[1][2] In 2009, he won the International Society of Bassists Orchestral Competition, which included a performance with the Philadelphia Orchestra.[1]",
+            "Brown was appointed principal bass of the DSO in 2014 at age twenty-seven, succeeding two years of vacancy after Alexander Hanna\u2019s departure for the Chicago Symphony.[1][3] He made his solo debut with the orchestra in 2015, performing the Vanhal Double Bass Concerto.[4]",
+            "He teaches at Michigan State University as Associate Professor of Double Bass and has given guest master classes at the Cleveland Institute of Music, Northwestern, USC, Rice, and the Colburn School.[1][5]",
+          ],
+        },
+        {
+          heading: "Gladstone: Thirty-Six Years and a Recording Legacy",
+          paragraphs: [
+            "Robert Gladstone was born in 1928 and studied at the Juilliard School with Frederick Zimmermann \u2014 the same Zimmermann profiled in this catalog\u2019s New York Philharmonic history as \u201cthe father of bass teaching in the United States.\u201d[6][7]",
+            "Gladstone joined the DSO in 1966 and held the principal chair for thirty-six years, serving under six music directors.[6] In 1959, while still based in New York, he recorded Gunther Schuller\u2019s Quartet for Double Basses alongside Zimmermann, Orin O\u2019Brien, and Alvin Brehm \u2014 a session that placed him in a studio with two musicians who are subjects of this catalog\u2019s NYP history.[6]",
+            "He taught at Wayne State University and other Detroit-area institutions, building a local teaching legacy that connected the Zimmermann lineage to Michigan.[6] His students included Jeffrey Turner, who became principal bass of the Pittsburgh Symphony, and Peter Dominguez, who joined the faculties at Michigan State University and the University of Wisconsin\u2013Madison.[6]",
+            "Gladstone died on November 9, 2002, while still holding the principal chair. He was seventy-four.[6]",
+          ],
+        },
+        {
+          heading: "Molina: Fifty Years and Two Stints as Acting Principal",
+          paragraphs: [
+            "Stephen Molina was born in New York City and grew up on Long Island.[8] He studied at the College-Conservatory of Music at the University of Cincinnati with Marvin Topolsky of the Metropolitan Opera Orchestra and Barry Green, then principal bass of the Cincinnati Symphony.[8] He spent summers at Interlochen, Aspen, Tanglewood, and the Grand Teton Music Festival.[8]",
+            "After a position with the New Orleans Philharmonic, Molina joined the DSO in September 1976 as a section bassist.[8] He was promoted to assistant principal and has held that title for decades. He also took on administrative duties \u2014 serving as assistant personnel manager beginning in 1983, associate personnel manager in 1989, and orchestra personnel manager from 1998 to 2015.[8]",
+            "When Gladstone died in 2002, Molina stepped into the acting principal role and held it for six years until Hanna\u2019s appointment in 2008.[8] When Hanna left for Chicago in 2012, Molina assumed the role again for two more years until Brown arrived in 2014.[8] In total, he served as acting principal for eight of the last twenty-four years \u2014 while never relinquishing his assistant principal duties.",
+            "Molina teaches at the University of Michigan, Michigan State University, Eastern Michigan University, Wayne State University, and Oakland University.[8] As of the 2025\u201326 season, he has served the DSO for fifty years.",
+          ],
+        },
+        {
+          heading: "Hanna: Four Years and a Strike",
+          paragraphs: [
+            "Alexander Hanna won the DSO principal bass audition in June 2008, three months after graduating from the Curtis Institute of Music, where he studied with Harold Robinson and Edgar Meyer.[9][10] At approximately twenty-two, he was the youngest member of the orchestra.[10]",
+            "His tenure coincided with the most difficult period in the DSO\u2019s modern history. The 2010\u201311 strike \u2014 a six-month labor dispute over salary and benefit cuts \u2014 shut down the orchestra from October 2010 to April 2011.[11][12] Hanna was principal throughout. A year after the strike\u2019s resolution, he won the principal bass audition at the Chicago Symphony Orchestra under Riccardo Muti and departed in 2012.[9] His subsequent career is documented in this catalog\u2019s CSO history.",
+          ],
+        },
+        {
+          heading: "Edwards: Forty-Eight Years from Curtis",
+          paragraphs: [
+            "Stephen Edwards grew up in the Philadelphia area and graduated from the Curtis Institute of Music.[13] After one season as principal bass of the Louisville Orchestra, he joined the DSO in 1972 and remained for forty-eight years \u2014 the longest documented tenure in the section\u2019s history.[13] He played under six music directors before retiring in August 2020.[13]",
+          ],
+        },
+        {
+          heading: "Hutchinson: The Teacher\u2019s Teacher",
+          paragraphs: [
+            "Larry Hutchinson was born in Minneapolis and studied at Hamline University with James Clute, then earned a master\u2019s degree at Indiana University with Murray Grodner.[14] His additional teachers included Gary Karr, Warren Benfield, Stuart Sankey, and David Potter.[14] He served four years as a musician in the NORAD Band before joining the DSO in 1983.[14]",
+            "Hutchinson served approximately thirty-four years before retiring around 2017.[14] He taught at Western Michigan University for nine years and at Wayne State University, and was named the 2001 ASTA Michigan String Teacher of the Year.[14][15]",
+          ],
+        },
+        {
+          heading: "The Current Section",
+          paragraphs: [
+            "The DSO bass section numbers five players \u2014 the smallest of the twelve orchestras in this catalog.[1] Brown leads as principal. Molina continues as assistant principal in his fiftieth year.[8] Christopher Hamlen, who joined in 2017 after five seasons as principal bass of the Grand Rapids Symphony, studied at the Peabody Conservatory with John Hood and Robert Kesselman.[16]",
+            "Peter Hatch and Vincent Luciano both joined in 2023.[17][18] Hatch studied at Rice with Timothy Pitts and at Juilliard with Harold Robinson \u2014 connecting the section to both the Houston and Philadelphia pipelines documented in this catalog.[17] Luciano studied at Temple University with Joseph Conyers, now principal bass of the Philadelphia Orchestra, and at Juilliard \u2014 making him, through Conyers, a pedagogical grandstudent of Robinson.[18]",
+            "Brandon Mason served in the section from 2020 to 2025 before joining The Cleveland Orchestra, where his career continues in this catalog\u2019s Cleveland history.[19]",
+          ],
+        },
+      ],
+      sources: [
+        null,
+        "https://www.dso.org/about-the-dso/meet-the-orchestra/kevin-brown",
+        "https://music.usc.edu/kevin-brown-wins-position-of-principal-bass-with-detroit-symphony-orchestra/",
+        "https://www.thestrad.com/detroit-symphony-orchestra-appoints-kevin-brown-as-new-principal-double-bass/1850.article",
+        "https://www.fox2detroit.com/mornings/dso-principal-bass-kevin-brown-performing-solo-debut",
+        "https://www.music.msu.edu/faculty/profile/kevin",
+        "https://www.isbworldoffice.com/in-memory.asp",
+        "https://academicbassportal.com/06e/01pr/01prh/01prh9/zimme_f/",
+        "https://www.dso.org/about-the-dso/our-orchestra/strings/bass/stephen-molina",
+        "https://cso.org/about/performers/cso-musicians/strings/bass/alexander-hanna/",
+        "https://doublebasshq.com/alex-hannas-path-to-the-principal-double-bass-of-the-chicago-symphony-orchestra/",
+        "https://www.detroithistorical.org/learn/online-research/encyclopedia-of-detroit/detroit-symphony-orchestra",
+        "https://en.wikipedia.org/wiki/Detroit_Symphony_Orchestra",
+        "https://www.dso.org/watch-listen-and-connect/newsroom-2/detroit-symphony-orchestra-announces-new-musician-appointments-and-celebrates-retirees",
+        "https://forbassplayersonly.com/interview-larry-hutchinson/",
+        "https://contrabassconversations.com/2019/08/15/larry-hutchinson/",
+        "https://www.dso.org/about-the-dso/our-orchestra/strings/bass/christopher-hamlen",
+        "https://www.dso.org/about-the-dso/meet-the-orchestra/peter-hatch",
+        "https://www.dso.org/about-the-dso/meet-the-orchestra/vincent-luciano",
+        "https://www.clevelandorchestra.com/discover/meet-the-musicians/basses/mason-brandon/",
+      ],
+    },
   },
   nso: {
     id: "nso", name: "National Symphony Orchestra", shortName: "NSO",
