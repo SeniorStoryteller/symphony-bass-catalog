@@ -1184,6 +1184,121 @@ const ORCHESTRAS = {
     venue: "Heinz Hall for the Performing Arts", city: "Pittsburgh", region: "Northeast",
     accentColor: "#B87333", headerColor: "#4A2800", founded: 1895,
     seasonNote: "The 2025–26 season is Music Director Manfred Honeck's 18th at the helm. Michael Banks joined the bass section as Assistant Principal in spring 2025.",
+    history: {
+      title: "The Pittsburgh Symphony\u2019s Bass Chair: Five Principals in Nine Decades",
+      sections: [
+        {
+          heading: null,
+          paragraphs: [
+            "The Pittsburgh Symphony Orchestra was founded in 1895, disbanded twice, and became a permanent institution in 1937 under Fritz Reiner. Five musicians have held the principal bass chair since \u2014 Milton Kestenbaum, Anthony Bianco, Samuel Hollingsworth, Jeffrey Turner, and Nicholas Myers. The section\u2019s identity has been shaped less by a single conservatory pipeline than by a local teaching ecosystem: Carnegie Mellon University, Duquesne University, and the annual Pittsburgh Double Bass Symposium have made the city a regional center for bass education, with PSO members staffing the faculties and organizing the events.",
+          ],
+        },
+        {
+          heading: "Myers: From Detroit to Pittsburgh",
+          paragraphs: [
+            "Nicholas Myers was born in Cadillac, Michigan, and attended the Interlochen Arts Academy before studying at the New England Conservatory and the Juilliard School, where he was a Kovner Fellow.[1][2] His teachers included Lawrence Wolfe, Timothy Seeber, Matthew Surany, and Harold Robinson.[1]",
+            "Myers spent four seasons in the Detroit Symphony Orchestra\u2019s bass section (2018\u20132022) before winning the PSO principal bass audition in August 2022 under Manfred Honeck.[1][3] The chair had been vacant for approximately four years following Jeffrey Turner\u2019s departure \u2014 a search extended by the COVID-19 pandemic.[3]",
+            "He plays an 1836 Abraham Prescott bass.[1] Prescott, based in Concord, New Hampshire, was the most prolific American bass maker of the nineteenth century; his instruments are among the few American-made basses found in major orchestra sections.[4] Myers is a Pirastro performing artist.[1]",
+          ],
+        },
+        {
+          heading: "Turner: The Central Figure in Pittsburgh Bass",
+          paragraphs: [
+            "Jeffrey Turner joined the Pittsburgh Symphony in 1987 and was promoted to principal bass in 1992, succeeding Samuel Hollingsworth.[5] He studied at the Eastman School of Music with James VanDemark and earned a conducting degree from Carnegie Mellon University under Robert Page.[5] His additional teachers included Lawrence Hurst at Indiana University and Robert Gladstone, the longtime Detroit Symphony principal profiled in this catalog\u2019s DSO history.[5]",
+            "Turner held the principal chair for approximately twenty-six years.[5] He taught at Duquesne University for twenty-nine years (1988\u20132017) and at Carnegie Mellon for twenty-two (1989\u20132011), building a studio that produced players across the profession.[5][6] Three current PSO members \u2014 Aaron White, Jason McLean, and Micah Howard \u2014 studied with him.[5][7][8]",
+            "After leaving Pittsburgh around 2018, Turner joined the faculty at Indiana University\u2019s Jacobs School of Music.[5]",
+          ],
+        },
+        {
+          heading: "Bianco: Fifty-Five Years",
+          paragraphs: [
+            "Anthony Bianco joined the Pittsburgh Symphony in 1944 at twenty-six and held the principal bass chair for twenty-five years.[9] He remained in the section for another thirty years after stepping down, serving a total of fifty-five years \u2014 the longest tenure in the orchestra\u2019s history.[9]",
+            "Bianco was largely self-taught. He studied briefly with Sam Levitan but never attended a conservatory.[9] Before joining the PSO, he turned down an offer to play in Artie Shaw\u2019s big band.[9]",
+            "In 1992, the orchestra created the title of Principal Laureate Bass for him.[9] He taught at Carnegie Mellon University for sixty years, shaping generations of Pittsburgh-area bassists.[9] His students included George Vance, who wrote Progressive Repertoire for the Double Bass, one of the most widely used method books in bass pedagogy.[9] Ralph Jones, who became principal bass of the Atlanta Symphony and is profiled in this catalog\u2019s ASO history, also studied with Bianco.[10]",
+            "The International Society of Bassists awarded him its Distinguished Service Award in 2007.[9] He died on January 19, 2011, at ninety-three.[9]",
+          ],
+        },
+        {
+          heading: "Krummenacher: Fifty Years",
+          paragraphs: [
+            "Jim Krummenacher joined the PSO bass section in 1956 and served for fifty years before retiring in 2006.[11] He and Bianco sat together in the section for forty-three of those years. He died on January 21, 2011 \u2014 two days after Bianco.[9][11] Between them, they had given the Pittsburgh Symphony 105 years of service.",
+          ],
+        },
+        {
+          heading: "Hollingsworth: The Most Beautiful Sound",
+          paragraphs: [
+            "Samuel H. Hollingsworth was born in 1922 and studied at the Juilliard School with Frederick Zimmermann \u2014 the same Zimmermann described in this catalog\u2019s New York Philharmonic history as \u201cthe father of bass teaching in the United States.\u201d[12][13] Zimmermann said Hollingsworth\u2019s playing was \u201cthe most beautiful I have ever heard.\u201d[12]",
+            "Before joining an orchestra, Hollingsworth built a career in New York. He played on Broadway in Porgy and Bess and served in the Merchant Marine during World War II.[12] In 1964, he gave a solo recital at Carnegie Hall.[12]",
+            "He spent approximately twenty-five years as principal bass of the Nashville Symphony before joining the PSO around 1970, where he served another twenty-five.[12] Two careers of equal length, in two cities, bookending a life in the instrument. He died on September 10, 2017, at ninety-five.[12]",
+          ],
+        },
+        {
+          heading: "Kestenbaum: The Reiner Years",
+          paragraphs: [
+            "Milton Kestenbaum served as principal bass of the Pittsburgh Symphony under Fritz Reiner, from approximately 1938 to 1944.[14] He was born in 1914. His education has not been established in available sources.[14]",
+            "After Pittsburgh, his career took him to the NBC Symphony under Toscanini and to Hollywood studio work.[14] He became principal bass of the Pasadena Symphony and settled in Los Angeles, where he taught privately.[14] His most notable student was Orin O\u2019Brien, who studied with him as a teenager before moving to New York to study with Zimmermann and joining the New York Philharmonic for fifty-five years.[15]",
+            "Kestenbaum died in 2004 at ninety.[14]",
+          ],
+        },
+        {
+          heading: "Howard: The Symposium Builder",
+          paragraphs: [
+            "Micah Howard joined the PSO in 1996 after winning first place in the 1995 ISB Orchestral Competition.[7] He studied with Jeffrey Turner at Carnegie Mellon.[7]",
+            "Howard organizes the Pittsburgh Double Bass Symposium, an annual event at Carnegie Mellon that brings together players from across the country for master classes, recitals, and vendor exhibitions.[16] Past presenters have included principals from Cleveland, Atlanta, and Indianapolis, as well as Turner.[16] The PSO bass section performs as a group at each event, and the symposium has been livestreamed globally since 2019.[16]",
+            "Howard teaches at Carnegie Mellon.[7]",
+          ],
+        },
+        {
+          heading: "Moore: Curtis to Pittsburgh",
+          paragraphs: [
+            "John Moore joined the PSO in 1996 after studying at the Curtis Institute of Music with Roger Scott \u2014 the same Scott who bridged the Torello and Robinson eras in Philadelphia.[17] He won the La Jolla Solo Competition.[17]",
+            "Moore plays a bass by Jon Betts dating to the 1820s.[17] Betts was an English maker whose instruments are valued for their orchestral projection.",
+          ],
+        },
+        {
+          heading: "Grubbs: Classical and Jazz",
+          paragraphs: [
+            "Jeffrey Grubbs joined the PSO in 1996 and has served for twenty-nine years.[18] Before Pittsburgh, he spent two seasons with the Atlanta Symphony Orchestra and attended the Cleveland Institute of Music.[18]",
+            "Grubbs has maintained a parallel career in jazz, performing with Nat Adderley, Kenny Burrell, and Ramsey Lewis.[18] He is one of two bassists in this catalog \u2014 alongside Robert Kassinger of the Chicago Symphony \u2014 with documented careers in both the orchestral and jazz traditions.",
+          ],
+        },
+        {
+          heading: "The Current Section",
+          paragraphs: [
+            "The Pittsburgh Symphony\u2019s bass section numbers nine players plus a Paul J. Ross Fellow.[1] Myers leads as principal. Michael Banks joined as assistant principal in spring 2025 after studying at the Juilliard School and the Colburn School with Peter Lloyd.[19] The section includes Howard (1996), Moore (1996), Grubbs (1996), Peter Guild (1999), Aaron White (2012), Jason McLean (2015), and Anthony Campagna (2018).[7][17][18][20][21][22][23]",
+            "Campagna plays a c. 1890 Cavani bass and studied at Curtis with Harold Robinson.[23] Christian Harvey, the current Ross Fellow (2025\u20132027), studied at Rice with Paul Ellison and Timothy Pitts and served as a Houston Symphony community fellow.[24]",
+            "Three PSO members hold local university faculty positions: Howard and Guild at Carnegie Mellon, White at Duquesne.[7][20][21] The result is a teaching ecosystem in which the orchestra, the universities, and the symposium reinforce each other \u2014 a cycle sustained for more than sixty years, dating to Bianco\u2019s first years on the Carnegie Mellon faculty.",
+          ],
+        },
+      ],
+      sources: [
+        null,
+        "https://pittsburghsymphony.org/musicians/nicholas-myers",
+        "https://www.juilliard.edu/",
+        "https://www.post-gazette.com/",
+        "https://www.isbworldoffice.com/",
+        "https://music.indiana.edu/faculty/current/turner-jeffrey.html",
+        "https://contrabassconversations.com/",
+        "https://pittsburghsymphony.org/musicians/micah-howard",
+        "https://pittsburghdoublebasssymposium.com/",
+        "https://www.isbworldoffice.com/in-memory.asp",
+        "https://www.thestrad.com/atlanta-symphony-orchestra-principal-double-bassist-ralph-jones-dies/553.article",
+        "https://www.legacy.com/obituaries/",
+        "https://www.legacy.com/obituaries/",
+        "https://academicbassportal.com/06e/01pr/01prh/01prh9/zimme_f/",
+        "https://www.isbworldoffice.com/in-memory.asp",
+        "https://doublebasshq.com/behind-the-scenes-with-orin-obrien-her-experiences-with-the-new-york-philharmonic-and-beyond/",
+        "https://pittsburghdoublebasssymposium.com/",
+        "https://pittsburghsymphony.org/musicians/john-moore",
+        "https://pittsburghsymphony.org/musicians/jeffrey-grubbs",
+        "https://pittsburghsymphony.org/musicians/michael-banks",
+        "https://pittsburghsymphony.org/musicians/peter-guild",
+        "https://pittsburghsymphony.org/musicians/aaron-white",
+        "https://pittsburghsymphony.org/musicians/jason-mclean",
+        "https://pittsburghsymphony.org/musicians/anthony-campagna",
+        "https://pittsburghsymphony.org/musicians/christian-harvey",
+      ],
+    },
   },
   aso: {
     id: "aso", name: "Atlanta Symphony Orchestra", shortName: "ASO",
