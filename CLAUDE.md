@@ -57,9 +57,11 @@
 | aso   | Atlanta Symphony Orchestra       | #4A6B99     |
 
 ## Git Workflow
+- **Never use worktrees.** Work directly on `main`. Worktrees have repeatedly caused silent regressions by committing stale file copies over current work.
 - Commit with a clear subject line describing what changed and why
 - Push to `origin main` after every meaningful set of changes — Vercel auto-deploys
 - Do not commit `.claude/`, `src/App.css`, `src/assets/`, or `symphony-bass-catalog.jsx` (untracked scratch files)
+- **When the user reports the live site is broken or showing old content:** Before any code analysis, run `git log --oneline -10` and `git diff HEAD~5..HEAD --stat` to check for regressions. Do not debug component logic until deployment state is confirmed.
 
 ## UI Conventions
 - Max content width: `MAX_W = 860px`, centered with `margin: "0 auto"` — applies to header, nav bars, search, and all scroll content
