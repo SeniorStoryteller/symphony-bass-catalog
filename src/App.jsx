@@ -685,9 +685,9 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
   return (
     <div role="button" tabIndex={0} onClick={handleClick}
       onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(); } }}
-      style={{ background: S.dark, borderBottom: `3px solid ${accent}`, cursor: "pointer", flexShrink: 0, outline: "none" }}>
-      <div style={{ ...CENTERED, padding: isMobile ? "16px 20px 18px" : "28px 36px 32px" }}>
-        <div style={{ fontFamily: SERIF, fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(240,232,220,0.85)", marginBottom: isMobile ? 8 : 14 }}>
+      style={{ background: S.gold, borderTop: `1px solid ${accent}`, borderBottom: `1px solid ${accent}`, cursor: "pointer", flexShrink: 0, outline: "none" }}>
+      <div style={{ ...CENTERED, padding: isMobile ? "10px 20px 10px" : "16px 36px 16px" }}>
+        <div style={{ fontFamily: SERIF, fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: S.dark, opacity: 0.6, marginBottom: isMobile ? 4 : 8 }}>
           Today's Featured Bassist
         </div>
 
@@ -695,32 +695,34 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
           /* MOBILE — compact single column */
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
             <div style={{ minWidth: 0 }}>
-              <h2 style={{ fontFamily: SERIF, fontSize: 22, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 4 }}>
+              <h2 style={{ fontFamily: SERIF, fontSize: 22, fontWeight: 700, color: S.dark, lineHeight: 1.1, marginBottom: 4 }}>
                 {featured.name}
               </h2>
-              <div style={{ fontSize: 12, color: "rgba(240,232,220,0.85)", lineHeight: 1.5 }}>
+              <div style={{ fontSize: 12, color: "rgba(26,20,16,0.7)", lineHeight: 1.5 }}>
                 {featured.role} · {featuredOrch.name}
               </div>
             </div>
-            <div style={{ fontFamily: SERIF, fontSize: 18, color: S.gold, flexShrink: 0 }}>→</div>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, opacity: 0.5 }}>
+              <path d="M7 5l5 5-5 5" stroke={S.dark} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
         ) : (
           /* DESKTOP — split panel */
           <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
             <div style={{ flex: "0 0 auto" }}>
-              <h2 style={{ fontFamily: SERIF, fontSize: 48, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.05, marginBottom: 20 }}>
+              <h2 style={{ fontFamily: SERIF, fontSize: 48, fontWeight: 700, color: S.dark, lineHeight: 1.05, marginBottom: 20 }}>
                 {featured.name}
               </h2>
-              <div style={{ fontFamily: SERIF, display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: S.gold, letterSpacing: "0.05em" }}>
+              <div style={{ fontFamily: SERIF, display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: S.dark, letterSpacing: "0.05em", opacity: 0.6 }}>
                 View Full Profile <span style={{ fontSize: 15 }}>→</span>
               </div>
             </div>
-            <div style={{ width: 1, alignSelf: "stretch", background: `${accent}40`, flexShrink: 0 }} />
+            <div style={{ width: 1, alignSelf: "stretch", background: `${S.dark}30`, flexShrink: 0 }} />
             <div style={{ flex: 1, paddingTop: 2 }}>
-              <div style={{ fontSize: 13, color: "rgba(240,232,220,0.85)", marginBottom: 4 }}>{featured.role}</div>
-              <div style={{ fontSize: 13, color: "rgba(240,232,220,0.85)", marginBottom: highlights.length ? 12 : 0 }}>{featuredOrch.name}</div>
+              <div style={{ fontSize: 13, color: "rgba(26,20,16,0.7)", marginBottom: 4 }}>{featured.role}</div>
+              <div style={{ fontSize: 13, color: "rgba(26,20,16,0.7)", marginBottom: highlights.length ? 12 : 0 }}>{featuredOrch.name}</div>
               {highlights.map((h, i) => (
-                <div key={i} style={{ fontSize: 12, color: "rgba(240,232,220,0.55)", lineHeight: 1.7 }}>· {h}</div>
+                <div key={i} style={{ fontSize: 12, color: "rgba(26,20,16,0.45)", lineHeight: 1.7 }}>· {h}</div>
               ))}
             </div>
           </div>
