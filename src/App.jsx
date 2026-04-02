@@ -776,7 +776,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         }
         .idx-row { animation: slideIn 0.45s cubic-bezier(0.22,1,0.36,1) both; transition: background 0.2s ease; outline: none; }
         .idx-row:hover { background: ${S.accent}; }
-        .idx-row:hover .idx-arrow-circle { opacity: 1; transform: translateX(4px); }
+        .idx-row:hover .idx-arrow-circle { opacity: 1 !important; transform: translateX(4px); }
         .idx-row:hover .idx-arrow-mobile { opacity: 1; }
         ${animDelays}
         @media (hover: none) {
