@@ -808,8 +808,8 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
               />
               <button onClick={() => { onGlobalSearchChange(""); onSearchToggle(false); }}
                 aria-label="Close search"
-                style={{ position: "absolute", right: 8, top: "50%", transform: "translateY(-50%)", display: "flex", alignItems: "center", justifyContent: "center", width: 22, height: 22, background: "none", border: "none", cursor: "pointer", padding: 0 }}>
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                style={{ position: "absolute", right: 4, top: "50%", transform: "translateY(-50%)", display: "flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, background: "none", border: "none", cursor: "pointer", padding: 0 }}>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path d="M4 4l8 8M12 4l-8 8" stroke="#F0E8DC" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
               </button>
