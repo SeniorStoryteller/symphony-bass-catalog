@@ -1027,7 +1027,7 @@ export default function App() {
               const searchStroke = view === "landing" ? "#F0E8DC" : "#F0C97A";
               const searchBorder = view === "landing" ? "1px solid rgba(200,169,110,0.25)" : `1px solid ${S.gold}`;
               return (
-                <button onClick={() => { if (view !== "landing") { setView("landing"); setSelectedPlayer(null); window.history.replaceState(null, "", window.location.pathname); } setSearchOpen(true); setTimeout(() => searchInputRef.current?.focus(), 50); }}
+                <button onClick={() => { if (view !== "landing") { setView("landing"); setSelectedPlayer(null); window.history.replaceState(null, "", window.location.pathname); } setSearchOpen(true); if (!isMobile) setTimeout(() => searchInputRef.current?.focus(), 50); }}
                   aria-label="Search for a bassist"
                   style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 28, height: 28, background: "rgba(200,169,110,0.15)", border: searchBorder, borderRadius: "50%", cursor: "pointer", flexShrink: 0, transition: "all 0.15s" }}>
                   <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
