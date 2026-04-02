@@ -793,7 +793,7 @@ function SearchOverlay({ globalSearch, onGlobalSearchChange, onSelectPlayer, onS
         </div>
       )}
 
-      <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", background: S.cream }}>
+      <div onClick={() => searchInputRef.current?.focus()} style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", background: S.cream, cursor: isSearching ? "default" : "text" }}>
         {isSearching ? (
           <div style={{ padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
           <div style={CENTERED}>
@@ -836,7 +836,7 @@ function SearchOverlay({ globalSearch, onGlobalSearchChange, onSelectPlayer, onS
           </div>
         ) : (
           <div style={{ textAlign: "center", padding: "48px 20px", color: S.textMuted, fontSize: 14 }}>
-            Start typing to search for a bassist…
+            Tap here to search for a bassist…
           </div>
         )}
       </div>
