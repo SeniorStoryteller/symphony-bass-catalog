@@ -734,8 +734,8 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
   );
 }
 
-/* ── LANDING PAGE ── */
-function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, onSelectPlayer, isMobile, searchOpen, onSearchToggle, searchInputRef }) {
+/* ── SEARCH OVERLAY (renders at App level, works on any page) ── */
+function SearchOverlay({ globalSearch, onGlobalSearchChange, onSelectPlayer, onSearchToggle, isMobile, searchInputRef, searchOpen }) {
   const isSearching = globalSearch.trim() !== "";
   const searchTerm = globalSearch.toLowerCase();
 
@@ -758,37 +758,12 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
   const directGrouped = isSearching && directMatches.length ? groupByOrch(directMatches) : [];
   const mentionGrouped = isSearching && bioMentions.length ? groupByOrch(bioMentions) : [];
 
-  const orchCount = SORTED_ORCHS.length;
-  const animDelays = Array.from({ length: orchCount }, (_, i) =>
-    `.idx-row:nth-child(${i + 1}) { animation-delay: ${(0.04 + i * 0.06).toFixed(2)}s; }`
-  ).join("\n        ");
+  if (!searchOpen) return null;
 
   return (
-    <div style={FULL_FLEX}>
-      <style>{`
-        @keyframes slideIn {
-          from { opacity: 0; transform: translateX(-18px); }
-          to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-        .idx-row { animation: slideIn 0.45s cubic-bezier(0.22,1,0.36,1) both; transition: background 0.2s ease; outline: none; }
-        .idx-row:hover { background: ${S.accent}; }
-        .idx-row:hover .idx-arrow-circle { opacity: 1 !important; transform: translateX(4px); }
-        .idx-row:hover .idx-arrow-mobile { opacity: 1; }
-        ${animDelays}
-        @media (hover: none) {
-          .idx-row:not(:hover) .idx-bottom { opacity: 1; transform: none; pointer-events: auto; max-height: 200px; padding-top: 8px !important; }
-        }
-        .idx-arrow { transition: opacity 0.2s ease, transform 0.2s ease; }
-        .idx-number { transition: color 0.2s ease; }
-        .idx-bar { transition: height 0.28s cubic-bezier(0.22,1,0.36,1); }
-      `}</style>
-
-      {/* Mobile search input — in scroll area to avoid keyboard viewport issues */}
-      {searchOpen && isMobile && (
+    <div style={{ display: "flex", flexDirection: "column", ...FULL_FLEX }}>
+      {/* Mobile search input */}
+      {isMobile && (
         <div style={{ padding: "8px 12px", background: S.dark, flexShrink: 0 }}>
           <div style={CENTERED}>
             <div style={{ position: "relative" }}>
@@ -818,7 +793,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         </div>
       )}
 
-      <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden" }}>
+      <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden", background: S.cream }}>
         {isSearching ? (
           <div style={{ padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
           <div style={CENTERED}>
@@ -860,6 +835,47 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
           </div>
           </div>
         ) : (
+          <div style={{ textAlign: "center", padding: "48px 20px", color: S.textMuted, fontSize: 14 }}>
+            Start typing to search for a bassist…
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ── LANDING PAGE ── */
+function LandingPage({ onSelectOrchestra, onSelectPlayer, isMobile }) {
+  const orchCount = SORTED_ORCHS.length;
+  const animDelays = Array.from({ length: orchCount }, (_, i) =>
+    `.idx-row:nth-child(${i + 1}) { animation-delay: ${(0.04 + i * 0.06).toFixed(2)}s; }`
+  ).join("\n        ");
+
+  return (
+    <div style={FULL_FLEX}>
+      <style>{`
+        @keyframes slideIn {
+          from { opacity: 0; transform: translateX(-18px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        .idx-row { animation: slideIn 0.45s cubic-bezier(0.22,1,0.36,1) both; transition: background 0.2s ease; outline: none; }
+        .idx-row:hover { background: ${S.accent}; }
+        .idx-row:hover .idx-arrow-circle { opacity: 1 !important; transform: translateX(4px); }
+        .idx-row:hover .idx-arrow-mobile { opacity: 1; }
+        ${animDelays}
+        @media (hover: none) {
+          .idx-row:not(:hover) .idx-bottom { opacity: 1; transform: none; pointer-events: auto; max-height: 200px; padding-top: 8px !important; }
+        }
+        .idx-arrow { transition: opacity 0.2s ease, transform 0.2s ease; }
+        .idx-number { transition: color 0.2s ease; }
+        .idx-bar { transition: height 0.28s cubic-bezier(0.22,1,0.36,1); }
+      `}</style>
+
+      <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden" }}>
           <div style={{ padding: "0 0 48px" }}>
 
             {/* ── FEATURED BASSIST ── */}
@@ -952,7 +968,6 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
             </div>
 
           </div>
-        )}
       </div>
     </div>
   );
@@ -1058,7 +1073,7 @@ export default function App() {
               const searchStroke = view === "landing" ? "#F0E8DC" : "#F0C97A";
               const searchBorder = view === "landing" ? "1px solid rgba(200,169,110,0.25)" : `1px solid ${S.gold}`;
               return (
-                <button onClick={() => { if (view !== "landing") { setView("landing"); setSelectedPlayer(null); window.history.replaceState(null, "", window.location.pathname); } setSearchOpen(true); setTimeout(() => searchInputRef.current?.focus(), 80); }}
+                <button onClick={() => { setSearchOpen(true); setTimeout(() => searchInputRef.current?.focus(), 80); }}
                   aria-label="Search for a bassist"
                   style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 28, height: 28, background: "rgba(200,169,110,0.15)", border: searchBorder, borderRadius: "50%", cursor: "pointer", flexShrink: 0, transition: "all 0.15s" }}>
                   <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
@@ -1120,16 +1135,23 @@ export default function App() {
 
       {/* ── CONTENT ── */}
       <div style={{ flex: 1, minWidth: 0, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
-        {view === "landing" && (
-          <LandingPage
-            onSelectOrchestra={handleSelectOrchestra}
+        {searchOpen ? (
+          <SearchOverlay
             globalSearch={globalSearch}
             onGlobalSearchChange={setGlobalSearch}
             onSelectPlayer={handleSelectPlayer}
-            isMobile={isMobile}
-            searchOpen={searchOpen}
             onSearchToggle={setSearchOpen}
+            isMobile={isMobile}
             searchInputRef={searchInputRef}
+            searchOpen={searchOpen}
+          />
+        ) : (
+          <>
+        {view === "landing" && (
+          <LandingPage
+            onSelectOrchestra={handleSelectOrchestra}
+            onSelectPlayer={handleSelectPlayer}
+            isMobile={isMobile}
           />
         )}
         {view === "orchestra" && (
@@ -1146,6 +1168,8 @@ export default function App() {
             isMobile={isMobile}
             onGoHome={handleGoHome}
           />
+        )}
+          </>
         )}
       </div>
     </div>
