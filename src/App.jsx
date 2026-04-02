@@ -683,7 +683,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
 
   const handleClick = () => onSelectPlayer(featured);
   return (
-    <div role="button" tabIndex={0} onClick={handleClick}
+    <div role="button" tabIndex={0} onClick={handleClick} className="featured-hero"
       onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(); } }}
       style={{ background: S.gold, borderTop: `1px solid ${accent}`, borderBottom: `1px solid ${accent}`, cursor: "pointer", flexShrink: 0, outline: "none" }}>
       <div style={{ ...CENTERED, padding: isMobile ? "10px 20px 10px" : "16px 36px 16px" }}>
@@ -710,12 +710,9 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
           /* DESKTOP — split panel */
           <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
             <div style={{ flex: "0 0 auto" }}>
-              <h2 style={{ fontFamily: SERIF, fontSize: 48, fontWeight: 700, color: S.dark, lineHeight: 1.05, marginBottom: 20 }}>
+              <h2 style={{ fontFamily: SERIF, fontSize: 48, fontWeight: 700, color: S.dark, lineHeight: 1.05 }}>
                 {featured.name}
               </h2>
-              <div style={{ fontFamily: SERIF, display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: S.dark, letterSpacing: "0.05em", opacity: 0.6 }}>
-                View Full Profile <span style={{ fontSize: 15 }}>→</span>
-              </div>
             </div>
             <div style={{ width: 1, alignSelf: "stretch", background: `${S.dark}30`, flexShrink: 0 }} />
             <div style={{ flex: 1, paddingTop: 2 }}>
@@ -724,6 +721,11 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
               {highlights.map((h, i) => (
                 <div key={i} style={{ fontSize: 12, color: "rgba(26,20,16,0.45)", lineHeight: 1.7 }}>· {h}</div>
               ))}
+            </div>
+            <div className="featured-arrow-circle" style={{ width: 32, height: 32, borderRadius: "50%", background: S.dark, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, opacity: 0, transition: "opacity 0.18s ease, transform 0.18s ease" }}>
+              <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
+                <path d="M7 5l5 5-5 5" stroke={S.gold} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </div>
           </div>
         )}
@@ -996,6 +998,7 @@ export default function App() {
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         @keyframes searchSlideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+        .featured-hero:hover .featured-arrow-circle { opacity: 1 !important; transform: translateX(4px); }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #D4C8B4; border-radius: 2px; }
