@@ -836,7 +836,7 @@ function SearchOverlay({ globalSearch, onGlobalSearchChange, onSelectPlayer, onS
           </div>
         ) : (
           <div style={{ textAlign: "center", padding: "48px 20px", color: S.textMuted, fontSize: 14 }}>
-            Search all 12 orchestras by name, role, or bio mention
+            {isMobile ? "Tap here to activate the keyboard" : "Search all 12 orchestras by name, role, or bio mention"}
           </div>
         )}
       </div>
