@@ -687,7 +687,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
       onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(); } }}
       style={{ background: S.gold, borderTop: `1px solid ${accent}`, borderBottom: `1px solid ${accent}`, cursor: "pointer", flexShrink: 0, outline: "none" }}>
       <div style={{ ...CENTERED, padding: isMobile ? "10px 20px 10px" : "16px 36px 16px" }}>
-        <div style={{ fontFamily: SERIF, fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: S.dark, opacity: 0.6, marginBottom: isMobile ? 4 : 8 }}>
+        <div style={{ fontFamily: SERIF, fontSize: isMobile ? 10 : 13, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: S.dark, opacity: 0.6, marginBottom: isMobile ? 4 : 8 }}>
           Today's Featured Bassist
         </div>
 
