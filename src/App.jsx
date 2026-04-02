@@ -731,7 +731,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
 }
 
 /* ── LANDING PAGE ── */
-function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, onSelectPlayer, isMobile }) {
+function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, onSelectPlayer, isMobile, searchOpen, onSearchToggle }) {
   const isSearching = globalSearch.trim() !== "";
   const searchTerm = globalSearch.toLowerCase();
 
@@ -783,38 +783,16 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
         .idx-bar { transition: height 0.28s cubic-bezier(0.22,1,0.36,1); }
       `}</style>
 
-      {/* Search bar */}
-      <div style={{ padding: isMobile ? "10px 12px 8px" : "14px 20px 12px", background: S.dark, borderBottom: "none", flexShrink: 0 }}>
-        <div style={CENTERED}>
-          <div style={{ position: "relative" }}>
-            <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
-              style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", opacity: 0.35 }}>
-              <circle cx="8.5" cy="8.5" r="5.5" stroke="#F0E8DC" strokeWidth="1.6"/>
-              <path d="M13 13l3.5 3.5" stroke="#F0E8DC" strokeWidth="1.6" strokeLinecap="round"/>
-            </svg>
-            <input
-              type="text"
-              placeholder="Search for a bassist by name…"
-              value={globalSearch}
-              onChange={e => onGlobalSearchChange(e.target.value)}
-              style={{ width: "100%", padding: "10px 13px 10px 34px", fontSize: 16, fontFamily: "inherit", background: "rgba(255,255,255,0.07)", border: `1.5px solid ${isSearching ? S.gold : "rgba(240,232,220,0.15)"}`, borderRadius: 10, color: "#F0E8DC", outline: "none" }}
-            />
-          </div>
-          {isSearching && (
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
-              <span style={{ fontSize: 12, color: "rgba(240,232,220,0.5)", fontStyle: "italic" }}>
-                {globalFiltered.length} bassist{globalFiltered.length !== 1 ? "s" : ""} found
-              </span>
-              <button onClick={() => onGlobalSearchChange("")} style={{ fontSize: 12, color: "rgba(240,232,220,0.6)", background: "none", border: "1px solid rgba(240,232,220,0.2)", borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear</button>
-            </div>
-          )}
-        </div>
-      </div>
-
       <div style={{ flex: 1, minWidth: 0, overflowY: "auto", overflowX: "hidden" }}>
         {isSearching ? (
           <div style={{ padding: isMobile ? "12px 12px 24px" : "18px 20px 32px" }}>
           <div style={CENTERED}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+              <span style={{ fontSize: 12, color: S.textMuted, fontStyle: "italic" }}>
+                {globalFiltered.length} bassist{globalFiltered.length !== 1 ? "s" : ""} found
+              </span>
+              <button onClick={() => { onGlobalSearchChange(""); onSearchToggle(false); }} style={{ fontSize: 12, color: S.textSecondary, background: "none", border: `1px solid ${S.border}`, borderRadius: 20, padding: "2px 10px", fontFamily: "inherit", cursor: "pointer" }}>Clear search</button>
+            </div>
             {globalFiltered.length === 0
               ? <div style={{ textAlign: "center", padding: "48px 0", color: S.textMuted, fontSize: 14 }}>No bassists match your search.</div>
               : <>
@@ -873,7 +851,7 @@ function LandingPage({ onSelectOrchestra, globalSearch, onGlobalSearchChange, on
                       {/* Left: name + meta */}
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div className="idx-name" style={{
-                          fontFamily: SERIF, fontSize: isMobile ? 22 : 34, fontWeight: 700,
+                          fontFamily: SERIF, fontSize: isMobile ? 18 : 34, fontWeight: 700,
                           lineHeight: 1.15, letterSpacing: "0.04em",
                           textTransform: "uppercase",
                           color: S.textPrimary,
@@ -950,6 +928,7 @@ export default function App() {
   const [view, setView] = useState("landing");
   const [orchestraId, setOrchestraId] = useState("sfs");
   const [globalSearch, setGlobalSearch] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [subView, setSubView] = useState("bassists");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -977,9 +956,12 @@ export default function App() {
   const orchestra = ORCHESTRAS[orchestraId];
   const players = ALL_PLAYERS[orchestraId];
 
+  const searchInputRef = useRef(null);
+
   const handleSelectOrchestra = (id) => {
     setOrchestraId(id);
     setGlobalSearch("");
+    setSearchOpen(false);
     setSelectedPlayer(null);
     setSubView("bassists");
     setView("orchestra");
@@ -988,6 +970,7 @@ export default function App() {
   const handleGoHome = () => {
     setView("landing");
     setGlobalSearch("");
+    setSearchOpen(false);
     setSelectedPlayer(null);
     window.history.replaceState(null, "", window.location.pathname);
   };
@@ -996,6 +979,7 @@ export default function App() {
     setOrchestraId(player.orchestraId);
     setSelectedPlayer(player);
     setGlobalSearch("");
+    setSearchOpen(false);
     setView("orchestra");
     window.history.replaceState(null, "", `?player=${player.id}`);
   };
@@ -1009,6 +993,7 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        @keyframes searchSlideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #D4C8B4; border-radius: 2px; }
@@ -1021,14 +1006,55 @@ export default function App() {
 
         <div style={{ padding: isMobile ? "8px 12px 0" : "14px 20px 0", position: "relative" }}>
         <div style={CENTERED}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: isMobile ? 8 : 12, flexWrap: "nowrap", minWidth: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, marginBottom: isMobile ? 8 : 12, flexWrap: "nowrap", minWidth: 0 }}>
 
-            {/* Home button */}
-            <button onClick={handleGoHome}
-              style={{ display: "flex", alignItems: "center", gap: 5, background: view === "landing" ? "transparent" : "rgba(200,169,110,0.15)", border: `1px solid ${view === "landing" ? "rgba(200,169,110,0.25)" : "#C8A96E"}`, borderRadius: 20, padding: "4px 12px 4px 8px", fontSize: 11, fontFamily: "inherit", fontWeight: 500, color: view === "landing" ? "#7A6A58" : S.gold, cursor: view === "landing" ? "default" : "pointer", flexShrink: 0, transition: "all 0.15s" }}>
-              <HomeIcon size={13} color={view === "landing" ? "#7A6A58" : "#F0C97A"} />
-              Home
-            </button>
+            {/* Home button — hidden on mobile when search is expanded */}
+            {!(isMobile && searchOpen) && (
+              <button onClick={handleGoHome}
+                style={{ display: "flex", alignItems: "center", gap: 5, background: view === "landing" ? "transparent" : "rgba(200,169,110,0.15)", border: `1px solid ${view === "landing" ? "rgba(200,169,110,0.25)" : "#C8A96E"}`, borderRadius: 20, padding: "4px 12px 4px 8px", fontSize: 11, fontFamily: "inherit", fontWeight: 500, color: view === "landing" ? "#7A6A58" : S.gold, cursor: view === "landing" ? "default" : "pointer", flexShrink: 0, transition: "all 0.15s" }}>
+                <HomeIcon size={13} color={view === "landing" ? "#7A6A58" : "#F0C97A"} />
+                Home
+              </button>
+            )}
+
+            {/* Search icon — all pages */}
+            {!searchOpen && (
+              <button onClick={() => { if (view !== "landing") { setView("landing"); setSelectedPlayer(null); window.history.replaceState(null, "", window.location.pathname); } setSearchOpen(true); setTimeout(() => searchInputRef.current?.focus(), 50); }}
+                aria-label="Search for a bassist"
+                style={{ display: "flex", alignItems: "center", justifyContent: "center", width: isMobile ? 28 : 32, height: isMobile ? 28 : 32, background: "rgba(200,169,110,0.15)", border: "1px solid rgba(200,169,110,0.25)", borderRadius: "50%", cursor: "pointer", flexShrink: 0, transition: "all 0.15s" }}>
+                <svg width={isMobile ? "13" : "15"} height={isMobile ? "13" : "15"} viewBox="0 0 20 20" fill="none">
+                  <circle cx="8.5" cy="8.5" r="5.5" stroke="#F0E8DC" strokeWidth="1.6"/>
+                  <path d="M13 13l3.5 3.5" stroke="#F0E8DC" strokeWidth="1.6" strokeLinecap="round"/>
+                </svg>
+              </button>
+            )}
+
+            {/* Expanded search input — all pages */}
+            {searchOpen && (
+              <div style={{ position: "relative", width: isMobile ? "100%" : 350, flexShrink: isMobile ? 1 : 0, animation: "searchSlideIn 0.2s ease-out" }}>
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
+                  style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", opacity: 0.35 }}>
+                  <circle cx="8.5" cy="8.5" r="5.5" stroke="#F0E8DC" strokeWidth="1.6"/>
+                  <path d="M13 13l3.5 3.5" stroke="#F0E8DC" strokeWidth="1.6" strokeLinecap="round"/>
+                </svg>
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  placeholder="Search for a bassist by name…"
+                  value={globalSearch}
+                  onChange={e => setGlobalSearch(e.target.value)}
+                  onKeyDown={e => { if (e.key === "Escape") { setGlobalSearch(""); setSearchOpen(false); } }}
+                  style={{ width: "100%", padding: "7px 32px 7px 30px", fontSize: 14, fontFamily: "inherit", background: "rgba(255,255,255,0.07)", border: `1.5px solid ${globalSearch.trim() ? S.gold : "rgba(240,232,220,0.15)"}`, borderRadius: 8, color: "#F0E8DC", outline: "none" }}
+                />
+                <button onClick={() => { setGlobalSearch(""); setSearchOpen(false); }}
+                  aria-label="Close search"
+                  style={{ position: "absolute", right: 6, top: "50%", transform: "translateY(-50%)", display: "flex", alignItems: "center", justifyContent: "center", width: 22, height: 22, background: "none", border: "none", cursor: "pointer", padding: 0 }}>
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                    <path d="M4 4l8 8M12 4l-8 8" stroke="#F0E8DC" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
+                </button>
+              </div>
+            )}
 
           </div>
 
@@ -1061,6 +1087,8 @@ export default function App() {
             onGlobalSearchChange={setGlobalSearch}
             onSelectPlayer={handleSelectPlayer}
             isMobile={isMobile}
+            searchOpen={searchOpen}
+            onSearchToggle={setSearchOpen}
           />
         )}
         {view === "orchestra" && (
