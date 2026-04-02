@@ -695,7 +695,7 @@ function FeaturedBassistHero({ onSelectPlayer, isMobile }) {
           /* MOBILE — compact single column */
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
             <div style={{ minWidth: 0 }}>
-              <h2 style={{ fontFamily: SERIF, fontSize: 26, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 4 }}>
+              <h2 style={{ fontFamily: SERIF, fontSize: 22, fontWeight: 700, color: "#F0E8DC", lineHeight: 1.1, marginBottom: 4 }}>
                 {featured.name}
               </h2>
               <div style={{ fontSize: 12, color: "rgba(240,232,220,0.85)", lineHeight: 1.5 }}>
